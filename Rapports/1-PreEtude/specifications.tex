@@ -1,1 +1,87 @@
 \section{Spécifications}
+\subsection{Mat\'eriels et environnement technique}
+
+Ce projet consistant en l'utilisation d'un environnement 3D virtuel (appartement de Kerpape aidant \`a la r\'habilitation de personnes lourdement handicap\'des), o\`u l'utilisateur sera amen\'e \`a avoir des interactions avec cet environnement, nous allons donc avoir acc\`es \`a la salle de r\'ealit\'e virtuelle µRV de l'INSA Rennes et\`a son mat\'eriel. \`A nous d'utiliser ce dernier \`a bon escient, pour r\'epondre au mieux \`a la demande de Kerpape et pour pouvoir proposer un environnement d'apprentissage le plus performant possible notamment au niveau des interactions avec l'utilisateur. 
+Ci-dessous vous trouverez la pr\'esentation du mat\'eriel pr\'esent dans la salle µRV et l'int\'er\^et que pourrait pr\'esenter leur utilisation dans le projet.
+
+\subsubsection{Mat\'eriel d'immersion}
+Nous disposons de diff\'erents outils pour immerger l'utilisateur au coeur de l'environnement virtuel : 
+\\
+
+\textbf{Lunettes nVidia 3D Vision et R\'ecepteur 3D Vision}
+\\
+
+Ces lunettes, sur batterie, permettent de visualiser une st\'er\'eoscopie active. Elles sont reconnues par l'ordinateur gr\^ace \`a une base qui\'emet des signaux infrarouges.
+\\
+
+\textbf{Lunettes 3D Vuzik Wrap 920}
+\\
+
+Les lunettes 3D Vuzix Wrap 920 disposent de deux \'ecrans int\'egr\'es ainsi que d'un capteur de mouvements.
+\\
+
+\textbf{Vid\'eoprojecteur 3D}
+\\
+
+Le vid\'eoprojecteur permet d'avoir un \'ecran 3D \`a disposition pour s'immerger dans l'environnement plus facilement avec une qualit\'e graphique bien sup\'erieure \`a celle d'un \'ecran d'ordinateur classique.
+\\
+
+
+\textbf{Oculus Rift}
+\\
+
+Le dispositif se d\'emarque des syst\`emes comparables exp\'eriment\'es pr\'ec\'edemment par la tr\`es courte latence dans le suivi des mouvements de la t\^ete et par l'important champ de vision offert. L'appareil se pr\'esente sous la forme d'un masque recouvrant les yeux et attach\'e au visage par une sangle ferm\'ee\`a l'arri\`ere du cr\^ane. Un \'ecran plat num\'erique est plac\'e\`a quelques centim\`etres en face des yeux, perpendiculairement\`a l'axe du regard. Cet \'ecran affiche une image st\'er\'eoscopique d\'eform\'ee num\'eriquement pour inverser la distorsion optique cr\'e\'ee par deux lentilles situ\'ees en face de chaque œil. Divers capteurs permettent de d\'etecter les mouvements de t\^ete de l'utilisateur, ce qui permet d'adapter en temps r\'eel l'image projet\'ee sur l'\'ecran, afin de produire l'illusion d'une immersion dans la sc\`ene restitu\'ee.
+\\
+
+\textbf{Plateforme Immersia}
+\\
+
+En forme de « L », la salle Immersia est dot\'ee d?un \'equipement immersif plongeant l?utilisateur dans un monde visuel et auditif de haute qualit\'e. 
+Elle est constitu\'ee  :
+\begin{itemize}
+  \item d'un syst\`eme visuel utilisant 11 projecteurs : 8 Barco Galaxy NW12 et 3 Barco Galaxy 7+.
+  \item d'un \'ecran de verre de 9,60 m\`etres de long o\`u sont projet\'ees par l?arri\`ere, les images st\'er\'eoscopiques.
+  \item d'un syst\`eme de localisation ART permettant \`a des objets r\'eels d?\^etre localis\'es \`a l?int\'erieur de la plate-forme.
+  \item d'un syst\`eme de rendu sonore fourni par un processeur Yamaha, li\'e soit \`a des hauts-parleurs Genelec au format sonore 10.2, soit \`a des casques Beyer Dynamic avec un format sonore virtuel de 5.1, contrôl\'e par la position de l?utilisateur.
+\end{itemize}
+
+\subsubsection{Mat\'eriel d'interaction}
+Une fois l'utilisateur int\'egr\'e dans la mod\'elisation virtuelle de l'appartement, nous avons \`a notre disposition plusieurs \'equipements pour le faire interagir avec son environnement :
+\\
+
+\textbf{Microsoft Kinect}
+\\
+
+La Kinect d\'evelopp\'ee par Microsoft, est le p\'eriph\'erique le plus int\'eressant\`a exploiter dans le cadre de la r\'ealit\'e virtuelle. Elle permet en effet de d\'etecter la pr\'esence de 6 personnes et de suivre les mouvements de deux utilisateurs actifs gr\^ace\`a ses lentilles plac\'ees sur un socle motoris\'e. Sa port\'ee est comprise entre 1,2m et 3,5m. L'int\'er\^et principal de la Kinect est que l'utilisateur puisse se d\'eplacer librement dans une pi\`ece sans avoir\`a manipuler une quelconque manette.
+\\
+
+\textbf{WiiMote, Nunchuck et WiiMotionPlusInside}
+\\
+
+La Wiimote est la manette fournie avec la console de jeu Wii, d\'evelopp\'ee par Nintendo. Elle est compos\'ee de deux parties : la manette principale et le Nunchuk. Bien que moins pratique que la Kinect (l'utilisateur est contraint de manipuler une manette), la Wiimote dispose d'un syst\`eme de liaison bluetooth d'une port\'ee de 10m permettant une utilisation sans fil. L'avantage de la Wiimote r\'eside dans le nombre et la pr\'ecision des informations qu'elle est capable de fournir au programme. 
+\newline
+Elle permet en effet de :
+\begin{itemize}
+  \item mesurer les acc\'el\'erations selon 3 axes (axes naturels 3D) gr\^aces aux acc\'el\'erom\`etres plac\'es dans la manette principale et le Nunchuk
+  \item mesurer l'inclinaison de la manette principale selon les 3 axes naturels
+  \item mesurer la distance ainsi que la position entre la Wiimote et la barre infrarouge (r\'ef\'erentiel).
+\end{itemize}
+
+\textbf{Joystick Extreme 3D Pro Logitech}
+\\
+
+Avec ses commandes avanc\'ees et sa gouverne\`a manche rotatif, ce joystick\`a retour de force stable et pr\'ecis est pr\'evu pour\^etre connect\'e\`a un ordinateur et est utilis\'e pour des jeux de combat a\'erien acrobatique. Il est compos\'e d'une gouverne\`a manche rotatif et de nombreux boutons.
+\\
+
+\textbf{Bras \`a retour de force Novint Falcon}
+\\
+
+Le Falcon, de la soci\'et\'e Novint, est un p\'eriph\'erique haptique branch\'e en USB. Il permet de ressentir le retour d'effort, et donc la texture et la r\'esistance des objets, leur poids... Une boule est reli\'ee au support par des tiges. C'est elle que l'on d\'eplace et qui transmet \`a la main de l'utilisateur les efforts des moteurs.
+\\
+
+\subsection{Techniques d'interaction}
+Au vu de toutes les ressources technologiques dont nous disposons, nous avons d\'ecid\'e de privilégier les techniques d'interaction suivantes :
+
+\subsubsection{Interface Clavier/Souris et \'Ecran d'ordinateur}
+Une premi\`ere version utilisable sur un ordinateur avec ses p\'eriph\'eriques de base (clavier et souris) permettant d'avoir un environnement d'apprentissage fonctionnel et testable rapidement, et \'egalement tr\`es portable
+\\
