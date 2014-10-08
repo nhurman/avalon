@@ -1,4 +1,4 @@
-\section{Sp\'ecifications}
+﻿\section{Sp\'ecifications}
 
 \subsection{Donn\'ees}
 	D’autres travaux on déjà été réalisés : http://infositu.loria.fr/ >> domotique + RV + aide personne
@@ -14,38 +14,48 @@
 	La formation à l'anatomie, aux pathologies et à la chirurgie pour les étudiants et médecins
 	La cyberanatomie
 	...et bien d'autres encore.
-	http://fr.wikipedia.org/wiki/Th%C3%A9rapie_par_r%C3%A9alit%C3%A9_virtuelle
-	http://www.fhpmco.fr/2014/08/27/des-lunettes-a-realite-augmentee-pour-aider-les-malvoyants
-	http://www.pourlascience.fr/ewb_pages/a/article-realite-virtuelle-pour-therapies-reelles-21783.php
+	%http://fr.wikipedia.org/wiki/Th%C3%A9rapie_par_r%C3%A9alit%C3%A9_virtuelle
+	%http://www.fhpmco.fr/2014/08/27/des-lunettes-a-realite-augmentee-pour-aider-les-malvoyants
+	%http://www.pourlascience.fr/ewb_pages/a/article-realite-virtuelle-pour-therapies-reelles-21783.php
 
 \subsection{Logiciels}
-	Au cours de ce projet, nous allons devoir travailler entre différents environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D et les????
+	Au cours de ce projet, nous allons devoir travailler entre différents environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D et les autres trucs.
 	Voici les solutions logicielles que nous allons utiliser pour la réalisation de notre projet :
+	
+	\subsubsection{3DSmax}
+		3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique
+	
+	\subsubsection{Blender} 
+		Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
+	
+	\subsubsection{Unity} 
+		Unity est un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin. De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite. Unity est actuellement utilisé dans la salle Immersia de l’Irisa.      
+		Outil comme Unity : intégré de manière native (tout faire sans sortir)
+		Construire des objets, les animer, interagir avec en écrivant des scripts
+		Relativement épuré, API avec beaucoup de fonctions prédéfinies
 
-	\begin{itemize}
-		\item 3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique
-		\item Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
-		\item Unity est un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin. De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite. Unity est actuellement utilisé dans la salle Immersia de l’Irisa.      
-			Outil comme Unity : intégré de manière native (tout faire sans sortir)
-			Construire des objets, les animer, interagir avec en écrivant des scripts
-			Relativement épuré, API avec beaucoup de fonctions prédéfinies
 
-
-		\item VRPN (Virtual-Reality Peripheral Network)
-		
-		\item MiddleVR est un plugin compatible avec Unity developpé par I’m in VR (PARIS, France) permettant de gérer les interactions entre l’utilisateur et son environnement, et spécialement conçu pour les environnements en réalité virtuelle. Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. Middle gère :
+	\subsubsection{VRPN}
+		VRPN (Virtual-Reality Peripheral Network) est un système de gestion de périphériques pour la réalité virtuelle. Cette bibliothèque
+		Le projet fut initié en 1998 par Russell M. Taylor II de l'université de Caroline du Nord et est aujourd'hui maintenu par une vingtaine de contributeurs.
+	
+	\subsubsection{MiddleVR}
+		MiddleVR est un plugin compatible avec Unity qui s'appuit sur  VRPN. Développé par I’m in VR (PARIS, France) permettant de gérer les interactions entre l’utilisateur et son environnement, et spécialement conçu pour les environnements en réalité virtuelle. 
+		Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. 
+		MiddleVR gère :
 		- Interaction devices like 3D trackers (see full list on the right),
 		- Stereoscopy: active, passive …
-		- Clustering: Scenelock, swaplock both sofware & hardware,
+		- Clustering: Scenelock, swaplock both sofware \& hardware,
 		- 3D interactions: Navigation, manipulation, menus and custom graphical user interfaces
 		MiddleVR = s'abstraire des interfaces homme-machine - programmer l'application pour qu'elle soit déployable partout.
 
-		\item #Five est une bibliothèque pour Unity developpée en interne au sein de l’Irisa. #Five ajoute plusieurs couches, parmi lesquelles : 
+	\subsubsection{\#Five}
+		\#Five est une bibliothèque pour Unity developpée en interne au sein de l’Irisa. #Five ajoute plusieurs couches, parmi lesquelles : 
 		Donner la mécanique qui fait les relations entre les objets pour gérer réactivité
 		Infrastructure gérant le travail collaboratif sur environnement virtuel,c’est à dire quand plusieurs personnes intéragissent sur la même scène.
 		Scénario de haut niveau, si je veux démonter une culasse, il faut démonter les boulons, pour démonter les boulons : Si je fais le 1 alors ensuite il faut faire le X, mais si je fais le 2 en premier alors il faut faire le Y ensuite
 		Objets réactifs (décor, objets, inter relations) + scénario + humains virtuels pouvant collaborer
-	\end{itemize}
+
 
 \subsection{Mat\'eriels et environnement technique}
 
