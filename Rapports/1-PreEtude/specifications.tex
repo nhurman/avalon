@@ -2,28 +2,15 @@
 
 \subsection{Données}
 	Pour ce projet, nous avons à notre disposition une modélisation 3D de l'appartement tremplin. Cette modélisation, fournie par Kerpape, est au format .max.
-	L'un de nos premier travail sera donc d'ouvrir 
-	- format de Unity (fbx)
-	Applications de la réalité virtuelle en sciences de la vie :
-	Le traitement de troubles de stress post-traumatique (TSPT)
-	Le traitement de phobies
-	Le traitement d'addictions
-	Le contrôle de la douleur des grands brûlés
-	Les études comportementales et de perception
-	L'éducation à la santé publique
-	La formation à l'anatomie, aux pathologies et à la chirurgie pour les étudiants et médecins
-	La cyberanatomie
-	...et bien d'autres encore.
-	D'autres travaux on déjà été réalisés : http://infositu.loria.fr/ >> domotique + RV + aide personne
-%	http://fr.wikipedia.org/wiki/Th%C3%A9rapie_par_r%C3%A9alit%C3%A9_virtuelle
-%	http://www.fhpmco.fr/2014/08/27/des-lunettes-a-realite-augmentee-pour-aider-les-malvoyants
-%	http://www.pourlascience.fr/ewb_pages/a/article-realite-virtuelle-pour-therapies-reelles-21783.php
+	L'un de nos premier travail sera donc d'ouvrir ce fichier, sachant que le format "natif" d'Unity est le fbx. Unity dispose bien sur de fonctionnalitées d'import dans d'autres formats, mais Unity est connu pour être un peu capricieux (aka so mega casse-couilles) dans ses interractions avec les .max.
+	Il faudra donc trouver un moyen d'interfacer correctement et efficacement la ressource avec Unity.
+	
 \subsection{Logiciels}
-	Au cours de ce projet, nous allons devoir travailler entre différents environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D et les autres trucs.
+	Au cours de ce projet, nous allons devoir travailler entre différents environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D, qui permettrons d'effectuer de légères modifications au modèle 3D et de modéliser un téléphone, et les autres trucs.
 	Voici les solutions logicielles que nous allons utiliser pour la réalisation de notre projet :
 	
 	\subsubsection{3DSmax}
-		3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique
+		3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique.
 	
 	\subsubsection{Blender} 
 		Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
@@ -32,8 +19,7 @@
 		Unity est un environnement et un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin.
 		De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64b et ???.
 		Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts C\# ou Javascript via l'API fournie.
-		Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités.
-		Il n'y a donc pas besoin de sortir du logiciel pour développer.
+		Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
 		Unity est actuellement utilisé dans la salle Immersia de l’Irisa.      
 
 	\subsubsection{VRPN}
@@ -43,19 +29,15 @@
 	\subsubsection{MiddleVR}
 		MiddleVR est un plugin compatible avec Unity qui s'appuit sur  VRPN. Développé par I’m in VR (PARIS, France) permettant de gérer les interactions entre l’utilisateur et son environnement, et spécialement conçu pour les environnements en réalité virtuelle. 
 		L'objectif de MiddleVR est de pouvoir programmer l'application en s'abstrayant des spécificités matérielles pour qu'elle soit déployable partout.
-		Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. 
-		MiddleVR gère nativement la stéréoscopie active ou passive,
-		- Interaction devices like 3D trackers (see full list on the right),
-		- Clustering: Scenelock, swaplock both sofware \& hardware,
-		- 3D interactions: Navigation, manipulation, menus and custom graphical user interfaces
-		MiddleVR = s'abstraire des interfaces homme-machine - 
+		Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force, des trackers ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. 
+		MiddleVR gère nativement la stéréoscopie active ou passive, c'est donc un bon add-on pour s'abstraire de l'aspect interface	homme-machine et capteurs.
 
 	\subsubsection{\#Five}
-		\#Five est une bibliothèque pour Unity developpée en interne au sein de l’Irisa. \#Five ajoute plusieurs couches, parmi lesquelles : 
-		Donner la mécanique qui fait les relations entre les objets pour gérer réactivité
-		Infrastructure gérant le travail collaboratif sur environnement virtuel, c'est à dire quand plusieurs personnes intéragissent sur la même scène.
-		Scénario de haut niveau, si je veux démonter une culasse, il faut démonter les boulons, pour démonter les boulons : Si je fais le 1 alors ensuite il faut faire le X, mais si je fais le 2 en premier alors il faut faire le Y ensuite
-		Objets réactifs (décor, objets, inter relations) + scénario + humains virtuels pouvant collaborer
+		\#Five est une bibliothèque pour Unity developpée en interne au sein de l’Irisa. \#Five ajoute plusieurs couches, en particulier une couche de gestion de relations entre les objets (Une interraction avec un objet A effectue une action sur un objet B).
+		Ces relations permettent des scénarios de haut niveau, avec un ordre relatif des interractions entre les étapes. Par exemple, pour démonter une culasse, il faut dévisser les boulons; l'ordre dans lequel on dévisse les dis boulons importe peu.
+		\#Five inclu aussi une infrastructure gérant le travail collaboratif sur environnement virtuel, c'est à dire quand plusieurs personnes intéragissent sur la même scène.
+		Enfin, il permet la gestion des humains virtuel, avec qui il est possible de collaborer.
+		\#Five ne sera pas utilisé dans un premier temps dans ce projet, mais sera potentiellement intégré à notre application.
 
 
 \subsection{Matériels et environnement technique}
