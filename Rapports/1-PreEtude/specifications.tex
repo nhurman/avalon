@@ -10,27 +10,56 @@
 	Voici les solutions logicielles que nous allons utiliser pour la réalisation de notre projet :
 	
 	\subsubsection{3DSmax}
-		3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique.
+		\noindent\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{1-PreEtude/img/3dsmax_logo}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.6\textwidth}\raggedleft
+			3DSmax, le célèbre modeleur 3D d’Autodesk n’est plus à présenter; aujourd’hui considéré comme la référence en matière de modélsation 3D, et ce depuis plus de 10 ans, il est grandement utilisé dans l’industrie vidéoludique et filmographique.
+		\end{minipage}
+		
 	
-	\subsubsection{Blender} 
-		Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
+	\subsubsection{Blender}
+		\noindent\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{1-PreEtude/img/blender_logo}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.6\textwidth}\raggedleft
+			Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
+		\end{minipage}
+		
 	
-	\subsubsection{Unity} 
-		Unity est un environnement et un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin.
-		De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64b et ???.
-		Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts C\# ou Javascript via l'API fournie.
-		Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
-		Unity est actuellement utilisé dans la salle Immersia de l’Irisa.      
+	\subsubsection{Unity}
+		\noindent\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{1-PreEtude/img/unity_logo}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.6\textwidth}\raggedleft
+			Unity est un environnement et un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin.
+			De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64b et ???.
+			Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts C\# ou Javascript via l'API fournie.
+			Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
+			Unity est actuellement utilisé dans la salle Immersia de l’Irisa.
+		\end{minipage}
+		      
 
 	\subsubsection{VRPN}
+	
 		VRPN (Virtual-Reality Peripheral Network) est un système de gestion de périphériques pour la réalité virtuelle. Cette bibliothèque offre une interface entre le matériel et l'application. Elle offre des classes génériques pour chaque type de périphériques; par exemple, tout les trackers sont gérés de la même façon.
 		Le projet fut initié en 1998 par Russell M. Taylor II de l'université de Caroline du Nord et est aujourd'hui maintenu par une vingtaine de contributeurs.
 	
 	\subsubsection{MiddleVR}
-		MiddleVR est un plugin compatible avec Unity qui s'appuit sur  VRPN. Développé par I’m in VR (PARIS, France) permettant de gérer les interactions entre l’utilisateur et son environnement, et spécialement conçu pour les environnements en réalité virtuelle. 
-		L'objectif de MiddleVR est de pouvoir programmer l'application en s'abstrayant des spécificités matérielles pour qu'elle soit déployable partout.
-		Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force, des trackers ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. 
-		MiddleVR gère nativement la stéréoscopie active ou passive, c'est donc un bon add-on pour s'abstraire de l'aspect interface	homme-machine et capteurs.
+		\noindent\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{1-PreEtude/img/middlevr_logo}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.6\textwidth}\raggedleft
+			MiddleVR est un plugin compatible avec Unity qui s'appuit sur  VRPN. Développé par I’m in VR (PARIS, France) permettant de gérer les interactions entre l’utilisateur et son environnement, et spécialement conçu pour les environnements en réalité virtuelle. 
+			L'objectif de MiddleVR est de pouvoir programmer l'application en s'abstrayant des spécificités matérielles pour qu'elle soit déployable partout.
+			Il propose une couche d’abstraction entre les périphériques et Unity. Ces périphériques comprennent ceux d’entrée (de capture), tels que les classiques claviers et souris mais aussi les bras à retour de force, des trackers ou des MS Kinect, ainsi que ceux de sortie (de restitution), comme les écrans, les vidéoprojecteurs 3D mais aussi le son ou le retour de force des bras. 
+			MiddleVR gère nativement la stéréoscopie active ou passive, c'est donc un bon add-on pour s'abstraire de l'aspect interface	homme-machine et capteurs.
+		\end{minipage}
+		
 
 	\subsubsection{\#Five}
 		\#Five est une bibliothèque pour Unity developpée en interne au sein de l’Irisa. \#Five ajoute plusieurs couches, en particulier une couche de gestion de relations entre les objets (Une interraction avec un objet A effectue une action sur un objet B).
