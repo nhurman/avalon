@@ -1,14 +1,17 @@
 \section{Spécifications}
+	%@author : T'es pas à la maison mon gars , parle bien ! 
 
 \subsection{Données}
 	Pour ce projet, nous avons à notre disposition une modélisation 3D de l'appartement tremplin. Cette modélisation, fournie par Kerpape, est au format .max.
-	L'un de nos premier travail sera donc d'ouvrir ce fichier, sachant que le format "natif" d'Unity est le fbx. Unity dispose bien sur de fonctionnalitées d'import dans d'autres formats, mais Unity est connu pour être un peu capricieux (aka so mega casse-couilles) dans ses interractions avec les .max.
-	Il faudra donc trouver un moyen d'interfacer correctement et efficacement la ressource avec Unity.
+	L'un de nos premier travail sera donc d'ouvrir ce fichier, et de le convertir au format natif d'Unity. 
+	%Unity dispose bien sur de fonctionnalitées d'import dans d'autres formats, mais Unity est connu pour être un peu capricieux (aka so mega casse-couilles) dans ses interractions avec les .max. 
+	%Il faudra donc trouver un moyen d'interfacer correctement et efficacement la ressource avec Unity.
 	
+
 \subsection{Logiciels}
-	Au cours de ce projet, nous allons devoir travailler entre différents environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D, qui permettrons d'effectuer de légères modifications au modèle 3D et de modéliser un téléphone, et les autres trucs.
+	Au cours de ce projet, nous allons devoir travailler avec plusieurs environnements logiciels; ceux-ci entrent dans deux grandes catégories : les modeleur 3D, qui permettront d'effectuer de légères modifications au modèle 3D ou de modéliser un téléphone par exemple.
 	Voici les solutions logicielles que nous allons utiliser pour la réalisation de notre projet :
-	
+	%Rapport technique = serieux . On s'en fous si il est cool ou pas ton logiciel. A refaire...
 	\subsubsection{3DSmax}
 		\noindent\begin{minipage}{0.3\textwidth}
 			\includegraphics[width=\linewidth]{1-PreEtude/img/3dsmax_logo}
@@ -25,7 +28,7 @@
 			\end{minipage}
 			\hfill
 			\begin{minipage}{0.6\textwidth}\raggedleft
-			Blender, son alternative libre. Soutenue par la fondation blender, qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
+			Blender, son alternative libre. Soutenue par la fondation blender.% qui a par ailleurs réalisé quelques films d’animations tels que Big Buck Bunny ou Sintel, ses fonctionnalitées ne sont plus à prouver.
 		\end{minipage}
 		
 	
@@ -36,8 +39,8 @@
 			\hfill
 			\begin{minipage}{0.6\textwidth}\raggedleft
 			Unity est un environnement et un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d’appartement tremplin.
-			De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64b et ???.
-			Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts C\# ou Javascript via l'API fournie.
+			De plus, contrairement à d’autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64b, la gestion des ombres ainsi que la diffusion commerciale.
+			Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts en C\#, Javascript ou Boo via l'API fournie.
 			Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
 			Unity est actuellement utilisé dans la salle Immersia de l’Irisa.
 		\end{minipage}
