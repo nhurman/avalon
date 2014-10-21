@@ -22,5 +22,7 @@ sysinfo.txt
 *.pdf
 *.synctex.gz
 *.toc
+*.bbl
+*.blg
 
 .DS_Store
