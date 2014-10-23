@@ -8,6 +8,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 \hypersetup{
   bookmarks=true, % show bookmarks bar?
   pdftitle={Avalon - Rapport de pré-étude}, % title
@@ -56,7 +57,8 @@
 \thispagestyle{empty}
 \begin{abstract}
 \textbf{Avalon :} Environnement de Réalité Virtuelle pour l'apprentissage à l'utilisation d'appartements tremplins. Réalisation en 3D d'un appartement domotisé interactif utilisé dans le cadre de la rééducation des personnes handicapées.
-Le projet est proposé par le centre mutualiste de rééducation et de réadaptation fonctionnelles de Kerpape (plus particulièrement Willy Allègre et Jean-Paul Departe et sera réalisé à l'aide de Unity3D et MiddleVR.
+Le projet est proposé par le centre mutualiste de rééducation et de réadaptation fonctionnelles de Kerpape (plus particulièrement Willy Allègre et Jean-Paul Departe) et sera réalisé à l'aide de Unity3D et MiddleVR.
+Le modèle 3D de l'appartement nous est fourni, et notre travail consistera à réaliser un logiciel fonctionnel permettant de se déplacer dans l'appartement et implémentant les interactions avec les différents éléments de domotiques, en plus de prendre en charge différents périphériques de contrôle. 
 \end{abstract}
 
 \begin{figure}[h!]
@@ -65,16 +67,17 @@ Le projet est proposé par le centre mutualiste de rééducation et de réadapta
 \end{figure}
 
 %\vfill
-
+%[width=\textwidth]
 \begin{figure}[h!]
    \begin{minipage}{0.3\linewidth}
-      \includegraphics[width=\textwidth]{1-PreEtude/img/logo_insa.jpeg}
-   \end{minipage} \hfill
+      \includegraphics[scale=0.9]{1-PreEtude/img/logo_insa.jpeg}
+   \end{minipage} 
    \begin{minipage}{0.3\linewidth}
-      \includegraphics[width=\textwidth]{1-PreEtude/img/logo_irisa.jpg}
-   \end{minipage}
+      \centering
+      \includegraphics[scale=0.5,left]{1-PreEtude/img/logo_irisa.jpg}
+   \end{minipage}\hfill
    \begin{minipage}{0.3\linewidth}
-      \includegraphics[width=\textwidth]{1-PreEtude/img/logo_kerpape.png}
+      \includegraphics[scale=0.9]{1-PreEtude/img/logo_kerpape.png}
    \end{minipage}
 \end{figure}
 
