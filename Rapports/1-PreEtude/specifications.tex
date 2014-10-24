@@ -86,7 +86,7 @@
 
 Ce projet consistant en l'utilisation d'un environnement 3D virtuel (appartement de Kerpape aidant à la réhabilitation de personnes lourdement handicapées), où l'utilisateur sera amené à avoir des interactions avec cet environnement, nous allons donc avoir accès à la salle de réalité virtuelle $\mu$RV de l'INSA Rennes et à son matériel. \`A nous d'utiliser ce dernier à bon escient, pour répondre au mieux à la demande de Kerpape et pour pouvoir proposer un environnement d'apprentissage le plus performant possible notamment au niveau des interactions avec l'utilisateur.
 
-\subsubsection{Matériel d'immersion}
+\subsubsection{Matériel d'immersion de la salle $\mu$RV}
 Nous disposons de différents outils pour immerger l'utilisateur au coeur de l'environnement virtuel :
 \\
 
@@ -116,9 +116,8 @@ Le vidéoprojecteur permet d'avoir un écran 3D à disposition pour s'immerger d
 
 
 
-\textbf{Plate-forme Immersia}
+\subsubsection{Matériel d'immersion de la salle Immersia}
 \label{immersia}
-\\
 		\noindent\begin{minipage}{0.2\textwidth}
 			\includegraphics[width=\linewidth]{1-PreEtude/img/immersia}
 			\end{minipage}
@@ -134,9 +133,8 @@ Le vidéoprojecteur permet d'avoir un écran 3D à disposition pour s'immerger d
 			\end{itemize}
 		\end{minipage}
 
-
-\subsubsection{Matériel d'interaction}
-Une fois l'utilisateur intégré dans la modélisation virtuelle de l'appartement, nous avons à notre disposition plusieurs équipements pour le faire interagir avec son environnement :
+\subsubsection{Matériel d'interaction de la salle $\mu$RV}
+Une fois l'utilisateur intégré dans la modélisation virtuelle de l'appartement, nous avons à notre disposition dans la salle $\mu$RV plusieurs équipements pour le faire interagir avec son environnement :
 \\
 
 \textbf{Microsoft Kinect}
@@ -185,6 +183,15 @@ Avec ses commandes avancées et sa gouverne à manche rotatif, ce joystick est p
 			Le Falcon, de la société Novint, est un périphérique haptique branché en USB. Il permet de ressentir le retour d'effort, et donc la texture et la résistance des objets, leur poids... Une boule est reliée au support par des tiges. C'est elle que l'on déplace et qui transmet à la main de l'utilisateur les efforts des moteurs.
 		\end{minipage}
 \\
+
+\subsubsection{Matériel d'interaction de la salle Immersia}
+La salle Immersia, pour sa part, utilise quatre dispositifs d'immersions bien précis pour plonger l'utilisateur dans le monde virtuel :
+\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
+\item \textbf{Des caméras ART.} Les caméras ART (Advanced Realtime Tracking) servent à suivre les mouvements de l'utilisateur, au travers des deux dispositifs suivants, et à les retransmettre aux ordinateurs gérant l'affichage de salle.
+\item \textbf{Des capteurs pour les caméras ART.} Il s'agit de capteurs prenant la forme de sphères grises que l'utilisateur porte sur le dos d'une main et sur ses lunettes, qui sont reconnus par les caméras. 
+\item \textbf{Un flystick,} un appareil ayant la silhouette d'un pisolet, équipé de boutons et d'un stick directionnel et dont la position, mais aussi les actions effectuées sur les boutons et le stick, sont reconnues par le dispositif ART.
+\item \textbf{Des lunettes de vision 3D} qui permettent, comme leur nom l'indique, d'avoir une vision en 3D des images projetées sur les faces de la salle Immersia. Des capteurs sont disposés dessus.
+\end{itemize}
 
 \subsection{Techniques d'interaction}
 Au vu de toutes les ressources technologiques dont nous disposons, nous avons décidé de privilégier les techniques d'interaction suivantes :
