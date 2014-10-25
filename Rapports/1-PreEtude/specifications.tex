@@ -1,14 +1,15 @@
 \section{Spécifications}
-	Ce projet nous amène à avoir recours à différents logiciels et matériels nous aidant au développement de l'environnement d'apprentissage à l'utilisation de cet appartement tremplin. A partir de la modélisation de l'appartement qui nous a été fourni, nous avons à intégrer les différents périphériques à notre disposition pour rendre l'expérience d'immersion de l'utilisateur totale.
+	Ce projet nous amène à avoir recours à différents logiciels et matériels nous aidant au développement de l'environnement d'apprentissage et à l'utilisation de cet appartement tremplin. A partir de la modélisation de l'appartement qui nous a été fourni, nous avons à intégrer les différents périphériques à notre disposition pour rendre l'expérience d'immersion de l'utilisateur totale.
 
 \subsection{Données}
 	Pour ce projet, nous avons à notre disposition une modélisation 3D de l'appartement tremplin. Cette modélisation, fournie par Kerpape, est au format .max. L'un de nos premiers premier objectifs sera donc d'ouvrir ce fichier, et de le convertir au format natif d'Unity. Unity dispose bien sûr de fonctionnalités d'import à partir d'autres formats, mais Unity est connu pour être un peu capricieux dans ses interactions avec les .max.
 
-	Les textures sont parfois mal gérées ou absentes (cf. \textsc{figure 6}), il faudra donc trouver un moyen d'interfacer correctement et efficacement la ressource avec Unity, soit avec une conversion de format de fichier, soit en réintégrant dans Unity ce qui aura été perdu à l'import.
+	Les textures sont parfois mal gérées ou absentes (cf.\textsc{figure~\ref{unity}}), il faudra donc trouver un moyen d'interfacer correctement et efficacement la ressource avec Unity, soit avec une conversion de format de fichier, soit en réintégrant dans Unity ce qui aura été perdu à l'import.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\textwidth]{1-PreEtude/img/appart_unity}
 		\caption{Modélisation ouverte dans Unity3d}
+		\label{unity}
 	\end{figure}
 
 \subsection{Logiciels}
@@ -37,8 +38,8 @@
 			Blender\cite{blender} est le modeleur 3D libre le plus avancé. Le projet Blender fut lancé en 1995 et était initialement un logiciel propriétaire developpé en interne par Neo Geo et Not a Number Technologies.
 			Son code source fut ouvert au public le 17 septembre 2002 après une campagne de dons. Aujourd'hui distribué sous licence GNU/GPLv2, il est soutenue par la Blender Foundation. Celle ci a réalisé quelques films d'animations tels que Big Buck Bunny ou Sintel pour promouvoir le logiciel.
 			Le projet est régulièrement mis à jour, la dernière version (2.72) à l'heure actuelle datant du 14 octobre 2014.
-			Blender est disponible sous Windows, Mac, Linux et BSD et inclut toutes les fonctionnalités classiques d'un logiciel de se type, mais inclu aussi des fonctionnalités d'extension via des scripts Python ainsi qu'un moteur de jeu.
-			Ces possibilités supplémentaires ne seront cependant pas utilisés dans ce projet, car elles ne répondent que partiellement à notre problématique.
+			Blender est disponible sous Windows, Mac, Linux et BSD et inclut toutes les fonctionnalités classiques d'un logiciel de ce type, mais inclut aussi des fonctionnalités d'extension via des scripts Python ainsi qu'un moteur de jeu.
+			Ces possibilités supplémentaires ne seront cependant pas utilisées dans ce projet, car elles ne répondent que partiellement à notre problématique.
 		\end{minipage}
 
 
@@ -51,15 +52,17 @@
 			Unity\cite{unity} est un environnement et un moteur de rendu 3D ; initialement pensé pour les jeux vidéos, il permet de créer ou modifier des environnements en 3D et correspond parfaitement à nos besoins pour la modification du modèle d'appartement tremplin.
 			De plus, contrairement à d'autres moteurs 3D, Unity propose une version gratuite, qui regroupe la majorité des fonctionnalités de la version payante à l'exception de la compilation 64 bits, la gestion des ombres ainsi que la diffusion commerciale.
 			Il permet de réaliser toutes les actions classiques d'un logiciel de ce type, comme construire des objets, les animer, interagir avec, etc. Toutes ces actions sont effectuées de manière native depuis l'interface en écrivant des scripts en C\#, Javascript ou Boo via l'API fournie.
-			Le développement y est grandement facilité, car celle-ci inclus de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
+			Le développement y est grandement facilité, car celle-ci inclut de nombreuses fonctionnalités. Il n'y a donc pas besoin de sortir du logiciel pour développer.
 			Unity est actuellement utilisé par l'Irisa.
 		\end{minipage}
 
 
 	\subsubsection{VRPN}
-
+		\hfill
+		\begin{minipage}{0.8\textwidth}
 		VRPN\cite{vrpn} (Virtual-Reality Peripheral Network) est un système de gestion de périphériques pour la réalité virtuelle. Cette bibliothèque offre une interface entre le matériel et l'application. Elle offre des classes génériques pour chaque type de périphériques; par exemple, tout les trackers sont gérés de la même façon.
 		Le projet fut initié en 1998 par Russell M. Taylor II de l'université de Caroline du Nord et est aujourd'hui maintenu par une vingtaine de contributeurs.
+		\end{minipage}
 
 	\subsubsection{MiddleVR}
 		\noindent\begin{minipage}{0.2\textwidth}
@@ -75,12 +78,14 @@
 
 
 	\subsubsection{\#Five}
+		\hfill
+		\begin{minipage}{0.8\textwidth}
 		\#Five est une bibliothèque pour Unity developpée en interne au sein de l'Irisa. \#Five ajoute plusieurs couches, en particulier une couche de gestion de relations entre les objets (Une interaction avec un objet A effectue une action sur un objet B).
 		Ces relations permettent des scénarios de haut niveau, avec un ordre relatif des interactions entre les étapes. Par exemple, pour démonter une culasse, il faut dévisser les boulons; l'ordre dans lequel on dévisse lesdits boulons importe peu.
 		\#Five inclut aussi une infrastructure gérant le travail collaboratif sur environnement virtuel, c'est-à-dire quand plusieurs personnes interagissent sur la même scène.
 		Enfin, il permet la gestion des humains virtuels, avec qui il est possible de collaborer.
 		\#Five ne sera pas utilisé dans un premier temps dans ce projet, mais sera potentiellement intégré à notre application.
-
+		\end{minipage}
 
 \subsection{Matériels et environnement technique}
 
@@ -92,14 +97,18 @@ Nous disposons de différents outils pour immerger l'utilisateur au coeur de l'e
 
 \textbf{Lunettes nVidia 3D Vision et Récepteur 3D Vision}
 \\
-
-Ces lunettes, sur batterie, permettent de visualiser une stéréoscopie active. Elles sont reconnues par l'ordinateur grâce à une base qui émet des signaux infrarouges.
+	\hfill
+	\begin{minipage}{0.8\textwidth}
+	Ces lunettes, sur batterie, permettent de visualiser une stéréoscopie active. Elles sont reconnues par l'ordinateur grâce à une base qui émet des signaux infrarouges.
+	\end{minipage}
 \\
 
 \textbf{Vidéoprojecteur 3D}
 \\
-
-Le vidéoprojecteur permet d'avoir un écran 3D à disposition pour s'immerger dans l'environnement plus facilement et à plusieurs avec une taille d'image bien supérieure à celle d'un écran d'ordinateur classique.
+	\hfill
+	\begin{minipage}{0.8\textwidth}
+	Le vidéoprojecteur permet d'avoir un écran 3D à disposition pour s'immerger dans l'environnement plus facilement et à plusieurs avec une taille d'image bien supérieure à celle d'un écran d'ordinateur classique.
+	\end{minipage}
 \\
 
 
@@ -169,8 +178,10 @@ La Kinect développée par Microsoft, est le périphérique permettant de se rap
 
 \textbf{Joystick Extreme 3D Pro Logitech}
 \\
-
-Avec ses commandes avancées et sa gouverne à manche rotatif, ce joystick est prévu pour être connecté à un ordinateur et est utilisé pour des jeux de combat aérien acrobatique. Il comporte également de nombreux boutons.
+	\hfill
+	\begin{minipage}{0.8\textwidth}
+	Avec ses commandes avancées et sa gouverne à manche rotatif, ce joystick est prévu pour être connecté à un ordinateur et est utilisé pour des jeux de combat aérien acrobatique. Il comporte également de nombreux boutons.
+	\end{minipage}
 \\
 
 \textbf{Bras à retour de force Novint Falcon}
