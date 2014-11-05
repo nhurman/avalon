@@ -3,6 +3,10 @@
 Notre projet s'inscrit dans un contexte précis que nous devons étudier : nous allons aborder le thème de \emph{réalité virtuelle} dans le cadre de \emph{l'aide à la personne} pour le \emph{centre Kerpape}. Mais avant de se pencher sur l'impact de la réalité virtuelle sur l'aide à la personne, il serait bon de définir précisement ce qu'est la réalité virtuelle.
 
 \subsection{Qu'est-ce que la réalité virtuelle ?}
+\begin{wrapfigure}{r}{0mm}
+	\centering
+	\includegraphics[scale=0.5]{1-PreEtude/img/rv_1.jpg}
+\end{wrapfigure}
 La notion de réalité virtuelle, contrairement à ce que l'on pourrait penser, n'est pas récente et date du début des années 80 quand Jaron Lanier, un informaticien américain pionnier du domaine, l'a popularisée. Cette notion n'a pourtant pas, à l'origine, l'exact sens qu'on lui prête habituellement aujourd'hui : une réalité virtuelle sous-entendrait qu'il s'agit d'une copie exacte de la réalité, ce qui n'est jamais le cas, faute de moyens techniques, et n'est pas toujours recherché. Le terme venant  de l'anglais, \emph{virtual} peut se traduire par \emph{virtuelle} mais aussi par \emph{quasi} ou \emph{pratiquement}, or cette notion de \emph{quasi-réalité} correspondrait mieux à ce qu'est effectivement la réalité virtuelle. \\
 
 En effet, de manière plus formelle, on peut définir la réalité virtuelle comme suit :
@@ -14,14 +18,14 @@ Cela signifie que pour que l'on puisse parler de réalité virtuelle il faut que
 \\
 \begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
 \item \textbf{La présence d'interfaces comportementales et sensorielles. }
-Les interfaces comportementales désignent les interfaces entre l'utilisateur et le monde virtuel. Il existe dans un premier temps des interfaces motrices, qui permettent de reconnaître les différentes actions que l'utilisateur peut entreprendre (mouvements, voix, etc). Ainsi le système informatique gérant le monde virtuel peut alors les prendre en compte. Les interfaces sensorielles font ensuite la liaison opposée et informent l'utilisateur de l'état du monde virtuel et des modifications éventuelles des actions entreprises précédemment (images, sons, etc). La réciprocité du besoin d'une interface motrice et sensorielle, qui sont nécessaires pour l'immersion du sujet et permettent de gérer l'interaction avec le monde virtuel, est illustrée par la \textsc{figure 1}.
+Les interfaces comportementales désignent les interfaces entre l'utilisateur et le monde virtuel. Il existe dans un premier temps des interfaces motrices, qui permettent de reconnaître les différentes actions que l'utilisateur peut entreprendre (mouvements, voix, etc). Ainsi le système informatique gérant le monde virtuel peut alors les prendre en compte. Les interfaces sensorielles font ensuite la liaison opposée et informent l'utilisateur de l'état du monde virtuel et des modifications éventuelles des actions entreprises précédemment (images, sons, etc). La réciprocité du besoin d'une interface motrice et sensorielle, qui sont nécessaires pour l'immersion du sujet et permettent de gérer l'interaction avec le monde virtuel, est illustrée par la \textsc{figure~\ref{interfaces}}.
 \item \textbf{L'immersion du sujet.}
 L'immersion caractérise le fait que les interfaces entre l'utilisateur et le monde virtuel doivent se faire oublier, et ce, en ressemblant le plus possible aux méthodes d'interaction que nous avons avec le monde réel. Elle ne peut pas être parfaite, car il y a toujours du matériel à utiliser qui n'est pas nécessaire pour interagir avec le monde réel (lunettes 3D, WiiMote, etc) mais doit être la plus totale possible.\\
 
 \end{itemize}
-\begin{figure}
+\begin{figure}[h!]
   \caption{Interactions entre monde réel et virtuel \cite{traiteRV1}}
-  %\centering
+  \label{interfaces}
   \includegraphics[scale=0.4,bb=0 0 720 720]{1-PreEtude/img/graphe_interfaces.png}
 \end{figure}
 
@@ -52,8 +56,14 @@ C'est le second projet de RV auquel participe le centre de Kerpape. Le premier �
 \end{wrapfigure}
  débuté en 2009, dont le but est d'aider les personnes atteintes de troubles cognitifs (par exemple dus à la maladie d'Alzheimer, à des AVC, ...) à être autonomes dans la vie de tous les jours. Le projet consiste en la réalisation d'un \og voisinage virtuel \fg{} dans lequel le patient peut se déplacer, et où se trouvent plusieurs points d'intérêts avec lesquels il peut interagir, tel qu'un bureau de poste, un supermarché, etc. Le patient a donc accès à différentes actions en accord avec le lieu dans lequel il se trouve, et le thérapeute peut évaluer ses performances en fonction de plusieurs critères comme le temps passé par le patient dans une zone donnée.\cite{agathe}
 
+\pagebreak
 \subsubsection{Le projet Avalon}
-
+\begin{wrapfigure}{l}{0mm}
+	\centering
+	%\begin{minipage}{0.3\linewidth}
+	\includegraphics[scale=0.2]{1-PreEtude/img/interrupteurs.jpeg}
+	%\end{minipage}
+\end{wrapfigure}
 Le projet qui nous a été confié, le projet Avalon, est le premier projet de collaboration entre Kerpape et l'INSA de Rennes/IRISA. Il a aussi pour but d'aider les personnes handicapées à recouvrer leur autonomie, mais il se focalise sur un aspect différent de la vie de tous les jours : l'utilisation de la domotique dans l'habitat des patients. Durant leur phase de rééducation au centre de Kerpape, les patients sont amenés à vivre quelques temps dans un appartement \enquote{tremplin} appartenant au centre. Ces appartements sont lourdement équipés en domotique pour que des personnes handicapées puissent y être autonomes, les différentes portes, fenêtres et volets sont contrôlables à distance par différents interrupteurs, un plan de travail dans la cuisine est réglable en hauteur, un mobile accroché à des rails au plafond aide les déplacements, etc.
 Les appartements tremplins servent à présenter aux patients les différents équipement disponibles pour leur propre appartement une fois qu'ils quitteront le centre, mais aussi à les entraîner à l'usage de ces équipements, qui peut s'avérer complexe, particulièrement pour les personnes souffrant de handicaps mentaux. \\
 

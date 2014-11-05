@@ -1,6 +1,12 @@
 \section{Etude fonctionnelle}
 
-La solution logicielle que nous allons implémenter doit intégrer plusieurs scénarios de fonctionnement. Ceux-ci permettront de tester les aptitudes du patient en rééducation dans un contexte banal. Ces scénarios sont axés sur l'interaction entre le patient et le monde extérieur, via le \enquote{Domophone}.
+La solution logicielle que nous allons implémenter doit intégrer plusieurs scénarios de fonctionnement. Ceux-ci permettront de tester les aptitudes du patient en rééducation dans un contexte banal. Ces scénarios sont axés sur l'interaction entre le patient et le monde extérieur, via le \enquote{Domophone} (cf.\textsc{figure~\ref{domo}}).
+
+\begin{wrapfigure}{r}{0mm}
+  \includegraphics[scale=0.15, bb = 0 50 960 1230]{1-PreEtude/img/domophone_photo}
+  \caption{Le domophone de l'appartement}
+  \label{domo}
+\end{wrapfigure}
 
 \subsection{Scénario 1: Appel téléphonique entrant}
 
@@ -9,8 +15,12 @@ Le premier scénario à implémenter est assez basique. Il s'agit du cas où le 
 D'un point de vue logiciel, il s'agira de déclencher la sonnerie du téléphone pour avertir l'utilisateur. Une icône de téléphone pourra être affichée en bas de l'écran, dans un coin. Ensuite, l'utilisateur devra se déplacer vers la zone du téléphone. Suivant le mode d'utilisation, le rendu sera différent : En mode symbolique, le logiciel basculera sur une vue du téléphone et donnera les instructions pour décrocher puis pour raccrocher. En mode assisté, le téléphone (ou la télécommande universelle) sera en surbrillance et si l'utilisateur met trop de temps pour agir, certains boutons peuvent se mettre en surbrillance ou clignoter.
 
 \subsection{Scénario 2: Visite de l'infirmier}
-
-Ce scénario correspond à la visite d'une personne connue par le résident. Lorsque que le visiteur arrive, il utilise l'interphone pour demander l'ouverture de la porte extérieure. Le patient en rééducation doit décrocher le domophone, activer l'ouverture de la porte et raccrocher. L'ouverture de la porte peut se faire par un code entré dans le domophone, un appui sur la télécommande universelle ou sur l'interrupteur à l'entrée. Ce cas correspond bien à la visite d'un infirmier ou d'une quelconque personne que le résident peut reconnaître par la voix.
+\begin{wrapfigure}{l}{0mm}
+  \includegraphics[scale=0.15]{1-PreEtude/img/interphone}
+  \caption{Le domophone de l'appartement}
+  \label{interphone}
+\end{wrapfigure}
+Ce scénario correspond à la visite d'une personne connue par le résident. Lorsque que le visiteur arrive, il utilise l'interphone (cf.\textsc{figure~\ref{interphone}}) pour demander l'ouverture de la porte extérieure. Le patient en rééducation doit décrocher le domophone, activer l'ouverture de la porte et raccrocher. L'ouverture de la porte peut se faire par un code entré dans le domophone, un appui sur la télécommande universelle ou sur l'interrupteur à l'entrée. Ce cas correspond bien à la visite d'un infirmier ou d'une quelconque personne que le résident peut reconnaître par la voix.
 
 Pour cette implémentation la différence avec le scénario 1 portera sur l'ouverture de la porte extérieure, soit via la télécommande, le domophone ou l'interrupteur. En mode symbolique, le basculement entre les vues sera automatique. Le mode assisté mettra en évidence l'ensemble des interrupteurs et boutons de commandes, puis en cas d'hésitation, le bon interrupteur sera mis en valeur.
 
@@ -28,8 +38,10 @@ Pour réaliser la partie \enquote{visio TV} de ce scénario l'utilisateur devra 
 La suite du scénario reprend le fonctionnement final du scénario 2, qui lui-même reprend la fin du scénario 1.
 
 \subsection{Cas d'utilisation}
+Voici un diagramme qui résume les différentes cas d'usage possibles. On y voit toutes les actions que le résident peut faire dans le cas d'une visite d'une personne qui sonnerait à la porte, ainsi que les interventions réalisables par le thérapeute (cf. \textsc{figure~\ref{cas_usage}}).
 \begin{figure}[h]
   \caption{Diagramme des cas d'utilisation}
   %\centering
-  \includegraphics[width=\textwidth]{1-PreEtude/img/diagramme}
+  \includegraphics[width=0.9\linewidth]{1-PreEtude/img/diagramme}
+  \label{cas_usage}
 \end{figure}
