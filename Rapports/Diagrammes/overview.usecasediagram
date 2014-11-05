@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ad1d8e79-f1cc-44a4-82d8-9a7165096916" name="Solution réalité virtuelle" linkedPackageId="b97d46c5-6a35-4eac-95c1-1b5331f5435c" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="5ec6410b-1bb2-4ab3-949f-df578b1a154e" name="Résident" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0e0a4365-5f63-40d3-b5af-6e582e56d77d" />
+        <targetEnds>
+          <association Id="0c158c15-36fc-40be-b9fa-f1bb1b4d1408" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Activer visio" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a92aad27-4bfb-44b5-9250-313862763ef3" LastKnownName="Activer visio" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7d2d46da-0a38-4cf5-9da8-75b8e43012a7" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1eb3c519-4b06-4318-b273-485fa9f21704" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8f22d6f3-0bd5-4a93-a827-34c158befde2" name="Activer visio" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="561058c2-420c-476d-b4e8-80b695e1a6ef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="069f50e0-69fa-443a-a1bc-c0d3b7585faf" />
+          </association>
+          <association Id="7404743a-744a-4f0e-96b0-d41a092bdfba" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Gérer l'appel" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7281ae00-517c-45f8-90bd-1a55f4c45977" LastKnownName="Gérer l'appel" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a538e9b5-9bc7-465a-ba39-7c6f3453177a" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d3459042-528f-476f-8614-843d2adac652" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="044408b7-9253-472d-974b-e5e0e2d8f6f9" name="Gérer l'appel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9837bdb0-0403-4a3f-8482-c30c17022165" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0f32273a-a88b-4aa0-9bd2-882d4021c2a8" />
+          </association>
+          <association Id="1518be5b-eec7-4d63-8ef8-381f74912229" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Ouvrir portail" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1e47e496-8b49-4feb-a16f-07571725926b" LastKnownName="Ouvrir porte extérieure" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="eb03b7e4-f0e5-4cc0-9f59-b8d717989ce6" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="13b13163-e086-4916-acf4-7c03de2834f1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="125ce4ba-a987-454d-8c88-1516ba56f5ab" name="Ouvrir portail" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0e0685c0-b5c2-4406-a77e-2feab7f9b11a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bb84c40d-468d-4fb1-9747-3aea92f9b62d" />
+          </association>
+          <association Id="61674722-a80b-4c63-ac1f-7a35c21a4535" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Ouvrir porte extérieure" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a1853bd9-e0d5-415d-bb96-e6aa717091a5" LastKnownName="Ouvrir porte extérieure" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="181a2223-eb0b-428e-b638-cc79e6e084d5" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="554d2047-17c0-442f-bcbb-7b4d4b607103" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="602df6c0-2461-47c2-9f72-00175ec217a4" name="Ouvrir porte extérieure" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aae18452-f75f-409b-9680-96ded5de2283" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3ca7c698-4f96-40d5-ae39-91edc788fc6b" />
+          </association>
+          <association Id="4e1cec36-b8a9-4499-94ff-012275db3dee" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Controler TV" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d232b052-6be0-4244-af5c-e3cccadf7381" LastKnownName="Controler TV" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="891f8215-8658-47b7-9459-952026947923" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2d3d13ad-437e-43fc-ac41-bb3f98f54af9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="999502f0-dc10-411d-9d93-6436ca52882a" name="Controler TV" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="26ea7019-427d-4bdd-af4f-9bd21fc93afd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ba8a8d88-16f1-4b76-9b24-c0f49615bd0b" />
+          </association>
+          <association Id="9908d9d3-f466-4cc7-836e-4275135574f9" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Ouvrir porte extérieure" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="21d1d1c9-0975-4019-9029-23501965b8e5" LastKnownName="Ouvrir porte extérieure" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="af9f1f3e-c679-4b43-9a20-d47538c26b3b" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d261a5e2-b280-4579-a2f7-dfb200c6f52c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a72080cb-920b-4bc8-840e-4d41610d5e0f" name="Ouvrir porte extérieure" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9aaef789-a0e5-4429-8154-2a5cb078a3b4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5ee39b93-c687-4090-9a58-a707d0b774ec" />
+          </association>
+          <association Id="a3c870c8-15b0-4c3f-8dd9-fc9f9f706d9d" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Gérer l'appel" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1cc0d8ee-513a-4960-9fe5-0227734a3700" LastKnownName="Gérer l'appel" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cadb62c1-0873-4707-b32c-9b0f85c92eba" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="71c36637-cd9f-4c87-8427-c8331c34ef93" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c707f81d-d80c-42c4-9ed4-d84989b08984" name="Gérer l'appel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8f80d83e-e8f0-4b39-a10c-e1b7343862be" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c8a00b12-459d-4362-9831-0a599080efac" />
+          </association>
+          <association Id="8750b5cf-e7fe-453f-8a3f-0aa76f33cf60" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Ouvrir porte intérieure" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="07d0a718-fd18-4cd3-a9eb-82b499480048" LastKnownName="Ouvrir porte intérieure" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a7c4f1d8-ac2b-4d4d-a684-4b784a7d08fa" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5338c918-b133-4d8b-b85a-93251f930452" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="72546d88-3e46-4749-bc1b-cbe5ee8a11d8" name="Ouvrir porte intérieure" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ecae216e-a2c2-425a-ba29-710350fc7bf9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aeda7e92-3f74-45df-b8a5-4703880921ba" />
+          </association>
+          <association Id="d16d5458-e18c-489b-93c5-9195af4116b1" isDerived="false" sourceEndRoleName="Résident" targetEndRoleName="Ouvrir porte intérieure" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ab35dc7e-e70b-42fb-83d6-b9dc36980eed" LastKnownName="Ouvrir porte intérieure" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3340d9d4-fceb-434c-9555-3164a4797751" name="Résident" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b0b42a85-a2ef-4f6f-a6e2-54815d2d2b96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f0c670a6-2424-42c1-baf3-1a72d81689bb" name="Ouvrir porte intérieure" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="abbcf8a2-d7be-44ce-80b2-93117b96c9bb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3ac9875e-2b02-4f81-bfb4-5602040ba411" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="1f1b5084-7a90-4365-8f2e-53487257d910" name="Thérapeute" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fd60cf9a-9cb5-4703-b080-affcf92c5cae" />
+        <targetEnds>
+          <association Id="bbe55065-52f4-4207-8421-f0a50017eaa4" isDerived="false" sourceEndRoleName="Thérapeute" targetEndRoleName="Changer mode" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b607d711-5868-4319-98f2-cdce5da3e674" LastKnownName="Changer mode" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e1d21a19-b3e1-4d1d-81dd-3a0a5834ab99" name="Thérapeute" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6568f72f-f137-45f4-b9f8-25f29936b899" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c80cc656-c863-4d29-ac51-024e34a19aac" name="Changer mode" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="619a68fd-71c4-41e7-bf30-c3097b481ac5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c45631fb-0c88-43e7-8972-a2b72a795a6b" />
+          </association>
+          <association Id="520fdb6c-6924-48e3-b97a-0247ca69d0d0" isDerived="false" sourceEndRoleName="Thérapeute" targetEndRoleName="Valider objectifs" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="656289a5-586b-4c51-8631-ada8aedb1dd4" LastKnownName="Valider objectifs" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="690272b7-5edb-4c09-99e9-9b5be66de0b3" name="Thérapeute" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c32e16f3-3982-4bae-b215-70c16dc63d02" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e6ef0967-df83-4037-add6-288f058f2c4a" name="Valider objectifs" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9a89b451-b4ac-4554-8c2e-15c1c23aef56" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="50182f8c-0b4f-4400-8228-f3f9131daa0b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="b2713438-4882-4b6a-a0da-cfb74c49be75" name="Domophone" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cc69434d-9047-44c9-aecc-db52eb2029a4" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="f4bf5cad-87fe-4c79-8925-82a750d044ff" name="Télévision" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b8bb9651-593e-4cdb-b47e-69293e877bbb" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="0698f2aa-0dd0-4081-9108-79d309eb454e" name="Interrupteurs" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0c41ea5c-0d44-4850-8a4c-4e3480a72408" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="687dcfae-d238-4a3a-b5be-873baf470a62" name="Allumer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9dab761f-ab0c-45fe-8941-dfe5dc415a6b" />
+        <subjects>
+          <subsystemMoniker Id="f4bf5cad-87fe-4c79-8925-82a750d044ff" LastKnownName="Télévision" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7281ae00-517c-45f8-90bd-1a55f4c45977" name="Gérer l'appel" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e129d8ab-147a-43b7-bc11-1804d1ce9cd2" />
+        <extendedCases>
+          <extend Id="0c97a656-6245-4673-9c0f-6d3d0d4d58bd">
+            <useCaseMoniker Id="7661db95-9f25-4041-a57d-1b92845ea86b" LastKnownName="Raccrocher" />
+            <elementDefinition Id="ac0150e7-9091-4f1b-9100-66d22a1e5561" />
+          </extend>
+          <extend Id="551456c0-39c2-4367-ab36-d80292564778">
+            <useCaseMoniker Id="90cd42ce-7944-4e8d-9a22-528ac2864ca2" LastKnownName="Décrocher" />
+            <elementDefinition Id="8c0bd926-a006-4940-af95-afa49dda9b3b" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="1e47e496-8b49-4feb-a16f-07571725926b" name="Ouvrir porte extérieure" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f64e2618-fba7-4a65-91be-23e5fdc86379" />
+        <subjects>
+          <subsystemMoniker Id="0698f2aa-0dd0-4081-9108-79d309eb454e" LastKnownName="Interrupteurs" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b607d711-5868-4319-98f2-cdce5da3e674" name="Changer mode" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5facc591-b359-4ab5-b701-913c4a70e1d7" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="11c2609d-801c-47e6-ade6-2ec6288d9737" name="Eteindre" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4998757c-e7c0-4b66-87e0-e46a60677687" />
+        <subjects>
+          <subsystemMoniker Id="f4bf5cad-87fe-4c79-8925-82a750d044ff" LastKnownName="Télévision" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="a92aad27-4bfb-44b5-9250-313862763ef3" name="Activer visio" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9e6700e7-ebd8-44bf-99b8-ef71d1ad5a73" />
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="940cac50-19ed-4397-970d-15582ebd47e1" name="Changer chaîne" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3a9a4e0b-3d41-4aef-aa15-3bed6d265c4b" />
+        <subjects>
+          <subsystemMoniker Id="f4bf5cad-87fe-4c79-8925-82a750d044ff" LastKnownName="Télévision" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="90cd42ce-7944-4e8d-9a22-528ac2864ca2" name="Décrocher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aeb2868e-c6a3-47e9-b3c4-f8dcc793a425" />
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7661db95-9f25-4041-a57d-1b92845ea86b" name="Raccrocher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d5745cbc-e5bf-43ae-bbf4-933ad4975a0d" />
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="656289a5-586b-4c51-8631-ada8aedb1dd4" name="Valider objectifs" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f6a7c5a5-5087-4faa-af17-208f6fd8dbca" />
+        <additions>
+          <include Id="3d93bf91-974e-46d2-9232-5b4305445eef">
+            <useCaseMoniker Id="9d35c10e-17b7-4a95-8229-9d9cae57a7ad" LastKnownName="Obtenir informations de performances" />
+            <elementDefinition Id="8bbbf453-b0b1-4678-819c-f26c8959592b" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9d35c10e-17b7-4a95-8229-9d9cae57a7ad" name="Obtenir informations de performances" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="26b0f4e0-9762-4478-ac7a-f81df4116364" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="15032233-4418-4292-8074-feff2609a8ca" name="Télécommande universelle" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="90fe609c-7e53-42f8-9225-3d2ba6a626f7" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="a1853bd9-e0d5-415d-bb96-e6aa717091a5" name="Ouvrir porte extérieure" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ae6af4b5-99ce-44c6-ac84-a299d6addd66" />
+        <additions>
+          <include Id="f8ec571a-9fac-4fd0-b6d5-437d5e0e18a3">
+            <useCaseMoniker Id="1ec51451-8a2f-49a8-a983-a3fe64837340" LastKnownName="Insérer code" />
+            <elementDefinition Id="43368738-2bb1-4c93-870d-157dcaf78994" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="1ec51451-8a2f-49a8-a983-a3fe64837340" name="Insérer code" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f0ff6880-9ca4-44a3-ba66-9fd96b50a497" />
+        <subjects>
+          <subsystemMoniker Id="b2713438-4882-4b6a-a0da-cfb74c49be75" LastKnownName="Domophone" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="21d1d1c9-0975-4019-9029-23501965b8e5" name="Ouvrir porte extérieure" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1adb283b-5e2e-483c-81b0-0734d6d714cd" />
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="d232b052-6be0-4244-af5c-e3cccadf7381" name="Controler TV" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="de70610d-7d6f-4a03-9e60-f14339ab6a5b" />
+        <extendedCases>
+          <extend Id="4fdc679c-8d79-40ea-a5ee-78af0093e793">
+            <useCaseMoniker Id="940cac50-19ed-4397-970d-15582ebd47e1" LastKnownName="Changer chaîne" />
+            <elementDefinition Id="b62aec96-b69b-40b5-848f-245f03b429f1" />
+          </extend>
+          <extend Id="6a71c366-6572-4940-b998-5ceba477b400">
+            <useCaseMoniker Id="11c2609d-801c-47e6-ade6-2ec6288d9737" LastKnownName="Eteindre" />
+            <elementDefinition Id="7c99660b-95d6-4ccf-b8ca-7033fd1c0882" />
+          </extend>
+          <extend Id="2bef22ba-6da3-4a37-8837-e1eb74bf1a27">
+            <useCaseMoniker Id="687dcfae-d238-4a3a-b5be-873baf470a62" LastKnownName="Allumer" />
+            <elementDefinition Id="0333e2a4-966f-4746-8bdc-364ccaab83c6" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="1cc0d8ee-513a-4960-9fe5-0227734a3700" name="Gérer l'appel" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9a7f1faa-815c-443f-8c9b-5e9eee5ae1e3" />
+        <extendedCases>
+          <extend Id="896eab0a-f590-46e8-8855-4361cff9eb62">
+            <useCaseMoniker Id="b0795f0c-2a3f-45e9-b520-39f7be47c772" LastKnownName="Raccrocher" />
+            <elementDefinition Id="e05b29ae-9937-46dd-911c-735dfe5a70e8" />
+          </extend>
+          <extend Id="159baa34-4a41-4cd5-b1e5-141c55ff498c">
+            <useCaseMoniker Id="f0e8d0ad-c5e6-42a4-8ee8-bf6a93607d04" LastKnownName="Décrocher" />
+            <elementDefinition Id="447c83cd-5d10-4991-b907-aa43d2e7a482" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f0e8d0ad-c5e6-42a4-8ee8-bf6a93607d04" name="Décrocher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f8785d91-fe5d-447b-9e8f-c648b315bdd9" />
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b0795f0c-2a3f-45e9-b520-39f7be47c772" name="Raccrocher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ce58639e-90fa-4811-8e87-a67305056e90" />
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="07d0a718-fd18-4cd3-a9eb-82b499480048" name="Ouvrir porte intérieure" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="701dfecf-51a9-4bea-bcd9-70877cf72b55" />
+        <subjects>
+          <subsystemMoniker Id="0698f2aa-0dd0-4081-9108-79d309eb454e" LastKnownName="Interrupteurs" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="ab35dc7e-e70b-42fb-83d6-b9dc36980eed" name="Ouvrir porte intérieure" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b1763319-e6c0-4e87-9cf7-31876c859a1a" />
+        <subjects>
+          <subsystemMoniker Id="15032233-4418-4292-8074-feff2609a8ca" LastKnownName="Télécommande universelle" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="b97d46c5-6a35-4eac-95c1-1b5331f5435c" name="ModelingProject1">
+    <elementDefinition Id="39155e37-0aa8-4541-b528-53bb3ddb69ae" />
+    <profileInstances>
+      <packageHasProfileInstances Id="eb726494-d82f-496c-964b-5af14d0e401f">
+        <profileInstance Id="ac3748e1-cb67-485e-a8a3-f1c088ea4a5c" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bc8ba98b-95a2-4ac7-b867-662840da75ac">
+        <profileInstance Id="527f2821-7a1e-4238-bac1-83df6b8302a5" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
