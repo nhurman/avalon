@@ -9,14 +9,17 @@ Dans notre rapport précédent, nous définission un cahier des charges qui s'ar
 Nous allons donc dans un premier temps présenter les solutions techniques que nous avons retenues pour la réalisation du projet, en détaillant de quelle façon elles répondent à ces 3 problématiques, pour ensuite présenter un diagramme de cas d'utilisation qui résumera le fonctionnement global de l'application. 
 
 \subsection{Solutions techniques retenues}
-La réalisation de notre projet s'appuiera donc principalement sur deux environnements de travail, Unity3D et MiddleVR. 
+La réalisation de notre projet s'appuiera donc principalement sur trois environnements de travail, Unity3D, Blender et MiddleVR. 
 
 \subsubsection{Unity : le moteur de rendu 3D}
 L'utilisation d'Unity était imposée, en vertu des nombreux avantages du logiciel. Unity est un moteur de rendu 3D utilisé principalement pour la réalisation de jeux vidéos, et qui dispose d'une version gratuite. Très complet, il propose les différentes fonctionnalités dont nous avons besoin : il permet d'ouvrir le modèle 3D de l'appartement tremplin qui nous a été fourni par le centre de Kerpape, et de le modifier. 
 Il permet aussi de réaliser les interactions entre utilisateur et environnement qui nous intéressent, que ce soit l'appui sur les différents interrupteurs gérant l'éclairage et l'ouverture/fermeture des volets, ou bien l'utilisation de la télécommande dont disposent les résidents de l'appartement qui centralise la plupart des actions qu'ils peuvent effectuer. 
 Enfin dernier avantage de Unity, il propose différentes cibles de compilation. En effet, même si dans un premier temps nous allons développer une application qui fonctionnera sous Windows 7 ou 8 avec un ensemble clavier/souris, nous aimerions ne pas être limités à cet environnement par la suite. \newline
 
-Néanmoins, un problème est survenu lors de l'utilisation de Unity : le modèle 3D de l'appartement qui nous avait été fourni avait été créé grâce à 3DSMax, et les deux
+
+\subsubsection{Blender : le logiciel de modélisation}
+Blender est le logiciel de modélisation que nous allons utilier pour les modifications du modèle qui nous a été fourni. Contrairement à Unity, il ne nous a pas été imposé, mais s'est dégagé comme étant le choix idéal du fait de la documentation imposante disponible sur le net et de sa gratuité. 
+Néanmoins, un problème est survenu lors de l'utilisation de Blender : le modèle 3D de l'appartement qui nous avait été fourni avait été créé grâce à 3DSMax, et les deux logiciels sont réputés incompatibles entre eux, ce qui s'est avéré dans notre cas. Nous avons donc au final obtenu un modèle contenant les volumes, mais sans texture ni lumière, que nous avons dû ajouter nous-mêmes. 
 \textbf{Unity + Import du modèle / textures (problèmes!)}
 
 \subsubsection{MiddleVR : la gestion des périphériques d'interaction}
@@ -27,3 +30,11 @@ Or c'est précisément ce que nous permet MiddleVR. Prenant la forme d'un plugin
 \textbf{Périphériques d’entrée / MiddleVR}
 
 \subsection{Cas d'utilisation}
+
+\subsection{Déploiement}
+
+\subsubsection{Ecran}
+
+\subsubsection{Casque de RV}
+
+\subsubsection{Immersia}
