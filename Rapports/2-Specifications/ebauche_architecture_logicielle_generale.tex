@@ -1,0 +1,21 @@
+\section{Architecture générale}
+\subsection{Briques logicielles}
+	Notre projet peut-être séparé en plusieurs "briques" logicielles; celles-ci correspondent à une première ébauche de l'architecture globale du logiciel. 
+	\subsubsection{Moteur de rendu : Unity}
+		La première brique est Unity; nous l'utiliserons ici pour sa composante moteur de jeu et environnement de développement, et non pour ses fonctionnalités de création d'objets 3d et ... 
+	\subsubsection{Gestion des périphériques : MiddleVR}
+		(DEJA FAIT en 2)Raison de son utilisation (multiples périphériques …)
+	\subsubsection{Interactions avec les objets}
+		Nous allons devoir développer un systême d'interractions entres les objets, pour qu'une action sur un objet ait un effet sur un autre objet.
+	\subsubsection{Gestion des scénarios}
+		Les scénarios demandés dans le cahier des charges devront être implémentés; il pourrait être appréciable que de nouveaux scénarios puissent facilement être ajoutés.
+		De ce fait, nous avons besoin d'un système de gestion des scénarios qui devra par exemple donner l'ordre de différentes actions à réaliser par l'utilisateur, et d'éventuelles aides supplémentaires s'il devait réaliser une action autre que celle demandée.
+	\subsubsection{Gestions des objets manipulables}
+		Nous devrons aussi implémenter de quoi gérer les objets, pour pouvoir les retrouver et les gérer dans l'espace.
+	\subsubsection{Menu}
+		Un menu devra être disponible au lancement de l'application, ainsi qu'au cours de l'utilisation.
+\subsection{Liens entre les modules}
+
+MiddleVR <=> Unity
+Gestionnaire d’objets <=> Objets
+Gestionnaire scénarios <=> Gestionnaire d’objets
