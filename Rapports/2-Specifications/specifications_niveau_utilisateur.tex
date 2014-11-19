@@ -1,51 +1,49 @@
 \section{Spécifications niveau utilisateur}
 
-Le logiciel destiné au milieu médical, doit tout d'abord être en mesure de répondre à une interface simple et compréhensible par tous les utilisateurs. L'objectif étant d'optimiser au mieux l'interaction entre les différents objets et l'utilisateur via des périphériques accessibles et ergonomiques. Dans notre cas, l'utilisateur peut être le thérapeute ou le patient.  Par ailleurs, il faut aussi considérer que le thérapeute doit pouvoir accéder aux différentes options et le modifier afin de faciliter l'utilisation et l’interaction dans la scène pour le patient.
-\\
-Nous verrons dans une première partie les différents modes de navigations possibles, puis comment l'utilisateur peut sélectionner et déplacer les objets présents dans la scène en fonction du mode d'apprentissage, et enfin toute la partie de gestion des options du logiciel pour le thérapeute.
+Le logiciel destiné au milieu médical, doit tout d'abord être en mesure de répondre à une interface simple et compréhensible par tous les utilisateurs. Dans notre cas, l'utilisateur peut être le thérapeute ou le patient. L'objectif étant d'optimiser au mieux l'interaction entre les différents objets et l'utilisateur \textit{via} des périphériques accessibles et ergonomiques. Par ailleurs, il faut aussi considérer que le thérapeute doit pouvoir accéder aux différentes options et le modifier afin de faciliter l'utilisation et l'intéraction dans la scène pour le patient.
+\newline
+Nous verrons dans une première partie les différents modes de navigation possibles, puis comment l'utilisateur peut selectionner et déplacer les objets présents dans la scène en fonction du mode d'apprentissage, et enfin toute la partie de gestion des options du logiciel pour le thérapeute.
 
 \subsection{Navigation}
 Nous avons envisagé différents types de navigation au sein de l’environnement 3D, qui amèneront l’utilisateur à s’immerger et à interagir différemment avec la scène en fonction des périphériques utilisés.
 
-\subsubsection{Exocentré}
-Avec un type de vue exocentré, l’utilisateur contrôle un avatar à la 3ème personne ce qui ne l’immergera pas totalement dans la scène. Cependant ceci peut permettre d'avoir une meilleur visualisation de la scène et de l'espace en 3d.
-\\
-\textbf{Interface Souris - Clavier :}
-L’utilisateur déplace son personnage à l’aide des touches du clavier. Il peut orienter la caméra à l’aide de la souris. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser le clic gauche de la souris. Lorsqu'un objet est pointé il se met en légère sur-brillance. 
-Dans cet interface on définit les boutons suivants :
-	\begin{itemize}
+\subsubsection{Exocentrée}
+Avec un type de vue exocentré, l’utilisateur contrôle un avatar à la 3\up{ème} personne ce qui ne l’immergera pas totalement dans la scène. Cependant ceci peut permettre d'avoir une meilleure visualisation de la scène et de l'espace en 3D.
+\newline
+\textbf{Interface Souris - Clavier : }
+L’utilisateur déplace son personnage à l’aide des touches du clavier. Il peut orienter la caméra l’aide de la souris. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser le clic gauche de la souris. L'orsqu'un objet est pointé il se met en légère sur-brillance. 
+Dans cette interface on définit les boutons suivants :
+	\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
   				\item bouton d’action : clic gauche de la souris
-				 \item bouton de retour : touche escape du clavier
-  				\item  bouton 2ème action : clic droit de la souris
+				 \item bouton de retour : touche \em{escape} du clavier
+  				\item  bouton 2\up{ème} action : clic droit de la souris
 			\end{itemize}
 Le thérapeute pourra modifier ces réglages s'il souhaite faire interagir l'utilisateur avec des boutons différents.
-\\
+\newline
 
 
-\textbf{Interface WiiMote - Nunchuk :}
-Pour déplacer l’avatar, l’utilisateur utilisera le joystick du Nunchuk. Il peut orienter la caméra l’aide de la Wiimote. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser un des boutons de la Wiimote..
-	\begin{itemize}
+\textbf{Interface WiiMote - Nunchuk : }
+Pour déplacer l’avatar, l’utilisateur s'appuiera sur le joystick du Nunchuk. Il peut orienter la caméra l’aide de la Wiimote. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser un des boutons de la Wiimote :
+	\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
   				\item bouton d’action : bouton A de la WiiMote
 				 \item bouton de retour :bouton Z du Nunchuk
-  				\item  bouton 2ème action : bouton B de la WiiMote
+  				\item  bouton 2\up{ème} action : bouton B de la WiiMote
 			\end{itemize}
 
-\subsubsection{Endocentré}
+\subsubsection{Endocentrée}
 En point de vue endocentré, l’utilisateur est plongé totalement dans l’environnement. 
-\\
-\textbf{Occulus Rift avec clavier-souris ou WiiMote-Nunchuk : }
-\\
-De la même façon qu’en exocentré, l’utilisateur se déplacera et interagira avec la scène en utilisant l’interface clavier souris ou WiiMote Nunchuk. Cependant, on profite de ce point de vue immersif pour tirer profit des fonctionnalités de l’Occulus Rift.
+\newline
+\textbf{Occulus Rift avec clavier-souis ou WiiMote-Nunchuk : }
+De la même façon qu’en exocentré, l’utilisateur se déplacera et interagira avec la scène en utilisant l’interface clavier-souris ou WiiMote-Nunchuk. Cependant, on profite de ce point de vue immersif pour tirer profit des fonctionnalités de l’Occulus Rift.
 Ce périphérique permettra la gestion de la caméra en orientant le champs de vision de l’utilisateur en fonction de ses mouvements de tête.
-\\
-\textbf{Salle Immersia :}
-\\
-La salle Immersia est une salle d’environnement 3D qui permet à l’utilisateur de s’intégrer totalement dans l’environnement virtuel. Ici une fois muni du capteur 3d dans l'espace, il pourra se déplacer totalement dans l’environnement.
-Pour leur part, les interactions seront effectuées grâce à une WiiMote.
+\newline
+\textbf{Salle Immersia : }
+La salle Immersia est une salle d’environnment 3D qui permet à l’utilisateur de s’intégrer totalement dans l’environnement virtuel. Ici une fois muni du capteur 3D dans l'espace, il pourra se déplacer totalement dans l’environnement.
+Pour leur part les interactions seront effectuées grâce à une WiiMote.
 
 \subsection{Sélection}
 
-L'utilisateur, indépendamment du scénario dans lequel il se trouve (Scénario ou Balade libre), peut interagir avec son environnement pour effectuer certaines actions ou tâches demandés par le thérapeute. Il peut donc actionner certains objets et voir les actions qu'il a effectué dans son environnement. Cependant ces actions sont dépendantes du mode d'apprentissage dans lequel il se trouve. En effet, trois modes sont disponibles : Symbolique, Assisté et Autonome. Nous verrons dans cette partie les différentes actions qui se produisent en fonction du mode d'apprentissage lorsque l'utilisateur interagit avec son milieu. 
+L'utilisateur, indépendamment du mode dans lequel il se trouve (Scénario ou Balade libre), peut interagir avec son environnement pour effectuer certaines actions ou tâches demandées par le thérapeute. Il peut donc actionner certains objet et voir les actions qu'il a effectuées dans son environnement. Cependant ces actions sont dépendantes du mode d'apprentissage dans lequel il se trouve. En effet, trois modes sont disponibles : Symbolique, Assisté et Autonome. Nous verrons dans cette partie les différentes actions qui se produise en fonction du mode d'apprentissage lorsque l'utilisateur interagit avec son milieux. 
 
 \subsubsection{Objets sélectionnables}
 
@@ -62,9 +60,9 @@ De même que précédemment, lorsque l'utilisateur pointe sur un objet, celui-ci
 \subsubsection{Mode d'apprentissage : Symbolique}
 
 La figure \ref{fig:MaquetteSymbolique} explique le fonctionnement lorsque l'utilisateur interagit avec un objet dans le mode symbolique. Elle est accompagné d'un diagramme d'activité (figure \ref{fig:CasUsageSymbolique}) pour une meilleur compréhension.
-\\
+\newline
 Lorsque l'utilisateur est dans un scénario ou dans un didacticiel, l'objet se met en sur-brillance dans la scène. L'utilisateur se déplace jusqu'à l'objet et rentre dans dans une vue symbolique qui lui explique le fonctionnement de l'objet. Dans notre exemple ici, pour l'ouverture d'une porte, l'utilisateur reçoit les consignes pour ouvrir la porte. Par exemple : « Le bouton du haut permet de fermer la porte, celui du bas de l'ouvrir. Si vous souhaitez ouvrir la porte il faut donc appuyer sur le bouton du bas ». Les consignes sont liées à des indications fléchées qui aident à la compréhension. Par la suite, l'utilisateur peut actionner le bouton. Cette action lance une animation qui montre de manière symbolique l'ouverture de la porte. 
-\\
+\newline
 En fonction du didacticiel plusieurs apprentissages peuvent se produire à la suite, ouverture de la porte puis fermeture par exemple. Si l'utilisateur ne souhaite plus interagir avec l'objet il peut a tout moment quitter la vue symbolique avec la touche «esc». 
 
 \begin{figure}[h]
@@ -83,7 +81,7 @@ En fonction du didacticiel plusieurs apprentissages peuvent se produire à la su
 \subsubsection{Mode d'apprentissage : Assisté}
 
 Après un apprentissage Symbolique, l'ergothérapeute peut décider de passer à un apprentissage Assisté. Dans ce dernier, l'utilisateur doit entreprendre plus d'actions que précédemment pour interagir avec l'objet. Comme précédemment, si l'utilisateur est dans un scénario ou didacticiel, l'objet se met en sur-brillance. L'utilisateur se rapproche alors et doit cliquer sur l'objet. Si celui-ci comporte plusieurs boutons (télécommande par exemple), une vue «zoomée» de l'objet apparaît et l'utilisateur peut cliquer sur le bouton qu'il doit actionner. Une fois le bouton cliqué, une fenêtre apparaît et montre en 3d l'action qui a été effectué. 
-\\
+\newline
 Les figures \ref{fig:MaquetteAssiste} et \ref{fig:CasUsageAssiste} reprennent le fonctionnement de ce mode.
 
 \begin{figure}[h]
@@ -102,7 +100,7 @@ Les figures \ref{fig:MaquetteAssiste} et \ref{fig:CasUsageAssiste} reprennent le
 \subsubsection{Mode d'apprentissage : Autonome}
 
 Le mode autonome ne donne plus aucune indication à l'utilisateur. L'objet n'est plus en sur-brillance dans le cas de scénarios ou didacticiels. Il doit aller actionner lui même l'objet comme précédemment et se rendre compte en se déplaçant dans la scène si son action est bien la bonne. 
-\\
+\newline
 Les figures \ref{fig:MaquetteAutonome} et \ref{fig:CasUsageAutonome} reprennent le fonctionnement de ce mode.
 
 \begin{figure}[h]
@@ -135,15 +133,15 @@ Si l’utilisateur n’a pas encore pris la télécommande il peut aller la cher
 \subsubsection{Administrateur}
 Pour le contrôle de l'application, le thérapeute sera considéré comme administrateur de l'application. Il a accès à 
 tous les paramètres de configurations et choisir les différents modes (scénarios,didacticiels,balade libre) pour l'Utilisateur.
-\\
+\newline
 Les figures \ref{fig:Menu} et \ref{fig:CasUsageMenu} reprennent le fonctionnement global de l'interface. Ainsi sur le menu principal, le thérapeute peut choisir entre les Didacticiels, les Scénarios, se balader librement ou les Options.
-\\
+\newline
 Les Options permettent de configurer le choix des touches ainsi que certains paramètres plus personnalisés pour l'utilisateur. On peut ainsi charger/sauvegarder un fichier utilisateur avec les configurations des touches, taille de personnage, télécommande personnalisée, qui ont été au préalable déjà configurés. 
 
 On peut aussi choisir, si la configuration le permet (Clavier/Souris, Occulus, Salle Immersia), le mode de Navigation (endocendré ou exocentré). 
-\\
+\newline
 Lorsque les configurations de bases ont été effectuées, le thérapeute peut alors choisir un des différents modes. Si l'on choisit un Scénario ou un Didacticiel, le mode d'apprentissage (Symbolique, Assisté, Autonome) sera demandé. Dans le cas de la balade libre, le mode d'apprentissage est Autonome par défaut. Le mode d'apprentissage peut-être ultérieurement changé dans le menu d'option de la scène si le thérapeute le souhaite. 
-\\
+\newline
 
 \begin{figure}[h]
 \centering
