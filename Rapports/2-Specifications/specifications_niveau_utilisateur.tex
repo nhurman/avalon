@@ -1,49 +1,49 @@
 \section{Spécifications niveau utilisateur}
 
-Le logiciel destiné au milieu médical, doit tout d'abord être en mesure de répondre à une interface simple et compréhensible par tous les utilisateurs. Dans notre cas, l'utilisateur peut être le thérapeute ou le patient. L'objectif étant d'optimiser au mieux l'interaction entre les différents objets et l'utilisateur via des périphériques accessibles et ergonomiques. Par ailleurs, il faut aussi considérer que le thérapeute doit pouvoir accéder aux différentes options et le modifier afin de faciliter l'utilisation et l'intéraction dans la scène pour le patient.
+Le logiciel destiné au milieu médical, doit tout d'abord être en mesure de répondre à une interface simple et compréhensible par tous les utilisateurs. Dans notre cas, l'utilisateur peut être le thérapeute ou le patient. L'objectif étant d'optimiser au mieux l'interaction entre les différents objets et l'utilisateur \textit{via} des périphériques accessibles et ergonomiques. Par ailleurs, il faut aussi considérer que le thérapeute doit pouvoir accéder aux différentes options et le modifier afin de faciliter l'utilisation et l'intéraction dans la scène pour le patient.
 \\
-Nous verrons dans une première partie les différents modes de navigations possibles, puis comment l'utilisateur peut selectionner et déplacer les objets présents dans la scène en fonction du mode d'apprentissage, et enfin toute la partie de gestion des options du logiciel pour le thérapeute.
+Nous verrons dans une première partie les différents modes de navigation possibles, puis comment l'utilisateur peut selectionner et déplacer les objets présents dans la scène en fonction du mode d'apprentissage, et enfin toute la partie de gestion des options du logiciel pour le thérapeute.
 
 \subsection{Navigation}
-Nous avons envisagé différents type de navigation au sein de l’environnement 3D, qui amènerons l’utilisateur à s’immerger et à interagir différemment avec la scène en fonction des périphériques utilisés.
+Nous avons envisagé différents types de navigation au sein de l’environnement 3D, qui amèneront l’utilisateur à s’immerger et à interagir différemment avec la scène en fonction des périphériques utilisés.
 
-\subsubsection{Exocentré }
-Avec un type de vue exocentré, l’utilisateur contrôle un avatar à la 3ème personne ce qui ne l’immergera pas totalement dans la scène. Cependant ceci peut permettre d'avoir une meilleur visualisation de la scène et de l'espace en 3d.
+\subsubsection{Exocentrée}
+Avec un type de vue exocentré, l’utilisateur contrôle un avatar à la 3\up{ème} personne ce qui ne l’immergera pas totalement dans la scène. Cependant ceci peut permettre d'avoir une meilleure visualisation de la scène et de l'espace en 3D.
 \\
 \textbf{Interface Souris - Clavier : }
 L’utilisateur déplace son personnage à l’aide des touches du clavier. Il peut orienter la caméra l’aide de la souris. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser le clic gauche de la souris. L'orsqu'un objet est pointé il se met en légère sur-brillance. 
-Dans cet interface on définit les boutons suivants :
-	\begin{itemize}
+Dans cette interface on définit les boutons suivants :
+	\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
   				\item bouton d’action : clic gauche de la souris
-				 \item bouton de retour : touche escape du clavier
-  				\item  bouton 2ème action : clic droit de la souris
+				 \item bouton de retour : touche \em{escape} du clavier
+  				\item  bouton 2\up{ème} action : clic droit de la souris
 			\end{itemize}
 Le thérapeute pourra modifier ces réglages s'il souhaite faire interagir l'utilisateur avec des boutons différents.
 \\
 
 
 \textbf{Interface WiiMote - Nunchuk : }
-Pour déplacer l’avatar, l’utilisateur utilisera le joystick du Nunchuk. Il peut orienter la caméra l’aide de la Wiimote. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser un des boutons de la Wiimote..
-	\begin{itemize}
+Pour déplacer l’avatar, l’utilisateur s'appuiera sur le joystick du Nunchuk. Il peut orienter la caméra l’aide de la Wiimote. Pour entrer en interaction avec un objet il lui suffit de pointer l’objet avec la caméra et d’utiliser un des boutons de la Wiimote :
+	\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
   				\item bouton d’action : bouton A de la WiiMote
 				 \item bouton de retour :bouton Z du Nunchuk
-  				\item  bouton 2ème action : bouton B de la WiiMote
+  				\item  bouton 2\up{ème} action : bouton B de la WiiMote
 			\end{itemize}
 
-\subsubsection{Endocentré}
+\subsubsection{Endocentrée}
 En point de vue endocentré, l’utilisateur est plongé totalement dans l’environnement. 
 \\
 \textbf{Occulus Rift avec clavier-souis ou WiiMote-Nunchuk : }
-De la même façon qu’en exocentré, l’utilisateur se déplacera et interagira avec la scène en utilisant l’interface clavier souris ou WiiMote Nunchuk. Cependant, on profite de ce point de vue immersif pour tirer profit des fonctionnalités de l’Occulus Rift.
+De la même façon qu’en exocentré, l’utilisateur se déplacera et interagira avec la scène en utilisant l’interface clavier-souris ou WiiMote-Nunchuk. Cependant, on profite de ce point de vue immersif pour tirer profit des fonctionnalités de l’Occulus Rift.
 Ce périphérique permettra la gestion de la caméra en orientant le champs de vision de l’utilisateur en fonction de ses mouvements de tête.
 \\
 \textbf{Salle Immersia : }
-La salle Immersia est une salle d’environnment 3D qui permet à l’utilisateur de s’intégrer totalement dans l’environnement virtuel. Ici une fois muni du capteur 3d dans l'espace, il pourra se déplacer totalement dans l’environnement.
+La salle Immersia est une salle d’environnment 3D qui permet à l’utilisateur de s’intégrer totalement dans l’environnement virtuel. Ici une fois muni du capteur 3D dans l'espace, il pourra se déplacer totalement dans l’environnement.
 Pour leur part les interactions seront effectuées grâce à une WiiMote.
 
 \subsection{Sélection}
 
-L'utilisateur, indépendamment du mode dans lequel il se trouve (Scénario ou Balade libre), peut interagir avec son environnement pour effectuer certaines actions ou tâches demandés par le thérapeute. Il peut donc actionner certains objet et voir les actions qu'il a effectuer dans son environnement. Cependant ces actions sont dépendantes du mode d'apprentissage dans lequel il se trouve. En effet, trois modes sont disponibles : Symbolique, Assisté et Autonome. Nous verrons dans cette partie les différentes actions qui se produise en fonction du mode d'apprentissage lorsque l'utilisateur interagit avec son milieux. 
+L'utilisateur, indépendamment du mode dans lequel il se trouve (Scénario ou Balade libre), peut interagir avec son environnement pour effectuer certaines actions ou tâches demandées par le thérapeute. Il peut donc actionner certains objet et voir les actions qu'il a effectuées dans son environnement. Cependant ces actions sont dépendantes du mode d'apprentissage dans lequel il se trouve. En effet, trois modes sont disponibles : Symbolique, Assisté et Autonome. Nous verrons dans cette partie les différentes actions qui se produise en fonction du mode d'apprentissage lorsque l'utilisateur interagit avec son milieux. 
 
 \subsubsection{Objets séléctionnables}
 
