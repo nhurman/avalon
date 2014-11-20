@@ -30,6 +30,7 @@ Le problème est que l'on ne peut pas redéfinir toutes les interactions pour ch
 Nous allons donc utiliser MiddleVR qui va abstraire notre modélisation Unity, et s'occuper de récupérer les signaux des contrôleurs de jeu. Unity va alors récupérer les données nécessaires via MiddleVR. 
 Ainsi pour chaque nouveau périphérique, il y aura juste à modifier le comportement de MiddleVR pour l'utiliser sous Unity sans rien changer. 
 Cela en fait une implémentation très générique (presque) insensible au matériel utilisé.
+On peut noter que MiddleVR peut utiliser la librairie libre VRPN, qui permet d'interfacer les périphériques avec une solution de réalité virtuelle.
 
 
 \subsubsection{Gestionnaire d'objets et objets}
@@ -51,7 +52,7 @@ C'est le deuxième sens de communication, c'est à dire du gestionnaire vers l'o
 Sur le même principe que précédemment, les liens entre objets peuvent varier suivant les scénarios et modes d'apprentissage. 
 Par exemple on peut désactiver toutes les fonctions des stores électriques pour le mode assisté, mais les activer pour le mode autonome. 
 On peut aussi décider de désactiver tel ou tel objet pour un scénario en particulier, c'est pourquoi nous allons passer par un "gestionnaire de scénario". 
-La communication entre les deux n'est pas nécessairement bilatérale : en effet on peut imaginer que le gestionnaire de scénario instancie un gestion d'objet en particulier, et que celui-ci n'enverra pas d'ordre au gestionnaire de scénario.
+La communication entre les deux est nécessairement bilatérale : en effet on peut imaginer que le gestionnaire de scénario instancie un gestionnaire d'objet en particulier et attend des ordre pour la validation des objectifs par exemple.
 
 \subsubsection{Récapitulatif}
 \begin{figure}
