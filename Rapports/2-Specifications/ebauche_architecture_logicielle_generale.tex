@@ -40,7 +40,7 @@ En effet, l'action sur un objet pouvant se répercuter sur d'autres objets, ou v
 Il sera codé \enquote{à côté d'Unity}, c'est à dire qu'il le complétera et sera intégré après modélisation (pas besoin de modifier la modélisation pour changer les comportements).
 
 La communication entre ces deux entités doit pouvoir se faire dans les deux sens.
-En effet, imaginons le cas d'un interrupteur : si l'utilisateur appuie sur un bouton, on aimerait que l'action qui y est associée soit effectuée (allumer lampe, baisser volets etc ...).
+En effet, imaginons le cas d'un interrupteur : si l'utilisateur appuie sur un bouton, on aimerait que l'action qui y est associée soit effectuée (allumer lampe, baisser volets, etc).
 Pour faire cela, on va transmettre à une autre entité l'action qui s'est exécutée sur l'objet : le gestionnaire d'objet.
 C'est alors le gestionnaire qui va analyser l'action et son contexte et exécuter le code approprié. C'est le premier sens de communication, c'est à dire de l'objet vers le gestionnaire d'objets.
 Une fois la situation analysée et la décision prise, le gestionnaire peut avoir à répercuter une action sur un objet afin d'en modifier l'état (allumer/éteindre un objet lampe).
