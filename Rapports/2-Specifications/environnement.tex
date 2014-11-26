@@ -12,10 +12,12 @@ Nous allons donc dans un premier temps présenter les solutions techniques que n
 La réalisation de notre projet s'appuiera principalement sur trois environnements de travail, Unity3D, Blender et MiddleVR.
 
 \subsubsection{Unity : le moteur de rendu 3D}
-L'utilisation d'Unity était imposée, en vertu des nombreux avantages du logiciel. Unity est un moteur de rendu 3D
+L'utilisation d'Unity était imposée, en vertu des nombreux avantages du logiciel. Unity (fig. \ref{screen_unity}) est un moteur de rendu 3D
 \begin{wrapfigure}{l}{0mm}
 	\centering
 	\includegraphics[scale=0.5]{2-Specifications/img-utilisateur/screen_unity.jpg}
+	\caption{Capture d'écran Unity3D}
+	\label{screen_unity}
 \end{wrapfigure}
 utilisé principalement pour la réalisation de jeux vidéos, et qui dispose d'une version gratuite. Très complet, il propose les différentes fonctionnalités dont nous avons besoin : il permet d'ouvrir le modèle 3D de l'appartement tremplin qui nous a été fourni par le centre de Kerpape, et de le modifier. \newline
 
@@ -50,16 +52,20 @@ Qui plus est, elle se marie avantageusement avec l'usage de dispositifs comme de
 \begin{wrapfigure}{r}{0mm}
   \centering
   \includegraphics[scale=0.3]{2-Specifications/img-utilisateur/occulus.jpg}
+	\caption{Casque de réalité virtuelle : Occulus Rift}
+	\label{occulus_reparo}
 \end{wrapfigure}
-Lors de notre visite au centre de Kerpape nous avons fait essayer une démonstration de l'Occulus Rift à Willy Allègre et Jean-Paul Departe, qui ont été plutôt convaincus de l'intérêt du dispositif. 
+Lors de notre visite au centre de Kerpape nous avons fait essayer une démonstration de l'Occulus Rift (fig. \ref{occulus_reparo}) à Willy Allègre et Jean-Paul Departe, qui ont été plutôt convaincus de l'intérêt du dispositif. 
 Les périphériques de ce type étant en pleine démocratisation, ils sont donc particulièrement intéressant financièrement pour un centre tel que Kerpape, car ne représentant qu'une fraction infime du prix d'un nouvel appartement témoins.
 
 \subsubsection{Salle immersive}
-La salle immersive représente l'équipement de RV le plus complet dont nous puissions profiter et est donc une perspective de plate-forme très intéressante pour notre application.
-\begin{wrapfigure}{l}{0mm}
-	\centering
-	\includegraphics[scale=0.5]{2-Specifications/img-utilisateur/immersia.jpg}
-\end{wrapfigure}
+La salle immersive (fig. \ref{immersiaaaaaaaa}) représente l'équipement de RV le plus complet dont nous puissions profiter et est donc une perspective de plate-forme très intéressante pour notre application.
+%\begin{wrapfigure}{l}{0mm}
+	%\centering
+	%\includegraphics[scale=0.5]{2-Specifications/img-utilisateur/immersia.jpg}
+	%\caption{Salle Immersia : plus grande salle de RV du monde}
+	%\label{immersiaaaaaaaa}
+%\end{wrapfigure}
 C'est l'option qui nous permettra les interactions les plus naturelles, car l'utilisateur se trouvera dans une projection à l'échelle 1:1 de l'appartement, équipé de lunettes 3D et de capteurs qui permettent de suivre la position des mains de l'utilisateur. \newline
 L'utilisation d'une plateforme de ce type permet d'éviter les quelques risques liée à l'utilisation de périphériques portés par l'utilisateur : leur poids, gênant pour les patients à handicap moteur, ou la perte de repères de son propre corps (pas de vision de ses membres).
 Bien que Kerpape n'en dipose pas et n'ait pas la possibilité d'en utiliser une, l'implémentation du projet Avalon dans une salle immersive reste un objectif que nous souhaitons réaliser, car cela représente une évolution logique du projet.
