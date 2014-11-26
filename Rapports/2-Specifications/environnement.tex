@@ -3,10 +3,10 @@
 Dans notre rapport précédent, nous définissions un cahier des charges qui s'articulait principalement autour de 3 grands axes qui étaient les suivants : 
 \begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
 \item Présence d'interactions avec l'environnement
-\item Applications aisément portable vers différents systèmes d'utilisation
+\item Applications aisément portables vers différents systèmes d'utilisation
 \item Exploitation de différents périphériques d'entrée/sortie
 \end{itemize}
-Nous allons donc dans un premier temps présenter les solutions techniques que nous avons retenues pour la réalisation du projet, en détaillant de quelle façon elles répondent à ces 3 problématiques, pour ensuite énumérer les différents scénarios d'utilisation que nous allons implémenter, avant d'enfin détailler les différentes cibles de déploiement prévues. 
+Nous allons, dans un premier temps, présenter les solutions techniques que nous avons retenu pour la réalisation du projet, en détaillant la façon dont elles répondent à ces trois problématiques, pour ensuite énumérer les différents scénarios d'utilisation que nous allons implémenter, avant d'enfin détailler les différentes cibles de déploiement prévues. 
 
 \subsection{Solutions techniques retenues}
 La réalisation de notre projet s'appuiera principalement sur trois environnements de travail, Unity3D, Blender et MiddleVR.
@@ -24,49 +24,48 @@ utilisé principalement pour la réalisation de jeux vidéos, et qui dispose d'u
 Il permet aussi de réaliser les interactions entre utilisateur et environnement qui nous intéressent, que ce soit l'appui sur les différents interrupteurs gérant l'éclairage et l'ouverture/fermeture des volets, ou bien l'utilisation de la télécommande dont disposent les résidents de l'appartement qui centralise la plupart des actions qu'ils peuvent effectuer.
 Enfin dernier avantage de Unity, il propose différentes cibles de compilation. En effet, même si dans un premier temps nous allons développer une application qui fonctionnera sous Windows 7 ou 8 avec un ensemble clavier/souris, nous aimerions ne pas être limités à cet environnement par la suite. \newline
 
-Néanmoins, un problème est survenu lors de l'utilisation de Unity : le modèle 3D de l'appartement qui nous a été fourni avait été créé grâce à 3DSMax, et les deux logiciels sont réputés incompatibles entre eux, ce qui s'est avéré dans notre cas. Nous avons donc au final obtenu un modèle contenant les volumes, mais sans texture ni lumière, que nous avons dû ajouter nous-mêmes. 
+Néanmoins, un problème est survenu lors de l'utilisation de Unity : le modèle 3D de l'appartement qui nous a été fourni avait été créé grâce à 3DSMax, mais les deux logiciels se sont avérés en partie incompatibles entre eux. Nous avons finalement obtenu un modèle contenant les volumes, mais sans texture ni lumière, que nous avons dû ajouter nous-mêmes via Unity. 
 
 \subsubsection{Blender : le logiciel de modélisation}
-Blender est le logiciel de modélisation que nous allons utiliser pour les modifications du modèle qui nous a été fourni. Contrairement à Unity, il ne nous a pas été imposé, mais s'est dégagé comme étant le choix idéal du fait de la documentation imposante disponible sur le net et de sa gratuité.\newline
-La majorité de l'appartement tremplin a déjà été modélisé pour nous, mais il reste néanmoins quelques détails à rajouter, comme l'interphone/téléphone (le domophone), ou encore le panneau d'interrupteurs à l'entrée de l'appartement. Nous nous en servirons de plus pour corriger les pertes rencontrées lors de l'import du modèle 3D sous Unity : rajouter la lumière et les textures à notre modèle. 
+Blender est le logiciel de modélisation que nous allons utiliser pour les modifications du modèle qui nous a été fourni. Contrairement à Unity, il ne nous a pas été imposé, mais s'est dégagé comme étant le choix idéal du fait de la documentation imposante disponible sur internet et de sa gratuité.\newline
+La majorité de l'appartement tremplin a déjà été modélisé pour nous, mais il reste néanmoins quelques détails à rajouter, comme l'interphone/téléphone (le domophone), ou encore le panneau d'interrupteurs à l'entrée de l'appartement. 
 
 \subsubsection{MiddleVR : la gestion des périphériques d'interaction}
 
-MiddleVR répond au troisième des objectifs que nous nous sommes fixés : exploiter différents périphériques d'entrée/sortie. En effet, pour ce faire, il fallait pouvoir s'abstraire desdits périphériques au cours du développement de l'application. L'idée est de développer toutes les fonctionnalités qui nous intéressent, l'utilisation des différents interrupteurs, etc, et d'ensuite disposer d'un moyen facile d'associer l'usage d'un périphérique donné à une fonctionnalité donnée.\newline
+MiddleVR répond au troisième des objectifs que nous nous sommes fixés : exploiter différents périphériques d'entrée/sortie. En effet, pour ce faire, il fallait pouvoir s'abstraire de ces périphériques au cours du développement de l'application. L'idée est de développer toutes les fonctionnalités qui nous intéressent, l'utilisation des différents interrupteurs, etc, et d'ensuite disposer d'un moyen facile d'associer l'usage d'un périphérique donné à une fonctionnalité donnée.\newline
 Or c'est précisément ce que nous permet MiddleVR. Il est capable de reconnaître les différents périphériques de réalité virtuelle à notre disposition, pour ensuite les associer à certaines parties du corps comme la tête ou la main. Cela nous permet, lors de l'utilisation de Unity, de réaliser des interactions qui ne vont pas se  baser sur une wiimote ou une souris, mais sur la main de l'utilisateur, quel que soit le périphérique que MiddleVR lui a associé. 
 
 \subsection{Déploiement}
-Parmi nos 3 axes de développement, l'un était l'exploitation de différents périphériques d'entrée/sortie. Il y a, en pratique, 3 périphériques de sortie que nous prévoyons d'utiliser au cours du projet : un écran de PC classique, un casque de réalité virtuel type Occulus Rift, et la salle immersive Immersia de l'IRISA.
+Parmi nos trois axes de développement, l'un était l'exploitation de différents périphériques d'entrée/sortie. Il y a, en pratique, trois périphériques de sortie que nous prévoyons d'utiliser au cours du projet : un écran de PC classique, un casque de réalité virtuel type Occulus Rift, et la salle immersive Immersia de l'IRISA.
 
 \subsubsection{Ecran}
-Il s'agit de la première version que nous allons développer. Cette version pourra reconnaître différents périphériques d'entrée, mais sera au départ prévue pour des interactions \textit{via} le couple clavier/souris. Grâce à MiddleVR, cette option n'est pas plus ou moins facile à implémenter que les autres, mais elle représente un bon point de départ car elle ne nécessite pas d'équipement particulier, le centre de Kerpape disposant déjà de machines qui pourront faire tourner le programme. \newline
+Il s'agit de la première version que nous allons développer. Cette version pourra reconnaître différents périphériques d'entrée, mais sera au départ prévue pour des interactions \textit{via} le couple clavier/souris. Cette option est un bon point de départ car elle ne nécessite pas d'équipement particulier et peut déjà être intégré avec MiddleVR. De plus, le centre de Kerpape disposant déjà de machines, il pourra faire tourner le programme directement. \newline
 
-De  plus, bien que cette approche soit moins \enquote{naturelle} que l'usage de dispositifs de réalité virtuelle comme ceux associés à la salle Immersia, elle est au final aisée de prise en main car il s'agit de matériel auquel la plupart des gens sont déjà habitués.
+Par ailleurs, bien que cette approche soit moins \enquote{naturelle} que l'usage de dispositifs de réalité virtuelle comme ceux associés à la salle Immersia, elle est au final aisée de prise en main car il s'agit de matériel auquel la plupart des gens sont déjà habitués.
 
 \subsubsection{Casque de RV}
-La première approche présentée, bien qu'étant la plus facile d'implantation, n'implique pas suffisament la notion de réalité virtuelle, actuellement à l'étude par le centre de Kerpape, qui souhaiterait savoir si la réalité virtuelle est adaptée à la préparation de ses patients à l’utilisation des appartements tremplins. 
+La première approche présentée, bien qu'étant la plus facile d’implémentation, n'implique pas suffisamment la notion de réalité virtuelle. Actuellement à l'étude par le centre de Kerpape, il souhaiterait savoir si la réalité virtuelle, avec un casque, est adaptée à la préparation de ses patients à l’utilisation des appartements tremplins. 
 En effet, un dispositif comme un casque de réalité virtuelle permet une meilleure immersion de l'utilisateur et permet de mieux gérer les différents types de handicaps : moins d'infrastructure à mettre en place, le patient n'a pas à se déplacer car l'ergothérapeute vient à lui, pas de risque de se blesser...
-Et bien sûr la possibilité d'avoir plusieurs patients qui apprennent en même temps, chose impossible à l'heure actuelle (car un seul appartement est libre à la fois. 
 
-Qui plus est, elle se marie avantageusement avec l'usage de dispositifs comme des manettes pour Nintendo Wii ou des Razer Hydra qui sont eux-mêmes plus immersifs que le classique clavier/souris, car ils permettent de retranscrire les mouvements réels que l'utilisateur fera avec ses mains. \newline
+Qui plus est, les casques de réalité virtuelle se marient bien avec l'usage de dispositifs comme des manettes pour Nintendo Wii ou des Razer Hydra qui sont eux-mêmes plus immersifs que le classique clavier/souris, car ils permettent de retranscrire les mouvements réels que l'utilisateur fera avec ses mains. \newline
 \begin{wrapfigure}{r}{0mm}
   \centering
   \includegraphics[scale=0.3]{2-Specifications/img-utilisateur/occulus.jpg}
 	\caption{Casque de réalité virtuelle : Occulus Rift}
 	\label{occulus_reparo}
 \end{wrapfigure}
-Lors de notre visite au centre de Kerpape nous avons fait essayer une démonstration de l'Occulus Rift (fig. \ref{occulus_reparo}) à Willy Allègre et Jean-Paul Departe, qui ont été plutôt convaincus de l'intérêt du dispositif. 
-Les périphériques de ce type étant en pleine démocratisation, ils sont donc particulièrement intéressant financièrement pour un centre tel que Kerpape, car ne représentant qu'une fraction infime du prix d'un nouvel appartement témoins.
+Lors de notre visite au centre de Kerpape nous avons effectué une démonstration de l'Occulus Rift (fig. \ref{occulus_reparo}) à Willy Allègre et Jean-Paul Departe, qui ont été plutôt convaincus de l'intérêt du dispositif. 
+Les périphériques de ce type étant en pleine démocratisation, ils sont particulièrement intéressants financièrement pour un centre tel que Kerpape, car ils ne représentent qu'une fraction infime du prix d'un nouvel appartement témoins.
 
 \subsubsection{Salle immersive}
-La salle immersive (fig. \ref{immersiaaaaaaaa}) représente l'équipement de RV le plus complet dont nous puissions profiter et est donc une perspective de plate-forme très intéressante pour notre application.
+La salle immersive (fig. \ref{immersiaaaaaaaa}) représente l'équipement de RV le plus complet auquel nous avons accès et est une perspective de plate-forme très intéressante pour notre application.
 %\begin{wrapfigure}{l}{0mm}
 	%\centering
 	%\includegraphics[scale=0.5]{2-Specifications/img-utilisateur/immersia.jpg}
 	%\caption{Salle Immersia : plus grande salle de RV du monde}
 	%\label{immersiaaaaaaaa}
 %\end{wrapfigure}
-C'est l'option qui nous permettra les interactions les plus naturelles, car l'utilisateur se trouvera dans une projection à l'échelle 1:1 de l'appartement, équipé de lunettes 3D et de capteurs qui permettent de suivre la position des mains de l'utilisateur. \newline
-L'utilisation d'une plateforme de ce type permet d'éviter les quelques risques liée à l'utilisation de périphériques portés par l'utilisateur : leur poids, gênant pour les patients à handicap moteur, ou la perte de repères de son propre corps (pas de vision de ses membres).
-Bien que Kerpape n'en dipose pas et n'ait pas la possibilité d'en utiliser une, l'implémentation du projet Avalon dans une salle immersive reste un objectif que nous souhaitons réaliser, car cela représente une évolution logique du projet.
+C'est l'option qui nous permettra les interactions les plus naturelles, car l'utilisateur se trouvera dans une projection à l'échelle 1:1 de l'appartement, équipé de lunettes 3D et de capteurs qui permettent de suivre la position de ses mains. \newline
+L'utilisation d'une plate-forme de ce type permet d'éviter les risques liés à l'utilisation de périphériques portés par l'utilisateur : leur poids, gênant pour les patients à handicap moteur, ou la perte de repères de son propre corps (pas de vision de ses membres).
+Bien que Kerpape n'en dispose pas et n'ait pas la possibilité d'en utiliser une, l'implémentation du projet Avalon dans une salle immersive reste un objectif que nous souhaitons réaliser, car cela représente une évolution logique du projet.
 L'utilisation d'une salle de ce type permet de laisser le projet ouvert à d'autres utilisations dans le domaine de la rééducation fonctionnelle et de le valoriser grâce à la visibilité d'Immersia.
