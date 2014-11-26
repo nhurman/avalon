@@ -4,6 +4,23 @@ Le logiciel destiné au milieu médical, doit tout d'abord être en mesure de r�
 \newline
 Nous verrons dans une première partie les différents modes de navigation possibles, puis comment l'utilisateur peut selectionner et déplacer les objets présents dans la scène en fonction du mode d'apprentissage, et enfin toute la partie de gestion des options du logiciel pour le thérapeute.
 
+
+\subsection{Scénarios d'utilisation}
+Le cahier des charges qui nous a été fourni par le centre de Kerpape prévoit l'implémentation de différents scénarios d'utilisation centrés sur l'usage du domophone et que nous avons détaillés dans le premier rapport :
+\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
+\item Appel téléphonique normal
+\item Appel \textit{via} l'interphone d'une personne venant fréquemment (un infirmier par exemple)
+\item Appel \textit{via} l'interphone concernant une visite inattendue
+\end{itemize}
+Ces scénarios mettent en avant l'usage particulier qui peut être fait du téléphone et de la télévision (cf. \textsc{figure~\ref{domophone}}), car ceux-ci servent d'interphone, respectivement pour le son et l'image. Il faut donc que le téléphone, dans notre application, puisse recevoir des appels des deux types différents, mais aussi que la TV puisse recevoir le flux vidéo de l'interphone (en pratique dans les appartements tremplins, l'habitant doit se placer sur le canal 80 pour afficher la caméra de l'interphone).
+\begin{figure}[h!]
+	\begin{center}
+  		\caption{Cas d'utilisation du domophone}
+  		\label{domophone}
+  		\includegraphics[width=\textwidth]{2-Specifications/img-utilisateur/use_case_diag.PNG}
+  	\end{center}
+\end{figure}
+
 \subsection{Navigation}
 Nous avons envisagé différents types de navigation au sein de l’environnement 3D, qui amèneront l’utilisateur à s’immerger et à interagir différemment avec la scène en fonction des périphériques utilisés.
 
