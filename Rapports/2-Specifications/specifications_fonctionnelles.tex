@@ -7,7 +7,7 @@ Nous verrons dans une première partie les différents modes de navigation possi
 
 \subsection{Scénarios d'utilisation}
 Le cahier des charges qui nous a été fourni par le centre de Kerpape prévoit l'implémentation de différents scénarios d'utilisation centrés sur l'usage du domophone et que nous avons détaillé dans le premier rapport :
-\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
 \item Appel téléphonique normal ;
 \item Appel \textit{via} l'interphone d'une personne venant fréquemment (un infirmier par exemple) ;
 \item Appel \textit{via} l'interphone concernant une visite inattendue.
@@ -30,11 +30,11 @@ Avec un type de vue exocentré, l'utilisateur contrôle un avatar à la 3\up{èm
 \textbf{Interface Souris - Clavier : }
 L'utilisateur déplace son personnage à l'aide des touches du clavier. Il peut orienter la caméra l'aide de la souris. Pour entrer en interaction avec un objet il lui suffit de pointer l'objet avec la caméra et d'utiliser le clic gauche de la souris. L'orsqu'un objet est pointé il se met en légère surbrillance.
 Dans cette interface on définit les boutons suivants :
-	\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
-  				\item bouton d'action : clic gauche de la souris
-				 \item bouton de retour : touche {\em escape} du clavier
-  				\item  bouton 2\up{ème} action : clic droit de la souris
-			\end{itemize}
+\begin{itemize}
+	\item bouton d'action : clic gauche de la souris
+	\item bouton de retour : touche {\em escape} du clavier
+	\item  bouton 2\up{ème} action : clic droit de la souris
+\end{itemize}
 Le thérapeute pourra modifier ces réglages s'il souhaite faire interagir l'utilisateur avec des boutons différents.
 \newline
 
@@ -139,8 +139,6 @@ Les figures \ref{fig:MaquetteAutonome} et \ref{fig:CasUsageAutonome} reprennent 
 \end{figure}
 \FloatBarrier
 
-
-
 \subsection{Manipulation}
 Dans l'appartement, l'utilisateur est amené à manipuler différents types d'objets : un interphone, des interrupteurs et une télécommande.
 
@@ -154,6 +152,8 @@ L'utilisateur s'approche de l'interrupteur, et l'actionne grâce à l'appui sur 
 Si l'utilisateur n'a pas encore pris la télécommande il peut aller la chercher dans l'environnement. Une fois qu'elle est sélectionnée, il peut l'utiliser grâce au pointeur de la souris ou de la WiiMote et à l'appui sur le bouton d'action. A tout moment, il peut la reposer grâce au bouton de retour. Ses actions terminées, il peut la reposer ou la garder avec lui en appuyant sur le bouton de deuxième action.
 
 \subsection{Contrôle d'application}
+Notre application sera utilisé par deux types d'utilisateurs : les patients et les thérapeutes. Il faut limiter l'accès aux fonctionnalités du logiciel suivant ce type.
+
 \subsubsection{Administrateur}
 Pour le contrôle de l'application, le thérapeute sera considéré comme administrateur de l'application. Il a accès à
 tous les paramètres de configurations et choisir les différents modes (scénarios,didacticiels,déplacement libre) pour l'Utilisateur.
@@ -178,29 +178,6 @@ Lorsque les configurations de base ont été effectuées, le thérapeute peut al
 \caption{\label{fig:CasUsageMenu} Diagramme de cas d'usage : Menu principal et configurations environnement }
 \end{figure}
 \FloatBarrier
-
-\subsubsection{Salle immersive}
-
-Il ne faut pas hésiter à dire que c'est un projet important avec un réel enjeu.
-Il a plusieurs raisons à utiliser des plateformes telles que Immersia et µRV : la solution du casque est exploratoire pour Kerpape,
-mais on sait déjà qu'elle présente quelques risques  : équipement assez lourd qui peut poser problème pour les patients, perte des repères de son propre corps (on ne voit plus ses mains)…
-Les plateformes de RV Immersia, minImmersia et µRV permettent d'évaluer des formes d'interaction plus naturelles.
-D'autre part, le fait d'être capable d'utiliser différents types de plateformes permettra de laisser le projet ouvert par la suite à d'autres utilisations dans le domaine de la rééducation fonctionnelle.
-Enfin, ces plateformes sont des vitrines du département info et du labo, elles permettront donc de donner plus de visibilité à ce projet très important.
-
-
-La salle immersive (fig. \ref{immersiaaaaaaaa}) représente l'équipement de RV le plus complet dont nous puissions profiter et est donc une perspective de plate-forme très intéressante pour notre application.
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.5]{2-Specifications/img-utilisateur/immersia.jpg}
-	\caption{Salle Immersia : plus grande salle de RV du monde}
-	\label{immersiaaaaaaaa}
-\end{figure}
-C'est l'option qui nous permettra les interactions les plus naturelles, car l'utilisateur se trouvera dans une projection à l'échelle 1:1 de l'appartement, équipé de lunettes 3D et de capteurs qui permettent de suivre la position des mains de l'utilisateur.
-
-L'utilisation d'une plateforme de ce type permet d'éviter les quelques risques liés à l'utilisation de périphériques portés par l'utilisateur.
-Bien que Kerpape n'en dipose pas et n'ait pas la possibilité d'en utiliser une, l'implémentation du projet Avalon dans une salle immersive reste donc un objectif que nous souhaitons réaliser.
-
 
 \subsubsection{Utilisateur}
 Finalement, l'utilisateur n'a accès qu'à la scène. Il peut ainsi interagir avec les objets en fonction du scénario et du mode d'apprentissage. Il n'a pas à se soucier des configurations. En parallèle le thérapeute peut vérifier si les actions sont effectuées comme prévu et réajuster le mode d'apprentissage ou changer de type de vue si nécessaire.
