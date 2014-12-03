@@ -29,3 +29,5 @@ sysinfo.txt
 *.out
 Thumbs.db
 Rapports/2-Specifications.synctex.gz(busy)
+*.fdb_latexmk
+*.fls
