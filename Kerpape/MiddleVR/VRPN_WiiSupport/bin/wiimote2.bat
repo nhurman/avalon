@@ -1,0 +1,1 @@
+vrpn_print_devices.exe WiiMote2@localhost

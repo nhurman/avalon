@@ -1,0 +1,1 @@
+vrpn_server.exe -f "I:\\VRPN_WiiSupport\\bin\\vrpn_minimersia.cfg" -millisleep  0
