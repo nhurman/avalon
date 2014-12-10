@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: carrelage_sol
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 2, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -20,9 +20,16 @@ Material:
           m_Texture: {fileID: 2800000, guid: 0cf7140dd2e3ff54fa37cff7ce2a8086, type: 3}
           m_Scale: {x: 17, y: 14}
           m_Offset: {x: -8, y: -6.5}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: b5706b287080db8469fe4a98ded9da72, type: 3}
+          m_Scale: {x: 17, y: 14}
+          m_Offset: {x: -8, y: -6.5}
     m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .588, g: .588, b: .588, a: 1}
+        second: {r: .727941155, g: .727941155, b: .727941155, a: 1}
