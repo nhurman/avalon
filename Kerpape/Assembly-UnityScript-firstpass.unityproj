@@ -52,11 +52,11 @@
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
- <Reference Include="MiddleVR_dotNet">
- <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
- </Reference>
  <Reference Include="MiddleVR_Unity3D">
  <HintPath>Assets\MiddleVR\MiddleVR_Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="MiddleVR_dotNet">
+ <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

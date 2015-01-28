@@ -78,11 +78,11 @@
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerMapping.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerSimulation.cs" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
- <Reference Include="MiddleVR_dotNet">
- <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
- </Reference>
  <Reference Include="MiddleVR_Unity3D">
  <HintPath>Assets\MiddleVR\MiddleVR_Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="MiddleVR_dotNet">
+ <HintPath>Assets\MiddleVR\MiddleVR_dotNet.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
