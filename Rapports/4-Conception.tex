@@ -1,0 +1,87 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{exptech}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[babel=true]{csquotes}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{titletoc}
+
+%\titlecontents{subsection}[3.8em]{}{}{}{}[\addvspace{-0.5pt}]
+\hypersetup{
+  pdftitle={Avalon - Rapport de planification}, % title
+  pdfnewwindow=true, % links in new window
+  colorlinks=true, % false: boxed links; true: colored links
+  linkcolor=black, % color of internal links (change box color with linkbordercolor)
+  citecolor=cyan, % color of links to bibliography
+  filecolor=cyan, % color of file links
+  urlcolor=cyan % color of external links
+}
+
+\title{
+  \textbf{Avalon}\\
+  Rapport de planification
+}
+\markright{Avalon - Rapport de conception }
+\author{
+\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+		\emph{Auteurs :}\\
+		Alexandre \textsc{Audinot}\\
+		Julien \textsc{Bouvet}\\
+		Thierry \textsc{Gaugry}\\
+		Nicolas \textsc{Hurman}\\
+		Alexandre \textsc{Leonardi}\\
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\begin{flushright} \large
+		\emph{Encadrants :} \\
+		Valérie \textsc{Gouranton}\\
+		Ronan \textsc{Gaugne}\\
+		Bruno \textsc{Arnaldi}\\
+		Willy \textsc{Allègre}\\
+		Jean-Paul  \textsc{Departe}\\
+	\end{flushright}
+\end{minipage}
+}
+
+\date{17 Décembre 2014}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{figure}[h!]
+   \begin{minipage}{0.3\linewidth}
+      \includegraphics[scale=0.9]{3-Planification/img/logo_insa.jpeg}
+   \end{minipage} 
+   \begin{minipage}{0.2\linewidth}
+      \centering
+      \includegraphics[scale=0.5,left]{3-Planification/img/logo_irisa.jpg}
+   \end{minipage}\hfill
+   \begin{minipage}{0.2\linewidth}
+      \includegraphics[scale=0.9]{3-Planification/img/logo_kerpape.png}
+   \end{minipage}
+\end{figure}
+
+\newpage
+\tableofcontents
+\pagebreak
+
+\input{3-Planification/intro.tex}
+\pagebreak
+\input{3-Planification/contexte.tex}
+\pagebreak
+\input{3-Planification/organisation.tex}
+\pagebreak
+\input{3-Planification/microsoft_project.tex}
+\pagebreak
+\input{3-Planification/risques.tex}
+\pagebreak
+\input{3-Planification/conclusion.tex}
+
+\end{document}

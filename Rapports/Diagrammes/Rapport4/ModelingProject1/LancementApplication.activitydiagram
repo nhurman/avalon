@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="374335ca-0507-4300-8faa-f4b848bc6c66" name="Activity1" linkedPackageId="f4e35a56-7811-48b1-888b-03939777cf55" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="8e7d59d6-9cba-4479-8d39-a0e42e2b5910">
+      <profileInstance Id="715a04db-d04d-4dea-bf22-b34163b1579e" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0a6d694c-a0d9-4f9c-a4f6-01ef21373c4c">
+      <profileInstance Id="53a43aad-4c45-446c-b051-c14097ae3a67" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="3f6ce08f-f61a-45ea-820c-43f0748acec4" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="6bb0d5a3-bc7a-475f-ae67-a9ff38bfdc65" />
+        <nodes>
+          <decisionNode Id="fb8857b7-474e-49dc-813c-1d1a3adbb106" name="Decision1" isLeaf="false">
+            <elementDefinition Id="e6648e09-37c3-4a01-911f-067f8734a4de" />
+            <flowNodeTargets>
+              <controlFlow Id="e101f889-167d-4b88-ae93-21ffe010a612" isLeaf="false">
+                <opaqueActionMoniker Id="0f744002-17f8-4221-967e-2fab27fa62d8" LastKnownName="Mode apprentissage" />
+                <elementDefinition Id="6a3cc789-abd7-42fe-a114-25a437fe087d" />
+              </controlFlow>
+              <controlFlow Id="6c3cab9c-c89c-45a4-ba28-3f41c6682cb8" isLeaf="false">
+                <opaqueActionMoniker Id="089f7efa-1b00-4b77-bb62-1b8466e5a3a4" LastKnownName="Mode autonome" />
+                <elementDefinition Id="32330031-e383-4bd1-ac53-f3c1170f738d" />
+              </controlFlow>
+              <controlFlow Id="d80df5ee-1699-4b13-8898-437681383f69" isLeaf="false">
+                <opaqueActionMoniker Id="082fa202-f7b7-4261-9d6f-9c8b2fcf1607" LastKnownName="Mode symbolique" />
+                <elementDefinition Id="eaad35d2-2f0c-4409-8fc6-481cfcdaa267" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="0f744002-17f8-4221-967e-2fab27fa62d8" name="Mode apprentissage" isLeaf="false">
+            <elementDefinition Id="6fba43b1-b0bb-41c8-8ce1-364489c490ea" />
+            <flowNodeTargets>
+              <controlFlow Id="2f72b3cb-8c5f-4e28-ae33-4b1b955b6f8f" isLeaf="false">
+                <opaqueActionMoniker Id="01cbb532-741b-44e7-899b-9ca542927361" LastKnownName="Choix du scénario" />
+                <elementDefinition Id="100c3feb-1bd9-4b1a-9ee7-02d208ad941c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="089f7efa-1b00-4b77-bb62-1b8466e5a3a4" name="Mode autonome" isLeaf="false">
+            <elementDefinition Id="25e702c8-2223-4ffe-bc8b-d81cdb8df31e" />
+            <flowNodeTargets>
+              <controlFlow Id="b286a88b-c821-4ed4-a62e-9cb5c617cf90" isLeaf="false">
+                <opaqueActionMoniker Id="01cbb532-741b-44e7-899b-9ca542927361" LastKnownName="Choix du scénario" />
+                <elementDefinition Id="c55195bb-aa68-45c7-af01-3ede64b078fd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="082fa202-f7b7-4261-9d6f-9c8b2fcf1607" name="Mode symbolique" isLeaf="false">
+            <elementDefinition Id="a85b1bf7-1718-4a58-979c-60ad9c72c21f" />
+            <flowNodeTargets>
+              <controlFlow Id="ffd6ca68-40e9-426a-9106-de8e0d7885bd" isLeaf="false">
+                <opaqueActionMoniker Id="01cbb532-741b-44e7-899b-9ca542927361" LastKnownName="Choix du scénario" />
+                <elementDefinition Id="de9be550-9cce-49a0-b076-89939c4f5961" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="79b73a97-c552-4ed4-a64e-0441a2edff21" name="Decision11" isLeaf="false">
+            <elementDefinition Id="4052d8f6-9839-4af3-a04c-a52c8f352f23" />
+            <flowNodeTargets>
+              <controlFlow Id="98815746-f1f2-4550-acc8-2987c457d5cb" isLeaf="false">
+                <opaqueActionMoniker Id="83009ca4-4bc8-4b49-85aa-147c7dca5cdd" LastKnownName="Visite d'un inconnu" />
+                <elementDefinition Id="3875d377-00ba-462d-9025-b206d3e2371f" />
+              </controlFlow>
+              <controlFlow Id="98b39325-02cf-43ce-a974-1d70d3fd83bb" isLeaf="false">
+                <opaqueActionMoniker Id="4ea2ada7-8d6f-4c79-ba81-c28c553c45f2" LastKnownName="Visite d'un infirmier" />
+                <elementDefinition Id="cafcbcf1-8d00-4275-bf4a-0c1d604ba3c0" />
+              </controlFlow>
+              <controlFlow Id="350ee621-ec03-47a5-9f88-e7fe0b32ba21" isLeaf="false">
+                <opaqueActionMoniker Id="d295407a-57a3-4c4a-8d84-c814fe6a0050" LastKnownName="Aucun scénario" />
+                <elementDefinition Id="f9296837-9769-4c3c-9588-fda501004295" />
+              </controlFlow>
+              <controlFlow Id="4ac9d7d7-7c47-4e00-831e-5e25b2c373e3" isLeaf="false">
+                <opaqueActionMoniker Id="8e41e02e-8984-4d04-b854-47e35e3f8ae3" LastKnownName="Appel téléphonique" />
+                <elementDefinition Id="4815e343-7bae-4a9d-b97b-168dd823911f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="83009ca4-4bc8-4b49-85aa-147c7dca5cdd" name="Visite d'un inconnu" isLeaf="false">
+            <elementDefinition Id="2330eaaf-89e9-4b10-8427-58d56c9f75b3" />
+          </opaqueAction>
+          <opaqueAction Id="4ea2ada7-8d6f-4c79-ba81-c28c553c45f2" name="Visite d'un infirmier" isLeaf="false">
+            <elementDefinition Id="48b39f63-fb5f-49d6-954d-d1d84976ced1" />
+          </opaqueAction>
+          <opaqueAction Id="d295407a-57a3-4c4a-8d84-c814fe6a0050" name="Aucun scénario" isLeaf="false">
+            <elementDefinition Id="cb0c9c4e-7b41-401a-a17d-ca276f879b6c" />
+          </opaqueAction>
+          <opaqueAction Id="01cbb532-741b-44e7-899b-9ca542927361" name="Choix du scénario" isLeaf="false">
+            <elementDefinition Id="dd00e877-dd0d-4a63-ac22-abfb3c362029" />
+            <flowNodeTargets>
+              <controlFlow Id="b4c12141-644c-4b50-bc6e-21817f3a3913" isLeaf="false">
+                <decisionNodeMoniker Id="79b73a97-c552-4ed4-a64e-0441a2edff21" LastKnownName="Decision11" />
+                <elementDefinition Id="fb35e754-4b41-44c7-9e55-8815bb399cf0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="41c4cf12-6e83-43b2-a5e9-c54c347a123b" name="Choix du mode" isLeaf="false">
+            <elementDefinition Id="7e39dbd6-6796-4d53-a2c6-400e12c331a7" />
+            <flowNodeTargets>
+              <controlFlow Id="b0af10ee-3332-4e21-9624-0ff45b13d93d" isLeaf="false">
+                <decisionNodeMoniker Id="fb8857b7-474e-49dc-813c-1d1a3adbb106" LastKnownName="Decision1" />
+                <elementDefinition Id="ecf3c32f-da9f-4e9c-bc45-a1f41bf53e21" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="8e41e02e-8984-4d04-b854-47e35e3f8ae3" name="Appel téléphonique" isLeaf="false">
+            <elementDefinition Id="36d5e8d5-10d2-4338-b526-6fe242c0779d" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="f4e35a56-7811-48b1-888b-03939777cf55" name="ModelingProject1">
+    <elementDefinition Id="73a0d3e7-0da0-4d00-8bef-7022b82f9c3a" />
+  </package>
+</activityRootModel>
