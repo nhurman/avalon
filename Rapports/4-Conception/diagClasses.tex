@@ -3,14 +3,16 @@
 Sur le diagramme, une classe UI_Menu est présente; la dernière version de MiddleVR rajoute des classes d'interfaces adaptées à la 3D.
 Cette version étant disponible seulement depuis la semaine précédente, nous n'avons pas eu l'occasion d'étudier l'architecture proposée pour cette partie.
 Dans le cas où nous ne pourrions intégrer ces fonctionnalités, nous utiliserons une manière plus basique pour l'affichage, telle que des textures appliqués sur des plans.
-
-Bon nombre de classes comme \textit{VariableLight}, \textit{Shutter} ou \textit{Table} ne disposent pas de variable numérique modélisant leur état courant.
-Il faut prendre en compte que ce sont des scripts associé un objet 3D. La valeur actuelle (de hauteur dans le cas de la table par exemple) correspond à une ou plusieurs caractéristiques graphiques de l'objet.
-Le script inclu une valeur minimale et maximale pour la valeur contrainte, ainsi qu'un pas de déplacement.
+ 
+On distingue deux types d'éléments sur lesquels ont peut interragir : Ceux avec un état allumé/éteins, et ceux avec un état variable, comme la table et sa hauteur.
+Tout les cas simples seront gérés par des ToggleElement. Les différences entre chaques sous classes se résument à des détails de l'objets.
+Une lumière allumé ou éteinte n'est pas géré de la même manière que la hauteur d'un volet.
+La classe VariableElement permet de gérer les GameObjects avec une valeur interne; il est possible de d'augmenter les variables de manière incrémentale ou de fixer une valeur directement.
+Cette classe inclu une valeur minimale et maximale pour la valeur contrainte, ainsi qu'un pas de déplacement.
 Ce pas permet de régler le changement de valeur à chaque clic; par exemple, on choisira 1cm dans le cas de la table, pour que le déplacement soit cohérent avec la réalité.
- 
- 
- On distingue deux types d'éléments sur lesquels ont peut interragir : Ceux avec un état allumé/éteins, et ceux avec un état variable, comme la table et sa hauteur.
- La classe VariableElement permet de gérer les GameObjects avec une valeur interne; il est possible de d'augmenter les variables de manière incrémentale ou de fixer une valeur directement
- .
- 
+
+Toutes ces classes, comme \textit{VariableLight}, \textit{Shutter} ou \textit{Table},  ne disposent pas de variable numérique modélisant leur état courant. 
+Il faut prendre en compte que ce sont des scripts associé un objet 3D. 
+La valeur actuelle (de hauteur dans le cas de la table par exemple) correspond à une ou plusieurs caractéristiques graphiques de l'objet.
+On accède donc à ces valeurs via le GameObject, et non via l'instance du script. 
+Il est cependant possible de retrouver un GameObject par le biais de l'instance du script.
