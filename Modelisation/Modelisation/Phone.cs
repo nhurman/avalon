@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class Phone : Element
+    public class PhoneNumber : VariableElement
     {
     }
 }

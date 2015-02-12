@@ -9,6 +9,13 @@ Sur le diagramme, une classe UI_Menu est présente. Elle représente les classes
 Nous utiliserons de préférence les classes rajoutées par la dernière version de MiddleVR (1.6.0), car ardaptées à la 3D et à la réalité virtuelle.
 Cette version étant disponible seulement depuis la semaine précédente, nous n'avons pas eu l'occasion d'étudier l'architecture proposée pour cette partie.
 Dans le cas où nous ne pourrions intégrer ces fonctionnalités, nous utiliserons une manière plus basique pour l'affichage, telle que des textures appliqués sur des plans.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/diagClasses.png}
+    \caption{Diagramme de classes}
+    \label{fig:class_diagram}
+\end{figure}
  
 On distingue deux types d'éléments sur lesquels ont peut interragir : Ceux avec un état allumé/éteins, et ceux avec un état variable, comme la table et sa hauteur.
 Tout les cas simples seront gérés par des ToggleElement. Les différences entre chaques sous classes se résument à des détails de l'objets.
@@ -24,4 +31,5 @@ Il faut prendre en compte que ce sont des scripts associé un objet 3D.
 La valeur actuelle (de hauteur dans le cas de la table par exemple) correspond à une ou plusieurs caractéristiques graphiques de l'objet.
 
 La classe GameManager s'apparente dans l'utilisation à un singleton, bien que n'en étant pas un. 
-Pour toutes les informations et les fonctionnalités non liées à un objet en particulier (souvent encapsulé dans un singleton dans un contexte objet), les developpeurs unity préconisent de créer un script associé à un GameObject n'ayant pas d'éléments graphiques et ne contenant pas d'autres GameObject
+Pour toutes les informations et les fonctionnalités non liées à un objet en particulier (souvent encapsulé dans un singleton dans un contexte objet), les developpeurs unity préconisent d'associer des scripts à un GameObject n'ayant pas d'éléments graphiques et ne contenant pas d'autres GameObject.
+L'accès à ces éléments se fait via le nom du GameObject les contenant, ou via des tags référençant l'élément.
