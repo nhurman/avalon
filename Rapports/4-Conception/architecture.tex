@@ -1,19 +1,19 @@
 \section{Architecture logicielle}
-Pour ce projet, plusieurs logiciels nous ont été imposé
+Pour ce projet, plusieurs logiciels nous ont Ã©tÃ© imposÃ©
 
 \subsection{Unity}
-Unity est un moteur de jeu et environnement de développement. Bien que Unity donne la possibilité d'insérer des scripts pour gérer les objets plus en profondeur, il permet avant tout de créer une scène 3d. L'utilisateur peut se deplacer à l'interieur, en ayant des interactions avec l'environnement. Unity gère un certain nombre d'éléments, dont :
+Unity est un moteur de jeu et environnement de dÃ©veloppement. Bien que Unity donne la possibilitÃ© d'insÃ©rer des scripts pour gÃ©rer les objets plus en profondeur, il permet avant tout de crÃ©er une scÃ¨ne 3d. L'utilisateur peut se deplacer Ã  l'interieur, en ayant des interactions avec l'environnement. Unity gÃ¨re un certain nombre d'Ã©lÃ©ments, dont :
 \begin{itemize}
-        \item les colliders : représente les collisions engendrées par l'objet
+        \item les colliders : reprÃ©sente les collisions engendrÃ©es par l'objet
         \item les meshs renderer
         \item -
 \end{itemize}
 
 
 \subsection{MiddleVR}
-MiddleVR est un plugin Unity utilisé pour s'abstraire des périphériques d'entrée/sortie. Il permet de créer un fichier de configuration contenant les informations sur les différents périphériques dont se servira l'application. Pour cela, MiddleVR possède sa propre interface et il n'est pas nécessaire d'écrire du code.
-Pour récupérer les valeurs des périphériques dans Unity, on utilise le VRManager
+MiddleVR est un plugin Unity utilisÃ© pour s'abstraire des pÃ©riphÃ©riques d'entrÃ©e/sortie. Il permet de crÃ©er un fichier de configuration contenant les informations sur les diffÃ©rents pÃ©riphÃ©riques dont se servira l'application. Pour cela, MiddleVR possÃ¨de sa propre interface et il n'est pas nÃ©cessaire d'Ã©crire du code.
+Pour rÃ©cupÃ©rer les valeurs des pÃ©riphÃ©riques dans Unity, on utilise le VRManager
 
 \subsection{Script C\#}
-Unity utilise des scripts en C\# pour réaliser des interactions plus poussées que de simples collisions. Ces scripts nous donne la possibilité d'allumer ou éteindre une lumière, ou déplacer un objet par exemple. Ils sont l'unique source de code que nous allons produire dans ce projet, il devront donc gérer les différents modes d'apprentissage, ainsi que les scénarios d'utilisation.
-Dans Unity, un script est attaché à un objet, il correspond à son comportement. Par exemple, un script attaché à un interrupteur va indiquer ce qu'il se passe lorsque le joueur appui sur cet interrupteur. Il va commander le changement d'état de l'interrupteur, le changement de lumière (si il commande la lumière d'une pièce) et éventuellement d'autres éléments selon le mode d'apprentissage.
+Unity utilise des scripts en C\# pour rÃ©aliser des interactions plus poussÃ©es que de simples collisions. Ces scripts nous donne la possibilitÃ© d'allumer ou Ã©teindre une lumiÃ¨re, ou dÃ©placer un objet par exemple. Ils sont l'unique source de code que nous allons produire dans ce projet, il devront donc gÃ©rer les diffÃ©rents modes d'apprentissage, ainsi que les scÃ©narios d'utilisation.
+Dans Unity, un script est attachÃ© Ã  un objet, il correspond Ã  son comportement. Par exemple, un script attachÃ© Ã  un interrupteur va indiquer ce qu'il se passe lorsque le joueur appui sur cet interrupteur. Il va commander le changement d'Ã©tat de l'interrupteur, le changement de lumiÃ¨re (si il commande la lumiÃ¨re d'une piÃ¨ce) et Ã©ventuellement d'autres Ã©lÃ©ments selon le mode d'apprentissage.
