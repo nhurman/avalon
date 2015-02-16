@@ -1,0 +1,17 @@
+Pour notre projet, nous n'allons pas utiliser une approche orientée objet classique, avec une modélisation UML totale des classes et de leurs interactions : travaillant avec Unity, nous devons adopter son paradigme de développement qui est basé sur de la programmation par composants.
+
+Dans un modèle de programmation par composants, le but est de séparer au maximum chaque entité (composant) pour que son couplage avec les autres composants soit le plus faible possible. Les composants communiquent entre eux à l'aide d'interfaces simplifiées. Ils peuvent émettre et s'abonner à des évènements, tout comme les objets classiques, la différence étant que c'est leur principal mode d'interaction.
+
+Un composant regroupe un ensemble de fonctionnalités proches, un peu comme un namespace pourrait le faire. Là où une approche simplement orientée objet se base sur des actions (équivalent de verbes en français), suivant le modèle \enquote{cible.action()}, la programmation orientée composants découpe le logiciel en une multitude de briques logicielles qui sont des boîtes noires pour le reste du projet. Il est tout à fait possible de développer des composants avec une méthode de programmation orientée objet, la contrainte étant que chaque composant soit totalement indépendant.
+
+Dans le cas d'Unity qui est le nôtre, nous partons du graphe de scène qui contient un ensemble de \enquote{Game objects}. Ces game objects correspondent à des éléments de la vue 3D, comme une porte ou un interrupteur. C'est l'entité de base de Unity, il n'en existe pas de plus bas niveau. Chaque game object se voit associé une liste de composants, comme des matériaux, des lumières, des maillages, des animations... La famille de composants qui nous intéresse ici est celle \enquote{Script}.
+
+Les composants \enquote{Script}, dans notre cas, sont des classes écrites en C\# qui étendent MonoBehaviour pour apporter une dimension dynamique supplémentaire aux objets ; un objet peut se voir associer plusieurs scripts. On pourrait par exemple imaginer un script qui permet de lever ou de baisser les volets, et un autre permettant de mettre en valeur l'objet activé en changeant la couleur de son matériau. Ces deux scripts peuvent être attachés à chaque volet de l'appartement, tandis que le second peut être réutilisé tel quel pour la télévision, une porte ou tout autre objet.
+
+Chaque composant de type script peut redéfinir plusieurs méthodes pour effectuer ses actions. Il s'agit essentiellement de méthodes telles que \enquote{Update} qui sont appelées régulièrement, par exemple à chaque nouvelle image.
+
+Les variables publiques des scripts apparaissent dans Unity comme des propriétés, modifiables directement dans l'inspecteur. On peut notamment avoir un champ \enquote{public xxxx Cible}, et depuis l'interface graphique, sélectionner un objet de type xxxx pour le faire glisser dans cette propriété.
+
+Quand un script a besoin d'interagir avec d'autres objets que celui auquel il est attaché, il peut récupérer une référence vers un autre  object par la méthode précédente. Dans le cas où il ait besoin de le faire dynamiquement, il peut récupérer auprès du graphe de scène l'ensemble des objets auxquels sont attachés un script, ou bien un objet en particulier si celui-ci a été nommé ou taggé dans Unity.
+
+Dans la suite de ce rapport, nous nous concentrerons donc sur les interfaces des divers composants ainsi que leurs interactions plus que sur leur fonctionnement interne (qui est trivial pour la plupart d'entre eux).
