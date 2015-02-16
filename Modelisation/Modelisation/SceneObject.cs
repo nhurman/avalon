@@ -22,10 +22,5 @@ namespace Modelisation
         {
             throw new System.NotImplementedException();
         }
-
-        public void Method()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

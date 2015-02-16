@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="1aede1b5-1725-499d-a260-1518a6e5f601" name="Déroulement d'une interaction" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="82f3e795-df45-4c8b-8fd5-4f300a48a68c" name="Déroulement d'une interaction" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <ownedCommentsInternal>
+          <comment Id="63fb3ca9-0c37-417d-ac94-4b3129a5a143">
+            <body>Classe associée à un bouton</body>
+            <annotatedElements>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </annotatedElements>
+          </comment>
+          <comment Id="61c810fe-6012-4ee3-a741-1c8f527d3282">
+            <body>Classe associée à une lumière basique</body>
+            <annotatedElements>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </annotatedElements>
+          </comment>
+          <comment Id="8f25e647-daa6-4429-a0e7-5d5266f9de84">
+            <body>Cette fonction permet de savoir si une action est permise ou non, ainsi que de réaliser des actions complémentaires si nécessaires.
+
+Cette fonction est appelée sur l'action ET par l'élément qui réagit,  pour gérer tout les cas possibles et être le plus flexible possible.</body>
+            <annotatedElements>
+              <behaviorExecutionSpecificationMoniker Id="74029edd-fea9-4153-9fd4-02bcabfe8a8e" LastKnownName="BehaviorExecutionSpecification" />
+              <behaviorExecutionSpecificationMoniker Id="9a40a54f-2aab-434c-b3a7-9cd9e1b35a7e" LastKnownName="BehaviorExecutionSpecification" />
+            </annotatedElements>
+          </comment>
+          <comment Id="259c77c9-1dde-4a3d-907e-6ed842812140">
+            <body>N'est pas une fonction à proprement parlée, car changement d'une valeur d'un GameObject Unity</body>
+            <annotatedElements>
+              <behaviorExecutionSpecificationMoniker Id="0bb8831f-c3a8-4638-ba88-2d3f99154d3b" LastKnownName="BehaviorExecutionSpecification" />
+            </annotatedElements>
+          </comment>
+          <comment Id="cc4c4f4d-4730-462d-b7f6-c7017469e015">
+            <body>Il s'agit d'un GameObject Unity, ce n'est donc pas une classe C# (présent ici à but informatif)</body>
+            <annotatedElements>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification Id="d5f43eb4-4fcf-4e41-92e8-a9ba689af290" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="cf1272bc-f1f3-4e0e-968f-1b91b574dfc2" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="b03120a0-4ae3-42af-8aef-fd39cb908423" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="76d4ee96-a291-4b15-8d8f-d9a14ebfca08" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="190eb867-71f3-49c0-9986-6945ee31f160" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="49983309-9335-44d8-9bdf-401aca9ba04b" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="3d098f2d-eb92-4201-a76c-def128304111" LastKnownName="OperandOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="dbda3cdf-3aeb-44d0-9271-6b3b7ce33bef" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="6e1234c8-4647-447d-a25e-8cbe40efd4b4" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="d607b581-d6d5-4041-a495-ab2abbb5b94e" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="2c82b76e-4a28-45a9-84a6-ea5c1df79883" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="6c463765-124b-4fac-a5cd-37604891ff76" LastKnownName="OperandOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="28a62192-f68c-48a7-a426-986db1f83406" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="b03120a0-4ae3-42af-8aef-fd39cb908423" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="af51e290-98a6-46dc-b97d-1fcf100377a4" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b4067ed7-e928-4a92-b5de-ec4e61eff553" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="b845eabe-acc0-4bf0-b6df-36e86518a0e2" LastKnownName="Utilisateur" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="76d4ee96-a291-4b15-8d8f-d9a14ebfca08" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="74029edd-fea9-4153-9fd4-02bcabfe8a8e" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="89a0bb4f-d2cf-4c21-a2c9-7924f5ddc325" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="f7d88574-00ae-4d06-9bf7-e314232a9398" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="119499a1-c02b-4768-9b7c-56d5b01934d1" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="a462cd40-b36f-44e8-877f-5df757b660d3" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="f7d88574-00ae-4d06-9bf7-e314232a9398" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="8fdf69e7-122d-48b9-a914-40030f2ad757" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="190eb867-71f3-49c0-9986-6945ee31f160" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="119499a1-c02b-4768-9b7c-56d5b01934d1" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a462cd40-b36f-44e8-877f-5df757b660d3" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="49983309-9335-44d8-9bdf-401aca9ba04b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="89a0bb4f-d2cf-4c21-a2c9-7924f5ddc325" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="7ff4e277-ecd5-424b-b5ca-5abac03e6dec" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <combinedFragment Id="2af34723-8d76-458e-b1c2-a2bad34e44a6" name="CombinedFragment1" interactionOperator="Alt" customInteractionOperator="Alt : Action autorisée">
+            <coveredLifelines>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand Id="a53ddfec-15d2-4b4b-8f11-5ca2087d95fe" name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+                  <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+                  <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+                  <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+                </coveredLifelines>
+                <fragments>
+                  <combinedFragment Id="71faa9b2-e6f7-4301-9132-cc089b77486a" name="CombinedFragment1" interactionOperator="Alt" customInteractionOperator="Alt : Réaction autorisée">
+                    <coveredLifelines>
+                      <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+                      <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+                    </coveredLifelines>
+                    <operands>
+                      <interactionOperand Id="1c359700-7a0f-4767-aefc-df4698857c89" name="InteractionOperand1">
+                        <coveredLifelines>
+                          <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+                          <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+                        </coveredLifelines>
+                        <guard>
+                          <interactionConstraint Id="3a9677d5-043d-4f44-b5e9-77173d44b21a" />
+                        </guard>
+                        <operandOccurrenceSpecifications>
+                          <operandOccurrenceSpecificationMoniker Id="65362291-fc05-4729-ab11-be77189d7d17" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="86a5ff3f-117b-4064-a059-1f476c62a48a" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="2fa39b0e-7b2b-4506-90fe-71bfa00b3dd9" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="748d5338-3cbc-4361-9c67-88710cd9616f" LastKnownName="OperandOccurrenceSpecification" />
+                        </operandOccurrenceSpecifications>
+                      </interactionOperand>
+                      <interactionOperand Id="896eab2b-67b2-4868-abf2-548bcbd034bb" name="InteractionOperand2">
+                        <coveredLifelines>
+                          <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+                          <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+                        </coveredLifelines>
+                        <guard>
+                          <interactionConstraint Id="55e8d381-7315-4c76-ae60-5d5046f97e44" />
+                        </guard>
+                        <operandOccurrenceSpecifications>
+                          <operandOccurrenceSpecificationMoniker Id="d164103a-0c5a-4aa7-ae42-8d854d53dd1a" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="e20d3687-40a7-48c5-89fa-c5a65b4bcf5a" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="c7275e42-b04d-419e-81bc-0829f9c7e90b" LastKnownName="OperandOccurrenceSpecification" />
+                          <operandOccurrenceSpecificationMoniker Id="33c2aa1a-5793-4b39-bb76-f528e0479b42" LastKnownName="OperandOccurrenceSpecification" />
+                        </operandOccurrenceSpecifications>
+                      </interactionOperand>
+                    </operands>
+                  </combinedFragment>
+                </fragments>
+                <guard>
+                  <interactionConstraint Id="8d21003c-1107-48ce-b960-8f115b05e7db" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker Id="cd76c29d-c2e4-4cc8-8e42-ff1bddef0174" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="f464037a-4850-4c43-8bd6-696dd9321711" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="3d098f2d-eb92-4201-a76c-def128304111" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="d607b581-d6d5-4041-a495-ab2abbb5b94e" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="b49250cc-51c0-440b-96d4-cceb1fac47ee" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="68c586a7-aefb-40cc-bf27-9311aa7a0c53" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="af67fc77-cf46-470c-8f0a-629633857875" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="edf0d59d-5e12-4942-87d5-95499f87838e" LastKnownName="OperandOccurrenceSpecification" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+              <interactionOperand Id="93d50284-230e-4fa3-b124-3cb1ba616759" name="InteractionOperand2">
+                <coveredLifelines>
+                  <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+                  <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+                  <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+                  <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint Id="6b004b9d-bc73-41f2-bbbd-40ab141a5589" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker Id="dfa901bf-85c4-4007-be66-f464f1b2a10b" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="3bfa3d4b-0492-4405-9a72-75b2cffe9c76" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="2c82b76e-4a28-45a9-84a6-ea5c1df79883" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="6c463765-124b-4fac-a5cd-37604891ff76" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="5591435f-2c13-4f73-8c6c-0993b57c3916" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="56dc167d-0b8b-4c62-9950-d8ccbd65927f" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="97eb91e4-36ec-4b24-b3b7-a990b906a30c" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="60e45d03-5a18-46f1-832f-d1bc8af8603d" LastKnownName="OperandOccurrenceSpecification" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification Id="cd76c29d-c2e4-4cc8-8e42-ff1bddef0174" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="af67fc77-cf46-470c-8f0a-629633857875" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b49250cc-51c0-440b-96d4-cceb1fac47ee" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="3d098f2d-eb92-4201-a76c-def128304111" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="5ffce4e6-b263-4a06-b6fb-a27eae9df2a5" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d9ab9ec5-fb16-4a1e-9b0e-5f59af6bcde0" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="c870e1aa-8c2e-423a-aaa6-c2da0c54f846" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="89105d7e-e7eb-41d9-8406-cf9b12ed8cfd" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="89143b42-ba3e-4c25-bb11-ade9103d3686" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="230d7c3b-2829-4657-9121-e91f0bda98e9" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="2fa39b0e-7b2b-4506-90fe-71bfa00b3dd9" LastKnownName="OperandOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="d9d401ac-fc83-455d-a255-90e22e6f8484" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="7246dcde-6e8f-4ead-8a2c-3762b87233eb" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="748d5338-3cbc-4361-9c67-88710cd9616f" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="c7275e42-b04d-419e-81bc-0829f9c7e90b" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="33c2aa1a-5793-4b39-bb76-f528e0479b42" LastKnownName="OperandOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="24cf506a-e8e7-42b5-8886-b3d8ae9a724b" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="c870e1aa-8c2e-423a-aaa6-c2da0c54f846" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="a78039ba-0f02-46b0-bced-f999a3e8f019" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="89105d7e-e7eb-41d9-8406-cf9b12ed8cfd" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="dbda3cdf-3aeb-44d0-9271-6b3b7ce33bef" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="9a40a54f-2aab-434c-b3a7-9cd9e1b35a7e" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="0c816054-94fe-4920-8b8c-4c9111804028" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="30ca27a1-0b06-4031-ab09-cf7a411ae88a" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="24670a37-5efc-4cd7-ad60-37955ff0ff21" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="6f988e85-694e-436e-a02a-0da39736b38f" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="30ca27a1-0b06-4031-ab09-cf7a411ae88a" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="d1406e6c-5c9a-4919-8130-08d35f1f9d19" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="89143b42-ba3e-4c25-bb11-ade9103d3686" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="24670a37-5efc-4cd7-ad60-37955ff0ff21" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="6f988e85-694e-436e-a02a-0da39736b38f" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="230d7c3b-2829-4657-9121-e91f0bda98e9" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="0c816054-94fe-4920-8b8c-4c9111804028" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="79c5b6eb-beeb-4963-8dcc-274bc9182c19" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2fa39b0e-7b2b-4506-90fe-71bfa00b3dd9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="65362291-fc05-4729-ab11-be77189d7d17" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="0bb8831f-c3a8-4638-ba88-2d3f99154d3b" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="2395a270-8ed1-4c29-a98b-11d20a1f705d" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="63baa2c3-a09c-4570-acbf-f5a442e8a275" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="0dd8a453-a1f0-40cb-bbca-80b30343ba6e" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="db4d84a4-4ac6-47bc-8922-0138fad6a2ab" LastKnownName="MessageOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="63baa2c3-a09c-4570-acbf-f5a442e8a275" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="fa6180bb-8410-4970-8f67-433c2edfae97" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="0dd8a453-a1f0-40cb-bbca-80b30343ba6e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d9d401ac-fc83-455d-a255-90e22e6f8484" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="db4d84a4-4ac6-47bc-8922-0138fad6a2ab" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7246dcde-6e8f-4ead-8a2c-3762b87233eb" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="2395a270-8ed1-4c29-a98b-11d20a1f705d" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="4cc44af7-f5db-4405-a914-c55e7d5b893a" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="748d5338-3cbc-4361-9c67-88710cd9616f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="86a5ff3f-117b-4064-a059-1f476c62a48a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d164103a-0c5a-4aa7-ae42-8d854d53dd1a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c7275e42-b04d-419e-81bc-0829f9c7e90b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="e20d3687-40a7-48c5-89fa-c5a65b4bcf5a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="33c2aa1a-5793-4b39-bb76-f528e0479b42" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="24cf506a-e8e7-42b5-8886-b3d8ae9a724b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="6e1234c8-4647-447d-a25e-8cbe40efd4b4" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d9ab9ec5-fb16-4a1e-9b0e-5f59af6bcde0" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="0b1cd10a-5cd5-4764-bbb5-0a0dfa4d7383" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="edf0d59d-5e12-4942-87d5-95499f87838e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="68c586a7-aefb-40cc-bf27-9311aa7a0c53" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="f464037a-4850-4c43-8bd6-696dd9321711" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d607b581-d6d5-4041-a495-ab2abbb5b94e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5591435f-2c13-4f73-8c6c-0993b57c3916" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2c82b76e-4a28-45a9-84a6-ea5c1df79883" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="97eb91e4-36ec-4b24-b3b7-a990b906a30c" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="dfa901bf-85c4-4007-be66-f464f1b2a10b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="3bfa3d4b-0492-4405-9a72-75b2cffe9c76" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" LastKnownName="ToggleLight" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="6c463765-124b-4fac-a5cd-37604891ff76" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="60e45d03-5a18-46f1-832f-d1bc8af8603d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="901220b5-d107-482d-afa6-d86bb613566d" LastKnownName="Lumière" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="56dc167d-0b8b-4c62-9950-d8ccbd65927f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" LastKnownName="GameManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="28a62192-f68c-48a7-a426-986db1f83406" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="5f3c4159-f52b-4f4b-b23c-5b8a5c810c4d" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="b845eabe-acc0-4bf0-b6df-36e86518a0e2" LastKnownName="Utilisateur" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="cf1272bc-f1f3-4e0e-968f-1b91b574dfc2" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="a588d869-5a87-497c-813f-bbd9a5feab45" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="0963f44c-9414-4028-9129-e67da851448f" LastKnownName="Switch" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="b845eabe-acc0-4bf0-b6df-36e86518a0e2" name="Utilisateur" isActor="false" lifelineDisplayName="Utilisateur">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="b4067ed7-e928-4a92-b5de-ec4e61eff553" LastKnownName="MessageOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="5f3c4159-f52b-4f4b-b23c-5b8a5c810c4d" LastKnownName="MessageOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="0963f44c-9414-4028-9129-e67da851448f" name="Switch" isActor="false" lifelineDisplayName="Switch">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="b03120a0-4ae3-42af-8aef-fd39cb908423" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="cf1272bc-f1f3-4e0e-968f-1b91b574dfc2" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="6ce61a5d-9d93-4db0-85f8-4e16bae0f576" name="ToggleLight" isActor="false" lifelineDisplayName="ToggleLight">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker Id="cd76c29d-c2e4-4cc8-8e42-ff1bddef0174" LastKnownName="OperandOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="c870e1aa-8c2e-423a-aaa6-c2da0c54f846" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="d9ab9ec5-fb16-4a1e-9b0e-5f59af6bcde0" LastKnownName="ExecutionOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="f464037a-4850-4c43-8bd6-696dd9321711" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="dfa901bf-85c4-4007-be66-f464f1b2a10b" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="3bfa3d4b-0492-4405-9a72-75b2cffe9c76" LastKnownName="OperandOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="208ed765-63ca-4245-bdb6-734ba49a6b4b" name="GameManager" isActor="false" lifelineDisplayName="GameManager">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="f7d88574-00ae-4d06-9bf7-e314232a9398" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="89a0bb4f-d2cf-4c21-a2c9-7924f5ddc325" LastKnownName="ExecutionOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="b49250cc-51c0-440b-96d4-cceb1fac47ee" LastKnownName="OperandOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="30ca27a1-0b06-4031-ab09-cf7a411ae88a" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="0c816054-94fe-4920-8b8c-4c9111804028" LastKnownName="ExecutionOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="68c586a7-aefb-40cc-bf27-9311aa7a0c53" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="5591435f-2c13-4f73-8c6c-0993b57c3916" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="56dc167d-0b8b-4c62-9950-d8ccbd65927f" LastKnownName="OperandOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="901220b5-d107-482d-afa6-d86bb613566d" name="Lumière" isActor="false" lifelineDisplayName="Lumière">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker Id="af67fc77-cf46-470c-8f0a-629633857875" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="65362291-fc05-4729-ab11-be77189d7d17" LastKnownName="OperandOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="63baa2c3-a09c-4570-acbf-f5a442e8a275" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="2395a270-8ed1-4c29-a98b-11d20a1f705d" LastKnownName="ExecutionOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="86a5ff3f-117b-4064-a059-1f476c62a48a" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="d164103a-0c5a-4aa7-ae42-8d854d53dd1a" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="e20d3687-40a7-48c5-89fa-c5a65b4bcf5a" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="edf0d59d-5e12-4942-87d5-95499f87838e" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="97eb91e4-36ec-4b24-b3b7-a990b906a30c" LastKnownName="OperandOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="60e45d03-5a18-46f1-832f-d1bc8af8603d" LastKnownName="OperandOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="5ce0f7a7-e477-4634-9d7a-de9b94704685" name="click" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="b4067ed7-e928-4a92-b5de-ec4e61eff553" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="76d4ee96-a291-4b15-8d8f-d9a14ebfca08" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="c7208e48-a2a6-49b5-809e-de5ee09e71bd" name="notifyGameManager" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="190eb867-71f3-49c0-9986-6945ee31f160" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="119499a1-c02b-4768-9b7c-56d5b01934d1" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="8f2e1cf4-4da9-4b46-ab33-7d6564b84695" name="Boolean" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a462cd40-b36f-44e8-877f-5df757b660d3" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="49983309-9335-44d8-9bdf-401aca9ba04b" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="4ec2a750-d01e-4434-ad0f-4db18c646b7f" name="swithOn" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="dbda3cdf-3aeb-44d0-9271-6b3b7ce33bef" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="89105d7e-e7eb-41d9-8406-cf9b12ed8cfd" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="a69be9cc-da96-4736-ae7d-0cee2c599738" name="notifyGameManager" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="89143b42-ba3e-4c25-bb11-ade9103d3686" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="24670a37-5efc-4cd7-ad60-37955ff0ff21" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b282bc7a-6c72-4b79-84cc-91918e172ca2" name="Boolean" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="6f988e85-694e-436e-a02a-0da39736b38f" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="230d7c3b-2829-4657-9121-e91f0bda98e9" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="c4cdbde1-3342-4f38-8f7c-32354fd7122c" name="Luminosity = X" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d9d401ac-fc83-455d-a255-90e22e6f8484" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="0dd8a453-a1f0-40cb-bbca-80b30343ba6e" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="0ca2a41c-f8b4-4612-96e9-30a203a7d50f" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="db4d84a4-4ac6-47bc-8922-0138fad6a2ab" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="7246dcde-6e8f-4ead-8a2c-3762b87233eb" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b5ab78ef-1970-47d2-983c-6b2ea77b9350" name="Boolean" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="24cf506a-e8e7-42b5-8886-b3d8ae9a724b" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="6e1234c8-4647-447d-a25e-8cbe40efd4b4" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="421b8ca3-3629-43e2-94f4-a482362c305d" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="28a62192-f68c-48a7-a426-986db1f83406" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="5f3c4159-f52b-4f4b-b23c-5b8a5c810c4d" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="af51e290-98a6-46dc-b97d-1fcf100377a4" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="a588d869-5a87-497c-813f-bbd9a5feab45" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="8fdf69e7-122d-48b9-a914-40030f2ad757" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="7ff4e277-ecd5-424b-b5ca-5abac03e6dec" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="a78039ba-0f02-46b0-bced-f999a3e8f019" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="0b1cd10a-5cd5-4764-bbb5-0a0dfa4d7383" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="d1406e6c-5c9a-4919-8130-08d35f1f9d19" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="79c5b6eb-beeb-4963-8dcc-274bc9182c19" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="fa6180bb-8410-4970-8f67-433c2edfae97" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="4cc44af7-f5db-4405-a914-c55e7d5b893a" name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+</SequenceDesignerModel>

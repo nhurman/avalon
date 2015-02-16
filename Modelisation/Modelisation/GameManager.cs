@@ -39,5 +39,31 @@ namespace Modelisation
             {
             }
         }
+
+        public int ErrorNumber
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public void isAuthorised()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void nextStep()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void onError()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
