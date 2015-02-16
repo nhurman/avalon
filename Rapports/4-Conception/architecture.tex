@@ -2,11 +2,11 @@
 Pour ce projet, plusieurs logiciels nous ont été imposé. Cette partie détaille comment ces logiciels seront utilisés pour concevoir l'application.
 
 \subsection{Unity}
-\begin{wrapfigure}{r}{0mm}
-  \includegraphics[scale=0.13]{4-conception/img/unity_screenshot.png}
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{4-conception/img/unity_screenshot.png}
   \caption{Capture d'écran : Unity}
   \label{unity}
-\end{wrapfigure}
+\end{figure}
 
 Unity est un moteur de jeu et environnement de développement. Bien que Unity donne la possibilité d'insérer des scripts pour gérer les objets plus en profondeur, il permet avant tout de créer une scène 3d. L'utilisateur peut se deplacer à l'interieur, en ayant des interactions avec l'environnement. Unity gère un certain nombre d'éléments, dont :
 \begin{itemize}
@@ -16,11 +16,11 @@ Unity est un moteur de jeu et environnement de développement. Bien que Unity do
 
 
 \subsection{MiddleVR}
-\begin{wrapfigure}{r}{0mm}
-  \includegraphics[scale=0.15]{4-conception/img/middlevr_screenshot.png}
+\begin{figure}[h]
+  \includegraphics[width=1\textwidth]{4-conception/img/middlevr_screenshot.png}
   \caption{Capture d'écran : MiddleVR}
   \label{middlevr}
-\end{wrapfigure}
+\end{figure}
 MiddleVR est un plugin Unity utilisé pour s'abstraire des périphériques d'entrée/sortie. Il permet de créer un fichier de configuration contenant les informations sur les différents périphériques dont se servira l'application. Pour cela, MiddleVR possède sa propre interface et il n'est pas nécessaire d'écrire du code.
 Pour récupérer les valeurs des périphériques dans Unity, on utilise le VRManager, qui sert d'interface entre Unity et MiddleVR.
 
@@ -31,4 +31,7 @@ Dans Unity, un script est attaché à un objet, il correspond à son comportemen
 \centering
 \includegraphics[width=1\textwidth]{4-conception/img/recap.png}
 \caption{ Diagramme récapitulatif }
+\label{recap}
 \end{figure}
+
+Dans la figure \ref{recap}, on peut noter que nous ne communiquons pas avec le VRPN nous-même, MiddleVR s'en charge à notre place. Pour plus d'informations sur le VRPN, voir http://www.middlevr.com/middlevr-for-unity/ ou notre rapport de pré-étude.
