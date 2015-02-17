@@ -1,0 +1,89 @@
+\section{Modélisation}
+
+\subsection{Lancement de l'application}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{4-conception/img/diagActivite.png}
+\caption{ Diagramme d'activité}
+\end{figure}
+
+Au lancement du logiciel, l'utilisateur peut personnaliser la simulation par l'intermédiaire de plusieurs choix :
+
+Tout d'abord, il peut choisir un mode d'apprentissage. Ces modes apportent de l'autonomie ou donnent des directions à l'utilisateur en lui donnant des indicateurs visuels sur ce qu'il peut faire. Voici les différents modes :
+\begin{itemize}
+\item Symbolique ;
+\item Assisté ;
+\item Autonome.
+\end{itemize}
+\vspace{0.5cm}
+
+De plus, il est possible de jouer un scénario, pour forcer l'utilisateur à faire certains choix et interagir avec certains objets. Voici les différents scénarios :
+\begin{itemize}
+\item Appel téléphonique normal ;
+\item Appel \textit{via} l'interphone d'une personne venant fréquemment (un infirmier par exemple) ;
+\item Appel \textit{via} l'interphone concernant une visite inattendue.
+\end{itemize}
+\vspace{0.5cm}
+
+Ces différents choix seront gérés par des scripts C\# de Unity, et plus précisement par le GameManager, décrit plus loin dans ce rapport.
+
+\subsection{Diagramme des cas d’utilisations}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{4-Conception/img/diagCasUsage.png}
+    \caption{Diagramme de cas d'utilisation : Menus}
+\end{figure}
+
+\subsection{Diagramme de séquence}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{4-Conception/img/diagSequenceLight.png}
+    \caption{Diagramme de séquence : déroulement d'une interraction}
+    \label{fig:sequence_diagram}
+\end{figure}
+
+\subsection{Diagramme de classes C\#}
+
+\subsubsection{Diagramme}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{4-Conception/img/diagClasses.png}
+    \caption{Diagramme de classes}
+    \label{fig:class_diagram}
+\end{figure}
+
+\subsubsection{Généralités}
+Dans cette partie, il sera souvent fait mention du terme GameObject; il s'agit d'un élément Unity. 
+Celui ci peut-être graphique ou non, généré à l'execution, contenir d'autres GameObject (comme un dossier) et contenir des scripts qui lui sont associés.\newline
+
+Dans Unity, tout script doit hériter de la classe MonoBehaviour. Celle-ci implémente les fonctions que tous les scripts Unity doivent avoir, comme \textit{Update} qui permet de répéter une action à chaque image affichée à l'écran, ou \textit{OnMouseDown} qui permet de réagir à un clic de souris de l'utilisateur. .\newline
+
+Cette classe nous permettra surtour d'accéder au GameObject contenant le script et aux autres scripts du même GameObject.
+
+\subsubsection{Menus}
+Sur le diagramme, une classe UI\_Menu est présente. Elle représente les classes d'interface utilisateur que nous utiliserons pour afficher des menus d'informations à l'utilisateur. Nous utiliserons de préférence les classes rajoutées par la dernière version de MiddleVR (1.6.0), car ardaptées à la 3D et à la réalité virtuelle.\newline
+
+Cette version étant disponible seulement depuis la semaine précédente, nous n'avons pas eu l'occasion de l'étudier avant la rédaction de ce rapport. Dans le cas où nous ne pourrions intégrer ces fonctionnalités proposées par MiddleVR, nous utiliserons une manière plus basique pour l'affichage, telle que modéliser un plan et y appliquer une texture représentant le menu.\newline
+
+La classe \textit{RemoteCommand} permet d'afficher la télécommande qui contrôle les équipements domotiques. 
+Elle utilisera si possible les classes d'interface MiddleVR, et permettra d'interragir avec l'appartement.
+
+
+\subsubsection{Elements activables}
+On distingue deux types d'éléments sur lesquels ont peut interragir : Ceux avec un état allumé/éteins, et ceux avec un état variable, comme la table et sa hauteur.
+Tout les cas simples seront gérés par des ToggleElement. Les différences entre chaques sous classes se résument à des détails de l'objets.
+Une lumière allumé ou éteinte n'est pas géré de la même manière que la hauteur d'un volet.
+La classe VariableElement permet de gérer les GameObjects avec une valeur interne; il est possible de d'augmenter les variables de manière incrémentale ou de fixer une valeur directement.
+Cette classe inclu une valeur minimale et maximale pour la valeur contrainte, ainsi qu'un pas de déplacement.
+Ce pas permet de régler le changement de valeur à chaque clic; par exemple, on choisira 1cm dans le cas de la table, pour que le déplacement soit cohérent avec la réalité.
+Ce modèle inclu aussi les spécificités relatives au différents éléments, comme la propriété \textit{BlockedState} des portes qui permet de savoir où le mouvement de la porte à été stoppé la dernière fois, pour ralentir lors du prochain essai.
+\newline
+Toutes ces classes, comme \textit{VariableLight}, \textit{Shutter} ou \textit{Table},  ne disposent pas de variable modélisant leur état courant. 
+Il faut prendre en compte que ce sont des scripts associé un objet 3D. 
+La valeur actuelle (de hauteur dans le cas de la table par exemple) correspond à une ou plusieurs caractéristiques graphiques de l'objet.
+
+\subsubsection{GameManager}
+Pour toutes les informations et les fonctionnalités non liées à un objet en particulier (souvent encapsulé dans un singleton dans un contexte objet), les developpeurs Unity préconisent d'associer des scripts à un GameObject n'ayant pas d'éléments graphiques et ne contenant pas d'autres GameObject.
+L'accès à ces éléments se fait via le nom du GameObject les contenant, ou via des tags référençant l'élément. Ce GameObject doit être unique ce qui fait que la classe GameManager s'apparente dans l'utilisation à un singleton (bien que n'en étant pas un). 
+Elle contient des informations sur le scénario en cours, le nombre d'erreur \textit{NumberError} et que faire s'il y a trop d'erreurs de le part de l'utilisateur (\textit{onError}).
+Le passage à l'étape suivante d'un scénario se fait grace aux informations transmises par les scripts des GameObjects via la fonction \textit{notifyGameManager} et à la fonction \textit{nextStep}.
