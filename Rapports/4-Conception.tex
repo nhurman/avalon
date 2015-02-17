@@ -7,8 +7,11 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{wrapfig}
+\usepackage{rotating}
 \usepackage[export]{adjustbox}
 \usepackage{titletoc}
+\usepackage{float}
+\usepackage{pdflscape}
 
 %\titlecontents{subsection}[3.8em]{}{}{}{}[\addvspace{-0.5pt}]
 \hypersetup{
@@ -55,7 +58,7 @@
 \maketitle
 \thispagestyle{empty}
 
-\begin{figure}[h!]
+\begin{figure}
    \begin{minipage}{0.3\linewidth}
       \includegraphics[scale=0.9]{3-Planification/img/logo_insa.jpeg}
    \end{minipage} 
@@ -71,6 +74,8 @@
 \newpage
 \tableofcontents
 \pagebreak
+
+\setlength{\parskip}{4mm}
 
 \input{4-Conception/introduction.tex}
 \pagebreak

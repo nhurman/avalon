@@ -67,6 +67,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="d1.cd" />
+    <None Include="Déroulement d%27une interaction.sequencediagram" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Déroulement d%27une interaction.sequencediagram.layout">
+      <DependentUpon>Déroulement d%27une interaction.sequencediagram</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
