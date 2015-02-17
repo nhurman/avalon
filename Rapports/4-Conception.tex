@@ -9,6 +9,8 @@
 \usepackage{wrapfig}
 \usepackage[export]{adjustbox}
 \usepackage{titletoc}
+\usepackage{float}
+\usepackage{pdflscape}
 
 %\titlecontents{subsection}[3.8em]{}{}{}{}[\addvspace{-0.5pt}]
 \hypersetup{
@@ -55,7 +57,7 @@
 \maketitle
 \thispagestyle{empty}
 
-\begin{figure}[h!]
+\begin{figure}
    \begin{minipage}{0.3\linewidth}
       \includegraphics[scale=0.9]{3-Planification/img/logo_insa.jpeg}
    \end{minipage} 
@@ -72,11 +74,13 @@
 \tableofcontents
 \pagebreak
 
+\setlength{\parskip}{4mm}
+
 \input{4-Conception/introduction.tex}
 \pagebreak
-\input{4-Conception/coo.tex}
-\pagebreak
 \input{4-Conception/architecture.tex}
+\pagebreak
+\input{4-Conception/coo.tex}
 \pagebreak
 \input{4-Conception/lancementApplication.tex}
 \pagebreak
