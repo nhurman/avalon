@@ -195,3 +195,5 @@ FakesAssemblies/
 *.csproj
 *.unityproj
 *.sln
+*.asset
+*.meta
