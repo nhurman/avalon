@@ -39,7 +39,7 @@ namespace Modelisation
             set;
         }
 
-        public override void setValue(double value)
+        public void setValue(double value)
         {
             throw new NotImplementedException();
             /*if (value >= Min && value <= Max)
