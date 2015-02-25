@@ -42,27 +42,29 @@ namespace Modelisation
 
         public int ErrorNumber
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            protected set;
         }
 
-        public void isAuthorised()
+        public bool isAuthorised()
         {
             throw new System.NotImplementedException();
         }
 
         public void nextStep()
         {
+            //ScenarioData.NEXT
+            //ErrorNumber = 0;
             throw new System.NotImplementedException();
         }
 
         public void onError()
         {
+            ErrorNumber++;
+            if (ErrorNumber > 10)
+            {
+                // Do something
+            }
             throw new System.NotImplementedException();
         }
     }

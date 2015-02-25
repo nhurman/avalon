@@ -7,53 +7,62 @@ namespace Modelisation
 {
     public abstract class VariableElement : Element
     {
-        public int Min
+        public VariableElement(double min, double max)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Min = min;
+            Max = max;
+            Step = (max - min) / 10;
         }
 
-        public int Max
+        public VariableElement(double min, double max, double step)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int Step
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int Property
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Min = min;
+            Max = max;
+            Step = step;
         }
     
-        public void setValue()
+        public double Min
         {
-            throw new System.NotImplementedException();
+            get;
+            protected set;
         }
+
+        public double Max
+        {
+            get;
+            protected set;
+        }
+
+        public double Step
+        {
+            get;
+            set;
+        }
+
+        public override void setValue(double value)
+        {
+            throw new NotImplementedException();
+            /*if (value >= Min && value <= Max)
+            {
+                notifyGameManager()
+                ObjectProperty = value;
+            }*/
+        }
+        public override void setOn()
+        {
+            /*if (ObjectProperty <= Max)
+            {
+                notifyGameManager()
+                ObjectProperty += Step;
+            }*/
+        }
+        public override void setOff()
+        {
+            /*if (ObjectProperty >= Min)
+            {
+                ObjectProperty -= Step;
+            }*/
+        }
+        
     }
 }

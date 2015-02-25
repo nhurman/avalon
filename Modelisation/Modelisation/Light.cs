@@ -7,5 +7,6 @@ namespace Modelisation
 {
     public abstract class Light : Element
     {
+        
     }
 }

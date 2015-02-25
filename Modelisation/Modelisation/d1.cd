@@ -54,54 +54,54 @@
   <Class Name="Modelisation.Element">
     <Position X="9" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQACAAAAAAAAAAAAIAAAAAAgAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAQACAAAAAAAAAAAAIAAAAAAgAAAAgAAAAgAAA=</HashCode>
       <FileName>Element.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.PhoneNumber">
-    <Position X="2.5" Y="8.25" Width="1.5" />
+    <Position X="2.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Phone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Table">
-    <Position X="0.75" Y="8.25" Width="1.5" />
+    <Position X="0.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Shutter">
-    <Position X="7.5" Y="7.25" Width="1.5" />
+    <Position X="7.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Volets.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Television">
-    <Position X="12.75" Y="7.25" Width="1.5" />
+    <Position X="13" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Television.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.ToggleLight">
-    <Position X="9.25" Y="7.25" Width="1.5" />
+    <Position X="9.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ToggleLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.VariableLight">
-    <Position X="6" Y="8.25" Width="1.5" />
+    <Position X="6" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VariableLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.TV_Channel">
-    <Position X="4.25" Y="8.25" Width="1.5" />
+    <Position X="4.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TV_Channel.cs</FileName>
@@ -115,7 +115,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Door">
-    <Position X="11" Y="7.25" Width="1.5" />
+    <Position X="11.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Door.cs</FileName>
@@ -124,14 +124,14 @@
   <Class Name="Modelisation.VariableElement">
     <Position X="5.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAEAIAAAAAAAAAAAAAIAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAEAIAAAIAAAAAAgAAIAAAAAAAAAA=</HashCode>
       <FileName>VariableElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.ToggleElement">
-    <Position X="9" Y="6" Width="1.5" />
+    <Position X="9" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAABAAAAAAAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>ToggleElement.cs</FileName>
     </TypeIdentifier>
   </Class>

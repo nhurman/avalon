@@ -7,5 +7,9 @@ namespace Modelisation
 {
     public class ToggleLight : ToggleElement
     {
+        public ToggleLight() : base(8, 0)
+        {
+        
+        }
     }
 }

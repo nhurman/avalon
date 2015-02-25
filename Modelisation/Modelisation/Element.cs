@@ -7,16 +7,20 @@ namespace Modelisation
 {
     public abstract class Element : SceneObject
     {
-    
-        public void setOn()
+        public int ObjectProperty
         {
-            throw new System.NotImplementedException();
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
 
-        public void setOff()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void setOn();
+
+        public abstract void setOff();
 
         public void autonomousAction()
         {

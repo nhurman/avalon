@@ -18,9 +18,10 @@ namespace Modelisation
             }
         }
     
-        public void notifyGameManager()
+        public bool notifyGameManager()
         {
             throw new System.NotImplementedException();
+            return GameManager.isAuthorised();
         }
     }
 }
