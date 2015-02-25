@@ -20,16 +20,19 @@ namespace Modelisation
     
         public void switchOn()
         {
-            throw new System.NotImplementedException();
+            //this need to notify game manager
+            Elem.setOn();
         }
 
         public void switchOff()
         {
-            throw new System.NotImplementedException();
+            //this need to notify game manager
+            Elem.setOff();
         }
 
         public void toggle()
         {
+            //Elem.ObjectProperty
             throw new System.NotImplementedException();
         }
     }
