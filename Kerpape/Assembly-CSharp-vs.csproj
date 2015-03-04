@@ -77,6 +77,7 @@
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRShortcutReload.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerMapping.cs" />
      <Compile Include="Assets\MiddleVR\Scripts\Samples\VRVirtualTrackerSimulation.cs" />
+     <Compile Include="Assets\Scripts\ControlleurVolet.cs" />
      <None Include="Assets\MiddleVR\Assets\Materials\OVRLensCorrection.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/arthur/avalon/Kerpape/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
