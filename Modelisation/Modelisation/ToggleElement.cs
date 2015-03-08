@@ -7,6 +7,11 @@ namespace Modelisation
 {
     public abstract class ToggleElement : Element
     {
+
+        public double OnValue { get; protected set; }
+
+        public double OffValue { get; protected set; }
+        
         //Generic would be better
         public ToggleElement(double on, double off)
         {
@@ -14,27 +19,23 @@ namespace Modelisation
             OffValue = off;
         }
     
-        public double OnValue
-        {
-            get;
-            protected set;
-        }
-
-        public double OffValue
-        {
-            get;
-            protected set;
-        }
+       
 
         public override void setOn()
         {
-            //notifyGameManager()
-            //ObjectProperty = OnValue;
+            bool auth = notifyGameManager();
+            if (auth)
+            {
+                ObjectProperty = OnValue;
+            }
         }
         public override void setOff()
         {
-            //notifyGameManager()
-            //ObjectProperty = OffValue;
+            bool auth = notifyGameManager();
+            if (auth)
+            {
+                ObjectProperty = OffValue;
+            }
         }
     }
 }

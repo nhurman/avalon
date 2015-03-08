@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public abstract class SceneObject : MonoBehavior
+    public abstract class SceneObject : MonoBehaviour
     {
         public GameManager GameManager
         {
@@ -21,10 +21,12 @@ namespace Modelisation
             }
         }
     
+        //Perhaps with parameters ? or Send name of current calling method
         public bool notifyGameManager()
         {
-            throw new System.NotImplementedException();
-            return GameManager.isAuthorised();
+            /*throw new System.NotImplementedException();
+            return GameManager.isAuthorised();*/
+            return true;
         }
     }
 }

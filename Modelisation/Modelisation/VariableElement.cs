@@ -7,6 +7,12 @@ namespace Modelisation
 {
     public abstract class VariableElement : Element
     {
+        public double Min { get; protected set; }
+
+        public double Max { get; protected set; }
+
+        public double Step { get; set; }
+
         public VariableElement(double min, double max)
         {
             Min = min;
@@ -20,48 +26,40 @@ namespace Modelisation
             Max = max;
             Step = step;
         }
-    
-        public double Min
-        {
-            get;
-            protected set;
-        }
-
-        public double Max
-        {
-            get;
-            protected set;
-        }
-
-        public double Step
-        {
-            get;
-            set;
-        }
 
         public void setValue(double value)
         {
-            throw new NotImplementedException();
-            /*if (value >= Min && value <= Max)
+            if (value >= Min && value <= Max)
             {
-                notifyGameManager()
-                ObjectProperty = value;
-            }*/
+                bool auth = notifyGameManager();
+                if (auth)
+                {
+                    ObjectProperty = value;
+                }
+                
+            }
         }
         public override void setOn()
         {
-            /*if (ObjectProperty <= Max)
+            if (ObjectProperty <= Max)
             {
-                notifyGameManager()
-                ObjectProperty += Step;
-            }*/
+                bool auth = notifyGameManager();
+                if (auth)
+                {
+                    ObjectProperty += Step;
+                }
+            }
         }
         public override void setOff()
         {
-            /*if (ObjectProperty >= Min)
+            if (ObjectProperty >= Min)
             {
-                ObjectProperty -= Step;
-            }*/
+                bool auth = notifyGameManager();
+                if (auth)
+                {
+                    ObjectProperty -= Step;
+                }
+            }
         }
         
     }

@@ -7,5 +7,11 @@ namespace Modelisation
 {
     public class Table : VariableElement
     {
+        public static double minHeight;
+        public static double maxHeight;
+        public Table() : base(minHeight, maxHeight)
+        {
+
+        }
     }
 }

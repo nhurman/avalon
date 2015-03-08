@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class GameManager : MonoBehavior
+    public class GameManager : MonoBehaviour
     {
         public IEnumerable<ScenarioItem> ScenarioData
         {

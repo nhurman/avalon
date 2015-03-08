@@ -2,32 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+using System.Collections;
 
 namespace Modelisation
 {
     public class Switch : SceneObject
     {
+        public GameObject Target { get; set; }
         public Element Elem
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return (Element)Target.GetComponent(typeof(Element));
             }
         }
     
         public void switchOn()
         {
-            //this need to notify game manager
-            Elem.setOn();
+            bool auth = notifyGameManager();
+            if (auth)
+            {
+                Elem.setOn();
+            } 
         }
 
         public void switchOff()
         {
-            //this need to notify game manager
-            Elem.setOff();
+            bool auth = notifyGameManager();
+            if (auth)
+            {
+                Elem.setOff();
+            } 
         }
 
         public void toggle()

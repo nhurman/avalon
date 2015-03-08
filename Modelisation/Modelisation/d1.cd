@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Modelisation.MonoBehavior">
-    <Position X="5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MonoBehavior.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Modelisation.SceneObject">
     <Position X="6" Y="1.75" Width="1.5" />
     <TypeIdentifier>
@@ -68,7 +61,7 @@
   <Class Name="Modelisation.Table">
     <Position X="0.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -95,6 +88,9 @@
   </Class>
   <Class Name="Modelisation.VariableLight">
     <Position X="6" Y="8.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VariableLight.cs</FileName>
@@ -123,6 +119,9 @@
   </Class>
   <Class Name="Modelisation.VariableElement">
     <Position X="5.75" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAEAIAAAIAAAAAAgAAIAAAAAAAAAA=</HashCode>
       <FileName>VariableElement.cs</FileName>

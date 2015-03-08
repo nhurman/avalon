@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+using System.Collections;
 
 namespace Modelisation
 {
     public abstract class Element : SceneObject
     {
-        public int ObjectProperty
+        public double ObjectProperty
         {
             get
             {
