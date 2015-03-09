@@ -2076,6 +2076,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 258654865}
+  - 114: {fileID: 258654866}
   m_Layer: 0
   m_Name: volet_bain
   m_TagString: Untagged
@@ -2098,6 +2099,17 @@ Transform:
   - {fileID: 887881399}
   m_Father: {fileID: 613755912}
   m_RootOrder: 2
+--- !u!114 &258654866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 258654864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7dc7da5aed56349a6746e768d1e1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261228188
 GameObject:
   m_ObjectHideFlags: 0
@@ -8126,7 +8138,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 887881399}
   m_Layer: 0
-  m_Name: posistion_haute
+  m_Name: position_haute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12400,7 +12412,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1315240116}
   m_Layer: 0
-  m_Name: posistion_basse
+  m_Name: position_basse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15809,6 +15821,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1628462541}
+  - 114: {fileID: 1628462542}
   m_Layer: 0
   m_Name: volet_chambre
   m_TagString: Untagged
@@ -15831,6 +15844,17 @@ Transform:
   - {fileID: 416422079}
   m_Father: {fileID: 613755912}
   m_RootOrder: 1
+--- !u!114 &1628462542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1628462540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7dc7da5aed56349a6746e768d1e1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629447650
 GameObject:
   m_ObjectHideFlags: 0

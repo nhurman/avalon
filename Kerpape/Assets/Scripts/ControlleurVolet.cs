@@ -13,7 +13,7 @@ public class ControlleurVolet : MonoBehaviour {
 	void Start (){
 
 		directionTranslation = Vector3.forward;
-		mouvement = true;
+		mouvement = false;
 		volet = transform.Find ("volet");
 		positionHaute = transform.Find ("position_haute");
 		positionBasse = transform.Find ("position_basse");
