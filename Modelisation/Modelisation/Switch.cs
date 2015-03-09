@@ -9,7 +9,15 @@ namespace Modelisation
 {
     public class Switch : SceneObject
     {
-        public GameObject Target { get; set; }
+        public string targetName;
+
+        //Perhaps too heavy, value could be stored
+        public GameObject Target {
+            get
+            {
+                return GameObject.Find(targetName);
+            }
+        }
         public Element Elem
         {
             get

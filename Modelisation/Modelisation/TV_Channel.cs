@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class TV_Channel : VariableElement
+    public class TV_Channel : NumeralElement
     {
         public int Channel
         {

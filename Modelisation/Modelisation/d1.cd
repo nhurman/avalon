@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Modelisation.SceneObject">
-    <Position X="6" Y="1.75" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>SceneObject.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="GameManager" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Modelisation.GameManager">
-    <Position X="2.25" Y="1.75" Width="1.5" />
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAIAAAIAAAAAAAgAAEAAADAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
@@ -21,23 +18,23 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Modelisation.ScenarioItem">
-    <Position X="0.5" Y="4" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ScenarioItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.RemoteCommand">
-    <Position X="3.5" Y="6" Width="1.5" />
+    <Position X="2.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>RemoteCommand.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Switch">
-    <Position X="6" Y="3.5" Width="1.5" />
+    <Position X="5.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAEAIEEAAAAAAAAAAAAAACAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Switch.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -45,93 +42,73 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Modelisation.Element">
-    <Position X="9" Y="3.5" Width="1.5" />
+    <Position X="9" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQACAAAAAAAAAAAAIAAAAAAgAAAAgAAAAgAAA=</HashCode>
       <FileName>Element.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.PhoneNumber">
-    <Position X="2.5" Y="8.5" Width="1.5" />
+    <Position X="2.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Phone.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Modelisation.Table">
-    <Position X="0.75" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Table.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Modelisation.Shutter">
-    <Position X="7.75" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Volets.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Modelisation.Television">
-    <Position X="13" Y="8.75" Width="1.5" />
+    <Position X="7.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Television.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Modelisation.ToggleLight">
-    <Position X="9.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ToggleLight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Modelisation.VariableLight">
-    <Position X="6" Y="8.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+    <Position X="5.75" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VariableLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.TV_Channel">
-    <Position X="4.25" Y="8.5" Width="1.5" />
+    <Position X="4" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TV_Channel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.UI_Menu">
-    <Position X="3.5" Y="4.75" Width="1.5" />
+    <Position X="2.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UI_Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Door">
-    <Position X="11.25" Y="8.75" Width="1.5" />
+    <Position X="11.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Door.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Modelisation.VariableElement">
-    <Position X="5.75" Y="5.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+  <Class Name="Modelisation.NumeralElement">
+    <Position X="7" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAEAIAAAIAAAAAAgAAIAAAAAAAAAA=</HashCode>
-      <FileName>VariableElement.cs</FileName>
+      <FileName>NumeralElement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Modelisation.ToggleElement">
-    <Position X="9" Y="6.25" Width="1.5" />
+  <Class Name="Modelisation.TransformElement">
+    <Position X="9.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAABAAAAAAAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>ToggleElement.cs</FileName>
+      <HashCode>AAQAAECAACAEABAAIAAAAAIAAAAAAiAAAAAAAAAAAIA=</HashCode>
+      <FileName>TransformElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelisation.BooleanElement">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>BooleanElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

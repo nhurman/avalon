@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class ToggleLight : ToggleElement
+    public class ToggleLight : TransformElement
     {
         public ToggleLight() : base(8, 0)
         {

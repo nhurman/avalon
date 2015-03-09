@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class Television : ToggleElement
+    //Deprecated ? Case of BooleanElement ?
+    public class Television : NumeralElement
     {
+        
     }
 }
