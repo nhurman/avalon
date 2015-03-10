@@ -58,6 +58,14 @@ namespace Modelisation
                 }
             }
         }
-        
+
+        public override bool isOn()
+        {
+            return ObjectProperty == Max;
+        }
+        public override bool isOff()
+        {
+            return ObjectProperty == Min;
+        }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
+using System.Collections;
 
 namespace Modelisation
 {
@@ -16,6 +18,14 @@ namespace Modelisation
         public override void setOff()
         {
             gameObject.SetActive(false);
+        }
+        public override bool isOn()
+        {
+            return gameObject.activeSelf;
+        }
+        public override bool isOff()
+        {
+            return !isOn();
         }
     }
 }

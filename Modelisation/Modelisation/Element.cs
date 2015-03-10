@@ -31,5 +31,8 @@ namespace Modelisation
         {
             throw new System.NotImplementedException();
         }
+
+        public abstract bool isOn();
+        public abstract bool isOff();
     }
 }

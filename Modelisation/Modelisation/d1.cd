@@ -34,7 +34,7 @@
   <Class Name="Modelisation.Switch">
     <Position X="5.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAIEEAAAAAAAAAAAAAACAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>gCEAIEEAACAAAAAAAQAAACAAAAAAAAAAAAAQCAAAAAA=</HashCode>
       <FileName>Switch.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -44,33 +44,33 @@
   <Class Name="Modelisation.Element">
     <Position X="9" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQACAAAAAAAAAAAAIAAAAAAgAAAAgAAAAgAAA=</HashCode>
+      <HashCode>AAAAAEAQACAAAAAAAAABAAIAAAAAAgAAAAgAAAAgAAA=</HashCode>
       <FileName>Element.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.PhoneNumber">
-    <Position X="2.25" Y="9" Width="1.5" />
+    <Position X="2.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Phone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.Television">
-    <Position X="7.5" Y="9" Width="1.5" />
+    <Position X="7.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Television.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.VariableLight">
-    <Position X="5.75" Y="9" Width="1.5" />
+    <Position X="5.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VariableLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.TV_Channel">
-    <Position X="4" Y="9" Width="1.5" />
+    <Position X="4" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TV_Channel.cs</FileName>
@@ -91,23 +91,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.NumeralElement">
-    <Position X="7" Y="5.75" Width="1.5" />
+    <Position X="7.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAEAIAAAIAAAAAAgAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAABAAAAAAEAIBAAIAAAAAAgAAIAAAAAAAAAA=</HashCode>
       <FileName>NumeralElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.TransformElement">
-    <Position X="9.25" Y="5.75" Width="1.5" />
+    <Position X="9.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAECAACAEABAAIAAAAAIAAAAAAiAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAQAAECAACAEABAAIAABAAIAAAAAAiAAAAAAAAAAAIA=</HashCode>
       <FileName>TransformElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.BooleanElement">
-    <Position X="4.75" Y="5.75" Width="1.5" />
+    <Position X="4.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAABAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>BooleanElement.cs</FileName>
     </TypeIdentifier>
   </Class>

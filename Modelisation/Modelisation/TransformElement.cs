@@ -11,7 +11,7 @@ namespace Modelisation
     public class TransformElement : Element
     {
         //do nothing, will be used for partial movement
-        public double Ratio;
+        public float Ratio;
         public string OnValueName;
         public string OffValueName;
         public Transform OnValue { get; set; }
@@ -26,6 +26,7 @@ namespace Modelisation
             if (auth)
             {
                 target = OnValue.position;
+                movement = true;
             }
         }
         public override void setOff()
@@ -34,22 +35,37 @@ namespace Modelisation
             if (auth)
             {
                 target = OffValue.position;
+                movement = true;
+                //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
+                //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
             }
         }
 
-        void Start () {
+        private void Start () {
             movement = false;
             OnValue = transform.Find (OnValueName);
             OffValue = transform.Find (OffValueName);
             target = OffValue.position;
         }  
-        void Update () {
+        private void Update () {
+            //Che
             if (movement)
             {
                 gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target, Time.deltaTime);
-            }
+                if (gameObject.transform.position == target)
+                {
+                    movement = false;
+                }
+            }    
+        }
 
-            
+        public override bool isOn()
+        {
+            return gameObject.transform == OnValue;
+        }
+        public override bool isOff()
+        {
+            return gameObject.transform == OffValue;
         }
 
         
