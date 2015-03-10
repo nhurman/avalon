@@ -7,5 +7,7 @@ namespace Modelisation
 {
     public class ScenarioItem
     {
+        public string elementName;
+        public string actionExplanation;
     }
 }

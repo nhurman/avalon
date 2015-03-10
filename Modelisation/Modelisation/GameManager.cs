@@ -10,48 +10,18 @@ namespace Modelisation
 {
     public class GameManager : MonoBehaviour
     {
-        public IEnumerable<ScenarioItem> ScenarioData
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public IEnumerable<ScenarioItem> ScenarioData { get; protected set; }
 
-        public int Mode
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int Mode { get; set; }
 
-        public int ScenarioState
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int ScenarioState { get; set; }
 
-        public int ErrorNumber
-        {
-            get;
-            protected set;
-        }
+        public int ErrorNumber { get; protected set; }
 
         public bool isAuthorised()
         {
-            throw new System.NotImplementedException();
+            //ScenarioData[ScenarioState]
+            return true;
         }
 
         public void nextStep()
@@ -64,11 +34,23 @@ namespace Modelisation
         public void onError()
         {
             ErrorNumber++;
-            if (ErrorNumber > 10)
+            if (ErrorNumber > 20)
             {
-                // Do something
+                // Self destroy
             }
-            throw new System.NotImplementedException();
+            else if (ErrorNumber > 15)
+            {
+                // Show solution
+            }
+            else if (ErrorNumber > 10)
+            {
+                // Give  precise instructions
+            }
+            else if (ErrorNumber > 5)
+            {
+                // Tell number of error and give an explanation of the objective
+            }
+           
         }
     }
 }
