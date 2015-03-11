@@ -17,18 +17,36 @@ namespace Modelisation
         public int ScenarioState { get; set; }
 
         public int ErrorNumber { get; protected set; }
+        public ScenarioItem CurrentTask {
+            get
+            {
+                return ScenarioData[ScenarioState];
+            }
+        }
 
         public bool isAuthorised()
         {
+            string activatedItem = "";
+            if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
             //ScenarioData[ScenarioState]
             return true;
         }
 
-        public void nextStep()
+        public void nextStep(string activatedItem)
         {
-            //ScenarioData.NEXT
-            //ErrorNumber = 0;
-            throw new System.NotImplementedException();
+            if (activatedItem == CurrentTask.elementName)
+            {
+                ScenarioState++;
+                ErrorNumber = 0;
+                if (CurrentTask.isEnd())
+                {
+                    //End scenario
+                }
+            }
+            else
+            {
+                onError();
+            }
         }
 
         public void onError()
@@ -52,5 +70,6 @@ namespace Modelisation
             }
            
         }
+
     }
 }
