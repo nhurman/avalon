@@ -20,8 +20,9 @@ public class ControlleurVolet : MonoBehaviour {
 
 	}
 	void Update () {
-
-		verifieLimite ();
+		if (mouvement) {
+			verifieLimite ();
+		}
 
 		if (mouvement) {
 
@@ -30,23 +31,26 @@ public class ControlleurVolet : MonoBehaviour {
 		}
 	
 	}
+	
+	public void monte(){
 
-	public void action(string action){ 
-		switch (action) {
-			case "monte":
-				directionTranslation = Vector3.forward;
-				mouvement = true;
-			break;
-			case "descend":
-				directionTranslation = Vector3.back;
-				mouvement = true;
-			break;
-			default:
-				mouvement = false;
-			break;
-		}
+		directionTranslation = Vector3.forward;
+		mouvement = true;
 
 	}
+
+	public void descend(){
+
+		directionTranslation = Vector3.back;
+		mouvement = true;
+
+	}
+
+	public void stop(){
+
+		mouvement = false;
+	}
+
 	private void verifieLimite (){
 
 		if(directionTranslation == Vector3.forward){
