@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class Door : ToggleElement
+    //Handle the blocked door state
+    public class Door : TransformElement
     {
         public int BlockedState
         {

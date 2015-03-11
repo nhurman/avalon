@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class Table : VariableElement
+    public class Table : TransformElement
     {
         public static double minHeight;
         public static double maxHeight;
-        public Table() : base(minHeight, maxHeight)
+        public Table()
         {
 
         }

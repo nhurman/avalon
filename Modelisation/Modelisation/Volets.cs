@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    public class Shutter : ToggleElement
+    public class Shutter : TransformElement
     {
     }
 }

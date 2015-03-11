@@ -9,16 +9,9 @@ namespace Modelisation
 {
     public abstract class Element : SceneObject
     {
-        public double ObjectProperty
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public double ObjectProperty { get; set; }
+        //Should be between 0..1
+
 
         public abstract void setOn();
 
@@ -38,5 +31,8 @@ namespace Modelisation
         {
             throw new System.NotImplementedException();
         }
+
+        public abstract bool isOn();
+        public abstract bool isOff();
     }
 }

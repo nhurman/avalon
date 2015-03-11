@@ -7,13 +7,14 @@ using System.Collections;
 
 namespace Modelisation
 {
-    public class VariableLight : VariableElement
+    public class VariableLight : NumeralElement
     {
         // In Unity, light.intensity go from 0 to 8
-        public VariableLight() : base(0, 8)
+        public VariableLight()
         {
-            //ObjectProperty = &light.Intensity;
-            ObjectProperty = GetComponent<Light>().Intensity;
+            Max = 8;
+            Min = 0;
+            ObjectProperty = GetComponent<Light>().intensity;
         }
         
     }

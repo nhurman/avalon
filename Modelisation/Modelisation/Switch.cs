@@ -9,7 +9,17 @@ namespace Modelisation
 {
     public class Switch : SceneObject
     {
-        public GameObject Target { get; set; }
+        public string targetName;
+        public bool onButton;
+        public bool offButton;
+        private bool incState;
+        //Perhaps too heavy, value could be stored
+        public GameObject Target {
+            get
+            {
+                return GameObject.Find(targetName);
+            }
+        }
         public Element Elem
         {
             get
@@ -38,8 +48,52 @@ namespace Modelisation
 
         public void toggle()
         {
-            //Elem.ObjectProperty
-            throw new System.NotImplementedException();
+            bool auth = notifyGameManager();
+            if (auth)
+            {
+                if (Elem.isOn())
+                {
+                    switchOff();
+                    incState = false;
+                }
+                else if (Elem.isOff())
+                {
+                    switchOn();
+                    incState = true;
+                }
+                else if (incState)
+                {
+                    switchOn();
+                }
+                else
+                {
+                    switchOff();
+                }
+            }
+        }
+
+        public void VRAction()
+        {
+            if (onButton && offButton)
+            {
+                toggle();
+            }
+            else if (onButton)
+            {
+                switchOn();
+            }
+            else if (offButton)
+            {
+                switchOff();
+            }
+            else
+            {
+                Debug.Log("Undefined button comportement");
+            }
+        }
+        private void Start()
+        {
+            incState = true;
         }
     }
 }

@@ -1,23 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using MiddleVR_Unity3D;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Modelisation
 {
     public abstract class SceneObject : MonoBehaviour
     {
-        public GameManager GameManager
+        //Should be static with stored value, but perhaps there is a better way to achieve this
+        public string managerName;
+        public GameManager Manager
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
+                return GameObject.Find(managerName).GetComponent<GameManager>();
             }
         }
     
