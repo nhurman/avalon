@@ -7,7 +7,7 @@ namespace Modelisation
     public abstract class SceneObject : MonoBehaviour
     {
         //Should be static with stored value, but perhaps there is a better way to achieve this
-        public string managerName;
+        public static string managerName = "GameManager";
         public GameManager Manager
         {
             get
@@ -20,7 +20,7 @@ namespace Modelisation
         public bool notifyGameManager()
         {
             /*throw new System.NotImplementedException();
-            return GameManager.isAuthorised();*/
+            return Manager.isAuthorised();*/
             return true;
         }
     }

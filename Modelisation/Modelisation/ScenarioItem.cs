@@ -9,5 +9,12 @@ namespace Modelisation
     {
         public string elementName;
         public string actionExplanation;
+        public bool authAll;
+
+        public virtual bool isEnd()
+        {
+            return false;
+        }
+
     }
 }
