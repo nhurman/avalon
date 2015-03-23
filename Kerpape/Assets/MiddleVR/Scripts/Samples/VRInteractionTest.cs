@@ -8,9 +8,8 @@ using System.Collections;
 using MiddleVR_Unity3D;
 
 public class VRInteractionTest : MonoBehaviour {
-	void Start () {}
-	
-	void Update () {
+
+    void Update () {
         TestWand();
         TestKeyboardMouse();
         TestDevices();
@@ -35,7 +34,7 @@ public class VRInteractionTest : MonoBehaviour {
             if (b0 == true)
             {
                 // If primary button is pressed, display wand horizontal axis value
-                MiddleVRTools.Log("WandButton 0 pressed! HAxis value: " + x + ", VAxis value: " + y );
+                MVRTools.Log("WandButton 0 pressed! HAxis value: " + x + ", VAxis value: " + y );
             }
         }
     }
@@ -47,14 +46,14 @@ public class VRInteractionTest : MonoBehaviour {
             // Testing mouse button
             if (MiddleVR.VRDeviceMgr.IsMouseButtonPressed(0))
             {
-                MiddleVRTools.Log("Mouse Button pressed!");
-                MiddleVRTools.Log("VRMouseX : " + MiddleVR.VRDeviceMgr.GetMouseAxisValue(0));
+                MVRTools.Log("Mouse Button pressed!");
+                MVRTools.Log("VRMouseX : " + MiddleVR.VRDeviceMgr.GetMouseAxisValue(0));
             }
 
             // Testing keyboard key
             if (MiddleVR.VRDeviceMgr.IsKeyPressed(MiddleVR.VRK_SPACE))
             {
-                MiddleVRTools.Log("Space!");
+                MVRTools.Log("Space!");
             }
         }
     }
@@ -77,18 +76,18 @@ public class VRInteractionTest : MonoBehaviour {
         // Getting tracker data
         if( tracker != null )
         {
-              MiddleVRTools.Log("TrackerX : " + tracker.GetPosition().x() );
+              MVRTools.Log("TrackerX : " + tracker.GetPosition().x() );
         }
 
         // Testing joystick button
         if (joy != null && joy.IsButtonPressed(0)) {
-            MiddleVRTools.Log("Joystick!");
+            MVRTools.Log("Joystick!");
         }
 
         // Testing axis value
         if( axis != null && axis.GetValue(0) > 0 )
         {
-            MiddleVRTools.Log("Axis Value: " + axis.GetValue(0));
+            MVRTools.Log("Axis Value: " + axis.GetValue(0));
         }
 
         // Testing button state
@@ -96,12 +95,12 @@ public class VRInteractionTest : MonoBehaviour {
         {
             if (buttons.IsToggled(0))
             {
-                MiddleVRTools.Log("Button 0 pressed !");
+                MVRTools.Log("Button 0 pressed !");
             }
 
             if (buttons.IsToggled(0, false))
             {
-                MiddleVRTools.Log("Button 0 released !");
+                MVRTools.Log("Button 0 released !");
             }
         }
     }
@@ -118,19 +117,19 @@ public class VRInteractionTest : MonoBehaviour {
         if (MiddleVR.VRDisplayMgr != null)
         {
             node   = MiddleVR.VRDisplayMgr.GetNode("HeadNode");
-            if (node != null) { MiddleVRTools.Log("Found HeadNode"); }
+            if (node != null) { MVRTools.Log("Found HeadNode"); }
 
             camera = MiddleVR.VRDisplayMgr.GetCamera("Camera0");
-            if (camera != null) { MiddleVRTools.Log("Found Camera0"); }
+            if (camera != null) { MVRTools.Log("Found Camera0"); }
 
             scam   = MiddleVR.VRDisplayMgr.GetCameraStereo("CameraStereo0");
-            if (scam != null) { MiddleVRTools.Log("Found CameraStereo0"); }
+            if (scam != null) { MVRTools.Log("Found CameraStereo0"); }
 
             screen = MiddleVR.VRDisplayMgr.GetScreen("Screen0");
-            if (screen != null) { MiddleVRTools.Log("Found Screen0"); }
+            if (screen != null) { MVRTools.Log("Found Screen0"); }
 
             vp     = MiddleVR.VRDisplayMgr.GetViewport("Viewport0");
-            if (vp != null) { MiddleVRTools.Log("Found Viewport0"); }
+            if (vp != null) { MVRTools.Log("Found Viewport0"); }
         }
 
     }

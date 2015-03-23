@@ -11,13 +11,7 @@ public class VRFollowNode : MonoBehaviour {
     public string VRNodeName = "HeadNode";
     private vrNode3D m_Node = null;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Update () {
         if (m_Node == null && MiddleVR.VRDisplayMgr != null)
         {
             m_Node = MiddleVR.VRDisplayMgr.GetNode(VRNodeName);
@@ -25,8 +19,8 @@ public class VRFollowNode : MonoBehaviour {
 
         if (m_Node != null)
         {
-            transform.localPosition = MiddleVRTools.ToUnity(m_Node.GetPositionWorld());
-            transform.localRotation = MiddleVRTools.ToUnity(m_Node.GetOrientationWorld());
+            transform.position = MVRTools.ToUnity(m_Node.GetPositionVirtualWorld());
+            transform.rotation = MVRTools.ToUnity(m_Node.GetOrientationVirtualWorld());
         }
-	}
+    }
 }

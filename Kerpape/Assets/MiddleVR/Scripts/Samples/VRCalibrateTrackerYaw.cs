@@ -2,19 +2,15 @@
  * MiddleVR
  * (c) i'm in VR
  */
+
 using UnityEngine;
 using System.Collections;
 
 public class VRCalibrateTrackerYaw : MonoBehaviour {
     public string Tracker = "VRPNTracker0.Tracker0";
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update () {
         vrTracker tracker = null;
         vrKeyboard keyb = null;
 
@@ -37,5 +33,5 @@ public class VRCalibrateTrackerYaw : MonoBehaviour {
                 tracker.SetNeutralOrientation(nq);
             }
         }
-	}
+    }
 }

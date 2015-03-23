@@ -1,3 +1,8 @@
+/* VRNavigationCollision
+ * MiddleVR
+ * (c) i'm in VR
+ */
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,21 +23,29 @@ public class VRNavigationCollision : MonoBehaviour {
 
     Vector3 m_LastCollisionNodePosition;
 
-    
+
     public void SetCollisionNode( GameObject iCollisionNode )
     {
         m_CollisionNode = iCollisionNode;
     }
-    
-    public void SetNavigationNode( GameObject iNavigationNode )
-    {
-        m_NavigationNode   = iNavigationNode;
-        m_VRNavigationNode = MiddleVR.VRDisplayMgr.GetNode(iNavigationNode.name);
 
-        if( m_VRNavigationNode == null )
+    public void SetNavigationNode( vrNode3D iNavigationNode )
+    {
+        if (m_VRNavigationNode == null)
         {
-            MiddleVRTools.Log( 2, "[X] VRHeadCollision: the navigation node to set doesn't have a corresponding vrNode3D in MiddleVR nodes." );
+            MVRTools.Log(2, "[X] VRNavigationCollision: MiddleVR navigation node is null.");
         }
+
+        m_VRNavigationNode = iNavigationNode;
+
+        GameObject unityNavigationNode = MVRNodesMapper.Instance.GetNode(iNavigationNode);
+        if (unityNavigationNode == null)
+        {
+            MVRTools.Log(2, "[X] VRNavigationCollision: impossible to retrieve navigation node GameObject.");
+            return;
+        }
+
+        m_NavigationNode = unityNavigationNode;
     }
 
     public void SetFly( bool iFly )
@@ -41,17 +54,17 @@ public class VRNavigationCollision : MonoBehaviour {
     }
 
     // Use this public method from interaction scripts to initialize and start collision
-    public void Initialize() 
+    public void Initialize()
     {
         if( m_CollisionNode!=null && m_NavigationNode!=null && m_VRNavigationNode!=null )
         {
             m_LastCollisionNodePosition = m_CollisionNode.transform.position;
             m_Initialized = true;
-            MiddleVRTools.Log( 2, "[ ] VRHeadCollision: initialized" );
+            MVRTools.Log( 2, "[ ] VRHeadCollision: initialized" );
         }
         else
         {
-            MiddleVRTools.Log( 2, "[X] VRHeadCollision: impossible to retrieve sepcified navigation or collision nodes" );
+            MVRTools.Log( 2, "[X] VRHeadCollision: impossible to retrieve sepcified navigation or collision nodes" );
         }
     }
 
@@ -63,12 +76,12 @@ public class VRNavigationCollision : MonoBehaviour {
 
         if( interactionNb == 0 )
         {
-            MiddleVRTools.Log( 4, "[~] VRHeadCollision: no interaction found in Interaction Manager" );
+            MVRTools.Log( 4, "[~] VRHeadCollision: no interaction found in Interaction Manager" );
             return;
         }
-        
+
         bool fly = true;
-        string navNodeName = "";
+        vrNode3D navNodeMVR = null;
 
         for( uint i=0 ; i<interactionNb ; ++i )
         {
@@ -81,21 +94,27 @@ public class VRNavigationCollision : MonoBehaviour {
                 {
                     fly = flyProp.GetBool();
                 }
-                
+
                 // Get navigation node
                 vrProperty navNodeProp = interaction.GetProperty("NavigationNode");
                 if( navNodeProp != null )
                 {
-                    navNodeName = navNodeProp.GetObject().GetName();
+                    navNodeMVR = MiddleVR.VRDisplayMgr.GetNode( navNodeProp.GetObject().GetName() );
                 }
 
                 break;
             }
         }
 
+        if (navNodeMVR == null)
+        {
+            MVRTools.Log(2, "[X] VRNavigationCollision: impossible to retrieve navigation node.");
+            return;
+        }
+
         // Initialize parameters from found ones
-        SetCollisionNode ( GameObject.Find(CollisionNodeName) );
-        SetNavigationNode( GameObject.Find(navNodeName) );
+        SetCollisionNode (GameObject.Find(CollisionNodeName));
+        SetNavigationNode(navNodeMVR);
         SetFly( fly );
 
         // Try to start the collisions
@@ -106,7 +125,7 @@ public class VRNavigationCollision : MonoBehaviour {
     {
         Vector3 reactionMovement = Vector3.zero;
 
-        RaycastHit hit; 
+        RaycastHit hit;
         if( Physics.SphereCast( iStartPosition, CollisionDistance, iMovement.normalized, out hit, iMovement.magnitude ) )
         {
             // Compute reaction vector
@@ -125,13 +144,8 @@ public class VRNavigationCollision : MonoBehaviour {
         return reactionMovement;
     }
 
-    void Start () 
-    {
-    }
-
-    // Update is called once per frame
     void Update () {
-    
+
         if( !m_Initialized )
         {
             InitializeFromActiveNavigation();
@@ -150,11 +164,11 @@ public class VRNavigationCollision : MonoBehaviour {
 
         if( lastMovement.magnitude > 0.0f )
         {
-            Vector3 reactionMovement = ComputeReactionMovement( startPos, lastMovement ); 
+            Vector3 reactionMovement = ComputeReactionMovement( startPos, lastMovement );
 
             // Update Unity and MVR versions of navigation node
             m_NavigationNode.transform.position += reactionMovement;
-            m_VRNavigationNode.SetPositionWorld( (new vrVec3(m_NavigationNode.transform.position.x, m_NavigationNode.transform.position.y, m_NavigationNode.transform.position.z)).To((uint)VR3DEngine.VR3DEngine_Unity3D) );
+            m_VRNavigationNode.SetPositionWorld( MVRTools.FromUnity(m_NavigationNode.transform.position) );
         }
 
         m_LastCollisionNodePosition = m_CollisionNode.transform.position;

@@ -1,4 +1,4 @@
-/* VRWandInteraction
+/* VRWandNavigation
  * MiddleVR
  * (c) i'm in VR
  */
@@ -8,9 +8,9 @@ using System.Collections;
 using MiddleVR_Unity3D;
 using System;
 
-[RequireComponent (typeof(VRWandInteraction))]
+//[RequireComponent (typeof(VRWandInteraction))]
 public class VRWandNavigation : MonoBehaviour {
-    public string NodeToMove = "CenterNode";
+    public string NodeToMove = "VRSystemCenterNode";
     public string DirectionReferenceNode = "HandNode";
     public string TurnAroundNode = "HeadNode";
 
@@ -28,11 +28,6 @@ public class VRWandNavigation : MonoBehaviour {
     private bool m_SearchedNodeToMove     = false;
     private bool m_SearchedRotationNode   = false;
 
-    // Use this for initialization
-    void Start () {
-    }
-    
-    // Update is called once per frame
     void Update()
     {
         // Get nodes when created
@@ -45,30 +40,30 @@ public class VRWandNavigation : MonoBehaviour {
 
         if ( m_SearchedRefNode == false && m_DirectionRefNode == null )
         {
-            MiddleVRTools.Log("[X] VRWandNavigation: Couldn't find '" + DirectionReferenceNode + "'");
+            MVRTools.Log("[X] VRWandNavigation: Couldn't find '" + DirectionReferenceNode + "'");
             m_SearchedRefNode = true;
         }
 
         if (m_SearchedNodeToMove == false && m_NodeToMove == null)
         {
-            MiddleVRTools.Log("[X] VRWandNavigation: Couldn't find '" + NodeToMove + "'");
+            MVRTools.Log("[X] VRWandNavigation: Couldn't find '" + NodeToMove + "'");
             m_SearchedNodeToMove = true;
         }
 
         if (m_SearchedRotationNode == false && TurnAroundNode.Length > 0 && m_TurnNode == null)
         {
-            MiddleVRTools.Log("[X] VRWandNavigation: Couldn't find '" + TurnAroundNode + "'");
+            MVRTools.Log("[X] VRWandNavigation: Couldn't find '" + TurnAroundNode + "'");
             m_SearchedRotationNode = true;
         }
 
         if (m_DirectionRefNode != null && m_NodeToMove != null )
         {
-            float speed = 0.0f; 
+            float speed = 0.0f;
             float speedR = 0.0f;
 
             if( m_VRMgr == null )
                 m_VRMgr = GameObject.Find("VRManager");
-            
+
             if( m_VRMgr != null )
             {
                 VRManagerScript script = m_VRMgr.GetComponent<VRManagerScript>();
@@ -78,7 +73,7 @@ public class VRWandNavigation : MonoBehaviour {
                     /// FORWARD
                     float forward = script.WandAxisVertical;
 
-                    //MiddleVRTools.Log("Forward: " + forward);
+                    //MVRTools.Log("Forward: " + forward);
 
                     float deltaTime = (float)MiddleVR.VRKernel.GetDeltaTime();
 

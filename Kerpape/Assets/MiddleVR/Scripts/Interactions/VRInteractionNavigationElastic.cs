@@ -1,21 +1,24 @@
+/* VRInteractionNavigationElastic
+ * MiddleVR
+ * (c) i'm in VR
+ */
+
 using UnityEngine;
 using System.Collections;
 using MiddleVR_Unity3D;
 using System;
 
-public class VRInteractionNavigationElastic : MonoBehaviour {
+public class VRInteractionNavigationElastic : VRInteraction {
     public string Name = "InteractionNavigationElastic";
 
     public string ReferenceNode  = "HandNode";
-    public string NavigationNode = "CenterNode";
     public string TurnAroundNode = "HeadNode";
-    
+
     vrNode3D m_ReferenceNode  = null;
-    vrNode3D m_NavigationNode = null;
-	vrNode3D m_TurnAroundNode = null;
+    vrNode3D m_TurnAroundNode = null;
 
     public uint  WandActionButton = 1;
-    
+
     public float TranslationSpeed = 1.0f;
     public float RotationSpeed    = 45.0f;
 
@@ -28,37 +31,39 @@ public class VRInteractionNavigationElastic : MonoBehaviour {
 
     public GameObject       ElasticRepresentationPrefab;
     GameObject              m_ElasticRepresentationObject;
-    VRElasticRepresentation m_ElasticRepresentation; 
+    VRElasticRepresentation m_ElasticRepresentation;
 
     vrInteractionNavigationElastic m_it = null;
 
     bool m_Initialized = false;
-    Transform m_VRRootNode = null;
+    Transform m_VRSystemCenterNode = null;
 
-    // Use this for initialization
-    void Start () {
-        
+
+    private void Start()
+    {
+        // Make sure the base interaction is started
+        InitializeBaseInteraction();
+
         m_it = new vrInteractionNavigationElastic(Name);
-        GC.SuppressFinalize(m_it);
+        // Must tell base class about our interaction
+        SetInteraction(m_it);
 
         MiddleVR.VRInteractionMgr.AddInteraction(m_it);
         MiddleVR.VRInteractionMgr.Activate(m_it);
 
         m_ReferenceNode  = MiddleVR.VRDisplayMgr.GetNode(ReferenceNode);
-        m_NavigationNode = MiddleVR.VRDisplayMgr.GetNode(NavigationNode);
         m_TurnAroundNode = MiddleVR.VRDisplayMgr.GetNode(TurnAroundNode);
-        
-        if ( m_ReferenceNode!= null && m_NavigationNode != null && m_TurnAroundNode != null )
-		{
-			m_it.SetActionButton( WandActionButton );
+
+        if ( m_ReferenceNode!= null && m_TurnAroundNode != null )
+        {
+            m_it.SetActionButton( WandActionButton );
 
             m_it.SetReferenceNode(m_ReferenceNode);
-            m_it.SetNavigationNode(m_NavigationNode);
             m_it.SetTurnAroundNode(m_TurnAroundNode);
-            
+
             m_it.SetTranslationSpeed(TranslationSpeed);
             m_it.SetRotationSpeed(RotationSpeed);
-            
+
             m_it.SetDistanceThreshold( DistanceThreshold );
             m_it.SetAngleThreshold(AngleThreshold);
 
@@ -72,40 +77,49 @@ public class VRInteractionNavigationElastic : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-        // Nothing to do for this interaction, everything is done in the kernel
-
-        if( !m_Initialized )
+    void Update ()
+    {
+        if (IsActive())
         {
-            if( GameObject.Find("VRManager").GetComponent<VRManagerScript>().RootNode != null )
+            if (!m_Initialized)
             {
-                m_VRRootNode = GameObject.Find("VRManager").GetComponent<VRManagerScript>().RootNode.transform;
+                if (GameObject.Find("VRManager").GetComponent<VRManagerScript>().VRSystemCenterNode != null)
+                {
+                    m_VRSystemCenterNode = GameObject.Find("VRManager").GetComponent<VRManagerScript>().VRSystemCenterNode.transform;
+                }
+                else
+                {
+                    vrNode3D vrSystemMVRNode = MiddleVR.VRDisplayMgr.GetNodeByTag(MiddleVR.VR_SYSTEM_CENTER_NODE_TAG);
+                    if (vrSystemMVRNode != null)
+                    {
+                        m_VRSystemCenterNode = GameObject.Find(vrSystemMVRNode.GetName()).transform;
+                    }
+                }
+
+                m_Initialized = true;
             }
 
-            m_Initialized = true;
-        }
- 
-        if( ElasticRepresentationPrefab == null )
-        {
-            MiddleVRTools.Log( "[X] VRInteractionNavigationElastic error: bad elastic prefab reference" );
-            return;
-        }
+            if (ElasticRepresentationPrefab == null)
+            {
+                MVRTools.Log("[X] VRInteractionNavigationElastic error: bad elastic prefab reference");
+                return;
+            }
 
-        if( m_it.HasNavigationStarted() )
-        {
-            m_ElasticRepresentationObject = (GameObject)GameObject.Instantiate( ElasticRepresentationPrefab );
-            m_ElasticRepresentationObject.transform.parent = m_VRRootNode;
-            m_ElasticRepresentation =  m_ElasticRepresentationObject.GetComponent<VRElasticRepresentation>();
-            UpdateElasticRepresentation();
-        }
-        else if( m_it.IsNavigationRunning() )
-        {
-            UpdateElasticRepresentation();
-        }
-        else if( m_it.IsNavigationStopped() && m_ElasticRepresentation != null )
-        {
-            GameObject.Destroy( m_ElasticRepresentationObject );
+            if (m_it.HasNavigationStarted())
+            {
+                m_ElasticRepresentationObject = (GameObject)GameObject.Instantiate(ElasticRepresentationPrefab);
+                m_ElasticRepresentationObject.transform.parent = m_VRSystemCenterNode;
+                m_ElasticRepresentation = m_ElasticRepresentationObject.GetComponent<VRElasticRepresentation>();
+                UpdateElasticRepresentation();
+            }
+            else if (m_it.IsNavigationRunning())
+            {
+                UpdateElasticRepresentation();
+            }
+            else if (m_it.IsNavigationStopped() && m_ElasticRepresentation != null)
+            {
+                GameObject.Destroy(m_ElasticRepresentationObject);
+            }
         }
     }
 
@@ -117,13 +131,13 @@ public class VRInteractionNavigationElastic : MonoBehaviour {
             return;
         }
 
-        Vector3 startPosition = MiddleVRTools.ToUnity( m_it.GetInteractionStartWorldMatrix().GetTranslation() );
-        Vector3 endPosition   = MiddleVRTools.ToUnity( m_ReferenceNode.GetPositionWorld() );
+        Vector3 startPosition = MVRTools.ToUnity( m_it.GetInteractionStartWorldMatrix().GetTranslation() );
+        Vector3 endPosition   = MVRTools.ToUnity( m_ReferenceNode.GetPositionWorld() );
         m_ElasticRepresentation.SetElasticPoints( startPosition, endPosition );
     }
 
     void OnEnable()
-    { 
+    {
         MiddleVR.VRLog( 3, "[ ] VRInteractionNavigationElastic: enabled" );
         if( m_it != null )
         {
@@ -139,14 +153,4 @@ public class VRInteractionNavigationElastic : MonoBehaviour {
             MiddleVR.VRInteractionMgr.Deactivate( m_it );
         }
     }
-
-    /*
-    void OnApplicationQuit()
-    {
-        if( m_it != null )
-        {
-            //MiddleVR.VRInteractionMgr.DestroyInteraction(m_it);
-            //m_it = null;
-        }
-    }*/
 }

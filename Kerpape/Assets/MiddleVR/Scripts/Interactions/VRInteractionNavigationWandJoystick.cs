@@ -1,18 +1,21 @@
+/* VRInteractionNavigationWandJoystick
+ * MiddleVR
+ * (c) i'm in VR
+ */
+
 using UnityEngine;
 using System.Collections;
 using MiddleVR_Unity3D;
 using System;
 
 
-public class VRInteractionNavigationWandJoystick : MonoBehaviour {
+public class VRInteractionNavigationWandJoystick : VRInteraction {
     public string Name = "InteractionNavigationWandJoystick";
 
     public string DirectionReferenceNode = "HandNode";
-    public string NavigationNode = "CenterNode";
     public string TurnAroundNode = "HeadNode";
 
     vrNode3D m_DirectionReferenceNode = null;
-    vrNode3D m_NavigationNode = null;
     vrNode3D m_TurnAroundNode = null;
     
     public float TranslationSpeed = 1.0f;
@@ -22,36 +25,34 @@ public class VRInteractionNavigationWandJoystick : MonoBehaviour {
 
     vrInteractionNavigationWandJoystick m_it = null;
 
-    // Use this for initialization
-    void Start () {
-        
+
+    private void Start()
+    {
+        // Make sure the base interaction is started
+        InitializeBaseInteraction();
+
         m_it = new vrInteractionNavigationWandJoystick(Name);
-        GC.SuppressFinalize(m_it);
+        // Must tell base class about our interaction
+        SetInteraction(m_it);
 
         MiddleVR.VRInteractionMgr.AddInteraction(m_it);
         MiddleVR.VRInteractionMgr.Activate(m_it);
 
         m_DirectionReferenceNode = MiddleVR.VRDisplayMgr.GetNode(DirectionReferenceNode);
-        m_NavigationNode = MiddleVR.VRDisplayMgr.GetNode(NavigationNode);
         m_TurnAroundNode = MiddleVR.VRDisplayMgr.GetNode(TurnAroundNode);
 
-        if ( m_DirectionReferenceNode!= null && m_NavigationNode != null && m_TurnAroundNode != null )
+        if ( m_DirectionReferenceNode!= null && m_TurnAroundNode != null )
         {
             m_it.SetDirectionReferenceNode(m_DirectionReferenceNode);
-            m_it.SetNavigationNode(m_NavigationNode);
             m_it.SetTurnAroundNode(m_TurnAroundNode);
             m_it.SetTranslationSpeed(TranslationSpeed);
+            m_it.SetRotationSpeed(RotationSpeed);
             m_it.SetFly(Fly);
         }
         else
         {
             MiddleVR.VRLog( 2, "[X] VRInteractionNavigationWandJoystick: One or several nodes are missing." );
         }
-    }
-
-    // Update is called once per frame
-    void Update () {
-        // Nothing to do for this interaction, everything is done in the kernel
     }
 
     void OnEnable()
@@ -69,16 +70,6 @@ public class VRInteractionNavigationWandJoystick : MonoBehaviour {
         if( m_it != null && MiddleVR.VRInteractionMgr != null )
         {
             MiddleVR.VRInteractionMgr.Deactivate( m_it );
-        }
-    }
-
-    void OnApplicationQuit()
-    {
-        if( m_it != null )
-        {
-            //MiddleVR.VRInteractionMgr.DestroyInteraction(m_it);
-            //m_it = null;
-            
         }
     }
 }

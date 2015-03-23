@@ -11,7 +11,6 @@ using System;
 public class VRShortcutInvertEyes : MonoBehaviour
 {
 
-    // Update is called once per frame
     void Update () 
     {
         vrKeyboard keyb = MiddleVR.VRDeviceMgr.GetKeyboard();

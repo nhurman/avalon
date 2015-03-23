@@ -1,4 +1,4 @@
-/* VRSharedTransform
+/* VRShareTransform
  * MiddleVR
  * (c) i'm in VR
  */
@@ -8,138 +8,63 @@ using System.Collections;
 
 using MiddleVR_Unity3D;
 
+// Share a GameObject transformation using MiddleVR Cluster Command
 public class VRShareTransform : MonoBehaviour {
-	static private uint g_shareID = 1;
+    static private uint g_shareID = 1;
 
-	private uint      m_ShareID = 0;
-	private vrTracker m_tracker = null;
-	private bool      m_TrackerSynchronized = false;
+    private vrClusterManager m_ClusterMgr = null;
+    private vrCommand m_Command = null;
 
-	[HideInInspector]
-	public string ShareName;
+    // Create cluster command on script start
+    // For more information, refer to the MiddleVR User Guide and the VRShareTransform script
+    protected void Start()
+    {
+        uint shareID = g_shareID++;
+        string shareName = "VRShareTransform_" + shareID.ToString();
 
-	void OnEnable() {
-		DoEnableOrStart();
-	}
+        // Create the command with cluster flag
+        m_Command = new vrCommand(shareName, _CommandHandler);
 
-	void OnDisable() {
-		UnsynchronizeTracker();
-	}
+        m_ClusterMgr = MiddleVR.VRClusterMgr;
+    }
 
-	void OnDestroy() {
-		DestroyTracker();
-	}
+    // On the server, call the cluster command with a list of [position, rotation] every update
+    // On all nodes, _CommandHandler will be called the next time there is a synchronization update :
+    // either during VRManagerScript Update() or VRManagerPostFrame Update() (see script ordering)
+    protected void Update()
+    {
+        if (m_ClusterMgr.IsServer())
+        {
+            // put position and orientation in a vrValue as a list
+            Vector3 p = transform.position;
+            Quaternion q = transform.rotation;
 
-	public void Start () {
-		DoEnableOrStart();
-	}
+            vrValue val = vrValue.CreateList();
+            val.AddListItem( new vrVec3(p.x, p.y, p.z) );
+            val.AddListItem( new vrQuat(q.x, q.y, q.z, q.w) );
 
-	public void Update () {
-		if( MiddleVR.VRClusterMgr.IsServer() )
-		{
-			if( !m_TrackerSynchronized )
-			{
-				// Try until we succeed because synchronization may have
-				// failed during OnEnable or OnStart due to late creation
-				// of MiddleVR managers.
-				GetOrCreateTracker();
-				SynchronizeTracker();
-			}
+            // Do the actual call
+            // This returns immediately
+            m_Command.Do( val );
+        }
+    }
 
-			if( m_TrackerSynchronized )
-			{
-				Vector3 p = transform.position;
-				Quaternion q = transform.rotation;
+    // On clients, handle the command call
+    private vrValue _CommandHandler(vrValue iValue)
+    {
+        if (m_ClusterMgr.IsClient())
+        {
+            // extract position and orientation from the vrValue
+            vrVec3 pos = iValue[0].GetVec3();
+            vrQuat orient = iValue[1].GetQuat();
 
-				vrVec3 pos = new vrVec3(p.x, p.y, p.z);
-				vrQuat quat = new vrQuat(q.x, q.y, q.z, q.w);
+            Vector3 p = new Vector3( pos.x(), pos.y(), pos.z() );
+            Quaternion q = new Quaternion( orient.x(), orient.y(), orient.z(), orient.w() );
 
-				m_tracker.SetPosition(pos);
-				m_tracker.SetOrientation(quat);
+            transform.position = p;
+            transform.rotation = q;
+        }
 
-				//MiddleVRTools.Log("Server pushing data : " + p.z );
-			}
-		}
-	}
-
-	private void DoEnableOrStart() {
-		// Not very clear whether OnEnable will be always called before Start.
-		InitTrackerName();
-		GetOrCreateTracker();
-		SynchronizeTracker();
-	}
-
-	/**
-	 * @brief Sets the name and the Id of the tracker.
-	 *
-	 * It is needed to ensure that this function is called before Addtracker.
-	 */
-	private void InitTrackerName() {
-		if( m_ShareID == 0 )
-		{
-			m_ShareID = g_shareID++;
-			ShareName = "S_" + m_ShareID.ToString();
-
-			Debug.Log("[-] VRSharedTransform script for " + name +
-			          ": set ShareName to \"" + ShareName + "\"");
-		}
-	}
-
-	private void GetOrCreateTracker() {
-		if( m_tracker != null )
-		{
-			return;
-		}
-
-		if( MiddleVR.VRDeviceMgr != null )
-		{
-			m_tracker = MiddleVR.VRDeviceMgr.GetTracker(ShareName);
-			if( m_tracker == null )
-			{
-				// Does not exist yet so let's create it.
-				m_tracker = MiddleVR.VRDeviceMgr.CreateTracker(ShareName);
-				MiddleVRTools.Log("[+] Created shared tracker " + ShareName);
-			}
-		}
-	}
-
-	private void DestroyTracker() {
-		UnsynchronizeTracker();
-
-		if( MiddleVR.VRDeviceMgr != null && m_tracker != null )
-		{
-			MiddleVR.VRDeviceMgr.RemoveDevice(m_tracker);
-			MiddleVR.VRDeviceMgr.DestroyDevice(m_tracker);
-		}
-		m_tracker = null;
-	}
-
-	private void SynchronizeTracker() {
-		if( m_TrackerSynchronized )
-		{
-			return;
-		}
-
-		if( MiddleVR.VRClusterMgr != null && m_tracker != null )
-		{
-			// A tracker is added to the server and the clients.
-			MiddleVR.VRClusterMgr.AddSynchronizedObject(m_tracker, 1);
-			m_TrackerSynchronized = true;
-			MiddleVRTools.Log("[+] Added to synchronization the shared tracker " + ShareName);
-		}
-	}
-
-	private void UnsynchronizeTracker() {
-		if( !m_TrackerSynchronized )
-		{
-			return;
-		}
-
-		if( MiddleVR.VRClusterMgr != null && m_tracker != null )
-		{
-			MiddleVR.VRClusterMgr.RemoveSynchronizedObject(m_tracker);
-		}
-		m_TrackerSynchronized = false;
-		MiddleVRTools.Log("[+] Removed from synchronization the shared tracker " + ShareName);
-	}
+        return null;
+    }
 }

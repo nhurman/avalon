@@ -45,6 +45,3 @@ Material:
         first:
           name: _Emission
         second: {r: .208955228, g: .208955228, b: .208955228, a: 1}
---- !u!1002 &2100001
-EditorExtensionImpl:
-  serializedVersion: 6

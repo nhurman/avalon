@@ -9,13 +9,7 @@ using System.Collections;
 public class VRCalibrateTracker : MonoBehaviour {
     public string Tracker = "VRPNTracker0.Tracker0";
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Update () {
         vrTracker tracker = null;
         vrKeyboard keyb = null;
 
@@ -32,5 +26,5 @@ public class VRCalibrateTracker : MonoBehaviour {
                 tracker.SetNeutralOrientation(tracker.GetOrientation());
             }
         }
-	}
+    }
 }

@@ -1,4 +1,4 @@
-/* VRVirtualTracker
+/* VRVirtualTrackerMapping
  * MiddleVR
  * (c) i'm in VR
  */
@@ -9,51 +9,49 @@ using MiddleVR_Unity3D;
 
 public class VRVirtualTrackerMapping : MonoBehaviour
 {
-	public string m_SourceTrackerName="VRPNTracker0.Tracker0";
-	public string m_DestinationVirtualTrackerName="MyTracker";
+    public string m_SourceTrackerName="VRPNTracker0.Tracker0";
+    public string m_DestinationVirtualTrackerName="MyTracker";
 
-	public bool UsePositionX = true;
-	public bool UsePositionY = true;
-	public bool UsePositionZ = true;
-    
+    public bool UsePositionX = true;
+    public bool UsePositionY = true;
+    public bool UsePositionZ = true;
+
     public bool  UsePositionScale   = false;
     public float PositionScaleValue = 1.0f;
 
-	public bool UseYaw       = true;
-	public bool UsePitch     = true;
-	public bool UseRoll      = true;
+    public bool UseYaw       = true;
+    public bool UsePitch     = true;
+    public bool UseRoll      = true;
 
     private bool m_Init = false;
-    
+
     // The trackers
     private vrTracker m_SourceTracker = null;
     private vrTracker m_DestinationVirtualTracker = null;
-	
-	// Start
-	void Start () 
-	{
-		// Retrieve trackers by name
-		m_SourceTracker             = MiddleVR.VRDeviceMgr.GetTracker(m_SourceTrackerName);
-		m_DestinationVirtualTracker = MiddleVR.VRDeviceMgr.GetTracker(m_DestinationVirtualTrackerName);
-		
-		if( m_SourceTracker == null )
+
+    void Start ()
+    {
+        // Retrieve trackers by name
+        m_SourceTracker             = MiddleVR.VRDeviceMgr.GetTracker(m_SourceTrackerName);
+        m_DestinationVirtualTracker = MiddleVR.VRDeviceMgr.GetTracker(m_DestinationVirtualTrackerName);
+
+        if( m_SourceTracker == null )
         {
-            MiddleVRTools.Log("[X] VirtualTrackerMapping: Error : Can't find tracker '" + m_SourceTrackerName + "'.");
+            MVRTools.Log("[X] VirtualTrackerMapping: Error : Can't find tracker '" + m_SourceTrackerName + "'.");
         }
         if( m_DestinationVirtualTracker == null )
-		{
-			MiddleVRTools.Log("[X] VirtualTrackerMapping: Error : Can't find tracker '" + m_DestinationVirtualTrackerName + "'.");
-		}
+        {
+            MVRTools.Log("[X] VirtualTrackerMapping: Error : Can't find tracker '" + m_DestinationVirtualTrackerName + "'.");
+        }
 
         if (m_SourceTracker != null && m_DestinationVirtualTracker != null)
         {
             m_Init = true;
         }
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
+    }
+
+    void Update ()
+    {
         if (m_Init == true)
         {
             // Multiply by scale value only if used
@@ -91,5 +89,5 @@ public class VRVirtualTrackerMapping : MonoBehaviour
                 m_DestinationVirtualTracker.SetRoll(m_SourceTracker.GetRoll());
 
         }
-	}
+    }
 }

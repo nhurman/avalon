@@ -4,17 +4,26 @@
  */
 
 using UnityEngine;
-using System.Collections;
 using MiddleVR_Unity3D;
-using System;
 
 public class VRManagerScript : MonoBehaviour
 {
-    public enum ENavigationMode{
+    public enum ENavigation{
         None,
         Joystick,
         Elastic,
         GrabWorld
+    }
+
+    public enum EVirtualHandMapping{
+        Direct,
+        Gogo
+    }
+
+    public enum EManipulation{
+        None,
+        Ray,
+        Homer
     }
 
     // Public readable parameters
@@ -45,29 +54,125 @@ public class VRManagerScript : MonoBehaviour
     [HideInInspector]
     public double DeltaTime = 0.0f;
 
+    private vrCommand m_startParticlesCommand = null;
+
     // Exposed parameters:
     public string ConfigFile = "c:\\config.vrx";
-    public GameObject RootNode = null;
-    public GameObject TemplateCamera = null;
+    public GameObject VRSystemCenterNode = null;
+    public GameObject TemplateCamera     = null;
 
-    public bool            ShowWand                 = true;
-    public ENavigationMode NavigationMethod         = ENavigationMode.Joystick;
-    public bool            ShowFPS                  = true;
-    public bool            DisableExistingCameras   = true;
-    public bool            GrabExistingNodes        = false;
-    public bool            DebugNodes               = false;
-    public bool            DebugScreens             = false;
-    public bool            QuitOnEsc                = true;
-    public bool            DontChangeWindowGeometry = false;
-    public bool            SimpleCluster            = true;
-    public bool            ForceQuality             = false;
-    public int             ForceQualityIndex        = 3;
-    public bool            ChangeWorldScale         = false;
-    public float           WorldScale               = 1.0f;
+    public bool ShowWand = true;
+
+    [SerializeField]
+    private bool m_UseVRMenu = false;
+    public bool UseVRMenu
+    {
+        get
+        {
+            return m_UseVRMenu;
+        }
+        set
+        {
+            _EnableVRMenu(value);
+        }
+    }
+
+    public ENavigation         Navigation         = ENavigation.Joystick;
+    public EManipulation       Manipulation       = EManipulation.Ray;
+    public EVirtualHandMapping VirtualHandMapping = EVirtualHandMapping.Direct;
+
+    [SerializeField]
+    private bool m_ShowScreenProximityWarnings = false;
+    public bool ShowScreenProximityWarnings
+    {
+        get
+        {
+            return m_ShowScreenProximityWarnings;
+        }
+        set
+        {
+            _EnableProximityWarning(value);
+        }
+    }
+
+    [SerializeField]
+    private bool m_Fly = false;
+    public bool Fly
+    {
+        get
+        {
+            return m_Fly;
+        }
+        set
+        {
+            _EnableNavigationFly(value);
+        }
+    }
+
+    [SerializeField]
+    private bool m_NavigationCollisions = false;
+    public bool NavigationCollisions
+    {
+        get
+        {
+            return m_NavigationCollisions;
+        }
+        set
+        {
+            _EnableNavigationCollision(value);
+        }
+    }
+
+    [SerializeField]
+    private bool m_ManipulationReturnObjects = false;
+    public bool ManipulationReturnObjects
+    {
+        get
+        {
+            return m_ManipulationReturnObjects;
+        }
+        set
+        {
+            _EnableManipulationReturnObjects(value);
+        }
+    }
+
+    [SerializeField]
+    private bool m_ShowFPS = true;
+    public bool ShowFPS
+    {
+        get
+        {
+            return m_ShowFPS;
+        }
+        set
+        {
+            _EnableFPSDisplay(value);
+        }
+    }
+
+    public bool              DisableExistingCameras      = true;
+    public bool              GrabExistingNodes           = false;
+    public bool              DebugNodes                  = false;
+    public bool              DebugScreens                = false;
+    public bool              QuitOnEsc                   = true;
+    public bool              DontChangeWindowGeometry    = false;
+    public bool              SimpleCluster               = true;
+    public bool              SimpleClusterParticles      = true;
+    public bool              ForceQuality                = false;
+    public int               ForceQualityIndex           = 3;
+    public bool              CustomLicense               = false;
+    public string            CustomLicenseName;
+    public string            CustomLicenseCode;
 
     // Private members
-    private vrKernel         kernel     = null;
-    private vrDisplayManager displayMgr = null;
+    private vrKernel         m_Kernel     = null;
+    private vrDeviceManager  m_DeviceMgr  = null;
+    private vrDisplayManager m_DisplayMgr = null;
+    private vrClusterManager m_ClusterMgr = null;
+
+    private GameObject m_Wand   = null;
+    private GameObject m_VRMenu = null;
 
     private bool m_isInit        = false;
     private bool m_isGeometrySet = false;
@@ -78,8 +183,7 @@ public class VRManagerScript : MonoBehaviour
     private bool m_NeedDelayedRenderingReset = false;
     private int  m_RenderingResetDelay       = 1;
 
-    private GUIText    m_GUI  = null;
-    private GameObject m_Wand = null;
+    private GUIText    m_GUI    = null;
 
     private bool[] mouseButtons = new bool[3];
 
@@ -87,36 +191,28 @@ public class VRManagerScript : MonoBehaviour
 
     private uint m_FirstFrameAfterReset = 0;
 
-    ArrayList m_NavigationScipts = new ArrayList(new string[]{"VRInteractionNavigationWandJoystick",
-                                                              "VRInteractionNavigationElastic", 
-                                                              "VRInteractionNavigationGrabWorld"});
-    int m_CurrentNavigationNb = 0;
+    private bool m_InteractionsInitialized = false;
 
     // Public methods
 
     public void Log(string text)
     {
-        MiddleVRTools.Log(text);
+        MVRTools.Log(text);
     }
 
     public bool IsKeyPressed(uint iKey)
     {
-        return MiddleVR.VRDeviceMgr != null && MiddleVR.VRDeviceMgr.IsKeyPressed(iKey);
+        return m_DeviceMgr.IsKeyPressed(iKey);
     }
 
     public bool IsMouseButtonPressed(uint iButtonIndex)
     {
-        return MiddleVR.VRDeviceMgr != null && MiddleVR.VRDeviceMgr.IsMouseButtonPressed(iButtonIndex);
+        return m_DeviceMgr.IsMouseButtonPressed(iButtonIndex);
     }
 
     public float GetMouseAxisValue(uint iAxisIndex)
     {
-        if (MiddleVR.VRDeviceMgr != null)
-        {
-            return MiddleVR.VRDeviceMgr.GetMouseAxisValue(iAxisIndex);
-        }
-
-        return 0.0f;
+        return m_DeviceMgr.GetMouseAxisValue(iAxisIndex);
     }
 
 
@@ -129,26 +225,40 @@ public class VRManagerScript : MonoBehaviour
         if (m_displayLog)
         {
             GameObject gui = new GameObject();
-            m_GUI = gui.AddComponent("GUIText") as GUIText;
+            m_GUI = gui.AddComponent<GUIText>() as GUIText;
             gui.transform.localPosition = new UnityEngine.Vector3(0.5f, 0.0f, 0.0f);
             m_GUI.pixelOffset = new UnityEngine.Vector2(15, 0);
             m_GUI.anchor = TextAnchor.LowerCenter;
         }
 
-        MiddleVRTools.IsEditor = Application.isEditor;
+        MVRTools.IsEditor = Application.isEditor;
 
         if( MiddleVR.VRKernel != null )
         {
-            MiddleVRTools.Log(3, "[ ] VRKernel already alive, reset Unity Manager.");
-            MiddleVRTools.VRReset();
+            MVRTools.Log(3, "[ ] VRKernel already alive, reset Unity Manager.");
+            MVRTools.VRReset();
             m_isInit = true;
             // Not needed because this is the first execution of this script instance
             // m_isGeometrySet = false;
             m_FirstFrameAfterReset = MiddleVR.VRKernel.GetFrame();
+
         }
         else
         {
-            m_isInit = MiddleVRTools.VRInitialize(ConfigFile);
+            if( CustomLicense )
+            {
+                MVRTools.CustomLicense = true;
+                MVRTools.CustomLicenseName = CustomLicenseName;
+                MVRTools.CustomLicenseCode = CustomLicenseCode;
+            }
+
+            m_isInit = MVRTools.VRInitialize(ConfigFile);
+        }
+
+
+        if (SimpleClusterParticles)
+        {
+            _SetParticlesSeeds();
         }
 
         // Get AA from vrx configuration file
@@ -156,33 +266,29 @@ public class VRManagerScript : MonoBehaviour
 
         DumpOptions();
 
-        kernel = MiddleVR.VRKernel;
-        displayMgr = MiddleVR.VRDisplayMgr;
-
         if (!m_isInit)
         {
             GameObject gui = new GameObject();
-            m_GUI = gui.AddComponent("GUIText") as GUIText;
+            m_GUI = gui.AddComponent<GUIText>() as GUIText;
             gui.transform.localPosition = new UnityEngine.Vector3(0.2f, 0.0f, 0.0f);
             m_GUI.pixelOffset = new UnityEngine.Vector2(0, 0);
             m_GUI.anchor = TextAnchor.LowerLeft;
 
-            string txt = kernel.GetLogString(true);
+            string txt = m_Kernel.GetLogString(true);
             print(txt);
             m_GUI.text = txt;
 
             return;
         }
 
+        m_Kernel = MiddleVR.VRKernel;
+        m_DeviceMgr = MiddleVR.VRDeviceMgr;
+        m_DisplayMgr = MiddleVR.VRDisplayMgr;
+        m_ClusterMgr = MiddleVR.VRClusterMgr;
+
         if (SimpleCluster)
         {
             SetupSimpleCluster();
-        }
-
-        if (ChangeWorldScale)
-        {
-            displayMgr.SetChangeWorldScale(true);
-            displayMgr.SetWorldScale(WorldScale);
         }
 
         if (DisableExistingCameras)
@@ -198,12 +304,13 @@ public class VRManagerScript : MonoBehaviour
             }
         }
 
-        MiddleVRTools.CreateNodes(RootNode, DebugNodes, DebugScreens, GrabExistingNodes,TemplateCamera);
-        MiddleVRTools.CreateViewportsAndCameras(DontChangeWindowGeometry, m_AllowRenderTargetAA);
+        MVRNodesCreator.Instance.CreateNodes(VRSystemCenterNode, DebugNodes, DebugScreens, GrabExistingNodes, TemplateCamera);
+
+        MVRTools.CreateViewportsAndCameras(DontChangeWindowGeometry, m_AllowRenderTargetAA);
 
         //AttachCameraCB();
 
-        MiddleVRTools.Log(4, "[<] End of VR initialization script");
+        MVRTools.Log(4, "[<] End of VR initialization script");
     }
 
     void AttachCameraCB()
@@ -219,14 +326,23 @@ public class VRManagerScript : MonoBehaviour
         }
     }
 
-    void Start () {
-        MiddleVRTools.Log(4, "[>] VR Manager Start.");
+    protected void Awake()
+    {
+        MVRNodesMapper.CreateInstance();
+        MVRNodesCreator.CreateInstance();
+
+        InitializeVR();
+    }
+
+    protected void Start ()
+    {
+        MVRTools.Log(4, "[>] VR Manager Start.");
+
+        m_Kernel.DeleteLateObjects();
 
 #if !UNITY_3_4 && !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1
         m_AllowRenderTargetAA = true;
 #endif
-
-        InitializeVR();
 
         // Reset Manager's position so text display is correct.
         transform.position = new UnityEngine.Vector3(0, 0, 0);
@@ -235,174 +351,367 @@ public class VRManagerScript : MonoBehaviour
 
         m_Wand = GameObject.Find("VRWand");
 
-        if (ShowFPS) {
-            guiText.enabled = true;
-        } else {
-            guiText.enabled = false;
-        }
+        m_VRMenu = GameObject.Find("VRMenu");
 
-        if(ShowWand) {
-            ShowWandGeometry(true);
-        } else {
-            ShowWandGeometry(false);
-        }
+        ShowWandGeometry(ShowWand);
 
-        // Initialize navigation interaction technique
-        switch( NavigationMethod )
-        {
-            case ENavigationMode.None:
-                // None
-                break;
+        _EnableProximityWarning(m_ShowScreenProximityWarnings);
 
-            case ENavigationMode.Joystick:
-                m_Wand.GetComponent<VRInteractionNavigationWandJoystick>().enabled = true;
-                break;
+        _EnableFPSDisplay(m_ShowFPS);
 
-            case ENavigationMode.Elastic:
-                m_Wand.GetComponent<VRInteractionNavigationElastic>().enabled = true;
-                break;
+        _EnableNavigationCollision(m_NavigationCollisions);
 
-            case ENavigationMode.GrabWorld:
-                m_Wand.GetComponent<VRInteractionNavigationGrabWorld>().enabled = true;
-                break;
+        _EnableManipulationReturnObjects(m_ManipulationReturnObjects);
 
-            default:
-                break;
-        }
-
-        // Initialize navigation mode switch
-        for( int i=0 ; i<m_NavigationScipts.Count ; ++i )
-        {
-            MonoBehaviour currentNavigation = (MonoBehaviour)this.GetComponent( (string)m_NavigationScipts[i] );
-            if( currentNavigation != null )
-            {
-                if( currentNavigation.enabled )
-                {
-                    m_CurrentNavigationNb = i;
-                }
-            }
-        }
+        _EnableVRMenu(m_UseVRMenu);
 
         if (ForceQuality)
         {
-#if UNITY_3_4
-            QualitySettings.currentLevel = (QualityLevel)ForceQualityIndex;
-#else
             QualitySettings.SetQualityLevel(ForceQualityIndex);
-#endif
-            bool useOpenGLQuadbuffer = MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereo() && (MiddleVR.VRDisplayMgr.GetActiveViewport(0).GetStereoMode()==0); //VRStereoMode_QuadBuffer = 0
-            if( !Application.isEditor && ( useOpenGLQuadbuffer || MiddleVR.VRClusterMgr.GetForceOpenGLConversion() ) )
+        }
+
+        // Manage VSync after the quality settings
+        MVRTools.ManageVSync();
+
+        // Set AA from vrx configuration file
+        QualitySettings.antiAliasing = m_AntiAliasingLevel;
+
+        // Check if MiddleVR Reset is needed
+        if (!Application.isEditor && (ForceQuality || QualitySettings.antiAliasing > 1))
+        {
+            bool useOpenGLQuadbuffer = m_DisplayMgr.GetActiveViewport(0).GetStereo() && (m_DisplayMgr.GetActiveViewport(0).GetStereoMode() == 0); //VRStereoMode_QuadBuffer = 0
+            if (useOpenGLQuadbuffer || m_ClusterMgr.GetForceOpenGLConversion())
             {
                 m_NeedDelayedRenderingReset = true;
                 m_RenderingResetDelay = 1;
             }
         }
 
-        // Manage VSync after the quality settings
-        MiddleVRTools.ManageVSync();
-
-        // Set AA from vrx configuration file
-        QualitySettings.antiAliasing = m_AntiAliasingLevel;
-
-        MiddleVRTools.Log(4, "[<] End of VR Manager Start.");
+        MVRTools.Log(4, "[<] End of VR Manager Start.");
     }
 
-    public void ShowWandGeometry(bool iState)
+    private vrValue StartParticlesCommandHandler(vrValue iValue)
     {
-        if( m_Wand != null )
+        // We get all the randomSeed / playOnAwake of the master's particle systems
+        // to sync the slaves.
+        ParticleSystem[] particles = GameObject.FindObjectsOfType(typeof(ParticleSystem)) as ParticleSystem[];
+        for (uint i = 0, iEnd = iValue.GetListItemsNb(), particlesCnt = (uint)particles.GetLength(0); i < iEnd && i < particlesCnt; ++i)
         {
-            foreach (Transform child in m_Wand.transform)
+            particles[i].randomSeed = (uint)iValue.GetListItem(i).GetListItem(0).GetInt();
+            if (iValue.GetListItem(i).GetListItem(1).GetBool())
             {
-                if (child.renderer != null)
-                {
-                    child.renderer.enabled = iState;
-                }
+                particles[i].Play();
             }
+        }
+        return null;
+    }
+
+    private void _SetParticlesSeeds()
+    {
+        if (MiddleVR.VRClusterMgr.IsCluster())
+        {
+            // Creating the list of randomSeed / is playOnAwake to sync the seeds
+            // of each particle systems to the master
+            vrValue particlesDataList = vrValue.CreateList();
+
+            foreach (ParticleSystem particle in GameObject.FindObjectsOfType(typeof(ParticleSystem)) as ParticleSystem[])
+            {
+                if (MiddleVR.VRClusterMgr.IsServer())
+                {
+                    vrValue particleData = vrValue.CreateList();
+
+                    particleData.AddListItem((int)particle.randomSeed);
+                    particleData.AddListItem(particle.playOnAwake);
+
+                    particlesDataList.AddListItem(particleData);
+                }
+                // We reset the particle systems to sync them in every nodes of the cluster
+                particle.Clear();
+                particle.Stop();
+                particle.time = .0f;
+            }
+
+            m_startParticlesCommand = new vrCommand("startParticleCommand", StartParticlesCommandHandler);
+
+            if (MiddleVR.VRClusterMgr.IsServer())
+            {
+                m_startParticlesCommand.Do(particlesDataList);
+            }
+        }
+
+    }
+
+    private void _SetNavigation(ENavigation iNavigation)
+    {
+        Navigation = iNavigation;
+
+        VRInteractionNavigationWandJoystick navigationWandJoystick = m_Wand.GetComponent<VRInteractionNavigationWandJoystick>();
+        VRInteractionNavigationElastic      navigationElastic      = m_Wand.GetComponent<VRInteractionNavigationElastic>();
+        VRInteractionNavigationGrabWorld    navigationGrabWorld    = m_Wand.GetComponent<VRInteractionNavigationGrabWorld>();
+        if (navigationWandJoystick == null || navigationElastic == null || navigationGrabWorld == null)
+        {
+            MVRTools.Log(2, "[~] Some navigation scripts are missing on the Wand.");
+            return;
+        }
+
+        if (navigationWandJoystick.GetInteraction() == null || navigationElastic.GetInteraction() == null || navigationGrabWorld.GetInteraction() == null)
+        {
+            MVRTools.Log(2, "[~] Some navigation interactions are not initialized.");
+            return;
+        }
+
+        switch (Navigation)
+        {
+            case ENavigation.None:
+                MiddleVR.VRInteractionMgr.Deactivate(navigationWandJoystick.GetInteraction());
+                MiddleVR.VRInteractionMgr.Deactivate(navigationElastic.GetInteraction());
+                MiddleVR.VRInteractionMgr.Deactivate(navigationGrabWorld.GetInteraction());
+                break;
+
+            case ENavigation.Joystick:
+                MiddleVR.VRInteractionMgr.Activate(navigationWandJoystick.GetInteraction());
+                break;
+
+            case ENavigation.Elastic:
+                MiddleVR.VRInteractionMgr.Activate(navigationElastic.GetInteraction());
+                break;
+
+            case ENavigation.GrabWorld:
+                MiddleVR.VRInteractionMgr.Activate(navigationGrabWorld.GetInteraction());
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void _SetManipulation(EManipulation iManpulation)
+    {
+        Manipulation = iManpulation;
+
+        VRInteractionManipulationRay   manipulationRay   = m_Wand.GetComponent<VRInteractionManipulationRay>();
+        VRInteractionManipulationHomer manipulationHomer = m_Wand.GetComponent<VRInteractionManipulationHomer>();
+        if (manipulationRay == null || manipulationHomer == null)
+        {
+            MVRTools.Log(2, "[~] Some manipulation scripts are missing on the Wand.");
+            return;
+        }
+
+        switch (Manipulation)
+        {
+            case EManipulation.None:
+                MiddleVR.VRInteractionMgr.Deactivate(manipulationRay.GetInteraction());
+                MiddleVR.VRInteractionMgr.Deactivate(manipulationHomer.GetInteraction());
+                break;
+
+            case EManipulation.Ray:
+                MiddleVR.VRInteractionMgr.Activate(manipulationRay.GetInteraction());
+                break;
+
+            case EManipulation.Homer:
+                MiddleVR.VRInteractionMgr.Activate(manipulationHomer.GetInteraction());
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void _SetVirtualHandMapping(EVirtualHandMapping iVirtualHandMapping)
+    {
+        VirtualHandMapping = iVirtualHandMapping;
+
+        VRInteractionVirtualHandGogo virtualHandGogo = m_Wand.GetComponent<VRInteractionVirtualHandGogo>();
+        if (virtualHandGogo == null)
+        {
+            MVRTools.Log(2, "[~] The virtual hand  Gogo script is missing on the Wand.");
+            return;
+        }
+
+        switch (VirtualHandMapping)
+        {
+            case EVirtualHandMapping.Direct:
+                MiddleVR.VRInteractionMgr.Deactivate(virtualHandGogo.GetInteraction());
+                break;
+
+            case EVirtualHandMapping.Gogo:
+                MiddleVR.VRInteractionMgr.Activate(virtualHandGogo.GetInteraction());
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void _EnableProximityWarning(bool iShow)
+    {
+        m_ShowScreenProximityWarnings = iShow;
+
+        VRInteractionScreenProximityWarning proximityWarning = m_Wand.GetComponent<VRInteractionScreenProximityWarning>();
+
+        if (proximityWarning != null)
+        {
+            proximityWarning.enabled = m_ShowScreenProximityWarnings;
+        }
+    }
+
+    private void _EnableFPSDisplay(bool iEnable)
+    {
+        m_ShowFPS = iEnable;
+
+        this.GetComponent<GUIText>().enabled = m_ShowFPS;
+    }
+
+    private void _EnableVRMenu(bool iEnable)
+    {
+        m_UseVRMenu = iEnable;
+
+        if (m_VRMenu != null)
+        {
+            m_VRMenu.GetComponent<VRMenuManager>().UseVRMenu(m_UseVRMenu);
+        }
+    }
+
+    private void _EnableNavigationFly(bool iEnable)
+    {
+        m_Fly = iEnable;
+
+        vrInteractionManager interactionMgr = vrInteractionManager.GetInstance();
+
+        for (uint i = 0, iEnd = interactionMgr.GetInteractionsNb(); i < iEnd; ++i)
+        {
+            vrProperty flyProp = interactionMgr.GetInteractionByIndex(i).GetProperty("Fly");
+            if (flyProp != null)
+            {
+                flyProp.SetBool(m_Fly);
+            }
+        }
+    }
+
+    private void _EnableNavigationCollision(bool iEnable)
+    {
+        m_NavigationCollisions = iEnable;
+
+        VRNavigationCollision navigationCollision = m_Wand.GetComponent<VRNavigationCollision>();
+
+        if (navigationCollision != null)
+        {
+            navigationCollision.enabled = m_NavigationCollisions;
+        }
+    }
+
+    private void _EnableManipulationReturnObjects(bool iEnable)
+    {
+        m_ManipulationReturnObjects = iEnable;
+
+        VRInteractionManipulationReturnObjects returnObjects = m_Wand.GetComponent<VRInteractionManipulationReturnObjects>();
+
+        if (returnObjects != null)
+        {
+            returnObjects.enabled = m_ManipulationReturnObjects;
+        }
+    }
+
+    public void ShowWandGeometry(bool iShow)
+    {
+        if (m_Wand != null)
+        {
+            m_Wand.GetComponent<VRWand>().Show(iShow);
         }
     }
 
     void UpdateInput()
     {
-        vrDeviceManager dmgr = MiddleVR.VRDeviceMgr;
+        vrButtons wandButtons = m_DeviceMgr.GetWandButtons();
 
-        if (dmgr != null)
+        if (wandButtons != null)
         {
-            vrButtons wandButtons = dmgr.GetWandButtons();
-
-            if (wandButtons != null)
+            uint buttonNb = wandButtons.GetButtonsNb();
+            if (buttonNb > 0)
             {
-                uint buttonNb = wandButtons.GetButtonsNb();
-                if( buttonNb > 0 )
-                {
-                    WandButton0 = wandButtons.IsPressed(dmgr.GetWandButton0());
-                }
-                if( buttonNb > 1 )
-                {
-                    WandButton1 = wandButtons.IsPressed(dmgr.GetWandButton1());
-                }
-                if( buttonNb > 2 )
-                {
-                    WandButton2 = wandButtons.IsPressed(dmgr.GetWandButton2());
-                }
-                if( buttonNb > 3 )
-                {
-                    WandButton3 = wandButtons.IsPressed(dmgr.GetWandButton3());
-                }
-                if( buttonNb > 4 )
-                {
-                    WandButton4 = wandButtons.IsPressed(dmgr.GetWandButton4());
-                }
-                if( buttonNb > 5 )
-                {
-                    WandButton5 = wandButtons.IsPressed(dmgr.GetWandButton5());
-                }
+                WandButton0 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton0());
             }
-
-            WandAxisHorizontal = dmgr.GetWandHorizontalAxisValue();
-            WandAxisVertical   = dmgr.GetWandVerticalAxisValue();
+            if (buttonNb > 1)
+            {
+                WandButton1 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton1());
+            }
+            if (buttonNb > 2)
+            {
+                WandButton2 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton2());
+            }
+            if (buttonNb > 3)
+            {
+                WandButton3 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton3());
+            }
+            if (buttonNb > 4)
+            {
+                WandButton4 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton4());
+            }
+            if (buttonNb > 5)
+            {
+                WandButton5 = wandButtons.IsPressed(m_DeviceMgr.GetWandButton5());
+            }
         }
+
+        WandAxisHorizontal = m_DeviceMgr.GetWandHorizontalAxisValue();
+        WandAxisVertical = m_DeviceMgr.GetWandVerticalAxisValue();
     }
 
     // Update is called once per frame
-    void Update () {
-        //MiddleVRTools.Log("VRManagerUpdate");
+    void Update ()
+    {
+        //MVRTools.Log("VRManagerUpdate");
+
+        // Initialize interactions
+        if( !m_InteractionsInitialized )
+        {
+            _SetNavigation(Navigation);
+            _SetManipulation(Manipulation);
+            _SetVirtualHandMapping(VirtualHandMapping);
+
+            m_InteractionsInitialized = true;
+        }
+
+        MVRNodesMapper nodesMapper = MVRNodesMapper.Instance;
+
+        nodesMapper.UpdateNodesUnityToMiddleVR();
 
         if (m_isInit)
         {
-            MiddleVRTools.Log(4, "[>] Unity Update - Start");
+            MVRTools.Log(4, "[>] Unity Update - Start");
 
-            if (kernel.GetFrame() >= m_FirstFrameAfterReset+1 && !m_isGeometrySet && !Application.isEditor)
+            if (m_Kernel.GetFrame() >= m_FirstFrameAfterReset+1 && !m_isGeometrySet && !Application.isEditor)
             {
                 if (!DontChangeWindowGeometry)
                 {
-                    displayMgr.SetUnityWindowGeometry();
+                    m_DisplayMgr.SetUnityWindowGeometry();
                 }
                 m_isGeometrySet = true;
             }
 
-            if (kernel.GetFrame() == 0)
+            if (m_Kernel.GetFrame() == 0)
             {
                 // Set the random seed in kernel for dispatching only during start-up.
                 // With clustering, a client will be set by a call to kernel.Update().
-                if (!MiddleVR.VRClusterMgr.IsCluster() ||
-                    (MiddleVR.VRClusterMgr.IsCluster() && MiddleVR.VRClusterMgr.IsServer()))
+                if (!m_ClusterMgr.IsCluster() ||
+                    (m_ClusterMgr.IsCluster() && m_ClusterMgr.IsServer()))
                 {
                     // The cast is safe because the seed is always positive.
                     uint seed = (uint) UnityEngine.Random.seed;
-                    kernel._SetRandomSeed(seed);
+                    m_Kernel._SetRandomSeed(seed);
                 }
             }
 
-            kernel.Update();
+            m_Kernel.Update();
 
-            if (kernel.GetFrame() == 0)
+            if (m_Kernel.GetFrame() == 0)
             {
                 // Set the random seed in a client only during start-up.
-                if (MiddleVR.VRClusterMgr.IsCluster() && MiddleVR.VRClusterMgr.IsClient())
+                if (m_ClusterMgr.IsCluster() && m_ClusterMgr.IsClient())
                 {
                     // The cast is safe because the seed comes from
                     // a previous value of Unity.
-                    int seed = (int) kernel.GetRandomSeed();
+                    int seed = (int) m_Kernel.GetRandomSeed();
                     UnityEngine.Random.seed = seed;
                 }
             }
@@ -411,74 +720,63 @@ public class VRManagerScript : MonoBehaviour
 
             if (ShowFPS)
             {
-                guiText.text = kernel.GetFPS().ToString("f2");
+                this.GetComponent<GUIText>().text = m_Kernel.GetFPS().ToString("f2");
             }
 
-            MiddleVRTools.UpdateNodes();
+            nodesMapper.UpdateNodesMiddleVRToUnity(false);
+
+            MVRTools.UpdateCameraProperties();
 
             if (m_displayLog)
             {
-                string txt = kernel.GetLogString(true);
+                string txt = m_Kernel.GetLogString(true);
                 print(txt);
                 m_GUI.text = txt;
             }
 
-            vrKeyboard keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
+            vrKeyboard keyb = m_DeviceMgr.GetKeyboard();
 
-            if (keyb != null && keyb.IsKeyToggled(MiddleVR.VRK_D) && (keyb.IsKeyPressed(MiddleVR.VRK_LSHIFT) || keyb.IsKeyPressed(MiddleVR.VRK_RSHIFT)))
+            if (keyb != null)
             {
-                ShowFPS = !ShowFPS;
-                guiText.enabled = ShowFPS;
-            }
-
-            if (keyb != null && (keyb.IsKeyToggled(MiddleVR.VRK_W) || keyb.IsKeyToggled(MiddleVR.VRK_Z)) && (keyb.IsKeyPressed(MiddleVR.VRK_LSHIFT) || keyb.IsKeyPressed(MiddleVR.VRK_RSHIFT)))
-            {
-                ShowWand = !ShowWand;
-                ShowWandGeometry(ShowWand);
-            }
-
-            // Toggle Fly mode on interactions
-            if (keyb != null && keyb.IsKeyToggled(MiddleVR.VRK_F) && (keyb.IsKeyPressed(MiddleVR.VRK_LSHIFT) || keyb.IsKeyPressed(MiddleVR.VRK_RSHIFT)))
-            {
-                vrInteractionManager interMan = vrInteractionManager.GetInstance();
-                uint interactionNb = interMan.GetInteractionsNb();
-                for( uint i=0 ; i<interactionNb ; ++i )
+                if (keyb.IsKeyPressed(MiddleVR.VRK_LSHIFT) || keyb.IsKeyPressed(MiddleVR.VRK_RSHIFT))
                 {
-                    vrProperty flyProp = interMan.GetInteractionByIndex(i).GetProperty("Fly");
-                    if( flyProp != null )
+
+                    if (keyb.IsKeyToggled(MiddleVR.VRK_D))
                     {
-                        flyProp.SetBool( !flyProp.GetBool() );
+                        ShowFPS = !ShowFPS;
+                    }
+
+                    if (keyb.IsKeyToggled(MiddleVR.VRK_W) || keyb.IsKeyToggled(MiddleVR.VRK_Z))
+                    {
+                        ShowWand = !ShowWand;
+                        ShowWandGeometry(ShowWand);
+                    }
+
+                    // Toggle Fly mode on interactions
+                    if (keyb.IsKeyToggled(MiddleVR.VRK_F))
+                    {
+                        Fly = !Fly;
+                    }
+
+                    // Navigation mode switch
+                    if (keyb.IsKeyToggled(MiddleVR.VRK_N))
+                    {
+                        vrInteraction navigation = _GetNextInteraction("ContinuousNavigation");
+                        if (navigation != null)
+                        {
+                            MiddleVR.VRInteractionMgr.Activate(navigation);
+                        }
                     }
                 }
             }
 
-            // Navigation mode switch
-            if(keyb != null && keyb.IsKeyToggled(MiddleVR.VRK_N) && (keyb.IsKeyPressed(MiddleVR.VRK_LSHIFT) || keyb.IsKeyPressed(MiddleVR.VRK_RSHIFT)))
-            {
-                // Disable current nav
-                MonoBehaviour currentNavigation = (MonoBehaviour)m_Wand.GetComponent( (string)m_NavigationScipts[m_CurrentNavigationNb] );
-                if( currentNavigation != null )
-                {
-                    currentNavigation.enabled = false;
-                }
+            DeltaTime = m_Kernel.GetDeltaTime();
 
-                // Enable next nav
-                m_CurrentNavigationNb = (m_CurrentNavigationNb+1)%m_NavigationScipts.Count;
-
-                currentNavigation = (MonoBehaviour)m_Wand.GetComponent( (string)m_NavigationScipts[m_CurrentNavigationNb] );
-                if( currentNavigation != null )
-                {
-                    currentNavigation.enabled = true;
-                }
-			}
-
-            DeltaTime = kernel.GetDeltaTime();
-
-            MiddleVRTools.Log(4, "[<] Unity Update - End");
+            MVRTools.Log(4, "[<] Unity Update - End");
         }
         else
         {
-            //Debug.LogWarning("[ ] If you have an error mentionning 'DLLNotFoundException: MiddleVR_CSharp', please restart Unity. If this does not fix the problem, please make sure MiddleVR is in the PATH environment variable.");
+            //Debug.LogWarning("[ ] If you have an error mentioning 'DLLNotFoundException: MiddleVR_CSharp', please restart Unity. If this does not fix the problem, please make sure MiddleVR is in the PATH environment variable.");
         }
 
         // If QualityLevel changed, we have to reset the Unity Manager
@@ -486,9 +784,9 @@ public class VRManagerScript : MonoBehaviour
         {
             if( m_RenderingResetDelay == 0 )
             {
-                MiddleVRTools.Log(3,"[ ] Graphic quality forced, reset Unity Manager.");
-                MiddleVRTools.VRReset();
-                MiddleVRTools.CreateViewportsAndCameras(DontChangeWindowGeometry, m_AllowRenderTargetAA);
+                MVRTools.Log(3,"[ ] Graphic quality forced, reset Unity Manager.");
+                MVRTools.VRReset();
+                MVRTools.CreateViewportsAndCameras(DontChangeWindowGeometry, m_AllowRenderTargetAA);
                 m_isGeometrySet = false;
                 m_NeedDelayedRenderingReset = false;
             }
@@ -501,23 +799,16 @@ public class VRManagerScript : MonoBehaviour
 
     void AddClusterScripts(GameObject iObject)
     {
-        MiddleVRTools.Log(2, "[ ] Adding cluster sharing scripts to " + iObject.name);
+        MVRTools.Log(2, "[ ] Adding cluster sharing scripts to " + iObject.name);
         if (iObject.GetComponent<VRShareTransform>() == null)
         {
-            VRShareTransform script = iObject.AddComponent<VRShareTransform>();
-            script.Start();
-        }
-
-        if (iObject.GetComponent<VRApplySharedTransform>() == null)
-        {
-            VRApplySharedTransform script = iObject.AddComponent<VRApplySharedTransform>();
-            script.Start();
+            iObject.AddComponent<VRShareTransform>();
         }
     }
 
     void SetupSimpleCluster()
     {
-        if (MiddleVR.VRClusterMgr.IsCluster())
+        if (m_ClusterMgr.IsCluster())
         {
             // Rigid bodies
             Rigidbody[] bodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
@@ -542,28 +833,95 @@ public class VRManagerScript : MonoBehaviour
 
     void DumpOptions()
     {
-        MiddleVRTools.Log(3, "[ ] Dumping VRManager's options:");
-        MiddleVRTools.Log(3, "[ ] - Config File : " + ConfigFile);
-        MiddleVRTools.Log(3, "[ ] - Root Node : " + RootNode);
-        MiddleVRTools.Log(3, "[ ] - Template Camera : " + TemplateCamera);
-        MiddleVRTools.Log(3, "[ ] - Show Wand : " + ShowWand);
-        MiddleVRTools.Log(3, "[ ] - Show FPS  : " + ShowFPS);
-        MiddleVRTools.Log(3, "[ ] - Disable Existing Cameras : " + DisableExistingCameras);
-        MiddleVRTools.Log(3, "[ ] - Grab Existing Nodes : " + GrabExistingNodes);
-        MiddleVRTools.Log(3, "[ ] - Debug Nodes : " + DebugNodes);
-        MiddleVRTools.Log(3, "[ ] - Debug Screens : " + DebugScreens);
-        MiddleVRTools.Log(3, "[ ] - Quit On Esc : " + QuitOnEsc);
-        MiddleVRTools.Log(3, "[ ] - Dont Change Window Geometry : " + DontChangeWindowGeometry);
-        MiddleVRTools.Log(3, "[ ] - Simple Cluster : " + SimpleCluster);
-        MiddleVRTools.Log(3, "[ ] - Force Quality : " + ForceQuality );
-        MiddleVRTools.Log(3, "[ ] - Force QualityIndex : " + ForceQualityIndex );
-        MiddleVRTools.Log(3, "[ ] - Anti-Aliasing Level : " + m_AntiAliasingLevel );
-        MiddleVRTools.Log(3, "[ ] - Change World Scale : " + ChangeWorldScale);
-        MiddleVRTools.Log(3, "[ ] - World Scale : " + WorldScale);
+        MVRTools.Log(3, "[ ] Dumping VRManager's options:");
+        MVRTools.Log(3, "[ ] - Config File : " + ConfigFile);
+        MVRTools.Log(3, "[ ] - System Center Node : " + VRSystemCenterNode);
+        MVRTools.Log(3, "[ ] - Template Camera : " + TemplateCamera);
+        MVRTools.Log(3, "[ ] - Show Wand : " + ShowWand);
+        MVRTools.Log(3, "[ ] - Show FPS  : " + ShowFPS);
+        MVRTools.Log(3, "[ ] - Disable Existing Cameras : " + DisableExistingCameras);
+        MVRTools.Log(3, "[ ] - Grab Existing Nodes : " + GrabExistingNodes);
+        MVRTools.Log(3, "[ ] - Debug Nodes : " + DebugNodes);
+        MVRTools.Log(3, "[ ] - Debug Screens : " + DebugScreens);
+        MVRTools.Log(3, "[ ] - Quit On Esc : " + QuitOnEsc);
+        MVRTools.Log(3, "[ ] - Don't Change Window Geometry : " + DontChangeWindowGeometry);
+        MVRTools.Log(3, "[ ] - Simple Cluster : " + SimpleCluster);
+        MVRTools.Log(3, "[ ] - Simple Cluster Particles : " + SimpleClusterParticles );
+        MVRTools.Log(3, "[ ] - Force Quality : " + ForceQuality );
+        MVRTools.Log(3, "[ ] - Force QualityIndex : " + ForceQualityIndex );
+        MVRTools.Log(3, "[ ] - Anti-Aliasing Level : " + m_AntiAliasingLevel );
+        MVRTools.Log(3, "[ ] - Custom License : " + CustomLicense );
+        MVRTools.Log(3, "[ ] - Custom License Name : " + CustomLicenseName );
+        MVRTools.Log(3, "[ ] - Custom License Code : " + CustomLicenseCode );
+    }
+
+    private vrInteraction _GetNextInteraction(string iTag)
+    {
+        vrInteraction nextInteraction = null;
+
+        vrInteraction activeInteraction = MiddleVR.VRInteractionMgr.GetActiveInteractionByTag("ContinuousNavigation");
+        if (activeInteraction != null)
+        {
+            // Found active interaction, search for the next one
+            uint interactionsNb = MiddleVR.VRInteractionMgr.GetInteractionsNb();
+            uint index = MiddleVR.VRInteractionMgr.GetInteractionIndex(activeInteraction);
+
+            for (uint i = 0; i < interactionsNb - 1; ++i)
+            {
+                // We loop in the interactions list to find the next interaction with the right tag
+                uint nextIndex = (index + 1 + i) % interactionsNb;
+
+                vrInteraction interaction = MiddleVR.VRInteractionMgr.GetInteractionByIndex(nextIndex);
+
+                if (interaction != null && interaction.TagsContain("ContinuousNavigation"))
+                {
+                    nextInteraction = interaction;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            // No active interaction, try to activate the first if existing
+            nextInteraction = MiddleVR.VRInteractionMgr.GetInteractionByTag("ContinuousNavigation", 0);
+        }
+
+        return nextInteraction;
+    }
+
+    public void QuitApplication()
+    {
+        if (Application.isEditor)
+        {
+            MVRTools.Log("[ ] If we were in player mode, MiddleVR would exit.");
+        }
+        else
+        {
+            // If we're not in cluster, we quit when ESCAPE is pressed
+            // If we're in cluster, only the master should quit
+            //if (!cmgr.IsCluster() || (cmgr.IsCluster() && cmgr.IsServer()))
+            {
+                MVRTools.Log("[ ] Unity says we're quitting.");
+                MiddleVR.VRKernel.SetQuitting();
+                Application.Quit();
+            }
+        }
     }
 
     void OnApplicationQuit()
     {
-        MiddleVRTools.VRDestroy(Application.isEditor);
+        MVRNodesCreator.DestroyInstance();
+        MVRNodesMapper.DestroyInstance();
+
+        MVRTools.VRDestroy(Application.isEditor);
+    }
+
+    void OnDestroy()
+    {
+        if (m_startParticlesCommand != null)
+        {
+            m_startParticlesCommand.Dispose();
+            m_startParticlesCommand = null;
+        }
     }
 }
