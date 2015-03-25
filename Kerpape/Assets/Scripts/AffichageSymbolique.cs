@@ -24,6 +24,17 @@ public class AffichageSymbolique : MonoBehaviour {
 
 		material = gameObject.GetComponent<MeshRenderer>().material;
 		material.mainTexture = lightTexture;
+
+		StartCoroutine("test");
+	}
+
+	IEnumerator test()
+	{
+		yield return new WaitForSeconds(5);
+		activer ();
+		material.mainTexture = doorTexture;
+		yield return new WaitForSeconds(3);
+		material.mainTexture = shuttersTexture;
 	}
 
 	// Update is called once per frame

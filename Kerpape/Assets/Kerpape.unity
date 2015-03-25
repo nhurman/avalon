@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &1885326
 GameObject:
@@ -5608,7 +5607,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: ConfigFile
-      value: ./test.vrx
+      value: E:/cygwin/home/WIN SEVEN/projects/avalon/test.vrx
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: HideShowWandButton
@@ -21842,7 +21841,7 @@ MonoBehaviour:
   WandButton4: 0
   WandButton5: 0
   DeltaTime: 0
-  ConfigFile: ./test.vrx
+  ConfigFile: E:/cygwin/home/WIN SEVEN/projects/avalon/test.vrx
   VRSystemCenterNode: {fileID: 0}
   TemplateCamera: {fileID: 0}
   ShowWand: 1
