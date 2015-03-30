@@ -80,16 +80,16 @@ public class VRWandInteraction : MonoBehaviour {
     {
         GameObject hobj = m_Ray;
 
-        if (hobj != null && hobj.renderer != null && Highlight)
+        if (hobj != null && hobj.GetComponent<Renderer>() != null && Highlight)
         {
             if( state )
             {
-                hobj.renderer.material.color = hCol;
+                hobj.GetComponent<Renderer>().material.color = hCol;
             }
             else
             {
                 //CurrentObject.renderer.material.color = Color.white;
-                hobj.renderer.material.color = Color.white;
+                hobj.GetComponent<Renderer>().material.color = Color.white;
             }
         }
     }
@@ -102,10 +102,10 @@ public class VRWandInteraction : MonoBehaviour {
         m_ObjectLastParentTransform = ObjectInHand.transform.parent;
         ObjectInHand.transform.parent = transform.parent;
 
-        if (ObjectInHand.rigidbody != null)
+        if (ObjectInHand.GetComponent<Rigidbody>() != null)
         {
-            m_ObjectWasKinematic = ObjectInHand.rigidbody.isKinematic;
-            ObjectInHand.rigidbody.isKinematic = true;
+            m_ObjectWasKinematic = ObjectInHand.GetComponent<Rigidbody>().isKinematic;
+            ObjectInHand.GetComponent<Rigidbody>().isKinematic = true;
         }
 
         HighlightObject(ObjectInHand, true, GrabColor);
@@ -117,10 +117,10 @@ public class VRWandInteraction : MonoBehaviour {
 
         ObjectInHand.transform.parent = m_ObjectLastParentTransform;
 
-        if (ObjectInHand.rigidbody != null)
+        if (ObjectInHand.GetComponent<Rigidbody>() != null)
         {
             if (!m_ObjectWasKinematic)
-                ObjectInHand.rigidbody.isKinematic = false;
+                ObjectInHand.GetComponent<Rigidbody>().isKinematic = false;
         }
 
         ObjectInHand = null;
