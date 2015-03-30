@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Modelisation
 {
     public abstract class NumeralElement : Element
     {
-        public double Min { get; protected set; }
+		//these should be object
+        public float Min { get; protected set; }
 
-        public double Max { get; protected set; }
+        public float Max { get; protected set; }
 
-        public double Step;
+        public float Step;
+
+		public abstract object getObjectProperty();
+		public abstract void setObjectProperty(object val);
 
         public void setValue(double value)
         {
@@ -20,7 +25,7 @@ namespace Modelisation
                 bool auth = notifyGameManager();
                 if (auth)
                 {
-                    ObjectProperty = value;
+                    setObjectProperty(value);
                 }
                 
             }
@@ -30,14 +35,14 @@ namespace Modelisation
             bool auth = notifyGameManager();
             if (auth)
             {
-                double newState = ObjectProperty + Step;
+				float newState = ((float) getObjectProperty()) + Step;
                 if (newState <= Max)
                 {
-                    ObjectProperty = newState;
+					setObjectProperty(newState);
                 }
                 else
                 {
-                    ObjectProperty = Max;
+					setObjectProperty(Max);
                 }
             }
 
@@ -47,25 +52,25 @@ namespace Modelisation
             bool auth = notifyGameManager();
             if (auth)
             {
-                double newState = ObjectProperty - Step;
+				float newState = ((float) getObjectProperty()) - Step;
                 if (newState >= Min)
                 {
-                    ObjectProperty = newState;
+					setObjectProperty(newState);
                 }
                 else
                 {
-                    ObjectProperty = Min;
+					setObjectProperty(Min);
                 }
             }
         }
 
         public override bool isOn()
         {
-            return ObjectProperty == Max;
+			return ((float) getObjectProperty()) == Max;
         }
         public override bool isOff()
         {
-            return ObjectProperty == Min;
+			return ((float) getObjectProperty()) == Min;
         }
     }
 }

@@ -9,9 +9,8 @@ namespace Modelisation
 {
     public abstract class Element : SceneObject
     {
-        public double ObjectProperty { get; set; }
+        //public object ObjectProperty { get; set; }
         //Should be between 0..1
-
 
         public abstract void setOn();
 

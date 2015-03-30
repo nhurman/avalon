@@ -14,8 +14,22 @@ namespace Modelisation
         {
             Max = 8;
             Min = 0;
-            ObjectProperty = GetComponent<Light>().intensity;
+			//ObjectProperty = GetComponent<Light> ().intensity;
         }
+
+		public override void setObjectProperty(object val) {
+			GetComponent<Light> ().intensity = ((float)val);
+		}
+
+		public override object getObjectProperty(){
+			return GetComponent<Light> ().intensity;
+		}
+		void Start () { 
+			Step = 0.5f;
+		}
+		void Update() {
+			setOn ();
+		}
         
     }
 }

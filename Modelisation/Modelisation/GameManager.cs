@@ -10,7 +10,7 @@ namespace Modelisation
 {
     public class GameManager : MonoBehaviour
     {
-        public IEnumerable<ScenarioItem> ScenarioData { get; protected set; }
+        public IList<ScenarioItem> ScenarioData { get; protected set; }
 
         public int Mode { get; set; }
 
@@ -27,7 +27,7 @@ namespace Modelisation
         public bool isAuthorised()
         {
             string activatedItem = "";
-            if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
+            //if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
             //ScenarioData[ScenarioState]
             return true;
         }
