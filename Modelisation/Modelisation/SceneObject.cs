@@ -8,6 +8,7 @@ namespace Modelisation
     {
         //Should be static with stored value, but perhaps there is a better way to achieve this
         public static string managerName = "GameManager";
+        public string identifiant;
         public GameManager Manager
         {
             get
@@ -20,7 +21,7 @@ namespace Modelisation
         public bool notifyGameManager()
         {
             //throw new System.NotImplementedException();
-            return Manager.isAuthorised();
+            return Manager.isAuthorised(identifiant);
             //return true;
         }
     }

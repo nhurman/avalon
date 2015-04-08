@@ -10,9 +10,10 @@ namespace Modelisation
 {
     public class GameManager : MonoBehaviour
     {
+        enum Modes {Auto, Assisted, Symbolic };
         public IList<ScenarioItem> ScenarioData { get; protected set; }
 
-        public int Mode { get; set; }
+        public int CurrentMode { get; set; }
 
         public int ScenarioState { get; set; }
 
@@ -24,9 +25,19 @@ namespace Modelisation
             }
         }
 
-        public bool isAuthorised()
+        public bool isAuthorised(string name)
         {
-            string activatedItem = "";
+
+            switch (CurrentMode)
+            {
+                case Modes.Auto :
+                    break;
+                case Modes.Assisted :
+                    break;
+                case Modes.Symbolic :
+                    break;
+
+            }
             //if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
             //ScenarioData[ScenarioState]
             return true;
