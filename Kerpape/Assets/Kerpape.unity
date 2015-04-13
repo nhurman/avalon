@@ -1052,7 +1052,7 @@ BoxCollider:
   m_GameObject: {fileID: 74042870}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: .280000001, y: .0649999976, z: .025043359}
   m_Center: {x: 0, y: .0327299982, z: .0124800662}
@@ -5763,15 +5763,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.10000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .753000021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.02999997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5795,7 +5795,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: ConfigFile
-      value: H:/4A/proj/avalon/test.vrx
+      value: E:/cygwin/home/WIN SEVEN/projects/avalon/test.vrx
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: HideShowWandButton
@@ -5819,6 +5819,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400018, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: RepeatVRAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: VRSystemCenterNode
+      value: 
+      objectReference: {fileID: 1369318714}
+    - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: m_NavigationCollisions
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15327,6 +15335,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1362155880}
   m_Mesh: {fileID: 4300044, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1369318714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1369318716}
+  m_Layer: 0
+  m_Name: Utilisateur
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369318716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1369318714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.54400003, y: 0, z: -4.67600012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1374159162
 GameObject:
   m_ObjectHideFlags: 0
@@ -15795,7 +15830,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 740f1517affbdbf469b389c3329e2355, type: 3}
   m_PrefabInternal: {fileID: 1708843548}
   m_GameObject: {fileID: 1405027811}
-  m_LocalRotation: {x: .143616229, y: -.82773155, z: -.203608096, w: .50277108}
+  m_LocalRotation: {x: .143616214, y: -.827731431, z: -.203608066, w: .50277102}
   m_LocalPosition: {x: -.664867818, y: -.579380095, z: 1.05045843}
   m_LocalScale: {x: 2, y: 2.00000048, z: 2.00000024}
   m_Children: []
@@ -22195,23 +22230,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1909338130}
   m_Mesh: {fileID: 4300376, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1918029595
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
-  m_PrefabInternal: {fileID: 579112575}
---- !u!136 &1918029600
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1918029595}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1920075196
 GameObject:
   m_ObjectHideFlags: 0
