@@ -27,6 +27,11 @@ namespace Modelisation
                 return (Element)Target.GetComponent(typeof(Element));
             }
         }
+
+        public Switch()
+        {
+            type = "Switch";
+        }
     
         public void switchOn()
         {

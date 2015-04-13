@@ -8,12 +8,26 @@ using System.Text;
 
 namespace Modelisation
 {
+    enum Mode { Auto, Assisted, Symbolic };
     public class GameManager : MonoBehaviour
     {
-        enum Modes {Auto, Assisted, Symbolic };
+        public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
+
+        public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
+
+        public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
         public IList<ScenarioItem> ScenarioData { get; protected set; }
 
-        public int CurrentMode { get; set; }
+        public Mode CurrentMode { get; set; }
 
         public int ScenarioState { get; set; }
 
@@ -27,22 +41,41 @@ namespace Modelisation
 
         public bool isAuthorised(string name)
         {
-
-            switch (CurrentMode)
+            if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
             {
-                case Modes.Auto :
-                    break;
-                case Modes.Assisted :
-                    break;
-                case Modes.Symbolic :
-                    break;
 
             }
-            //if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
-            //ScenarioData[ScenarioState]
-            return true;
-        }
+            if (name == CurrentTask.elementName)
+            {
+                ScenarioState++;
+                ErrorNumber = 0;
+                if (CurrentTask.isEnd())
+                {
+                    //End scenario
+                }
+                switch (CurrentMode)
+                {
+                    case Mode.Auto:
+                        break;
+                    case Mode.Assisted:
+                        break;
+                    case Mode.Symbolic:
+                        break;
 
+                }
+                return true;
+            }
+            else if (CurrentTask.authAll)
+            {
+                return true;
+            }
+            else
+            {
+                onError();
+                return false;
+            }
+        }
+        /*
         public void nextStep(string activatedItem)
         {
             if (activatedItem == CurrentTask.elementName)
@@ -59,7 +92,7 @@ namespace Modelisation
                 onError();
             }
         }
-
+        */
         public void onError()
         {
             ErrorNumber++;

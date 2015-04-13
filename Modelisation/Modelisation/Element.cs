@@ -11,7 +11,10 @@ namespace Modelisation
     {
         //public object ObjectProperty { get; set; }
         //Should be between 0..1
-
+        public Element()
+        {
+            type = "Action";
+        }
         public abstract void setOn();
 
         public abstract void setOff();

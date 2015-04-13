@@ -9,6 +9,7 @@ namespace Modelisation
         //Should be static with stored value, but perhaps there is a better way to achieve this
         public static string managerName = "GameManager";
         public string identifiant;
+        protected string type;
         public GameManager Manager
         {
             get
@@ -21,8 +22,11 @@ namespace Modelisation
         public bool notifyGameManager()
         {
             //throw new System.NotImplementedException();
-            return Manager.isAuthorised(identifiant);
+            return Manager.isAuthorised(type + "_" + identifiant);
             //return true;
         }
+
+
+        //Type Method ?
     }
 }
