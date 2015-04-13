@@ -25,8 +25,11 @@ namespace Modelisation
         {
             new ScenarioItem("aaa", "desc")
         };
+        public static IList<ScenarioItem> EmptyScenar = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("Rien", "Il n'y a rien à faire, faites ce que vous voulez :)", true)
+        };
         public IList<ScenarioItem> ScenarioData { get; protected set; }
-
         public Mode CurrentMode { get; set; }
 
         public int ScenarioState { get; set; }
@@ -39,11 +42,23 @@ namespace Modelisation
             }
         }
 
-        public bool isAuthorised(string name)
+        public GameManager()
         {
+            ScenarioData = EmptyScenar;
+            ScenarioState = 0;
+        }
+
+        //Should perhaps use enum/typeof instead
+        public bool isAuthorised(string type, string name)
+        {
+            if (type == "Action")
+            {
+                // reset original settings
+                return true;
+            }
             if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
             {
-
+                //set new mode
             }
             if (name == CurrentTask.elementName)
             {
@@ -53,6 +68,7 @@ namespace Modelisation
                 {
                     //End scenario
                 }
+                /*
                 switch (CurrentMode)
                 {
                     case Mode.Auto:
@@ -62,7 +78,7 @@ namespace Modelisation
                     case Mode.Symbolic:
                         break;
 
-                }
+                }*/
                 return true;
             }
             else if (CurrentTask.authAll)

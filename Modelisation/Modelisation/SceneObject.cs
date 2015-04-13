@@ -21,8 +21,7 @@ namespace Modelisation
         //Perhaps with parameters ? or Send name of current calling method
         public bool notifyGameManager()
         {
-            //throw new System.NotImplementedException();
-            return Manager.isAuthorised(type + "_" + identifiant);
+            return Manager.isAuthorised(type, identifiant);
             //return true;
         }
 
