@@ -27,6 +27,11 @@ namespace Modelisation
                 return (Element)Target.GetComponent(typeof(Element));
             }
         }
+
+        public Switch()
+        {
+            type = "Switch";
+        }
     
         public void switchOn()
         {
@@ -74,7 +79,6 @@ namespace Modelisation
 
         public void VRAction()
         {
-			Debug.Log("ACTION");
             if (onButton && offButton)
             {
                 toggle();

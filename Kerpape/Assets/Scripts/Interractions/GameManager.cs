@@ -8,11 +8,29 @@ using System.Text;
 
 namespace Modelisation
 {
+    public enum Mode { Auto, Assisted, Symbolic };
     public class GameManager : MonoBehaviour
     {
-        public IList<ScenarioItem> ScenarioData { get; protected set; }
+        public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
 
-        public int Mode { get; set; }
+        public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
+
+        public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("aaa", "desc")
+        };
+        public static IList<ScenarioItem> EmptyScenar = new List<ScenarioItem>() 
+        {
+            new ScenarioItem("Rien", "Il n'y a rien à faire, faites ce que vous voulez :)", true)
+        };
+        public IList<ScenarioItem> ScenarioData { get; protected set; }
+        public Mode CurrentMode { get; set; }
 
         public int ScenarioState { get; set; }
 
@@ -24,14 +42,56 @@ namespace Modelisation
             }
         }
 
-        public bool isAuthorised()
+        public GameManager()
         {
-            string activatedItem = "";
-            //if (CurrentTask.authAll || CurrentTask.elementName == activatedItem)
-            //ScenarioData[ScenarioState]
-            return true;
+            ScenarioData = EmptyScenar;
+            ScenarioState = 0;
         }
 
+        //Should perhaps use enum/typeof instead
+        public bool isAuthorised(string type, string name)
+        {
+            if (type == "Action")
+            {
+                // reset original settings
+                return true;
+            }
+            if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
+            {
+                //set new mode
+            }
+            if (name == CurrentTask.elementName)
+            {
+                ScenarioState++;
+                ErrorNumber = 0;
+                if (CurrentTask.isEnd())
+                {
+                    //End scenario
+                }
+                /*
+                switch (CurrentMode)
+                {
+                    case Mode.Auto:
+                        break;
+                    case Mode.Assisted:
+                        break;
+                    case Mode.Symbolic:
+                        break;
+
+                }*/
+                return true;
+            }
+            else if (CurrentTask.authAll)
+            {
+                return true;
+            }
+            else
+            {
+                onError();
+                return false;
+            }
+        }
+        /*
         public void nextStep(string activatedItem)
         {
             if (activatedItem == CurrentTask.elementName)
@@ -48,7 +108,7 @@ namespace Modelisation
                 onError();
             }
         }
-
+        */
         public void onError()
         {
             ErrorNumber++;

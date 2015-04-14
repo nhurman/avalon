@@ -32,7 +32,6 @@ namespace Modelisation
         }
         public override void setOn()
         {
-			Debug.Log("RECEIVED");
             bool auth = notifyGameManager();
             if (auth)
             {

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Modelisation
 {
-    enum Mode { Auto, Assisted, Symbolic };
+    public enum Mode { Auto, Assisted, Symbolic };
     public class GameManager : MonoBehaviour
     {
         public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 

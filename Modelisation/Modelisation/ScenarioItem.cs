@@ -11,7 +11,10 @@ namespace Modelisation
         public string actionExplanation;
         public bool authAll;
         public Mode? modeOverride;
-
+		public ScenarioItem() 
+		{
+				
+		}
         public ScenarioItem(string name, string description, bool auth = true, Mode? mode = null) 
         {
             elementName = name;

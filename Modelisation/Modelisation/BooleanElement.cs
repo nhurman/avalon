@@ -13,18 +13,20 @@ namespace Modelisation
         public string toDesactivate;
         public override void setOn()
         {
-            gameObject.getComponent(toDesactivate).SetActive(true);
+			gameObject.GetComponent(toDesactivate).gameObject.SetActive(true);
+            //gameObject.GetComponent(toDesactivate).SetActive(true);
             //gameObject.SetActive(true);
         }
 
         public override void setOff()
         {
-            gameObject.getComponent(toDesactivate).SetActive(false);
+			//gameObject.GetComponent(toDesactivate).enabled = false;
+            gameObject.GetComponent(toDesactivate).gameObject.SetActive(false);
             //gameObject.SetActive(false);
         }
         public override bool isOn()
         {
-            return gameObject.getComponent(toDesactivate).activeSelf;
+            return gameObject.GetComponent(toDesactivate).gameObject.activeSelf;
             //return gameObject.activeSelf;
         }
         public override bool isOff()
