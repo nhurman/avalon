@@ -12,12 +12,13 @@ namespace Modelisation
     {
         //do nothing, will be used for partial movement
         public float Ratio;
-        public string OnValueName;
-        public string OffValueName;
+        //public string OnValueName;
+        //public string OffValueName;
         public Transform OnValue { get; set; }
         public Transform OffValue { get; set; }
-        private Vector3 target;
+        private Transform target;
         private bool movement;
+		public float smoothFactor = 1;
         
         //Generic would be better
         public override void setOn()
@@ -25,7 +26,7 @@ namespace Modelisation
             bool auth = notifyGameManager();
             if (auth)
             {
-                target = OnValue.position;
+                target = OnValue;
                 movement = true;
             }
         }
@@ -34,7 +35,7 @@ namespace Modelisation
             bool auth = notifyGameManager();
             if (auth)
             {
-                target = OffValue.position;
+                target = OffValue;
                 movement = true;
                 //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
                 //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
@@ -43,16 +44,19 @@ namespace Modelisation
 
         private void Start () {
             movement = false;
-            OnValue = transform.Find (OnValueName);
-            OffValue = transform.Find (OffValueName);
-            target = OffValue.position;
+			OnValue = transform.Find ("position_on").transform;
+			OffValue = transform.Find ("position_off").transform;
+            //OnValue = transform.Find (OnValueName);
+            //OffValue = transform.Find (OffValueName);
+            target = OffValue;
         }  
         private void Update () {
             //Che
             if (movement)
             {
-                gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target, Time.deltaTime);
-                if (gameObject.transform.position == target)
+				gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target.position, Time.deltaTime * smoothFactor);
+				gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, target.rotation, Time.deltaTime * smoothFactor);
+                if (gameObject.transform == target)
                 {
                     movement = false;
                 }

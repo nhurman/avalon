@@ -56,7 +56,8 @@ namespace Modelisation
                 // reset original settings
                 return true;
             }
-            if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
+            //if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
+			if (CurrentTask.modeOverride != null) 
             {
                 //set new mode
             }
