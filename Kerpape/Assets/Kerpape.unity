@@ -1366,6 +1366,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118061650}
   m_Mesh: {fileID: 4300020, guid: 740f1517affbdbf469b389c3329e2355, type: 3}
+--- !u!1 &121670848
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 930960346}
+--- !u!114 &121670850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121670848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &121670853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121670848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &126205705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,6 +3673,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 363822472}
   m_Mesh: {fileID: 4300058, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &366019327
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &366019329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366019327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &366019332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366019327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
+--- !u!1 &367006570
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &367006572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367006570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &367006575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367006570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &388730633
 GameObject:
   m_ObjectHideFlags: 0
@@ -6681,11 +6780,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 630301063}
   m_Mesh: {fileID: 4300444, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &632782424 stripped
+--- !u!1 &632782424
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
---- !u!4 &632782425 stripped
+--- !u!4 &632782425
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
@@ -9960,10 +10059,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -.0379999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -.0309999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: .023
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &870755785 stripped
+--- !u!4 &870755785
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -10029,7 +10140,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871642419}
   m_Mesh: {fileID: 4300408, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &879662258 stripped
+--- !u!1 &879662258
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
@@ -10475,7 +10586,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &930960347 stripped
+--- !u!4 &930960347
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -12279,7 +12390,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1097982024 stripped
+--- !u!4 &1097982024
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1097982023}
@@ -13019,6 +13130,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169142115}
   m_Mesh: {fileID: 4300498, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1170569302
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &1170569304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170569302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &1170569307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170569302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &1179085877
 GameObject:
   m_ObjectHideFlags: 0
@@ -13732,6 +13876,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1233875178}
   m_Mesh: {fileID: 4300308, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1237722149
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 930960346}
+--- !u!114 &1237722151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1237722149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &1237722154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1237722149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &1243325932
 GameObject:
   m_ObjectHideFlags: 0
@@ -15990,7 +16167,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1399860978 stripped
+--- !u!4 &1399860978
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1399860977}
@@ -16363,7 +16540,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1434337660 stripped
+--- !u!4 &1434337660
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1434337659}
@@ -17059,6 +17236,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1485021119}
   m_Mesh: {fileID: 4300172, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1487868591
+GameObject:
+  m_PrefabParentObject: {fileID: 100014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &1487868592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487868591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
 --- !u!1 &1495388872
 GameObject:
   m_ObjectHideFlags: 0
@@ -17808,6 +18004,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1556704008}
   m_Mesh: {fileID: 4300150, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1563134946
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 930960346}
+--- !u!114 &1563134947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563134946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &1563134951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563134946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &1567904170
 GameObject:
   m_ObjectHideFlags: 0
@@ -22252,6 +22481,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1885754169}
   m_Mesh: {fileID: 4300334, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1886836175
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 930960346}
+--- !u!114 &1886836177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886836175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &1886836180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886836175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &1896370944
 GameObject:
   m_ObjectHideFlags: 0
@@ -23458,6 +23720,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1987717635}
   m_Mesh: {fileID: 4300086, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1987987910
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+  m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &1987987912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987987910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 1
+  TouchEvents: 2
+--- !u!114 &1987987915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987987910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: 
+  onButton: 0
+  offButton: 0
 --- !u!1 &1991882256
 GameObject:
   m_ObjectHideFlags: 0
