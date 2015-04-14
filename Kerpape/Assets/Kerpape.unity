@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: SpotlightA
   onButton: 1
   offButton: 0
@@ -1366,7 +1367,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118061650}
   m_Mesh: {fileID: 4300020, guid: 740f1517affbdbf469b389c3329e2355, type: 3}
---- !u!1 &121670848 stripped
+--- !u!1 &121670848
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -1396,6 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: 
   onButton: 0
   offButton: 0
@@ -3673,7 +3675,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 363822472}
   m_Mesh: {fileID: 4300058, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &366019327 stripped
+--- !u!1 &366019327
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -3703,10 +3705,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: porte_entre
   onButton: 1
   offButton: 0
---- !u!1 &367006570 stripped
+--- !u!1 &367006570
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -3736,6 +3739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: 
   onButton: 1
   offButton: 0
@@ -6415,6 +6419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e30e681bfc9054d88bd030744ae33b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   Step: 1
 --- !u!1 &613755911
 GameObject:
@@ -6780,11 +6785,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 630301063}
   m_Mesh: {fileID: 4300444, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &632782424 stripped
+--- !u!1 &632782424
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
---- !u!4 &632782425 stripped
+--- !u!4 &632782425
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
@@ -9230,6 +9235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bbcf3d0d8245a419383e2c0d7fd27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
+  toDesactivate: 
 --- !u!1 &811287159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10086,7 +10093,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &870755785 stripped
+--- !u!4 &870755785
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -10152,7 +10159,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871642419}
   m_Mesh: {fileID: 4300408, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &879662258 stripped
+--- !u!1 &879662258
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
   m_PrefabInternal: {fileID: 579112575}
@@ -10598,7 +10605,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &930960347 stripped
+--- !u!4 &930960347
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -12402,7 +12409,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1097982024 stripped
+--- !u!4 &1097982024
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1097982023}
@@ -13142,7 +13149,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169142115}
   m_Mesh: {fileID: 4300498, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1170569302 stripped
+--- !u!1 &1170569302
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -13172,6 +13179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: 
   onButton: 0
   offButton: 1
@@ -13888,7 +13896,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1233875178}
   m_Mesh: {fileID: 4300308, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1237722149 stripped
+--- !u!1 &1237722149
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -13918,6 +13926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: Spotlight_cuisine
   onButton: 1
   offButton: 1
@@ -16179,7 +16188,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1399860978 stripped
+--- !u!4 &1399860978
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1399860977}
@@ -16552,7 +16561,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1434337660 stripped
+--- !u!4 &1434337660
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 3d7680f1ac79be348ba7a8ca76d474b7, type: 3}
   m_PrefabInternal: {fileID: 1434337659}
@@ -17248,7 +17257,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1485021119}
   m_Mesh: {fileID: 4300172, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1487868591 stripped
+--- !u!1 &1487868591
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -18016,7 +18025,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1556704008}
   m_Mesh: {fileID: 4300150, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1563134946 stripped
+--- !u!1 &1563134946
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -18046,6 +18055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: Spolight_salon
   onButton: 1
   offButton: 0
@@ -22493,7 +22503,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1885754169}
   m_Mesh: {fileID: 4300334, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1886836175 stripped
+--- !u!1 &1886836175
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 930960346}
@@ -22523,6 +22533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: Spotlight_salon
   onButton: 0
   offButton: 1
@@ -23759,7 +23770,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1987717635}
   m_Mesh: {fileID: 4300086, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!1 &1987987910 stripped
+--- !u!1 &1987987910
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
@@ -23789,6 +23800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifiant: 
   targetName: porte_appartement
   onButton: 1
   offButton: 1
