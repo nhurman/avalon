@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &121670853
 MonoBehaviour:
@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &366019332
 MonoBehaviour:
@@ -3703,8 +3703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetName: 
-  onButton: 0
+  targetName: porte_entre
+  onButton: 1
   offButton: 0
 --- !u!1 &367006570
 GameObject:
@@ -3723,7 +3723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &367006575
 MonoBehaviour:
@@ -3737,7 +3737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetName: 
-  onButton: 0
+  onButton: 1
   offButton: 0
 --- !u!1 &388730633
 GameObject:
@@ -6354,7 +6354,7 @@ GameObject:
   - 108: {fileID: 609605324}
   - 114: {fileID: 609605326}
   m_Layer: 0
-  m_Name: SpotlightA
+  m_Name: Spotlight_salon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9167,8 +9167,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 806379726}
   - 108: {fileID: 806379725}
+  - 114: {fileID: 806379727}
   m_Layer: 0
-  m_Name: Spotlight
+  m_Name: Spotlight_cuisine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9218,6 +9219,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 261228189}
   m_RootOrder: 9
+--- !u!114 &806379727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806379724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbcf3d0d8245a419383e2c0d7fd27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &811287159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10815,7 +10827,7 @@ GameObject:
   - 65: {fileID: 940307069}
   - 23: {fileID: 940307068}
   m_Layer: 0
-  m_Name: porte
+  m_Name: porte_appartement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13147,7 +13159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &1170569307
 MonoBehaviour:
@@ -13162,7 +13174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: 
   onButton: 0
-  offButton: 0
+  offButton: 1
 --- !u!1 &1179085877
 GameObject:
   m_ObjectHideFlags: 0
@@ -13893,7 +13905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &1237722154
 MonoBehaviour:
@@ -13906,9 +13918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetName: 
-  onButton: 0
-  offButton: 0
+  targetName: Spotlight_cuisine
+  onButton: 1
+  offButton: 1
 --- !u!1 &1243325932
 GameObject:
   m_ObjectHideFlags: 0
@@ -18034,8 +18046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetName: 
-  onButton: 0
+  targetName: Spolight_salon
+  onButton: 1
   offButton: 0
 --- !u!1 &1567904170
 GameObject:
@@ -21980,7 +21992,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1853341590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.36674976, y: 1.120749, z: -1.37075925}
+  m_LocalPosition: {x: -1.36699998, y: 3.0539999, z: -1.37100005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22498,7 +22510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &1886836180
 MonoBehaviour:
@@ -22511,9 +22523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetName: 
+  targetName: Spotlight_salon
   onButton: 0
-  offButton: 0
+  offButton: 1
 --- !u!1 &1896370944
 GameObject:
   m_ObjectHideFlags: 0
@@ -22913,6 +22925,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1936048376}
   m_Mesh: {fileID: 4300102, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!1 &1941878097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1941878098}
+  m_Layer: 0
+  m_Name: porte_entre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1941878098
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1941878097}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: .866999984, y: 2.65799999, z: .0610000007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1950623519
 GameObject:
   m_ObjectHideFlags: 0
@@ -23737,7 +23776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &1987987915
 MonoBehaviour:
@@ -23750,9 +23789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetName: 
-  onButton: 0
-  offButton: 0
+  targetName: porte_appartement
+  onButton: 1
+  offButton: 1
 --- !u!1 &1991882256
 GameObject:
   m_ObjectHideFlags: 0
