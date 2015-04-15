@@ -30,10 +30,10 @@ namespace Modelisation
             {
                 target = OnValue;
                 movement = true;
-				Debug.Log (OnValue.position);
+				/*Debug.Log (OnValue.position);
 				Debug.Log (OnValue.localPosition);
 				Debug.Log (OnValue.rotation);
-				Debug.Log (OnValue.localRotation);
+				Debug.Log (OnValue.localRotation);*/
             }
         }
         public override void setOff()
@@ -63,16 +63,19 @@ namespace Modelisation
             //Che
             if (movement)
             {
-				if (gameObject.transform.position != target.position)
+				if (objectToMove.localPosition != target.localPosition)
 				{
-					//Debug.Log("PIKA");
-					objectToMove.position = Vector3.Lerp(objectToMove.position, target.position, Time.deltaTime * smoothFactor);
+					objectToMove.localPosition = Vector3.Lerp(objectToMove.localPosition, target.localPosition, Time.deltaTime * smoothFactor);
 				}
-				if (gameObject.transform.rotation != target.rotation)
+				if (objectToMove.localRotation != target.localRotation)
 				{
-					//Debug.Log("CHU");
-					objectToMove.rotation = Quaternion.Slerp(objectToMove.rotation, target.rotation, Time.deltaTime * smoothFactor);
+					objectToMove.localRotation = Quaternion.Slerp(objectToMove.localRotation, target.localRotation, Time.deltaTime * smoothFactor);
 				}
+				if (objectToMove.localScale != target.localScale)
+				{
+					objectToMove.localScale = Vector3.Lerp (objectToMove.localScale, target.localScale, Time.deltaTime * smoothFactor);
+				}
+
 				if (objectToMove == target)
                 {
                     movement = false;
