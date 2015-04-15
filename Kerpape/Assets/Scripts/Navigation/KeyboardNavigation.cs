@@ -1,92 +1,171 @@
 using UnityEngine;
 using System.Collections;
+using MiddleVR_Unity3D;
+using System;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterMotor))]
+[RequireComponent(typeof(MouseLook))]
+[RequireComponent(typeof(FPSInputController))]
 public class KeyboardNavigation : MonoBehaviour
 {
-	//If turned to false the FicedUpdate function doesn't execute
-	//Must be turned on only when Navigation is set to none in VRManager
-	public bool useKeyboard = false;	
-	public float moveSpeed = 3.0F;
-	public float rotateSpeed = 3.0F;
-
-	void FixedUpdate ()
+	public string ReferenceNode = "WandNode";
+	public  bool  Strafe = true;
+	
+	private bool  m_SearchedRefNode = false;
+	
+	// Use this for initialization
+	void Start()
 	{
-		if (useKeyboard) {
-			// Cache the inputs.
-			float h = Input.GetAxisRaw ("Horizontal");
-			float v = Input.GetAxisRaw ("Vertical");
-
-			//get the character controller
-			CharacterController controller = GetComponent<CharacterController> ();
-
-			Vector3 move = new Vector3(h, 0, v);
-			move = transform.TransformDirection(move);
-			move*=moveSpeed;
-			controller.Move(move*Time.deltaTime);
+		// Disable FPSInputController
+		GetComponent<FPSInputController>().enabled = false;
+		
+		GameObject Wand = GameObject.Find("VRWand");
+		
+		if (Wand != null)
+		{
+			Wand.GetComponent<VRWandNavigation>().enabled = false;
+			MiddleVRTools.Log("[ ] VRFPSInputController deactivated VRWandNavigation. Make sure you set the VR Root Node to the First Person Controller.");
 		}
 	}
-}
-
-
-
-/*[RequireComponent(typeof(CharacterController))]
-public class KeyboardNavigation : MonoBehaviour
-{
-	//If turned to false the FicedUpdate function doesn't execute
-	//Must be turned on only when Navigation is set to none in VRManager
-	public bool useKeyboard = false;	
 	
-	//If set to true, Left and Right make us strafe
-	//If false Left and Right make rotate the head
-	public bool strafe = true;
-	
-	public float moveSpeed = 3.0F;
-	public float rotateSpeed = 3.0F;
 
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
-		if (useKeyboard) {
-			// Cache the inputs.
-			float h = Input.GetAxisRaw ("Horizontal");
-			float v = Input.GetAxisRaw ("Vertical");
-
-			//get the character controller
-			CharacterController controller = GetComponent<CharacterController> ();
+		CharacterMotor motor = GetComponent<CharacterMotor>();
+		
+		vrKeyboard keyb = null;
+		
+		if (MiddleVR.VRDeviceMgr.GetKeyboard() != null)
+		{
+			keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
+		}
+		
+		GameObject refNode = GameObject.Find(ReferenceNode);
+		
+		float speed = 0.0f;
+		float speedR = 0.0f;
+		
+		float forward = 0.0f;
+		
+		// Choosing active vertical axis
+		
+		// First test Unity's inputs
+		if (Math.Abs(Input.GetAxis("Vertical")) > 0)
+		{
+			forward = Input.GetAxis("Vertical");
+		}
+		
+		// Then test MiddleVR's keyboard
+		if (keyb != null)
+		{
+			if (keyb.IsKeyPressed(MiddleVR.VRK_UP) || keyb.IsKeyPressed(MiddleVR.VRK_Z))
+			{
+				forward = 1.0f;
+			}
 			
-			//no rotation, we make a translation
-			if(strafe)
+			if (keyb.IsKeyPressed(MiddleVR.VRK_DOWN) || keyb.IsKeyPressed(MiddleVR.VRK_S))
 			{
-				curSpeed = moveSpeed * h;
-				//movment to the right
-				if(h>0)
-				{
-					Vector3 right = transform.TransformDirection(Vector3.right);
-					controller.SimpleMove (right * curSpeed);
-				}
-				//movment to the left
-				else
-				{
-					Vector3 left = transform.TransformDirection(Vector3.left);
-					controller.SimpleMove (left * curSpeed);
-				}
-
+				forward = -1.0f;
 			}
-			//rotation
-			else
-			{
-				transform.Rotate (0, h * rotateSpeed, 0);
-			}
-
-			//Vector3.forward is the (0,0,1) vector
-			//TransformDirection transforms forward from local space to global space (???)
-			Vector3 forward = transform.TransformDirection (Vector3.forward);
-			//calculate the speed with regard to the vertical imput
-			curSpeed = moveSpeed * v;
-			//apply corresponding amount of movment
-			controller.SimpleMove (forward * curSpeed);
-
 		}
+		
+		
+		float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
+		/*
+		// Finally, the Wand will have precedence over everything
+		if (Math.Abs( wandVertical ) > 0.1f)
+		{
+			forward = wandVertical;
+		}
+		*/
+		// Computing speed
+		if (Math.Abs(forward) > 0.1) speed = forward * Time.deltaTime * 30;
+		
+		//print("Speed: " + speed);
+		
+		
+		// Choosing active horizontal axis
+		float rotation = 0.0f;
+		
+		// First test Unity's inputs
+		if (Math.Abs(Input.GetAxis("Horizontal")) > 0)
+		{
+			rotation = Input.GetAxis("Horizontal");
+		}
+		
+		// Then test MiddleVR's keyboard
+		if (keyb != null)
+		{
+			if (keyb.IsKeyPressed(MiddleVR.VRK_LEFT) || keyb.IsKeyPressed(MiddleVR.VRK_Q))
+			{
+				rotation = -1.0f;
+			}
+			
+			if (keyb.IsKeyPressed(MiddleVR.VRK_RIGHT) || keyb.IsKeyPressed(MiddleVR.VRK_D))
+			{
+				rotation = 1.0f;
+			}
+		}
+		
+		float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+		/*
+		if (Math.Abs(wandHorizontal) > 0.1f)
+		{
+			rotation = wandHorizontal;
+		}
+		*/
+		if (Math.Abs(rotation) > 0.1) speedR = rotation * Time.deltaTime * 50;
+		
+		Vector3 directionVector = new Vector3(0, 0, speed);
+		
+		if (Strafe)
+		{
+			directionVector.x = speedR;
+		}
+		else
+		{
+			transform.Rotate(Vector3.up, speedR);
+		}
+		
+		if (refNode == null)
+		{
+			if (m_SearchedRefNode == false)
+			{
+				MiddleVRTools.Log("[ ] Didn't find reference node " + ReferenceNode);
+				m_SearchedRefNode = true;
+			}
+			
+			motor.inputMoveDirection = directionVector;
+		}
+		else
+		{
+			motor.inputMoveDirection = refNode.transform.TransformDirection(directionVector);
+			
+			//print(motor.inputMoveDirection);
+		}
+		
+		bool jump = false;
+		
+		if (Input.GetButton("Jump") == true)
+		{
+			jump = true;
+		}
+		
+		if (keyb != null)
+		{
+			if (keyb.IsKeyPressed(MiddleVR.VRK_SPACE))
+			{
+				jump = true;
+			}
+		}
+		
+		/*if (MiddleVR.VRDeviceMgr.IsWandButtonToggled(1) == true)
+		{
+			jump = true;
+		}*/
+		
+		motor.inputJump = jump;
 	}
-
-}*/
+	
+	
+}
