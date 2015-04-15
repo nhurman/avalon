@@ -5901,6 +5901,10 @@ Prefab:
       propertyPath: GrabExistingNodes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: m_UseVRMenu
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400024, guid: 654eb2207d0de00459c54995ec518376, type: 2}
     - {fileID: 11400026, guid: 654eb2207d0de00459c54995ec518376, type: 2}
@@ -15900,7 +15904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!143 &1369318717
 CharacterController:
   m_ObjectHideFlags: 0
@@ -17248,7 +17252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!1 &1495388872
 GameObject:
