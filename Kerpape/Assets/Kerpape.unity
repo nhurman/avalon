@@ -5992,7 +5992,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: Navigation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: KeepLocalRotation
@@ -8667,7 +8667,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 767666082}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .00524999993
   m_Height: .100000001
@@ -15983,8 +15983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6530e0753054b4e43aae5cfc02d6aeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useKeyboard: 1
-  strafe: 1
+  useKeyboard: 0
   moveSpeed: 3
   rotateSpeed: 3
 --- !u!4 &1369318716
