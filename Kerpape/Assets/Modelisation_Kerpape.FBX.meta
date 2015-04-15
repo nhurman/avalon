@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: ddb3d17fa5f28c14f84fe0543cb7af4d
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: __vier001
     100002: accoudoir
@@ -329,6 +329,7 @@ ModelImporter:
     100646: volet005
     100648: volet006
     100650: volet007
+    100652: "\xE9vier001"
     400000: __vier001
     400002: accoudoir
     400004: accoudoir 1
@@ -655,6 +656,7 @@ ModelImporter:
     400646: volet005
     400648: volet006
     400650: volet007
+    400652: "\xE9vier001"
     2300000: __vier001
     2300002: accoudoir
     2300004: accoudoir 1
@@ -957,6 +959,7 @@ ModelImporter:
     2300598: volet005
     2300600: volet006
     2300602: volet007
+    2300604: "\xE9vier001"
     3300000: __vier001
     3300002: accoudoir
     3300004: accoudoir 1
@@ -1259,6 +1262,7 @@ ModelImporter:
     3300598: volet005
     3300600: volet006
     3300602: volet007
+    3300604: "\xE9vier001"
     4300000: regle1m
     4300002: regle1m001
     4300004: regle1m002
@@ -1562,6 +1566,7 @@ ModelImporter:
     4300600: Box1143
     4300602: encadrement_porte_cuisine_studio001
     4300604: frise
+    4300606: "\xE9vier001"
     7400000: Take 001
     9500000: //RootNode
     13700000: lit001
@@ -1592,11 +1597,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -1619,3 +1626,5 @@ ModelImporter:
   animationType: 2
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
