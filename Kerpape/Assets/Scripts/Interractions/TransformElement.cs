@@ -11,12 +11,14 @@ namespace Modelisation
     public class TransformElement : Element
     {
         //do nothing, will be used for partial movement
-        public float Ratio;
+        //public float Ratio;
         //public string OnValueName;
         //public string OffValueName;
-        public Transform OnValue { get; set; }
-        public Transform OffValue { get; set; }
+		protected Transform OnValue;
+		protected Transform OffValue;
+		protected Transform objectToMove;
         private Transform target;
+
         private bool movement;
 		public float smoothFactor = 1;
         
@@ -28,6 +30,10 @@ namespace Modelisation
             {
                 target = OnValue;
                 movement = true;
+				Debug.Log (OnValue.position);
+				Debug.Log (OnValue.localPosition);
+				Debug.Log (OnValue.rotation);
+				Debug.Log (OnValue.localRotation);
             }
         }
         public override void setOff()
@@ -44,8 +50,11 @@ namespace Modelisation
 
         private void Start () {
             movement = false;
-			OnValue = transform.Find ("position_on").transform;
-			OffValue = transform.Find ("position_off").transform;
+			OnValue = transform.Find ("position_on");
+			OffValue = transform.Find ("position_off");
+			objectToMove = transform.Find ("object");
+			//orig = transform.lo
+
             //OnValue = transform.Find (OnValueName);
             //OffValue = transform.Find (OffValueName);
             target = OffValue;
@@ -54,9 +63,17 @@ namespace Modelisation
             //Che
             if (movement)
             {
-				gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target.position, Time.deltaTime * smoothFactor);
-				gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, target.rotation, Time.deltaTime * smoothFactor);
-                if (gameObject.transform == target)
+				if (gameObject.transform.position != target.position)
+				{
+					//Debug.Log("PIKA");
+					objectToMove.position = Vector3.Lerp(objectToMove.position, target.position, Time.deltaTime * smoothFactor);
+				}
+				if (gameObject.transform.rotation != target.rotation)
+				{
+					//Debug.Log("CHU");
+					objectToMove.rotation = Quaternion.Slerp(objectToMove.rotation, target.rotation, Time.deltaTime * smoothFactor);
+				}
+				if (objectToMove == target)
                 {
                     movement = false;
                 }
@@ -65,11 +82,11 @@ namespace Modelisation
 
         public override bool isOn()
         {
-            return gameObject.transform == OnValue;
+			return objectToMove == OnValue;
         }
         public override bool isOff()
         {
-            return gameObject.transform == OffValue;
+			return objectToMove == OffValue;
         }
 
         

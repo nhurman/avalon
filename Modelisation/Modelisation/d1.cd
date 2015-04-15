@@ -43,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Modelisation.BooleanElement">
-    <Position X="4.75" Y="6.5" Width="1.5" />
+    <Position X="4.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAABAAAAAAABAAIAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>BooleanElement.cs</FileName>
@@ -86,7 +86,7 @@
   <Class Name="Modelisation.TransformElement">
     <Position X="9.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAECAACAEABAAIAABAAIAAAAAAiAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAQACECAACAEABAAIAABAAIAAAAAAiAAAAAAAAAAAAA=</HashCode>
       <FileName>TransformElement.cs</FileName>
     </TypeIdentifier>
   </Class>
