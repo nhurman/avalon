@@ -886,8 +886,6 @@ GameObject:
   - 23: {fileID: 73792950}
   - 114: {fileID: 73792952}
   - 114: {fileID: 73792953}
-  - 114: {fileID: 73792955}
-  - 114: {fileID: 73792954}
   m_Layer: 0
   m_Name: tiroir008
   m_TagString: Untagged
@@ -952,9 +950,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: aaa
-  targetName: porte_appartement
+  targetName: Spotlight_salon
   onButton: 1
-  offButton: 0
+  offButton: 1
 --- !u!114 &73792953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,36 +968,6 @@ MonoBehaviour:
   MiddleVRNodeName: 
   Grabable: 0
   TouchEvents: 2
---- !u!114 &73792954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73792948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifiant: 
-  targetName: volet1
-  onButton: 0
-  offButton: 1
---- !u!114 &73792955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73792948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifiant: 
-  targetName: volet2
-  onButton: 0
-  offButton: 1
 --- !u!1 &74042870
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,6 +3617,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 369289536}
+  - 114: {fileID: 369289537}
   m_Layer: 0
   m_Name: Table-Salon_Pied
   m_TagString: Untagged
@@ -3671,6 +3640,19 @@ Transform:
   - {fileID: 1878350889}
   m_Father: {fileID: 1619109106}
   m_RootOrder: 0
+--- !u!114 &369289537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369289535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464f0fad697a66f49913e34e5e3b7412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  smoothFactor: 1
 --- !u!1 &388730633
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,7 +4067,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 427271639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -1.50899994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1238288671}
@@ -13740,6 +13722,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1238288671}
+  - 114: {fileID: 1238288672}
   m_Layer: 0
   m_Name: Table-Salon_Plateau
   m_TagString: Untagged
@@ -13762,6 +13745,19 @@ Transform:
   - {fileID: 427271640}
   m_Father: {fileID: 1619109106}
   m_RootOrder: 1
+--- !u!114 &1238288672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1238288670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464f0fad697a66f49913e34e5e3b7412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  smoothFactor: 1
 --- !u!1 &1243325932
 GameObject:
   m_ObjectHideFlags: 0
@@ -15685,6 +15681,9 @@ GameObject:
   - 4: {fileID: 1356746955}
   - 95: {fileID: 1356746957}
   - 136: {fileID: 1356746956}
+  - 114: {fileID: 1356746958}
+  - 114: {fileID: 1356746959}
+  - 114: {fileID: 1356746960}
   m_Layer: 0
   m_Name: table-salon
   m_TagString: Untagged
@@ -15737,6 +15736,51 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1356746958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356746954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 0
+  TouchEvents: 2
+--- !u!114 &1356746959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356746954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: Table-Salon_Plateau
+  onButton: 0
+  offButton: 1
+--- !u!114 &1356746960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356746954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: Table-Salon_Pied
+  onButton: 0
+  offButton: 1
 --- !u!1 &1358752660
 GameObject:
   m_ObjectHideFlags: 0
@@ -18952,9 +18996,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1619109106}
-  - 114: {fileID: 1619109109}
-  - 114: {fileID: 1619109108}
-  - 114: {fileID: 1619109107}
   m_Layer: 0
   m_Name: Table-Salon_Mobile
   m_TagString: Untagged
@@ -18976,49 +19017,6 @@ Transform:
   - {fileID: 1238288671}
   m_Father: {fileID: 1356746955}
   m_RootOrder: 1
---- !u!114 &1619109107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1619109105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464f0fad697a66f49913e34e5e3b7412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifiant: 
-  smoothFactor: 1
---- !u!114 &1619109108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1619109105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifiant: 
-  targetName: table_salon
-  onButton: 1
-  offButton: 1
---- !u!114 &1619109109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1619109105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SyncDirection: 3
-  MiddleVRNodeName: 
-  Grabable: 0
-  TouchEvents: 2
 --- !u!1 &1622844346
 GameObject:
   m_ObjectHideFlags: 0
@@ -20342,8 +20340,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759387538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: -8.10000038, y: 0, z: .409999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 704808477}
@@ -22072,8 +22070,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1858958684}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -8.10000038, y: 0, z: .409999996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 704808477}
@@ -22286,7 +22284,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878350888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -.626999974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 369289536}

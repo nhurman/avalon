@@ -53,6 +53,7 @@ namespace Modelisation
 
         public void toggle()
         {
+			Debug.Log ("Hello");
             bool auth = notifyGameManager();
             if (auth)
             {

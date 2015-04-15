@@ -60,7 +60,7 @@ namespace Modelisation
             target = OffValue;
         }  
         private void Update () {
-            //Che
+			//Debug.Log (objectToMove.localPosition == OnValue.localPosition);
             if (movement)
             {
 				if (objectToMove.localPosition != target.localPosition)
@@ -83,13 +83,18 @@ namespace Modelisation
             }    
         }
 
+		private static bool equalTransform(Transform t1, Transform t2)
+		{
+			return t1.localPosition == t2.localPosition && t1.localRotation == t2.localRotation && t1.localScale == t2.localScale;
+				//Vector3.Distance(t1.localPosition, t2.localPosition) < 0.0
+		}
         public override bool isOn()
         {
-			return objectToMove == OnValue;
+			return equalTransform (objectToMove, OnValue);
         }
         public override bool isOff()
         {
-			return objectToMove == OffValue;
+			return equalTransform (objectToMove, OffValue);
         }
 
         

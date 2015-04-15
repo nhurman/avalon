@@ -24,12 +24,12 @@ namespace Modelisation
 		public override object getObjectProperty(){
 			return GetComponent<Light> ().intensity;
 		}
-		void Start () { 
+		/*void Start () { 
 			Step = 0.5f;
 		}
 		void Update() {
 			setOn ();
-		}
+		}*/
         
     }
 }
