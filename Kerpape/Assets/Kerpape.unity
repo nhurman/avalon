@@ -3547,6 +3547,21 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &367006571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367006570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: volet3
+  onButton: 1
+  offButton: 0
 --- !u!114 &367006572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,6 +3577,21 @@ MonoBehaviour:
   MiddleVRNodeName: 
   Grabable: 0
   TouchEvents: 2
+--- !u!114 &367006573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367006570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: volet2
+  onButton: 1
+  offButton: 0
 --- !u!114 &367006575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,7 +3604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: 
-  targetName: 
+  targetName: volet1
   onButton: 1
   offButton: 0
 --- !u!1 &369289535
@@ -12943,6 +12973,21 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
   m_PrefabInternal: {fileID: 870755784}
+--- !u!114 &1170569303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170569302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: volet3
+  onButton: 0
+  offButton: 1
 --- !u!114 &1170569304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12958,6 +13003,21 @@ MonoBehaviour:
   MiddleVRNodeName: 
   Grabable: 0
   TouchEvents: 2
+--- !u!114 &1170569305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170569302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  targetName: volet2
+  onButton: 0
+  offButton: 1
 --- !u!114 &1170569307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12970,7 +13030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: 
-  targetName: 
+  targetName: volet1
   onButton: 0
   offButton: 1
 --- !u!1 &1179085877
@@ -15946,9 +16006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6530e0753054b4e43aae5cfc02d6aeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useKeyboard: 0
-  moveSpeed: 3
-  rotateSpeed: 3
+  ReferenceNode: WandNode
+  Strafe: 1
 --- !u!4 &1369318716
 Transform:
   m_ObjectHideFlags: 0
@@ -18115,7 +18174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyncDirection: 3
   MiddleVRNodeName: 
-  Grabable: 1
+  Grabable: 0
   TouchEvents: 2
 --- !u!114 &1563134951
 MonoBehaviour:
