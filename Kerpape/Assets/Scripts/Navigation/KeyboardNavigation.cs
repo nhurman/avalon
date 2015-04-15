@@ -4,20 +4,15 @@ using MiddleVR_Unity3D;
 using System;
 
 [RequireComponent(typeof(CharacterMotor))]
-[RequireComponent(typeof(MouseLook))]
-[RequireComponent(typeof(FPSInputController))]
 public class KeyboardNavigation : MonoBehaviour
 {
 	public string ReferenceNode = "WandNode";
-	public  bool  Strafe = true;
-	
+
 	private bool  m_SearchedRefNode = false;
-	
+
 	// Use this for initialization
 	void Start()
 	{
-		// Disable FPSInputController
-		GetComponent<FPSInputController>().enabled = false;
 		
 		GameObject Wand = GameObject.Find("VRWand");
 		
@@ -44,7 +39,6 @@ public class KeyboardNavigation : MonoBehaviour
 		
 		float speed = 0.0f;
 		float speedR = 0.0f;
-		
 		float forward = 0.0f;
 		
 		// Choosing active vertical axis
@@ -69,15 +63,6 @@ public class KeyboardNavigation : MonoBehaviour
 			}
 		}
 		
-		
-		float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
-		/*
-		// Finally, the Wand will have precedence over everything
-		if (Math.Abs( wandVertical ) > 0.1f)
-		{
-			forward = wandVertical;
-		}
-		*/
 		// Computing speed
 		if (Math.Abs(forward) > 0.1) speed = forward * Time.deltaTime * 30;
 		
@@ -106,27 +91,11 @@ public class KeyboardNavigation : MonoBehaviour
 				rotation = 1.0f;
 			}
 		}
-		
-		float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
-		/*
-		if (Math.Abs(wandHorizontal) > 0.1f)
-		{
-			rotation = wandHorizontal;
-		}
-		*/
+
 		if (Math.Abs(rotation) > 0.1) speedR = rotation * Time.deltaTime * 50;
 		
-		Vector3 directionVector = new Vector3(0, 0, speed);
-		
-		if (Strafe)
-		{
-			directionVector.x = speedR;
-		}
-		else
-		{
-			transform.Rotate(Vector3.up, speedR);
-		}
-		
+		Vector3 directionVector = new Vector3(speedR, 0, speed);
+
 		if (refNode == null)
 		{
 			if (m_SearchedRefNode == false)
