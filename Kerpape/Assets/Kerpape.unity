@@ -5827,7 +5827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: Navigation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: KeepLocalRotation

@@ -7,7 +7,7 @@ using System;
 public class MouseLeftRight : MonoBehaviour
 {
 	public string ReferenceNode = "WandNode";
-	public float sensibility = 15.0f;
+	public float sensibility = 1.0f;
 
 	void Start()
 	{
