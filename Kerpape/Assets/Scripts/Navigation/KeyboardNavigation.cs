@@ -11,7 +11,7 @@ public class KeyboardNavigation : MonoBehaviour
 	private bool  m_SearchedRefNode = false;
 
 	// Use this for initialization
-	void Start()
+	/*void Start()
 	{
 		
 		GameObject Wand = GameObject.Find("VRWand");
@@ -21,7 +21,7 @@ public class KeyboardNavigation : MonoBehaviour
 			Wand.GetComponent<VRWandNavigation>().enabled = false;
 			MiddleVRTools.Log("[ ] VRFPSInputController deactivated VRWandNavigation. Make sure you set the VR Root Node to the First Person Controller.");
 		}
-	}
+	}*/
 	
 
 	void FixedUpdate()
@@ -41,7 +41,7 @@ public class KeyboardNavigation : MonoBehaviour
 		float speedR = 0.0f;
 		float forward = 0.0f;
 		
-		// Choosing active vertical axis
+		// Choosing active vertical axis, later ones will overwrite previous ones
 		
 		// First test Unity's inputs
 		if (Math.Abs(Input.GetAxis("Vertical")) > 0)
@@ -50,6 +50,7 @@ public class KeyboardNavigation : MonoBehaviour
 		}
 		
 		// Then test MiddleVR's keyboard
+		//If MiddleVR is correctly tracking the keyboard, ie keyb != null, this will overwrite forward
 		if (keyb != null)
 		{
 			if (keyb.IsKeyPressed(MiddleVR.VRK_UP) || keyb.IsKeyPressed(MiddleVR.VRK_Z))
@@ -114,11 +115,10 @@ public class KeyboardNavigation : MonoBehaviour
 		}
 		
 		bool jump = false;
-		
 		if (Input.GetButton("Jump") == true)
 		{
 			jump = true;
-		}
+		} 
 		
 		if (keyb != null)
 		{
@@ -128,10 +128,10 @@ public class KeyboardNavigation : MonoBehaviour
 			}
 		}
 		
-		/*if (MiddleVR.VRDeviceMgr.IsWandButtonToggled(1) == true)
+		if (MiddleVR.VRDeviceMgr.IsWandButtonToggled(1) == true)
 		{
 			jump = true;
-		}*/
+		}
 		
 		motor.inputJump = jump;
 	}
