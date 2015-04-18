@@ -393,7 +393,8 @@ public class VRMenu : MonoBehaviour {
         // Virtual Hand
         m_VirtualHandOptions = new vrWidgetMenu("VRMenu.VirtualHandOptions", m_Menu, "Virtual Hand");
 
-        CreateInteractionToggleButton(MiddleVR.VRInteractionMgr.GetInteraction("InteractionVirtualHandGogo"), "Gogo", m_VirtualHandOptions, VirtualHandGogoButtonHandler);
+		// Mis en commentaire car il n'y a pas de Virtual Hand Gogo
+		//CreateInteractionToggleButton(MiddleVR.VRInteractionMgr.GetInteraction("InteractionVirtualHandGogo"), "Gogo", m_VirtualHandOptions, VirtualHandGogoButtonHandler);
 
         // General
         m_GeneralSeparator = new vrWidgetSeparator("VRMenu.GeneralSeparator", m_Menu);

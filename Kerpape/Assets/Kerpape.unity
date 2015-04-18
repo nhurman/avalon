@@ -5780,7 +5780,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: ConfigFile
@@ -5842,10 +5842,6 @@ Prefab:
       propertyPath: DisableExistingCameras
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
-      propertyPath: m_ShowScreenProximityWarnings
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 654eb2207d0de00459c54995ec518376, type: 2}
       propertyPath: RotationSpeed
       value: 25
@@ -5862,6 +5858,18 @@ Prefab:
       propertyPath: TemplateCamera
       value: 
       objectReference: {fileID: 1110754971}
+    - target: {fileID: 11400000, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: m_ShowScreenProximityWarnings
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 654eb2207d0de00459c54995ec518376, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400024, guid: 654eb2207d0de00459c54995ec518376, type: 2}
     - {fileID: 11400026, guid: 654eb2207d0de00459c54995ec518376, type: 2}
@@ -12019,6 +12027,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1419427720}
   m_RootOrder: 1
+--- !u!1001 &1091244630
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1369318716}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -3.09086232e-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -3.09086232e-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_URL
+      value: /Assets/Resources/telecommande.html
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_Name
+      value: Telecommande
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1097507117
 GameObject:
   m_ObjectHideFlags: 0
@@ -12202,7 +12268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1110754972
 Transform:
   m_ObjectHideFlags: 0
@@ -15977,6 +16043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1110754972}
+  - {fileID: 1470703115}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &1369318717
@@ -17200,6 +17267,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1458041952}
   m_Mesh: {fileID: 4300140, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!4 &1470703115 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+  m_PrefabInternal: {fileID: 1091244630}
 --- !u!1 &1476670206
 GameObject:
   m_ObjectHideFlags: 0
@@ -23888,6 +23959,21 @@ MonoBehaviour:
   targetName: porte_appartement
   onButton: 1
   offButton: 1
+--- !u!1 &1988118035 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a34e1d78c66d8784e9618aa5022cee7b, type: 2}
+  m_PrefabInternal: {fileID: 1091244630}
+--- !u!114 &1988118042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1988118035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045f990fcd68c214581e4ade7f3cec65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991882256
 GameObject:
   m_ObjectHideFlags: 0

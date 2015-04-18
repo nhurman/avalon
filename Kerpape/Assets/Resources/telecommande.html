@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<style>
+			#page {background: #fff; padding: 5px;width: 308px;}
+			.row {}
+			#header {height: 100px; background: #888; margin-bottom: 5px;}
+		</style>
+		<script>
+            function button1(){ MiddleVR.Call("MyCommand"); }
+            function button2(){ MiddleVR.Call("MyCommand"); }
+            function button3(){ MiddleVR.Call("MyCommand"); }
+
+            function setText( text )
+            {
+                document.getElementById('header').innerHTML = text;
+            }
+        </script>
+	</head>
+	<body>
+		<div id="page">
+			<div id="header">
+				
+			</div>
+			<div class="row">
+				<img onclick="button1()" src="icone.png" alt="" />
+				<img onclick="button2()" src="icone.png" alt="" />
+				<img onclick="button3()" src="icone.png" alt="" />
+			</div>
+			<div class="row">
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+			</div>
+			<div class="row">
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+			</div>
+			<div class="row">
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+			</div>
+			<div class="row">
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+			</div>
+			<div class="row">
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+				<img src="icone.png" alt="" />
+			</div>
+		</div>
+	</body>
+</html>
