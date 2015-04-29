@@ -7,27 +7,17 @@ public class MouseLeftRight : MonoBehaviour
 {
 	public float sensibility = 1.0f;
 
-	/*void Start()
-	{
-		
-		GameObject Wand = GameObject.Find("VRWand");
-		
-		if (Wand != null)
-		{
-			Wand.GetComponent<VRWandNavigation>().enabled = false;
-			MiddleVRTools.Log("[ ] VRFPSInputController deactivated VRWandNavigation. Make sure you set the VR Root Node to the First Person Controller.");
-		}
-	}*/
 
 	void FixedUpdate()
 	{
 		vrMouse mouse = null;
-		float rotation = 0.0f;
+		float rotation = 0.0f; float rotVert = 0;
 		//Checking if MiddleVR is tracking the mouse
 		if (MiddleVR.VRDeviceMgr.GetMouse() != null)
 		{
 			mouse = MiddleVR.VRDeviceMgr.GetMouse();
 		}
+		GameObject cam = GameObject.Find ("Tete");
 
 		//we don't want to rely on the wand here
 		/*float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
@@ -37,7 +27,7 @@ public class MouseLeftRight : MonoBehaviour
 		}*/
 		//GetAxisValue gives the position offset on the given axis since last update
 		//0 means axis X
-		if(Math.Abs(mouse.GetAxisValue(0)) > 0)
+		if(Math.Abs(mouse.GetAxisValue(0)) > 0.001f)
 		{
 			rotation = mouse.GetAxisValue(0);
 		}
@@ -46,7 +36,18 @@ public class MouseLeftRight : MonoBehaviour
 			rotation = Input.GetAxis("Mouse X");
 		}
 
-		transform.Rotate(0, rotation*sensibility, 0);
+		if (Math.Abs(mouse.GetAxisValue(1)) > 0.001f)
+		{
+			rotVert = mouse.GetAxisValue(1);
+		}
+		else if(Math.Abs(Input.GetAxis("Mouse Y")) > 0)
+		{
+			rotVert = Input.GetAxis("Mouse Y");
+		}
+
+		transform.Rotate(0, rotation*sensibility, 0, Space.World);
+		transform.Rotate(rotVert*sensibility, 0, 0, Space.Self);
+
 	}
 }
 
