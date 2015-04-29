@@ -29,12 +29,14 @@ namespace Modelisation
         {
             new ScenarioItem("Rien", "Il n'y a rien à faire, faites ce que vous voulez :)", true)
         };
+
         public IList<ScenarioItem> ScenarioData { get; protected set; }
         public Mode CurrentMode { get; set; }
 
         public int ScenarioState { get; set; }
 
         public int ErrorNumber { get; protected set; }
+		private Mode oldMode;
         public ScenarioItem CurrentTask {
             get
             {
@@ -54,12 +56,15 @@ namespace Modelisation
             if (type == "Action")
             {
                 // reset original settings
+				//This will not result in the correct behavior
+				CurrentMode = oldMode;
                 return true;
             }
-            //if (Enum.IsDefined(typeof(Mode), CurrentTask.modeOverride)) 
 			if (CurrentTask.modeOverride != null) 
             {
-                //set new mode
+				//set new mode
+				oldMode = CurrentMode;
+				CurrentMode = (Mode) CurrentTask.modeOverride;
             }
             if (name == CurrentTask.elementName)
             {
@@ -69,7 +74,7 @@ namespace Modelisation
                 {
                     //End scenario
                 }
-                /*
+				/*
                 switch (CurrentMode)
                 {
                     case Mode.Auto:
@@ -80,10 +85,12 @@ namespace Modelisation
                         break;
 
                 }*/
+
                 return true;
             }
             else if (CurrentTask.authAll)
             {
+				// call onError ?
                 return true;
             }
             else

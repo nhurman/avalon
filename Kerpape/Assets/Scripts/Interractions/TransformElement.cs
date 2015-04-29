@@ -59,7 +59,9 @@ namespace Modelisation
             //OffValue = transform.Find (OffValueName);
             target = OffValue;
         }  
-        private void Update () {
+
+		// protected might not work, bc private by default
+        protected virtual void Update () {
 			//Debug.Log (objectToMove.localPosition == OnValue.localPosition);
             if (movement)
             {
