@@ -18,6 +18,8 @@ public class VRFPSInputController : MonoBehaviour
     private bool  m_SearchedRefNode = false;
     private GameObject m_RefNode    = null;
     
+	private float angle		 		= 0f;
+
     // Use this for initialization
     void Start()
     {
@@ -80,11 +82,17 @@ public class VRFPSInputController : MonoBehaviour
 
 
         float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
+		GameObject.Find("HeadNode").transform.Rotate(Vector3.left, angle);
+
 
         // Finally, the Wand will have precedence over everything
         if (Math.Abs( wandVertical ) > 0.1f)
-        {
-            forward = wandVertical;
+		{
+			//Debug.Log (((vrNode3D)(MiddleVR.VRKernel.GetObject("HeadNode"))).GetType ().GetName ());
+			GameObject.Find("HeadNode").transform.Rotate(Vector3.left, wandVertical);
+			//((vrNode3D)(MiddleVR.VRKernel.GetObject("HeadNode"))).SetPitchLocal(wandVertical);
+           // forward = wandVertical;
+			angle += wandVertical;
         }
 
         // Computing speed
@@ -95,11 +103,12 @@ public class VRFPSInputController : MonoBehaviour
 
         // Choosing active horizontal axis
         float rotation = 0.0f;
+		float strafe = 0.0f;
 
         // First test Unity's inputs
         if (Math.Abs(Input.GetAxis("Horizontal")) > 0)
         {
-            rotation = Input.GetAxis("Horizontal");
+            //rotation = Input.GetAxis("Horizontal");
         }
 
         // Then test MiddleVR's keyboard
@@ -107,12 +116,12 @@ public class VRFPSInputController : MonoBehaviour
         {
             if (keyb.IsKeyPressed(MiddleVR.VRK_LEFT))
             {
-                rotation = -1.0f;
+                strafe = -1.0f;
             }
 
             if (keyb.IsKeyPressed(MiddleVR.VRK_RIGHT))
             {
-                rotation = 1.0f;
+				strafe = 1.0f;
             }
         }
 
@@ -124,12 +133,16 @@ public class VRFPSInputController : MonoBehaviour
         }
 
         if (Math.Abs(rotation) > 0.1) speedR = rotation * Time.deltaTime * 50;
+		if (Math.Abs(strafe) > 0.1) strafe = strafe * Time.deltaTime * 50;
+
 
         Vector3 directionVector = new Vector3(0, 0, speed);
 
         if (Strafe)
         {
-            directionVector.x = speedR;
+            directionVector.x = strafe;
+			transform.Rotate(Vector3.up, rotation);
+			Debug.Log(speedR);
         }
         else
         {
