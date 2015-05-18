@@ -13,17 +13,32 @@ namespace Modelisation
     {
         public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
         {
-            new ScenarioItem("aaa", "desc")
+			// Décrocher le domophone
+			// c'est du téléphone, YAY
+			// Racrocher le domophone
         };
 
         public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
         {
-            new ScenarioItem("aaa", "desc")
+			// Décrocher le domophone
+			// Infirmier
+			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
+			// Racrocher le domophone
+			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement")
         };
 
         public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
-        {
-            new ScenarioItem("aaa", "desc")
+		{
+			// Décrocher le domophone
+			// Allumer TV
+			// Canal S8
+
+			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
+			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement")
+			// Eteindre TV ?
+
         };
         public static IList<ScenarioItem> EmptyScenar = new List<ScenarioItem>() 
         {
@@ -53,7 +68,7 @@ namespace Modelisation
         //Should perhaps use enum/typeof instead
         public bool isAuthorised(string type, string name)
         {
-            if (type == "Action")
+            if (type == "Action") // Any action is authorised
             {
                 // reset original settings
 				//This will not result in the correct behavior

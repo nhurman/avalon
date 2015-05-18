@@ -3537,7 +3537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifiant: 
+  identifiant: front_door_open
   targetName: porte_entre
   onButton: 1
   offButton: 0
@@ -17859,7 +17859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1514986044
 Transform:
   m_ObjectHideFlags: 0
@@ -23956,7 +23956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifiant: 
+  identifiant: appartement_door_switch
   targetName: porte_appartement
   onButton: 1
   offButton: 1
