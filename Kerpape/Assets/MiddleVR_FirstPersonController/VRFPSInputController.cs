@@ -19,6 +19,7 @@ public class VRFPSInputController : MonoBehaviour
     private GameObject m_RefNode    = null;
     
 	private float angle		 		= 0f;
+	private float angle_tmp 		= 0f;
 
     // Use this for initialization
     void Start()
@@ -92,7 +93,11 @@ public class VRFPSInputController : MonoBehaviour
 			GameObject.Find("HeadNode").transform.Rotate(Vector3.left, wandVertical);
 			//((vrNode3D)(MiddleVR.VRKernel.GetObject("HeadNode"))).SetPitchLocal(wandVertical);
            // forward = wandVertical;
-			angle += wandVertical;
+			angle_tmp += wandVertical;
+			if(angle_tmp > 90) angle_tmp = 90;
+			if(angle_tmp < -90) angle_tmp = -90;
+			angle = -angle_tmp;
+			Debug.Log(angle);
         }
 
         // Computing speed
@@ -142,7 +147,6 @@ public class VRFPSInputController : MonoBehaviour
         {
             directionVector.x = strafe;
 			transform.Rotate(Vector3.up, rotation);
-			Debug.Log(speedR);
         }
         else
         {
