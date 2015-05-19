@@ -10,6 +10,7 @@ namespace Modelisation
         public static string managerName = "GameManager";
         public string identifiant;
         protected string type;
+		//private GameManager _manager;
         public GameManager Manager
         {
             get
@@ -25,6 +26,9 @@ namespace Modelisation
             //return true;
         }
 
+		/*private void Start () {
+			_manager = GameObject.Find (managerName).GetComponent<GameManager> ();
+		}*/
 
         //Type Method ?
     }

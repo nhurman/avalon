@@ -30,11 +30,8 @@ namespace Modelisation
                 
             }
         }
-        public override void setOn()
+		public override void autonomous_setOn()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
 				float newState = ((float) getObjectProperty()) + Step;
                 if (newState <= Max)
                 {
@@ -44,14 +41,10 @@ namespace Modelisation
                 {
 					setObjectProperty(Max);
                 }
-            }
 
         }
-        public override void setOff()
+		public override void autonomous_setOff()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
 				float newState = ((float) getObjectProperty()) - Step;
                 if (newState >= Min)
                 {
@@ -61,8 +54,16 @@ namespace Modelisation
                 {
 					setObjectProperty(Min);
                 }
-            }
+          
         }
+		public override void symbolic_setOff (){
+		}
+		public override void symbolic_setOn (){
+		}
+		public override void assisted_setOff (){
+		}
+		public override void assisted_setOn (){
+		}
 
         public override bool isOn()
         {

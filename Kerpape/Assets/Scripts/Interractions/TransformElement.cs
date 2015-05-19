@@ -23,30 +23,30 @@ namespace Modelisation
 		public float smoothFactor = 1;
         
         //Generic would be better
-        public override void setOn()
+        public override void autonomous_setOn()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
                 target = OnValue;
                 movement = true;
 				/*Debug.Log (OnValue.position);
 				Debug.Log (OnValue.localPosition);
 				Debug.Log (OnValue.rotation);
 				Debug.Log (OnValue.localRotation);*/
-            }
         }
-        public override void setOff()
+		public override void autonomous_setOff()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
                 target = OffValue;
                 movement = true;
                 //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
                 //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
-            }
         }
+		public override void symbolic_setOff (){
+		}
+		public override void symbolic_setOn (){
+		}
+		public override void assisted_setOff (){
+		}
+		public override void assisted_setOn (){
+		}
 
         private void Start () {
             movement = false;

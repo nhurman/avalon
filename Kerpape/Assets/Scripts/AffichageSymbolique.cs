@@ -13,12 +13,20 @@ public class AffichageSymbolique : MonoBehaviour {
 	public float fadeIn = 1f; // Durée d'allumage de la lumière
 	public float fadeOut = 1f;// Durée d'extinction de la lumière
 	
+
+
+	//TESTS
 	public Texture lightTexture;
 	public Texture doorTexture;
 	public Texture shuttersTexture;
 
 	// Use this for initialization
 	void Start () {
+
+		/*GameObject lightGameObject = new GameObject("The Light");
+		Light lightComp = lightGameObject.AddComponent<Light>();
+		lightComp.color = Color.blue;
+		lightGameObject.transform.position = new Vector3(0, 5, 0);*/
 		spotLight = gameObject.GetComponentInChildren<Light>();
 		spotLight.intensity = 0f;
 
