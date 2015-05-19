@@ -10,6 +10,8 @@ namespace Modelisation
     //does not handle rotations ... yet.
     public class TransformElement : Element
     {
+		private AffichageSymbolique affichageSymbolique;
+
         //do nothing, will be used for partial movement
         //public float Ratio;
         //public string OnValueName;
@@ -40,8 +42,11 @@ namespace Modelisation
                 //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
         }
 		public override void symbolic_setOff (){
+			affichageSymbolique.activer ();
 		}
+		
 		public override void symbolic_setOn (){
+			affichageSymbolique.activer ();
 		}
 		public override void assisted_setOff (){
 		}
@@ -49,6 +54,8 @@ namespace Modelisation
 		}
 
         private void Start () {
+
+			affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
             movement = false;
 			OnValue = transform.Find ("position_on");
 			OffValue = transform.Find ("position_off");

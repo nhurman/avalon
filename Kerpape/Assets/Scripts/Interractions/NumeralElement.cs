@@ -8,6 +8,8 @@ namespace Modelisation
 {
     public abstract class NumeralElement : Element
     {
+
+		private AffichageSymbolique affichageSymbolique;
 		//these should be object
         public float Min { get; protected set; }
 
@@ -57,8 +59,11 @@ namespace Modelisation
           
         }
 		public override void symbolic_setOff (){
+			affichageSymbolique.activer ();
 		}
+		
 		public override void symbolic_setOn (){
+			affichageSymbolique.activer ();
 		}
 		public override void assisted_setOff (){
 		}
@@ -73,5 +78,12 @@ namespace Modelisation
         {
 			return ((float) getObjectProperty()) == Min;
         }
+
+		private void Start() {
+			affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
+		}
+		private void Update() {
+		
+		}
     }
 }
