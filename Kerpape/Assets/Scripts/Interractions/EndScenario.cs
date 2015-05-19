@@ -1,10 +1,13 @@
-﻿using System;
+using System;
 
 namespace Modelisation
 {
-    //This class is not actually needed on one line scenario
+	/// <summary>
+	/// Element that define the end of a scenario.
+	/// </summary>
     public class EndScenario : ScenarioItem
     {
+
         public override bool isEnd()
         {
             return true;

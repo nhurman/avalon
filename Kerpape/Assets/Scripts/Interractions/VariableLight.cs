@@ -7,6 +7,9 @@ using System.Collections;
 
 namespace Modelisation
 {
+	/// <summary>
+	/// Handle light with variable intensity.
+	/// </summary>
     public class VariableLight : NumeralElement
     {
         // In Unity, light.intensity go from 0 to 8

@@ -6,8 +6,13 @@ using UnityEngine;
 
 namespace Modelisation
 {
+	/// <summary>
+	/// Class for numeral element : objects where the value to modify has a range (variable).
+	/// </summary>
     public abstract class NumeralElement : Element
     {
+
+		private AffichageSymbolique affichageSymbolique;
 		//these should be object
         public float Min { get; protected set; }
 
@@ -15,9 +20,22 @@ namespace Modelisation
 
         public float Step;
 
+		/// <summary>
+		/// Get the target object property.
+		/// </summary>
+		/// <returns>The target object. It should be casted upon return.</returns>
 		public abstract object getObjectProperty();
+
+		/// <summary>
+		/// Set the object property to the value of val.
+		/// </summary>
+		/// <param name="val">New value of the object.</param>
 		public abstract void setObjectProperty(object val);
 
+		/// <summary>
+		/// Set the value of the targeted object property to the value of the parameter. It ask the GameManager authorisation.
+		/// </summary>
+		/// <param name="value">New value for the object</param>
         public void setValue(double value)
         {
             if (value >= Min && value <= Max)
@@ -30,11 +48,9 @@ namespace Modelisation
                 
             }
         }
-        public override void setOn()
+
+		public override void autonomous_setOn()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
 				float newState = ((float) getObjectProperty()) + Step;
                 if (newState <= Max)
                 {
@@ -44,14 +60,10 @@ namespace Modelisation
                 {
 					setObjectProperty(Max);
                 }
-            }
 
         }
-        public override void setOff()
+		public override void autonomous_setOff()
         {
-            bool auth = notifyGameManager();
-            if (auth)
-            {
 				float newState = ((float) getObjectProperty()) - Step;
                 if (newState >= Min)
                 {
@@ -61,8 +73,19 @@ namespace Modelisation
                 {
 					setObjectProperty(Min);
                 }
-            }
+          
         }
+		public override void symbolic_setOff (){
+			affichageSymbolique.activer ();
+		}
+		
+		public override void symbolic_setOn (){
+			affichageSymbolique.activer ();
+		}
+		public override void assisted_setOff (){
+		}
+		public override void assisted_setOn (){
+		}
 
         public override bool isOn()
         {
@@ -72,5 +95,12 @@ namespace Modelisation
         {
 			return ((float) getObjectProperty()) == Min;
         }
+
+		private void Start() {
+			affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
+		}
+		private void Update() {
+		
+		}
     }
 }

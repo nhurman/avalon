@@ -55,7 +55,7 @@ public class CameraGlider : MonoBehaviour {
 			}
 
 			frozen = !frozen;
-			utilisateur.GetComponent<VRFPSInputController>().blockInputs = frozen;
+			utilisateur.GetComponent<VRFPSInputController>().BlockInputs = frozen;
 		}
 
 		if (frozen)
