@@ -12,6 +12,7 @@ using System;
 [RequireComponent(typeof(FPSInputController))]
 public class VRFPSInputController : MonoBehaviour
 {
+	public bool blockInputs = false;
     public string ReferenceNode     = "HandNode";
     public  bool  Strafe            = false;
 
@@ -31,9 +32,9 @@ public class VRFPSInputController : MonoBehaviour
 
         GameObject Wand = GameObject.Find("VRWand");
 
-        if (Wand != null)
+		if (Wand != null && Wand.GetComponent<VRWandNavigation>() != null)
         {
-            Wand.GetComponent<VRWandNavigation>().enabled = false;
+            //Wand.GetComponent<VRWandNavigation>().enabled = false;
             MVRTools.Log("[ ] VRFPSInputController deactivated VRWandNavigation. Make sure you set the VR Root Node to the First Person Controller.");
         }
     }
@@ -41,6 +42,10 @@ public class VRFPSInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (blockInputs) {
+			return;
+		}
+
         CharacterMotor motor = GetComponent<CharacterMotor>();
 
         vrKeyboard keyb = null;
