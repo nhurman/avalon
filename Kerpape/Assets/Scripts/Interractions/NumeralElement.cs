@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Modelisation
 {
+	/// <summary>
+	/// Class for numeral element : objects where the value to modify has a range (variable).
+	/// </summary>
     public abstract class NumeralElement : Element
     {
 
@@ -17,9 +20,22 @@ namespace Modelisation
 
         public float Step;
 
+		/// <summary>
+		/// Get the target object property.
+		/// </summary>
+		/// <returns>The target object. It should be casted upon return.</returns>
 		public abstract object getObjectProperty();
+
+		/// <summary>
+		/// Set the object property to the value of val.
+		/// </summary>
+		/// <param name="val">New value of the object.</param>
 		public abstract void setObjectProperty(object val);
 
+		/// <summary>
+		/// Set the value of the targeted object property to the value of the parameter. It ask the GameManager authorisation.
+		/// </summary>
+		/// <param name="value">New value for the object</param>
         public void setValue(double value)
         {
             if (value >= Min && value <= Max)
@@ -32,6 +48,7 @@ namespace Modelisation
                 
             }
         }
+
 		public override void autonomous_setOn()
         {
 				float newState = ((float) getObjectProperty()) + Step;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Modelisation
 {
+	/// <summary>
+	/// Basic scenario item.
+	/// </summary>
     public class ScenarioItem
     {
         public string elementName;
@@ -23,6 +26,11 @@ namespace Modelisation
             modeOverride = mode;
         }
 
+
+		/// <summary>
+		/// Tell if the scenario has reached the end.
+		/// </summary>
+		/// <returns>Bool : True if this is the end</returns>
         public virtual bool isEnd()
         {
             return false;

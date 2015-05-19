@@ -8,6 +8,9 @@ using System.Collections;
 namespace Modelisation
 {
     //does not handle rotations ... yet.
+	/// <summary>
+	/// Class that handle object transformations.
+	/// </summary>
     public class TransformElement : Element
     {
 		private AffichageSymbolique affichageSymbolique;
@@ -92,15 +95,23 @@ namespace Modelisation
             }    
         }
 
+		/// <summary>
+		/// Test if 2 transformations are equals.
+		/// </summary>
+		/// <param name="t1">a transform object</param>
+		/// <param name="t2">another transform object</param>
+		/// <returns>Bool : true if equals</returns>
 		private static bool equalTransform(Transform t1, Transform t2)
 		{
 			return t1.localPosition == t2.localPosition && t1.localRotation == t2.localRotation && t1.localScale == t2.localScale;
 				//Vector3.Distance(t1.localPosition, t2.localPosition) < 0.0
 		}
+
         public override bool isOn()
         {
 			return equalTransform (objectToMove, OnValue);
         }
+
         public override bool isOff()
         {
 			return equalTransform (objectToMove, OffValue);

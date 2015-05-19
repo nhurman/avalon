@@ -14,6 +14,7 @@ namespace Modelisation
     {
 		private AffichageSymbolique affichageSymbolique;
 		public string toDesactivate;
+
 		public override void autonomous_setOn()
         {
 				gameObject.GetComponent (toDesactivate).gameObject.SetActive (true);
@@ -21,11 +22,9 @@ namespace Modelisation
 
 		public override void autonomous_setOff()
         {
-
 				//gameObject.GetComponent(toDesactivate).enabled = false;
 				gameObject.GetComponent (toDesactivate).gameObject.SetActive (false);
 				//gameObject.SetActive(false);
-		
         }
 
 		public override void symbolic_setOff (){

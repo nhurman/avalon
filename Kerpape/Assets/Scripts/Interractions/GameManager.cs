@@ -9,6 +9,10 @@ using System.Text;
 namespace Modelisation
 {
     public enum Mode { Auto, Assisted, Symbolic };
+
+	/// <summary>
+	/// Handle Scenario and authorisations on actions.
+	/// </summary>
     public class GameManager : MonoBehaviour
     {
         public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
@@ -16,6 +20,7 @@ namespace Modelisation
 			// Décrocher le domophone
 			// c'est du téléphone, YAY
 			// Racrocher le domophone
+			new EndScenario()
         };
 
         public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
@@ -25,7 +30,8 @@ namespace Modelisation
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
 			// Racrocher le domophone
 			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
-			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement")
+			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement"),
+			new EndScenario()
         };
 
         public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
@@ -36,8 +42,9 @@ namespace Modelisation
 
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
 			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
-			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement")
+			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement"),
 			// Eteindre TV ?
+			new EndScenario()
 
         };
         public static IList<ScenarioItem> EmptyScenar = new List<ScenarioItem>() 
@@ -65,9 +72,15 @@ namespace Modelisation
             ScenarioState = 0;
         }
 
-        //Should perhaps use enum/typeof instead
+		/// <summary>
+		/// Depending on parameters and current state, tell if the interaction is allowed or not.
+		/// </summary>
+		/// <param name="type">the action type : action or switch</param>
+		/// <param name="name">name ot the activated object</param>
+		/// <returns>Bool : True if the action is allowed.</returns>
         public bool isAuthorised(string type, string name)
         {
+			//Should perhaps use enum/typeof instead
             if (type == "Action") // Any action is authorised
             {
                 // reset original settings
@@ -132,6 +145,10 @@ namespace Modelisation
             }
         }
         */
+
+		/// <summary>
+		/// Method called on user error (activation of an unallowed item).
+		/// </summary>
         public void onError()
         {
             ErrorNumber++;

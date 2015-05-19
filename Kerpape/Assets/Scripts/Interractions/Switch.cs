@@ -7,6 +7,9 @@ using System.Collections;
 
 namespace Modelisation
 {
+	/// <summary>
+	/// Class for switch (objects that activate others).
+	/// </summary>
     public class Switch : SceneObject
     {
         public string targetName;
@@ -33,6 +36,9 @@ namespace Modelisation
             type = "Switch";
         }
     
+		/// <summary>
+		/// Call setOn on target element if the GameManager allow it.
+		/// </summary>
         public void switchOn()
         {
             bool auth = notifyGameManager();
@@ -42,6 +48,9 @@ namespace Modelisation
             } 
         }
 
+		/// <summary>
+		/// Call setOff on target element if the GameManager allow it.
+		/// </summary>
         public void switchOff()
         {
             bool auth = notifyGameManager();
@@ -51,6 +60,9 @@ namespace Modelisation
             } 
         }
 
+		/// <summary>
+		/// Toggle action : call switchOn until isOn = true, then switchOff until isOff = true.
+		/// </summary>
         public void toggle()
         {
 			Debug.Log ("Hello");
@@ -78,6 +90,10 @@ namespace Modelisation
             }
         }
 
+
+		/// <summary>
+		/// This method is called by MiddleVR events. It call switchOn, switchOff or toggle depending on editor options.
+		/// </summary>
         public void VRAction()
         {
             if (onButton && offButton)
@@ -97,6 +113,7 @@ namespace Modelisation
                 Debug.Log("Undefined button comportement");
             }
         }
+
         private void Start()
         {
             incState = true;
