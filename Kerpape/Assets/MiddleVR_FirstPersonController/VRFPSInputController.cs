@@ -12,8 +12,7 @@ public class VRFPSInputController : MonoBehaviour
 {
     public string ReferenceNode     = "HandNode";
 	public bool BlockInputs 		= false;
-	public float forwardSensibility = 75.0f;
-	public float strafeSensibility  = 75.0f;
+	public float Sensibility 		= 2.0f;
 
     private bool  m_SearchedRefNode = false;
     private GameObject m_RefNode    = null;
@@ -119,8 +118,6 @@ public class VRFPSInputController : MonoBehaviour
 		{
 			forward = -1.0f;
 		}
-		// Computing speed
-		if (Math.Abs(forward) > 0.1) forwardSpeed = forward * (float)MiddleVR.VRKernel.GetDeltaTime() * forwardSensibility;
 
 		//Get MiddleVR's keyboard inputs
 		if (keyb.IsKeyPressed(MiddleVR.VRK_RIGHT) || keyb.IsKeyPressed(MiddleVR.VRK_D))
@@ -132,10 +129,8 @@ public class VRFPSInputController : MonoBehaviour
 		{
 			strafe = -1.0f;
 		}
-		// Computing speed
-		if (Math.Abs(strafe) > 0.1) strafeSpeed = strafe * (float)MiddleVR.VRKernel.GetDeltaTime() * strafeSensibility;
 
-		Vector3 directionVector = new Vector3(strafeSpeed, 0, forwardSpeed);
+		Vector3 directionVector = new Vector3(strafe, 0, forward)*Sensibility;
 		motor.inputMoveDirection = m_RefNode.transform.TransformDirection(directionVector);
 	}
 }
