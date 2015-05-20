@@ -70,7 +70,7 @@ public class CameraGlider : MonoBehaviour {
 		gliding = true;
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), true);
-		//inputController.BlockInputs = true;
+		inputController.lockCamera ();Debug.Log ("testestestetestsetsetsetset");
 
 		savedUtilisateurPos = cloneVector3(utilisateur.transform.position);
 		savedUtilisateurRot = cloneQuaternion(utilisateur.transform.rotation);
@@ -142,7 +142,7 @@ public class CameraGlider : MonoBehaviour {
 	{
 		reversing = false;
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
-		inputController.BlockInputs = false;
+		inputController.unLockCamera ();
 	}
 
 	private void Lerp()

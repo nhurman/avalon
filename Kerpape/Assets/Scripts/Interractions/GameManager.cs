@@ -11,7 +11,8 @@ namespace Modelisation
     public enum Mode { Auto, Assisted, Symbolic };
 
 	/// <summary>
-	/// Handle Scenario and authorisations on actions.
+	/// Handle Scenario and authorisations on actions, and any code related to user errors.
+    /// Handle any information not directly related to an object. Only one instance of that script is and should be used. 
 	/// </summary>
     public class GameManager : MonoBehaviour
     {
@@ -47,18 +48,35 @@ namespace Modelisation
 			new EndScenario()
 
         };
+		
+
         public static IList<ScenarioItem> EmptyScenar = new List<ScenarioItem>() 
         {
             new ScenarioItem("Rien", "Il n'y a rien à faire, faites ce que vous voulez :)", true)
         };
 
         public IList<ScenarioItem> ScenarioData { get; protected set; }
-        public Mode CurrentMode { get; set; }
+        
+		/// <summary>
+		/// Gets or Sets the mode.
+		/// </summary>
+		public Mode CurrentMode { get; set; }
 
+		/// <summary>
+		/// Gets or Sets the number of the scenario item.
+		/// </summary>
         public int ScenarioState { get; set; }
 
+		/// <summary>
+		/// Gets the number of errors.
+		/// </summary>
         public int ErrorNumber { get; protected set; }
+		
 		private Mode oldMode;
+		
+		/// <summary>
+		/// Gets the current task on current scenario.
+		/// </summary>
         public ScenarioItem CurrentTask {
             get
             {
@@ -66,6 +84,9 @@ namespace Modelisation
             }
         }
 
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
         public GameManager()
         {
             ScenarioData = EmptyScenar;

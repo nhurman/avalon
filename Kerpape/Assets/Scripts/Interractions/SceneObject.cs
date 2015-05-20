@@ -14,6 +14,10 @@ namespace Modelisation
         public string identifiant;
         protected string type;
 		//private GameManager _manager;
+		
+		/// <summary>
+		/// Gets the instance of the GameManager.
+		/// </summary>
         public GameManager Manager
         {
             get
