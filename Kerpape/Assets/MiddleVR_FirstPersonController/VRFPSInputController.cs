@@ -10,19 +10,19 @@ using System;
 
 public class VRFPSInputController : MonoBehaviour
 {
-    public string ReferenceNode     = "HandNode";
-	public bool BlockInputs 		= false;
-	public float Sensibility 		= 2.0f;
+    public string ReferenceNode   			= "HandNode";
+	public bool BlockInputs 				= false;
+	public float Sensibility 				= 2.0f;
 
-    private bool  m_SearchedRefNode = false;
-    private GameObject m_RefNode    = null;
-    
+    private bool  m_SearchedRefNode			 = false;
+    private GameObject m_RefNode   			 = null;
+    	
 	//verticalAngle will contain the vertical orientation of the wand
-	private float verticalAngle		= 0.0f;
+	private float verticalAngle				= 0.0f;
 
-	private CharacterMotor motor	= null;
-	private GameObject wand			= null;
-	private GameObject head 		= null;
+	private GameObject wand					= null;
+	private GameObject head 				= null;
+	private CharacterController controller 	= null;
 
 	//keyb will reference the keyboard and be used to check if movments keys are pressed
 	private vrKeyboard keyb 		= null;
@@ -32,6 +32,7 @@ public class VRFPSInputController : MonoBehaviour
     {
 		GameObject Wand = GameObject.Find("VRWand");
 		head = GameObject.Find("HeadNode");
+		controller = GetComponent<CharacterController>();
 
 		if (m_RefNode == null)
 			m_RefNode = GameObject.Find(ReferenceNode);
@@ -49,13 +50,12 @@ public class VRFPSInputController : MonoBehaviour
     {
 		//Affect keyb to the MiddleVR Keyboard
 		keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
-		motor = GetComponent<CharacterMotor>();
 
 		//if BlockInputs == true, we don't want the user to be able to move the camera by himself
 		if(!BlockInputs){
 			lookingUpDown();
 			lookingLeftRight();
-			moving(keyb, motor);
+			moving(keyb);
 		}
     }
 
@@ -100,7 +100,7 @@ public class VRFPSInputController : MonoBehaviour
 		transform.Rotate(Vector3.up, horizontalAngle);
 	}
 
-	void moving(vrKeyboard keyb, CharacterMotor motor)
+	void moving(vrKeyboard keyb)
 	{
 		//forward will be modified in case we push the up/down key of the keyboard
 		float forward = 0.0f;
@@ -131,6 +131,6 @@ public class VRFPSInputController : MonoBehaviour
 		}
 
 		Vector3 directionVector = new Vector3(strafe, 0, forward)*Sensibility;
-		motor.inputMoveDirection = m_RefNode.transform.TransformDirection(directionVector);
+		controller.SimpleMove(m_RefNode.transform.TransformDirection(directionVector));
 	}
 }
