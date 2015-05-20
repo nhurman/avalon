@@ -11,7 +11,8 @@ namespace Modelisation
     public enum Mode { Auto, Assisted, Symbolic };
 
 	/// <summary>
-	/// Handle Scenario and authorisations on actions.
+	/// Handle Scenario and authorisations on actions, and any code related to user errors.
+    /// Handle any information not directly related to an object. Only one instance of that script is and should be used. 
 	/// </summary>
     public class GameManager : MonoBehaviour
     {

@@ -10,6 +10,11 @@ namespace Modelisation
     //does not handle rotations ... yet.
 	/// <summary>
 	/// Class that handle object transformations.
+	/// The gameobject must have this structure :
+	/// -- gameobject directory with this script attached named correctly.
+	/// -- -- the actual object named "object".
+	/// -- -- a transform object named "position_on". It define the state the object should have when activated.
+	/// -- -- a transform object named "position_off". It define the state the object should have when desactivated.
 	/// </summary>
     public class TransformElement : Element
     {
