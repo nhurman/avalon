@@ -70,7 +70,7 @@ public class CameraGlider : MonoBehaviour {
 		gliding = true;
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), true);
-		inputController.lockCamera ();Debug.Log ("testestestetestsetsetsetset");
+		inputController.lockCamera ();
 
 		savedUtilisateurPos = cloneVector3(utilisateur.transform.position);
 		savedUtilisateurRot = cloneQuaternion(utilisateur.transform.rotation);
