@@ -18,7 +18,7 @@ namespace Modelisation
 	/// </summary>
     public class TransformElement : Element
     {
-		private AffichageSymbolique affichageSymbolique;
+		//private AffichageSymbolique affichageSymbolique;
 
         //do nothing, will be used for partial movement
         //public float Ratio;
@@ -50,11 +50,11 @@ namespace Modelisation
                 //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
         }
 		public override void symbolic_setOff (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 		
 		public override void symbolic_setOn (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 		public override void assisted_setOff (){
 		}

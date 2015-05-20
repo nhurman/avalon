@@ -12,13 +12,22 @@ namespace Modelisation
     public abstract class NumeralElement : Element
     {
 
-		private AffichageSymbolique affichageSymbolique;
-		//these should be object
-        public float Min { get; protected set; }
+		//private AffichageSymbolique affichageSymbolique;
+		
+		/// <summary>
+		/// Gets or Sets the minimal value of the targeted property.
+		/// </summary>
+        public float Min { get; set; }
 
-        public float Max { get; protected set; }
+		/// <summary>
+		/// Gets or Sets the maximal value of the targeted property.
+		/// </summary>
+        public float Max { get; set; }
 
-        public float Step;
+		/// <summary>
+		/// Gets or Sets the value of the step.
+		/// </summary>
+        public float Step; // { get; set; };
 
 		/// <summary>
 		/// Get the target object property.
@@ -27,7 +36,7 @@ namespace Modelisation
 		public abstract object getObjectProperty();
 
 		/// <summary>
-		/// Set the object property to the value of val.
+		/// Set the object property to the value of val, if the value is in the limits.
 		/// </summary>
 		/// <param name="val">New value of the object.</param>
 		public abstract void setObjectProperty(object val);
@@ -76,11 +85,11 @@ namespace Modelisation
           
         }
 		public override void symbolic_setOff (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 		
 		public override void symbolic_setOn (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 		public override void assisted_setOff (){
 		}

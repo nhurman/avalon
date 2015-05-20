@@ -17,12 +17,20 @@ namespace Modelisation
         public bool offButton;
         private bool incState;
         //Perhaps too heavy, value could be stored
+		
+		/// <summary>
+		/// Gets the targeted gameobject.
+		/// </summary>
         public GameObject Target {
             get
             {
                 return GameObject.Find(targetName);
             }
         }
+		
+		/// <summary>
+		/// Gets the instance of the targeted component.
+		/// </summary>
         public Element Elem
         {
             get
@@ -30,7 +38,9 @@ namespace Modelisation
                 return (Element)Target.GetComponent(typeof(Element));
             }
         }
-
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
         public Switch()
         {
             type = "Switch";

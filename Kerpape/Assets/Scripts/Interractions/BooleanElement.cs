@@ -12,7 +12,11 @@ namespace Modelisation
 	/// </summary>
     public class BooleanElement : Element
     {
-		private AffichageSymbolique affichageSymbolique;
+		//private AffichageSymbolique affichageSymbolique;
+		
+		/// <summary>
+		/// Name of the component that can be activated and desactivated.
+		/// </summary>
 		public string toDesactivate;
 
 		public override void autonomous_setOn()
@@ -28,11 +32,11 @@ namespace Modelisation
         }
 
 		public override void symbolic_setOff (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 
 		public override void symbolic_setOn (){
-			affichageSymbolique.activer ();
+			//affichageSymbolique.activer ();
 		}
 
 		public override void assisted_setOff (){
