@@ -106,7 +106,7 @@ namespace Modelisation
         }
 
 		private void Start() {
-			affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
+			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
 		}
 		private void Update() {
 		

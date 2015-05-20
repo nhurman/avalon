@@ -63,7 +63,7 @@ namespace Modelisation
 
         private void Start () {
 
-			affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
+			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
             movement = false;
 			OnValue = transform.Find ("position_on");
 			OffValue = transform.Find ("position_off");
