@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine;
 using System.Collections;
 
+
 namespace Modelisation
 {
 	/// <summary>
@@ -123,6 +124,12 @@ namespace Modelisation
                 Debug.Log("Undefined button comportement");
             }
         }
+
+		[ContextMenu("Debug")]
+		private  void ResetName()
+		{
+			Debug.Log ("Menu");
+		}
 
         private void Start()
         {

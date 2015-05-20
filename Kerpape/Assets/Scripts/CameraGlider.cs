@@ -123,7 +123,7 @@ public class CameraGlider : MonoBehaviour {
 		startRot = Quaternion.Euler (0, 90f, 0);
 
 		endPos = savedUtilisateurPos;
-		endPos.x -= 1f;
+		endPos.x -= 0.5f;
 		endRot = savedUtilisateurRot;
 
 	}
