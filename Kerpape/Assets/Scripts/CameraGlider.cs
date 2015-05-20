@@ -5,15 +5,23 @@ public class CameraGlider : MonoBehaviour {
 	public GameObject utilisateur;
 	public GameObject destination;
 
-	private GameObject headNode;
+	private VRFPSInputController inputController;
+
 	private vrKeyboard keyb;
-
-	private Quaternion savedHeadNode;
-	private Quaternion savedCamera0;
+	
+	private Vector3 savedUtilisateurPos;
 	private Quaternion savedUtilisateurRot;
-	private Vector3 savedUtilisateur;
 
+	private float startTime;
+
+	private Vector3 startPos;
+	private Quaternion startRot;
+	private Vector3 endPos;
+	private Quaternion endRot;
+
+	private bool gliding;
 	private bool frozen;
+	private bool reversing;
 
 	// Use this for initialization
 	void Start () {
@@ -21,9 +29,11 @@ public class CameraGlider : MonoBehaviour {
 		{
 			keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
 		}
+		inputController = utilisateur.GetComponent<VRFPSInputController> ();
 
-		headNode = null;
+		gliding = false;
 		frozen = false;
+		reversing = false;
 	}
 	
 	Quaternion cloneQuaternion(Quaternion t)
@@ -38,45 +48,107 @@ public class CameraGlider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (keyb.IsKeyToggled(MiddleVR.VRK_F1)) {
-			if (!frozen) { // Lock camera
-				Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), true);
-				savedHeadNode = cloneQuaternion(GameObject.Find("HeadNode").transform.rotation);
-				savedCamera0 = cloneQuaternion(GameObject.Find("Camera0").transform.rotation);
-				savedUtilisateur = cloneVector3(utilisateur.transform.position);
-				savedUtilisateurRot = cloneQuaternion(utilisateur.transform.rotation);
-			}
-			else { // Unlock camera
-				GameObject.Find("HeadNode").transform.rotation = savedHeadNode;
-				GameObject.Find("Camera0").transform.rotation = savedCamera0;
-				utilisateur.transform.position = savedUtilisateur;
-				utilisateur.transform.rotation = savedUtilisateurRot;
-				Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
-			}
-
-			frozen = !frozen;
-			utilisateur.GetComponent<VRFPSInputController>().BlockInputs = frozen;
-		}
-
-		if (frozen)
+		if (gliding)
 		{
-			utilisateur.GetComponent<CharacterController>().detectCollisions = false;
-			Vector3 pos = destination.transform.position;
-			pos.x -= 0.4f;
-			pos.y -= 1.2f;
-			utilisateur.transform.position = pos;
-
-			//Quaternion q = cloneQuaternion(utilisateur.transform.rotation);
-			utilisateur.transform.LookAt(destination.transform);
-			utilisateur.transform.rotation = new Quaternion(0, 0, 0, 0);//Rotate(new Vector3(-utilisateur.transform.rotation.x, 0f, 0f));
-			utilisateur.transform.Rotate (Vector3.up, 90f);
-
-			GameObject.Find("HeadNode").transform.LookAt(destination.transform);
-			GameObject.Find("Camera0").transform.LookAt(destination.transform);
+			Glide ();
 		}
-		if (keyb.IsKeyPressed (MiddleVR.VRK_F2))
+		else if (frozen)
 		{
-			utilisateur.GetComponent<CharacterController>().detectCollisions = true;
+			Freeze ();
 		}
+		else if (reversing)
+		{
+			ReverseGlide();
+		}
+	}
+	
+	public void StartGlide()
+	{
+		if (gliding || frozen || reversing) return;
+		
+		startTime = Time.time;
+		gliding = true;
+
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), true);
+		//inputController.BlockInputs = true;
+
+		savedUtilisateurPos = cloneVector3(utilisateur.transform.position);
+		savedUtilisateurRot = cloneQuaternion(utilisateur.transform.rotation);
+
+		startPos = savedUtilisateurPos;
+		startRot = savedUtilisateurRot;
+
+		endPos = destination.transform.position;
+		endPos.x -= 0.4f;
+		endPos.y -= 1.2f;
+		endRot = Quaternion.Euler (0, 90f, 0);
+	}
+
+	private void Glide()
+	{
+		Lerp ();
+		
+		if(Time.time - startTime >= 1f)
+		{
+			startFreeze();
+		}
+	}
+
+	private void startFreeze()
+	{
+		gliding = false;
+		frozen = true;
+	}
+
+	private void Freeze()
+	{
+		utilisateur.transform.position = endPos;
+		utilisateur.transform.rotation = endRot;
+		
+		if (keyb.IsKeyPressed (MiddleVR.VRK_DOWN) || keyb.IsKeyPressed (MiddleVR.VRK_S)) {
+			StartReverseGlide ();
+		}
+	}
+	
+	private void StartReverseGlide()
+	{
+		frozen = false;
+		reversing = true;
+
+		startTime = Time.time;
+		
+		startPos = destination.transform.position;
+		startPos.x -= 0.4f;
+		startPos.y -= 1.2f;
+		startRot = Quaternion.Euler (0, 90f, 0);
+
+		endPos = savedUtilisateurPos;
+		endPos.x -= 1f;
+		endRot = savedUtilisateurRot;
+
+	}
+	
+	private void ReverseGlide()
+	{
+		Lerp ();
+		
+		if(Time.time - startTime >= 1f)
+		{
+			endReverseGlide();
+		}
+	}
+
+	private void endReverseGlide()
+	{
+		reversing = false;
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
+		inputController.BlockInputs = false;
+	}
+
+	private void Lerp()
+	{
+		float t = Mathf.Min (1f, (Time.time - startTime) / 1f);// 1f = temps de lerp total
+		utilisateur.transform.position = Vector3.Lerp (startPos, endPos, t);
+		utilisateur.transform.rotation = Quaternion.Lerp (startRot, endRot, t);
 	}
 }
