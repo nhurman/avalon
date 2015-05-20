@@ -14,49 +14,48 @@ public class VRFPSInputController : MonoBehaviour
 	public bool BlockInputs 				= false;
 	public float Sensibility 				= 2.0f;
 
-    private bool  m_SearchedRefNode			 = false;
-    private GameObject m_RefNode   			 = null;
+    private bool  m_SearchedRefNode			= false;
+    private GameObject m_RefNode   			= null;
     	
 	//verticalAngle will contain the vertical orientation of the wand
 	private float verticalAngle				= 0.0f;
 
-	private GameObject wand					= null;
 	private GameObject head 				= null;
 	private CharacterController controller 	= null;
 
 	//keyb will reference the keyboard and be used to check if movments keys are pressed
-	private vrKeyboard keyb 		= null;
+	private vrKeyboard keyb 				= null;
+
+	private WandOnlyController wController	= null;
 
     // Use this for initialization
     void Start()
     {
-		GameObject Wand = GameObject.Find("VRWand");
 		head = GameObject.Find("HeadNode");
 		controller = GetComponent<CharacterController>();
-
+		wController = GetComponent<WandOnlyController>();
 		if (m_RefNode == null)
 			m_RefNode = GameObject.Find(ReferenceNode);
-
-		if (Wand != null && Wand.GetComponent<VRWandNavigation>() != null)
-        {
-            //Wand.GetComponent<VRWandNavigation>().enabled = false;
-            MVRTools.Log("[ ] VRFPSInputController deactivated VRWandNavigation. Make sure you set the VR Root Node to the First Person Controller.");
-        }
-
 	}
-	
+
 	// Update is called once per frame
-    void Update()
-    {
+    void Update(){
+
+
 		//Affect keyb to the MiddleVR Keyboard
-		keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
+		if (keyb == null)
+			keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
+
+		if (keyb.IsKeyToggled(MiddleVR.VRK_R)){
+			invertBlockInput();
+		}
 
 		//if BlockInputs == true, we don't want the user to be able to move the camera by himself
 		if(!BlockInputs){
 			lookingUpDown();
 			lookingLeftRight();
-			moving(keyb);
 		}
+		moving(keyb);
     }
 
 	void lookingUpDown()
@@ -105,32 +104,54 @@ public class VRFPSInputController : MonoBehaviour
 		//forward will be modified in case we push the up/down key of the keyboard
 		float forward = 0.0f;
 		//speed will be a modified value of forward, depending of a given sensibility 
-		float forwardSpeed = 0.0f;
 		float strafe = 0.0f;
-		float strafeSpeed = 0.0f;
 
 		//Get MiddleVR's keyboard inputs
 		if (keyb.IsKeyPressed(MiddleVR.VRK_UP) || keyb.IsKeyPressed(MiddleVR.VRK_W))
 		{
 			forward = 1.0f;
+			unLockCamera();
 		}
 		if (keyb.IsKeyPressed(MiddleVR.VRK_DOWN) || keyb.IsKeyPressed(MiddleVR.VRK_S))
 		{
 			forward = -1.0f;
+			unLockCamera();
 		}
 
 		//Get MiddleVR's keyboard inputs
 		if (keyb.IsKeyPressed(MiddleVR.VRK_RIGHT) || keyb.IsKeyPressed(MiddleVR.VRK_D))
 		{
 			strafe = 1.0f;
+			unLockCamera();
 		}
 		
 		if (keyb.IsKeyPressed(MiddleVR.VRK_LEFT) || keyb.IsKeyPressed(MiddleVR.VRK_A))
 		{
 			strafe = -1.0f;
+			unLockCamera();
 		}
 
 		Vector3 directionVector = new Vector3(strafe, 0, forward)*Sensibility;
 		controller.SimpleMove(m_RefNode.transform.TransformDirection(directionVector));
+	}
+
+
+	void lockCamera(){
+		BlockInputs = true;
+		if (wController != null)
+			wController.BlockedInputs = BlockInputs;
+	}
+
+	void unLockCamera(){
+		BlockInputs = false;
+		if (wController != null)
+			wController.BlockedInputs = BlockInputs;
+	}
+
+	void invertBlockInput(){
+		BlockInputs = ! BlockInputs;
+
+		if (wController != null)
+			wController.BlockedInputs = BlockInputs;
 	}
 }
