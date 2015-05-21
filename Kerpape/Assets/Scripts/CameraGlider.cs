@@ -99,6 +99,7 @@ public class CameraGlider : MonoBehaviour {
 		if(Time.time - startTime >= 1f)
 		{
 			startFreeze();
+
 		}
 	}
 
@@ -106,6 +107,12 @@ public class CameraGlider : MonoBehaviour {
 	{
 		gliding = false;
 		frozen = true;
+
+		GameObject wand = GameObject.Find ("VRWand");
+		if (wand != null) {
+			
+			wand.transform.Translate (0, 0, -1.6f, Space.Self);
+		}
 	}
 
 	private void Freeze()
@@ -116,8 +123,10 @@ public class CameraGlider : MonoBehaviour {
 		if (keyb.IsKeyPressed (MiddleVR.VRK_DOWN) || keyb.IsKeyPressed (MiddleVR.VRK_S)) {
 			StartReverseGlide ();
 		}
+
+
 	}
-	
+
 	private void StartReverseGlide()
 	{
 		frozen = false;
@@ -136,6 +145,12 @@ public class CameraGlider : MonoBehaviour {
 		//endRot = savedUtilisateurRot;
 		endRot = Quaternion.Euler (savedUtilisateurRot.x, 90f, savedUtilisateurRot.z);
 		endHeadAngle = 0f;
+
+		GameObject wand = GameObject.Find ("VRWand");
+		if (wand != null) {
+			
+			wand.transform.Translate (0, 0, 1.6f, Space.Self);
+		}
 
 	}
 	
