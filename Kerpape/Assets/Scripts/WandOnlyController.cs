@@ -27,6 +27,10 @@ public class WandOnlyController : MonoBehaviour
 		if (BlockedInputs){
 			float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
 			float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+
+			Debug.Log(wandHorizontal);
+			Debug.Log(wandVertical);
+
 			wand.transform.Rotate(Vector3.up, wandHorizontal, Space.Self);
 			wand.transform.Rotate(Vector3.right, wandVertical, Space.World);
 		}
