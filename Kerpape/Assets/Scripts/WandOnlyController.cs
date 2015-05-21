@@ -39,7 +39,12 @@ public class WandOnlyController : MonoBehaviour
 			HorizontalPosDelta += wandHorizontal;
 			VerticalPosDelta   += wandVertical;
 
-			wand.transform.position = wandPosOrig;
+			//wand.transform.position = wandPosOrig;
+			Vector3 pos = wand.transform.position;
+			pos.x = wandPosOrig.x;
+			pos.y = wandPosOrig.y;
+			pos.z = wandPosOrig.z;
+			wand.transform.position = pos;
 
 			/* First we do a copy of the current wand.transform.rotation, only with the axis y 
 			 * Then we rotate that copy
@@ -99,6 +104,6 @@ public class WandOnlyController : MonoBehaviour
 //		angBorneLocal = wand.transform.localRotation;
 		HorizontalPosDelta = 0;
 		VerticalPosDelta   = 0;
-		wandPosOrig = wand.transform.position;
+		wandPosOrig.Set(wand.transform.position.x, wand.transform.position.y, wand.transform.position.z);
 	}
 }
