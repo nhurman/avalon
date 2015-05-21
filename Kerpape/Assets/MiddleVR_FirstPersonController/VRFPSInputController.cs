@@ -138,8 +138,10 @@ public class VRFPSInputController : MonoBehaviour
 
 	public void lockCamera(){
 		BlockInputs = true;
-		if (wController != null)
+		if (wController != null) {
 			wController.BlockedInputs = BlockInputs;
+			wController.setAngle();
+		}
 	}
 
 	public void unLockCamera(){
@@ -151,7 +153,9 @@ public class VRFPSInputController : MonoBehaviour
 	public void invertBlockInput(){
 		BlockInputs = ! BlockInputs;
 
-		if (wController != null)
+		if (wController != null) {
 			wController.BlockedInputs = BlockInputs;
+			wController.setAngle();
+		}
 	}
 }
