@@ -5,6 +5,7 @@ public class CameraGlider : MonoBehaviour {
 	public GameObject utilisateur;
 	public GameObject destination;
 	public GameObject headNode;
+	public GameObject wand;
 
 	private VRFPSInputController inputController;
 
@@ -35,6 +36,7 @@ public class CameraGlider : MonoBehaviour {
 		}
 		inputController = utilisateur.GetComponent<VRFPSInputController> ();
 		headNode = GameObject.Find ("HeadNode");
+		wand = GameObject.Find ("VRWand");
 
 		gliding = false;
 		frozen = false;
@@ -99,7 +101,6 @@ public class CameraGlider : MonoBehaviour {
 		if(Time.time - startTime >= 1f)
 		{
 			startFreeze();
-
 		}
 	}
 
@@ -107,24 +108,17 @@ public class CameraGlider : MonoBehaviour {
 	{
 		gliding = false;
 		frozen = true;
-
-		GameObject wand = GameObject.Find ("VRWand");
-		if (wand != null) {
-			
-			wand.transform.Translate (0, 0, -1.6f, Space.Self);
-		}
 	}
 
 	private void Freeze()
 	{
 		utilisateur.transform.position = endPos;
 		utilisateur.transform.rotation = endRot;
+		wand.transform.localPosition.Set(0, 0, 0);
 		
 		if (keyb.IsKeyPressed (MiddleVR.VRK_DOWN) || keyb.IsKeyPressed (MiddleVR.VRK_S)) {
 			StartReverseGlide ();
 		}
-
-
 	}
 
 	private void StartReverseGlide()
@@ -145,13 +139,6 @@ public class CameraGlider : MonoBehaviour {
 		//endRot = savedUtilisateurRot;
 		endRot = Quaternion.Euler (savedUtilisateurRot.x, 90f, savedUtilisateurRot.z);
 		endHeadAngle = 0f;
-
-		GameObject wand = GameObject.Find ("VRWand");
-		if (wand != null) {
-			
-			wand.transform.Translate (0, 0, 1.6f, Space.Self);
-		}
-
 	}
 	
 	private void ReverseGlide()
@@ -169,6 +156,7 @@ public class CameraGlider : MonoBehaviour {
 		reversing = false;
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
 		inputController.unLockCamera ();
+		wand.transform.localPosition.Set(0, 0, 0);
 	}
 
 	private void Lerp()
@@ -177,5 +165,6 @@ public class CameraGlider : MonoBehaviour {
 		utilisateur.transform.position = Vector3.Lerp (startPos, endPos, t);
 		utilisateur.transform.rotation = Quaternion.Lerp (startRot, endRot, t);
 		inputController.verticalAngle = Mathf.Lerp (startHeadAngle, endHeadAngle, t);
+		//wand.transform.localPosition.Set(0, 0, 0);
 	}
 }

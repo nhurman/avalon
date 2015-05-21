@@ -13,19 +13,21 @@ public class WandOnlyController : MonoBehaviour
 	private bool FreeWand		= false;
 
 	public float Sensibility	= 0.75f;
-
+	
 	private GameObject wand		= null;
+	private GameObject handNode	= null;
 //	private GameObject copywand = null;
 //	private Quaternion angBorne 	  ;
 //	private Quaternion angBorneLocal  ;
 	private Vector3 wandPosOrig       ;
 	private float HorizontalPosDelta  ;
 	private float VerticalPosDelta    ;
-	private float bornePos		= 25f ;
+	private float bornePos		= 100f ;
 
 	void Start()
 	{
 		wand = GameObject.Find("VRWand");
+		handNode = GameObject.Find("WandNode");
 //		copywand = new GameObject ();
 		if(wand == null) Debug.Log ("wand non trouvee dans wandonlycontroller :( ");
 	}
@@ -38,6 +40,8 @@ public class WandOnlyController : MonoBehaviour
 			
 			HorizontalPosDelta += wandHorizontal;
 			VerticalPosDelta   += wandVertical;
+
+			wandPosOrig = handNode.transform.position;
 
 			//wand.transform.position = wandPosOrig;
 			Vector3 pos = wand.transform.position;
@@ -62,7 +66,7 @@ public class WandOnlyController : MonoBehaviour
 				HorizontalPosDelta = bornePos;
 			if(HorizontalPosDelta < -bornePos)
 				HorizontalPosDelta = -bornePos;
-			wand.transform.Translate(new Vector3(HorizontalPosDelta*0.01f, 0, 0));
+			wand.transform.Translate(new Vector3(HorizontalPosDelta*0.002f, 0, 0));
 
 			/* Exactly like horizontal rotation, but on local x axis instead */
 //			copywand.transform.localRotation = Quaternion.Euler(wand.transform.localRotation.eulerAngles.x, 0, 0);
@@ -76,13 +80,18 @@ public class WandOnlyController : MonoBehaviour
 				VerticalPosDelta = bornePos;
 			if(VerticalPosDelta < -bornePos)
 				VerticalPosDelta = -bornePos;
-			wand.transform.Translate(new Vector3(0, -VerticalPosDelta*0.01f, 0));
+			wand.transform.Translate(new Vector3(0, -VerticalPosDelta*0.002f, 0));
 		}
 	}
 
+//	private void moveWandBackward()
+//	{
+//		wand.transform.Translate (0, 0, -1.6f, Space.Self);
+//	}
+
 	public void LockWand(){
 		FreeWand = false;
-		wand.transform.position = wandPosOrig;
+		wand.transform.position = wandPosOrig;Debug.Log("wand z = " + wand.transform.position.z);
 	}
 
 	public void UnlockWand(){
@@ -96,6 +105,11 @@ public class WandOnlyController : MonoBehaviour
 			LockWand ();
 		else
 			UnlockWand ();
+	}
+
+	public void setWandCenter(Vector3 pos)
+	{
+		wandPosOrig = pos;
 	}
 
 	private void initValues()
