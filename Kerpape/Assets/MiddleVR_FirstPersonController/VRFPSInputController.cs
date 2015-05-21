@@ -144,23 +144,22 @@ public class VRFPSInputController : MonoBehaviour
 	public void lockCamera(){
 		BlockInputs = true;
 		if (wController != null) {
-			wController.BlockedInputs = BlockInputs;
-			wController.setAngle();
+			wController.UnlockWand();
 		}
 	}
 
 	public void unLockCamera(){
 		BlockInputs = false;
-		if (wController != null)
-			wController.BlockedInputs = BlockInputs;
+		if (wController != null) {
+			wController.LockWand ();
+		}
 	}
 
 	public void invertBlockInput(){
 		BlockInputs = ! BlockInputs;
 
 		if (wController != null) {
-			wController.BlockedInputs = BlockInputs;
-			wController.setAngle();
+			wController.invertWandLock();
 		}
 	}
 }
