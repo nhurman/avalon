@@ -17702,7 +17702,7 @@ Transform:
   - {fileID: 1110754972}
   - {fileID: 1470703115}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1369318717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19541,6 +19541,7 @@ GameObject:
   - 4: {fileID: 1512716255}
   - 33: {fileID: 1512716257}
   - 23: {fileID: 1512716256}
+  - 136: {fileID: 1512716258}
   m_Layer: 0
   m_Name: object
   m_TagString: Untagged
@@ -19594,6 +19595,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512716254}
   m_Mesh: {fileID: 4300004, guid: fabd4300e6f78cd4b8286bad12416ee2, type: 3}
+--- !u!136 &1512716258
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512716254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 10
+  m_Direction: 2
+  m_Center: {x: -5.96046448e-08, y: 3.57627812e-07, z: .0610589422}
 --- !u!1 &1514986043
 GameObject:
   m_ObjectHideFlags: 0
