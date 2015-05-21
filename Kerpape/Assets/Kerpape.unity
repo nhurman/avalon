@@ -17788,7 +17788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ccd67b258eed940abad3c25c8bac79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockedInputs: 0
   Sensibility: .75
 --- !u!143 &1369318720
 CharacterController:
