@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraGlider : MonoBehaviour {
 	public GameObject utilisateur;
 	public GameObject destination;
+	public GameObject headNode;
 
 	private VRFPSInputController inputController;
 
@@ -11,13 +12,16 @@ public class CameraGlider : MonoBehaviour {
 	
 	private Vector3 savedUtilisateurPos;
 	private Quaternion savedUtilisateurRot;
+	private float savedHeadNodeAngle;
 
 	private float startTime;
 
 	private Vector3 startPos;
 	private Quaternion startRot;
+	private float startHeadAngle;
 	private Vector3 endPos;
 	private Quaternion endRot;
+	private float endHeadAngle;
 
 	private bool gliding;
 	private bool frozen;
@@ -30,6 +34,7 @@ public class CameraGlider : MonoBehaviour {
 			keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
 		}
 		inputController = utilisateur.GetComponent<VRFPSInputController> ();
+		headNode = GameObject.Find ("HeadNode");
 
 		gliding = false;
 		frozen = false;
@@ -74,14 +79,17 @@ public class CameraGlider : MonoBehaviour {
 
 		savedUtilisateurPos = cloneVector3(utilisateur.transform.position);
 		savedUtilisateurRot = cloneQuaternion(utilisateur.transform.rotation);
+		savedHeadNodeAngle = inputController.verticalAngle;
 
 		startPos = savedUtilisateurPos;
 		startRot = savedUtilisateurRot;
+		startHeadAngle = savedHeadNodeAngle;
 
 		endPos = destination.transform.position;
 		endPos.x -= 0.4f;
 		endPos.y -= 1.2f;
 		endRot = Quaternion.Euler (0, 90f, 0);
+		endHeadAngle = 0f;
 	}
 
 	private void Glide()
@@ -121,10 +129,13 @@ public class CameraGlider : MonoBehaviour {
 		startPos.x -= 0.4f;
 		startPos.y -= 1.2f;
 		startRot = Quaternion.Euler (0, 90f, 0);
+		startHeadAngle = 0f;
 
 		endPos = savedUtilisateurPos;
 		endPos.x -= 0.5f;
-		endRot = savedUtilisateurRot;
+		//endRot = savedUtilisateurRot;
+		endRot = Quaternion.Euler (savedUtilisateurRot.x, 90f, savedUtilisateurRot.z);
+		endHeadAngle = 0f;
 
 	}
 	
@@ -150,5 +161,6 @@ public class CameraGlider : MonoBehaviour {
 		float t = Mathf.Min (1f, (Time.time - startTime) / 1f);// 1f = temps de lerp total
 		utilisateur.transform.position = Vector3.Lerp (startPos, endPos, t);
 		utilisateur.transform.rotation = Quaternion.Lerp (startRot, endRot, t);
+		inputController.verticalAngle = Mathf.Lerp (startHeadAngle, endHeadAngle, t);
 	}
 }

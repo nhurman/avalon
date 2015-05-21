@@ -18,7 +18,7 @@ public class VRFPSInputController : MonoBehaviour
     private GameObject m_RefNode   			= null;
     	
 	//verticalAngle will contain the vertical orientation of the wand
-	private float verticalAngle				= 0.0f;
+	public float verticalAngle				= 0.0f;
 
 	private GameObject head 				= null;
 	private CharacterController controller 	= null;
@@ -51,49 +51,54 @@ public class VRFPSInputController : MonoBehaviour
 		}
 
 		//if BlockInputs == true, we don't want the user to be able to move the camera by himself
-		if(!BlockInputs){
+		//if(!BlockInputs){
 			lookingUpDown();
 			lookingLeftRight();
-		}
+		//}
 		moving(keyb);
     }
 
 	void lookingUpDown()
 	{
-		//Apply the last registered verticalAngle to the head to whom the camera is linked
-		head.transform.Rotate(Vector3.right, verticalAngle);
-		//Get the wand vertical orientation
-		float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
-		
-		//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
-		// Modifying the last registered vertical angle according to the direction the Wand is pointing 
-		if (Math.Abs( wandVertical ) > 0.1f)
-		{
-			//Modifying verticalAngle value 
-			verticalAngle += wandVertical;
-			//Putting it back to a threshold value in case it exceeded said threshold
-			if(verticalAngle > 60) verticalAngle = 60;
-			if(verticalAngle < -60) verticalAngle = -60;
+		if (!BlockInputs) {
+			//Get the wand vertical orientation
+			float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue ();
+
+			//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
+			// Modifying the last registered vertical angle according to the direction the Wand is pointing 
+			if (Math.Abs (wandVertical) > 0.1f) {
+				//Modifying verticalAngle value 
+				verticalAngle += wandVertical;
+				//Putting it back to a threshold value in case it exceeded said threshold
+				if (verticalAngle > 60f)
+					verticalAngle = 60f;
+				if (verticalAngle < -60f)
+					verticalAngle = -60f;
+			}
 		}
+		//Applying the computed rotation to the player
+		head.transform.Rotate(Vector3.right, verticalAngle);
 	}
 
 	void lookingLeftRight()
 	{
 		//horizontalAngle will contain the horizontal orientation of the wand
 		float horizontalAngle = 0.0f;
-		//speed will be a modified value of horizontalAngle, depending of a given sensibility 
-		float speedRotation = 0.0f;
+		if(!BlockInputs){
+			//speed will be a modified value of horizontalAngle, depending of a given sensibility 
+			float speedRotation = 0.0f;
 
-		//Get the wand horizontal orientation
-		float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
-		
-		//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
-		if (Math.Abs(wandHorizontal) > 0.1f)
-		{
-			//Modifying the horizontal angle according to the direction the Wand is pointing 
-			horizontalAngle = wandHorizontal;
-			//Modifying speedRotation to have a smoother rotation
-			speedRotation = horizontalAngle * (float)MiddleVR.VRKernel.GetDeltaTime() * 50;
+			//Get the wand horizontal orientation
+			float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+			
+			//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
+			if (Math.Abs(wandHorizontal) > 0.1f)
+			{
+				//Modifying the horizontal angle according to the direction the Wand is pointing 
+				horizontalAngle = wandHorizontal;
+				//Modifying speedRotation to have a smoother rotation
+				speedRotation = horizontalAngle * (float)MiddleVR.VRKernel.GetDeltaTime() * 50;
+			}
 		}
 		//Applying the computed rotation to the player
 		transform.Rotate(Vector3.up, horizontalAngle);
@@ -110,25 +115,25 @@ public class VRFPSInputController : MonoBehaviour
 		if (keyb.IsKeyPressed(MiddleVR.VRK_UP) || keyb.IsKeyPressed(MiddleVR.VRK_W))
 		{
 			forward = 1.0f;
-			unLockCamera();
+			//unLockCamera();
 		}
 		if (keyb.IsKeyPressed(MiddleVR.VRK_DOWN) || keyb.IsKeyPressed(MiddleVR.VRK_S))
 		{
 			forward = -1.0f;
-			unLockCamera();
+			//unLockCamera();
 		}
 
 		//Get MiddleVR's keyboard inputs
 		if (keyb.IsKeyPressed(MiddleVR.VRK_RIGHT) || keyb.IsKeyPressed(MiddleVR.VRK_D))
 		{
 			strafe = 1.0f;
-			unLockCamera();
+			//unLockCamera();
 		}
 		
 		if (keyb.IsKeyPressed(MiddleVR.VRK_LEFT) || keyb.IsKeyPressed(MiddleVR.VRK_A))
 		{
 			strafe = -1.0f;
-			unLockCamera();
+			//unLockCamera();
 		}
 
 		Vector3 directionVector = new Vector3(strafe, 0, forward)*Sensibility;
