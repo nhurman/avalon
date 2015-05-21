@@ -114,7 +114,7 @@ public class CameraGlider : MonoBehaviour {
 	{
 		utilisateur.transform.position = endPos;
 		utilisateur.transform.rotation = endRot;
-		wand.transform.localPosition.Set(0, 0, 0);
+		//wand.transform.localPosition.Set(0, 0, 0);
 		
 		if (keyb.IsKeyPressed (MiddleVR.VRK_DOWN) || keyb.IsKeyPressed (MiddleVR.VRK_S)) {
 			StartReverseGlide ();
@@ -156,7 +156,7 @@ public class CameraGlider : MonoBehaviour {
 		reversing = false;
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
 		inputController.unLockCamera ();
-		wand.transform.localPosition.Set(0, 0, 0);
+		//wand.transform.localPosition.Set(0, 0, 0);
 	}
 
 	private void Lerp()

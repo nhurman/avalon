@@ -25144,7 +25144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: Spotlight_salon
-  onButton: 0
+  onButton: 1
   offButton: 1
 --- !u!64 &1886836181
 MeshCollider:
