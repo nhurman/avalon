@@ -91,7 +91,7 @@ public class WandOnlyController : MonoBehaviour
 
 	public void LockWand(){
 		FreeWand = false;
-		wand.transform.position = wandPosOrig;Debug.Log("wand z = " + wand.transform.position.z);
+		wand.transform.position = wandPosOrig;//Debug.Log("wand z = " + wand.transform.position.z);
 	}
 
 	public void UnlockWand(){
