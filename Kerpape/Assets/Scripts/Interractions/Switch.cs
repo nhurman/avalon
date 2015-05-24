@@ -53,7 +53,7 @@ namespace Modelisation
         public void switchOn()
         {
             bool auth = notifyGameManager();
-            if (auth)
+            if (auth && Target != null)
             {
                 Elem.setOn();
             } 
@@ -65,9 +65,9 @@ namespace Modelisation
         public void switchOff()
         {
             bool auth = notifyGameManager();
-            if (auth)
-            {
-                Elem.setOff();
+			if (auth && Target != null)
+			{
+				Elem.setOff();
             } 
         }
 

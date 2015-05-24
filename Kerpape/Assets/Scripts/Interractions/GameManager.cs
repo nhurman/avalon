@@ -18,18 +18,16 @@ namespace Modelisation
     {
         public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
         {
-			// Décrocher le domophone
-			// c'est du téléphone, YAY
-			// Racrocher le domophone
+			// new AudioScenarioItem("domophone", "Decrocher le domophone", "sonnerie_telephone"),
+			// new AudioScenarioItem("domophone", "Parler à votre interlocuteur, puis raccrocher", "son_interlocuteur"),
 			new EndScenario()
         };
 
         public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
         {
-			// Décrocher le domophone
-			// Infirmier
+			// new AudioScenarioItem("domophone", "Decrocher le domophone", "sonnerie_telephone"),
+			// new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un infirmier, raccrocher", "son_infirmier"),
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
-			// Racrocher le domophone
 			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
 			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement"),
 			new EndScenario()
@@ -37,7 +35,8 @@ namespace Modelisation
 
         public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
 		{
-			// Décrocher le domophone
+			// new AudioScenarioItem("domophone", "Decrocher le domophone", "sonnerie_telephone"),
+			// new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un inconnu à la porte, raccrocher", "son_inconnu"),
 			// Allumer TV
 			// Canal S8
 
@@ -117,12 +116,14 @@ namespace Modelisation
             }
             if (name == CurrentTask.elementName)
             {
+				CurrentTask.stopAction();
                 ScenarioState++;
                 ErrorNumber = 0;
                 if (CurrentTask.isEnd())
                 {
                     //End scenario
                 }
+				CurrentTask.startAction();
 				/*
                 switch (CurrentMode)
                 {
@@ -192,5 +193,29 @@ namespace Modelisation
            
         }
 
+		/// <summary>
+		/// Change current scenario
+		/// </summary>
+		/// <param name="name">Name of the scenario to load</param>
+		public void loadScenario(string nom) {
+			CurrentTask.stopAction ();
+			ErrorNumber = 0;
+			ScenarioState = 0;
+			switch (nom) {
+				case "appel":
+						ScenarioData = Scenar1;
+						break;
+				case "infirmier":
+						ScenarioData = Scenar2;
+						break;
+				case "inconnu":
+						ScenarioData = Scenar3;
+						break;
+				case "aucun":
+						ScenarioData = EmptyScenar;
+						break;
+			}
+			CurrentTask.startAction();
+		}
     }
 }

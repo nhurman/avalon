@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Modelisation
 {
@@ -59,6 +60,22 @@ namespace Modelisation
         {
             return false;
         }
+
+
+		/// <summary>
+		/// Action that will be started when this become the current state.
+		/// </summary>
+		public virtual void startAction() {
+
+		}
+
+		/// <summary>
+		/// Called when the next scenarioItem become current.
+		/// </summary>
+		public virtual void stopAction() {
+			
+		}
+
 
     }
 }
