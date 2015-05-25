@@ -28,8 +28,8 @@ namespace Modelisation
 			// new AudioScenarioItem("domophone", "Decrocher le domophone", "sonnerie_telephone"),
 			// new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un infirmier, raccrocher", "son_infirmier"),
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
-			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
-			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Ouvrir la porte de l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Fermer la porte de l'appartement"),
 			new EndScenario()
         };
 
@@ -41,8 +41,8 @@ namespace Modelisation
 			// Canal S8
 
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
-			new ScenarioItem("appartement_door_switch", "Ouvrir la porte dde l'appartement"),
-			new ScenarioItem("appartement_door_switch", "Fermer la porte dde l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Ouvrir la porte de l'appartement"),
+			new ScenarioItem("appartement_door_switch", "Fermer la porte de l'appartement"),
 			// Eteindre TV ?
 			new EndScenario()
 
@@ -98,10 +98,10 @@ namespace Modelisation
 		/// <param name="type">the action type : action or switch</param>
 		/// <param name="name">name ot the activated object</param>
 		/// <returns>Bool : True if the action is allowed.</returns>
-        public bool isAuthorised(string type, string name)
+        public bool isAuthorized(string type, string name)
         {
 			//Should perhaps use enum/typeof instead
-            if (type == "Action") // Any action is authorised
+            if (type == "Action") // Any action is authorized
             {
                 // reset original settings
 				//This will not result in the correct behavior
@@ -178,15 +178,15 @@ namespace Modelisation
             {
                 // Self destroy
             }
-            else if (ErrorNumber > 15)
+            else if (ErrorNumber > 12)
             {
                 // Show solution
             }
-            else if (ErrorNumber > 10)
+            else if (ErrorNumber > 6)
             {
                 // Give  precise instructions
             }
-            else if (ErrorNumber > 5)
+            else if (ErrorNumber > 3)
             {
                 // Tell number of error and give an explanation of the objective
             }

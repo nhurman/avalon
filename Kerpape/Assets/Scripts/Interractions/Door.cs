@@ -22,6 +22,7 @@ namespace Modelisation
 				base.Update (); 
 			}
 		}
+
 		void OnCollisionEnter (Collision col)
 		{
 			//add name of the character

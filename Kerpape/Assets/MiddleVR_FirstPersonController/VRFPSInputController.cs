@@ -84,10 +84,7 @@ public class VRFPSInputController : MonoBehaviour
 	{
 		//horizontalAngle will contain the horizontal orientation of the wand
 		float horizontalAngle = 0.0f;
-		if(!BlockInputs){
-			//speed will be a modified value of horizontalAngle, depending of a given sensibility 
-			float speedRotation = 0.0f;
-
+		if(!BlockInputs) {
 			//Get the wand horizontal orientation
 			float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
 			
@@ -96,8 +93,6 @@ public class VRFPSInputController : MonoBehaviour
 			{
 				//Modifying the horizontal angle according to the direction the Wand is pointing 
 				horizontalAngle = wandHorizontal;
-				//Modifying speedRotation to have a smoother rotation
-				speedRotation = horizontalAngle * (float)MiddleVR.VRKernel.GetDeltaTime() * 50;
 			}
 		}
 		//Applying the computed rotation to the player
