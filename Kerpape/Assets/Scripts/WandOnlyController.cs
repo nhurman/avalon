@@ -16,9 +16,6 @@ public class WandOnlyController : MonoBehaviour
 	
 	private GameObject wand		= null;
 	private GameObject handNode	= null;
-//	private GameObject copywand = null;
-//	private Quaternion angBorne 	  ;
-//	private Quaternion angBorneLocal  ;
 	private Vector3 wandPosOrig       ;
 	private float HorizontalPosDelta  ;
 	private float VerticalPosDelta    ;
@@ -28,7 +25,6 @@ public class WandOnlyController : MonoBehaviour
 	{
 		wand = GameObject.Find("VRWand");
 		handNode = GameObject.Find("WandNode");
-//		copywand = new GameObject ();
 		if(wand == null) Debug.Log ("wand non trouvee dans wandonlycontroller :( ");
 	}
 
@@ -84,14 +80,10 @@ public class WandOnlyController : MonoBehaviour
 		}
 	}
 
-//	private void moveWandBackward()
-//	{
-//		wand.transform.Translate (0, 0, -1.6f, Space.Self);
-//	}
 
 	public void LockWand(){
 		FreeWand = false;
-		wand.transform.position = wandPosOrig;//Debug.Log("wand z = " + wand.transform.position.z);
+		wand.transform.position = wandPosOrig;
 	}
 
 	public void UnlockWand(){
@@ -114,8 +106,6 @@ public class WandOnlyController : MonoBehaviour
 
 	private void initValues()
 	{
-//		angBorne = wand.transform.rotation;
-//		angBorneLocal = wand.transform.localRotation;
 		HorizontalPosDelta = 0;
 		VerticalPosDelta   = 0;
 		wandPosOrig.Set(wand.transform.position.x, wand.transform.position.y, wand.transform.position.z);
