@@ -22,7 +22,6 @@ public class CameraAssistee : MonoBehaviour {
 		if (Time.time >= endTime)
 		{
 			renderPlane.SetActive (false);
-			Debug.Log("================== " + endTime);
 		}
 		else
 		{
