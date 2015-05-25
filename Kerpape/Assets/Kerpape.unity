@@ -4136,8 +4136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet3
-  onButton: 1
-  offButton: 0
+  onButton: 0
+  offButton: 1
 --- !u!114 &367006572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4166,8 +4166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet2
-  onButton: 1
-  offButton: 0
+  onButton: 0
+  offButton: 1
 --- !u!114 &367006575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4181,8 +4181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet1
-  onButton: 1
-  offButton: 0
+  onButton: 0
+  offButton: 1
 --- !u!64 &367006578
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5180,11 +5180,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 458994102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.49362826, y: 1.92944825, z: .0331898928}
+  m_LocalPosition: {x: -2.66129994, y: 2.01950002, z: -.0263999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719272623}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &464608614
 GameObject:
   m_ObjectHideFlags: 0
@@ -7775,7 +7775,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 658032671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.49362826, y: 1.92944825, z: .0331898928}
+  m_LocalPosition: {x: -2.66129994, y: 2.01950002, z: -.0263999701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719272623}
@@ -8942,8 +8942,8 @@ Transform:
   m_LocalPosition: {x: 2.31262827, y: -.406448245, z: -1.6301899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458994107}
   - {fileID: 1428832955}
+  - {fileID: 458994107}
   - {fileID: 658032672}
   - {fileID: 1344651480}
   m_Father: {fileID: 0}
@@ -8960,6 +8960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 458994106}
+  renderPlane: {fileID: 1428832950}
   posShutters: {fileID: 658032671}
   posLightKitchen: {fileID: 1344651479}
 --- !u!1 &719541640
@@ -11150,6 +11151,10 @@ Prefab:
     - target: {fileID: 400014, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
       propertyPath: m_LocalScale.z
       value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888e3cece7469284fb7979e0beff8069, type: 3}
@@ -13821,7 +13826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1110754972
 Transform:
   m_ObjectHideFlags: 0
@@ -13861,7 +13866,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1110754971}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
@@ -14907,8 +14912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet3
-  onButton: 0
-  offButton: 1
+  onButton: 1
+  offButton: 0
 --- !u!114 &1170569304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14937,8 +14942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet2
-  onButton: 0
-  offButton: 1
+  onButton: 1
+  offButton: 0
 --- !u!114 &1170569307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14952,8 +14957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   targetName: volet1
-  onButton: 0
-  offButton: 1
+  onButton: 1
+  offButton: 0
 --- !u!64 &1170569310
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18874,7 +18879,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1428832955}
   - 33: {fileID: 1428832954}
-  - 64: {fileID: 1428832953}
   - 23: {fileID: 1428832952}
   m_Layer: 0
   m_Name: Plane
@@ -18890,14 +18894,14 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1428832950}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: d33636b3769f51e4a8d112f5216603e7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
@@ -18907,18 +18911,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1428832953
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1428832950}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1428832954
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18932,12 +18924,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1428832950}
-  m_LocalRotation: {x: .499999195, y: -.500000894, z: .500000775, w: .499999106}
-  m_LocalPosition: {x: -1.35262823, y: 1.40244818, z: -.237810135}
-  m_LocalScale: {x: .0299999993, y: 1, z: .0299999993}
+  m_LocalRotation: {x: -.500000238, y: .499999821, z: -.499999911, w: -.500000119}
+  m_LocalPosition: {x: -1.35699999, y: 1.41900003, z: .324000001}
+  m_LocalScale: {x: .0219999999, y: 1, z: .0219999999}
   m_Children: []
   m_Father: {fileID: 719272623}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &1434337659
 Prefab:
   m_ObjectHideFlags: 0
