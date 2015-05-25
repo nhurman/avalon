@@ -16,29 +16,34 @@ namespace Modelisation
         public string targetName;
         public bool onButton;
         public bool offButton;
+		GameObject Target;
+		Element Elem;
+
+		private CameraAssistee cameraAssisteeScript;
+
+	
+		private void Start()
+		{
+			incState = true;
+			cameraAssisteeScript = GameObject.Find ("mode_assiste").GetComponent<CameraAssistee> ();
+			
+			Target = GameObject.Find (targetName);
+			Elem = Target ? Target.GetComponent<Element>() : null;
+		}
+
         private bool incState;
         //Perhaps too heavy, value could be stored
 		
 		/// <summary>
-		/// Gets the targeted gameobject.
-		/// </summary>
-        public GameObject Target {
-            get
-            {
-                return GameObject.Find(targetName);
-            }
-        }
-		
-		/// <summary>
 		/// Gets the instance of the targeted component.
 		/// </summary>
-        public Element Elem
+        /*public Element Elem
         {
             get
             {
-                return (Element)Target.GetComponent(typeof(Element));
+                return Target.GetComponent<Element>();
             }
-        }
+        }*/
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
@@ -53,10 +58,11 @@ namespace Modelisation
         public void switchOn()
         {
             bool auth = notifyGameManager();
-            if (auth && Target != null)
+			if (auth && Target != null)
             {
-                Elem.setOn();
+				Elem.setOn();
             } 
+			showSideView ();
         }
 
 		/// <summary>
@@ -68,8 +74,23 @@ namespace Modelisation
 			if (auth && Target != null)
 			{
 				Elem.setOff();
-            } 
+			}
+			showSideView ();
         }
+
+		
+		private void showSideView ()
+		{
+			switch(targetName)
+			{
+			case "volet1" :
+				cameraAssisteeScript.lookAtShutters();
+				break;
+			case "Spotlight_cuisine" :
+				cameraAssisteeScript.lookAtKitchenLight();
+				break;
+			}
+		}
 
 		/// <summary>
 		/// Toggle action : call switchOn until isOn = true, then switchOff until isOff = true.
@@ -80,12 +101,12 @@ namespace Modelisation
             bool auth = notifyGameManager();
             if (auth)
             {
-                if (Elem.isOn())
+				if (Elem.isOn())
                 {
                     switchOff();
                     incState = false;
                 }
-                else if (Elem.isOff())
+				else if (Elem.isOff())
                 {
                     switchOn();
                     incState = true;
@@ -130,10 +151,5 @@ namespace Modelisation
 		{
 			Debug.Log ("Menu");
 		}
-
-        private void Start()
-        {
-            incState = true;
-        }
     }
 }

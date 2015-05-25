@@ -28,6 +28,8 @@ public class CameraGlider : MonoBehaviour {
 	private bool frozen;
 	private bool reversing;
 
+	private CameraAssistee cameraAssisteeScript;
+
 	// Use this for initialization
 	void Start () {
 		if (MiddleVR.VRDeviceMgr.GetKeyboard() != null)
@@ -41,6 +43,8 @@ public class CameraGlider : MonoBehaviour {
 		gliding = false;
 		frozen = false;
 		reversing = false;
+
+		cameraAssisteeScript = GameObject.Find ("mode_assiste").GetComponent<CameraAssistee> ();
 	}
 	
 	Quaternion cloneQuaternion(Quaternion t)
@@ -139,6 +143,8 @@ public class CameraGlider : MonoBehaviour {
 		//endRot = savedUtilisateurRot;
 		endRot = Quaternion.Euler (savedUtilisateurRot.x, 90f, savedUtilisateurRot.z);
 		endHeadAngle = 0f;
+
+		cameraAssisteeScript.hideRenderPlane ();
 	}
 	
 	private void ReverseGlide()

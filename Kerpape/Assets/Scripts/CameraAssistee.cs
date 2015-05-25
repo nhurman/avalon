@@ -50,6 +50,11 @@ public class CameraAssistee : MonoBehaviour {
 		endTime = Time.time + time;
 		renderPlane.SetActive (true);
 	}
+
+	public void hideRenderPlane()
+	{
+		endTime = 0;
+	}
 	
 	
 	[ContextMenu("Debug")]
