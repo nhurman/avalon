@@ -10183,7 +10183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: 
-  toDesactivate: 
+  toDeactivate: 
 --- !u!1 &811287159
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Modelisation
 {
 	/// <summary>
-	/// Scenario item that play a sound as long as it is active.
+	/// Scenario item that plays a sound while it is active.
 	/// </summary>
 	public class AudioScenarioItem : ScenarioItem
 	{
@@ -16,10 +16,10 @@ namespace Modelisation
 
 
 		/// <summary>
-		/// Allow creation of an audioscenario item; the sound is played until the next scenarioItem become current.
+		/// Creates an AudioScenario item ; the sound is played until the next scenarioItem..
 		/// </summary>
 		/// <param name="name">The name of the object in the unity scene.</param>
-		/// <param name="descrition">Desciption of what the action is supposed to achieve.</param>
+		/// <param name="descrition">Description of what the action is supposed to achieve.</param>
 		/// <param name="audioName">Name of the audio that should be played.</param>
 		/// <param name="name">Allow the execution of other actions.</param>
 		/// <param name="name">Allow this action to be executed in a different mode than the current one.</param>

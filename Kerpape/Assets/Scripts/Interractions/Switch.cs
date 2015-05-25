@@ -76,11 +76,11 @@ namespace Modelisation
 		/// </summary>
         public void toggle()
         {
-			Debug.Log ("Hello");
             bool auth = notifyGameManager();
             if (auth)
             {
                 if (Elem.isOn())
+
                 {
                     switchOff();
                     incState = false;
@@ -103,7 +103,7 @@ namespace Modelisation
 
 
 		/// <summary>
-		/// This method is called by MiddleVR events. It call switchOn, switchOff or toggle depending on editor options.
+		/// This method is called by MiddleVR events. It calls switchOn, switchOff or toggle depending on editor options.
 		/// </summary>
         public void VRAction()
         {
@@ -121,7 +121,7 @@ namespace Modelisation
             }
             else
             {
-                Debug.Log("Undefined button comportement");
+                Debug.Log("Undefined button behaviour");
             }
         }
 

@@ -51,7 +51,6 @@ namespace Modelisation
             modeOverride = mode;
         }
 
-
 		/// <summary>
 		/// Tell if the scenario has reached the end.
 		/// </summary>
@@ -60,7 +59,6 @@ namespace Modelisation
         {
             return false;
         }
-
 
 		/// <summary>
 		/// Action that will be started when this become the current state.

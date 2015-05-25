@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using MiddleVR_Unity3D;
 
@@ -33,7 +33,7 @@ namespace Modelisation
 		/// <returns>Bool true if the activation is allowed, else false</returns>
         public bool notifyGameManager()
         {
-            return Manager.isAuthorised(type, identifiant);
+            return Manager.isAuthorized(type, identifiant);
             //return true;
         }
 

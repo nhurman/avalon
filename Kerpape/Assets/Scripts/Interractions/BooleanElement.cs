@@ -17,18 +17,16 @@ namespace Modelisation
 		/// <summary>
 		/// Name of the component that can be activated and desactivated.
 		/// </summary>
-		public string toDesactivate;
+		public string toDeactivate;
 
 		public override void autonomous_setOn()
         {
-				gameObject.GetComponent (toDesactivate).gameObject.SetActive (true);
+			gameObject.GetComponent (toDeactivate).gameObject.SetActive (true);
         }
 
 		public override void autonomous_setOff()
         {
-				//gameObject.GetComponent(toDesactivate).enabled = false;
-				gameObject.GetComponent (toDesactivate).gameObject.SetActive (false);
-				//gameObject.SetActive(false);
+			gameObject.GetComponent (toDeactivate).gameObject.SetActive (false);
         }
 
 		public override void symbolic_setOff (){
@@ -41,13 +39,13 @@ namespace Modelisation
 
 		public override void assisted_setOff (){
 		}
+
 		public override void assisted_setOn (){
 		}
 
         public override bool isOn()
         {
-            return gameObject.GetComponent(toDesactivate).gameObject.activeSelf;
-            //return gameObject.activeSelf;
+            return gameObject.GetComponent(toDeactivate).gameObject.activeSelf;
         }
 
         public override bool isOff()

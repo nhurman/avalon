@@ -60,7 +60,7 @@ namespace Modelisation
 		}
 		
 		/// <summary>
-		/// Method called on desactivation on autonomous mode.
+		/// Method called on deactivation on autonomous mode.
 		/// </summary>
 		public abstract void autonomous_setOff ();
 		
@@ -70,7 +70,7 @@ namespace Modelisation
 		public abstract void autonomous_setOn ();
 		
 		/// <summary>
-		/// Method called on desactivation on symbolic mode.
+		/// Method called on deactivation on symbolic mode.
 		/// </summary>
 		public abstract void symbolic_setOff ();
 		
@@ -80,7 +80,7 @@ namespace Modelisation
 		public abstract void symbolic_setOn ();
 		
 		/// <summary>
-		/// Method called on desactivation on assisted mode.
+		/// Method called on deactivation on assisted mode.
 		/// </summary>
 		public abstract void assisted_setOff ();
 		/// <summary>
@@ -95,9 +95,9 @@ namespace Modelisation
         public abstract bool isOn();
 
 		/// <summary>
-		/// Poll if the object is desactivated.
+		/// Poll if the object is deactivated.
 		/// </summary>
-		/// <returns>True if the object is desactivated</returns>
+		/// <returns>True if the object is deactivated</returns>
         public abstract bool isOff();
     }
 }
