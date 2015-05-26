@@ -37,11 +37,6 @@ namespace Modelisation
 			//affichageSymbolique.activer ();
 		}
 
-		public override void assisted_setOff (){
-		}
-
-		public override void assisted_setOn (){
-		}
 
         public override bool isOn()
         {

@@ -91,10 +91,6 @@ namespace Modelisation
 		public override void symbolic_setOn (){
 			//affichageSymbolique.activer ();
 		}
-		public override void assisted_setOff (){
-		}
-		public override void assisted_setOn (){
-		}
 
         public override bool isOn()
         {
@@ -105,11 +101,5 @@ namespace Modelisation
 			return ((float) getObjectProperty()) == Min;
         }
 
-		private void Start() {
-			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
-		}
-		private void Update() {
-		
-		}
     }
 }

@@ -12,6 +12,9 @@ namespace Modelisation
 	/// </summary>
     public abstract class Element : SceneObject
     {
+		
+		private CameraAssistee cameraAssisteeScript;
+		
         //public object ObjectProperty { get; set; }
         //Should be between 0..1
         public Element()
@@ -19,6 +22,15 @@ namespace Modelisation
             type = "Action";
         }
 
+		
+		protected virtual void Start() {
+			cameraAssisteeScript = GameObject.Find ("mode_assiste").GetComponent<CameraAssistee> ();
+		}
+		
+		protected virtual void Update () {
+		
+		}
+		
 		/// <summary>
 		/// Activate current object depending on the mode, if it is allowed.
 		/// </summary>
@@ -82,11 +94,17 @@ namespace Modelisation
 		/// <summary>
 		/// Method called on deactivation on assisted mode.
 		/// </summary>
-		public abstract void assisted_setOff ();
+		public virtual void assisted_setOff () {
+			cameraAssisteeScript.lookAt(gameObject.name);
+			autonomous_setOff();
+		}
 		/// <summary>
 		/// Method called on activation on assisted mode.
 		/// </summary>
-		public abstract void assisted_setOn ();
+		public virtual void assisted_setOn () {
+			cameraAssisteeScript.lookAt(gameObject.name);
+			autonomous_setOn();
+		}
 
 		/// <summary>
 		/// Poll if the object is activated

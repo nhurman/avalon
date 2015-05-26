@@ -56,13 +56,9 @@ namespace Modelisation
 		public override void symbolic_setOn (){
 			//affichageSymbolique.activer ();
 		}
-		public override void assisted_setOff (){
-		}
-		public override void assisted_setOn (){
-		}
 
-        private void Start () {
-
+		protected override void Start () {
+			base.Start();
 			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
             movement = false;
 			OnValue = transform.Find ("position_on");
@@ -76,7 +72,7 @@ namespace Modelisation
         }  
 
 		// protected might not work, bc private by default
-        protected virtual void Update () {
+        protected override void Update () {
 			//Debug.Log (objectToMove.localPosition == OnValue.localPosition);
             if (movement)
             {

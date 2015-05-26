@@ -8,12 +8,15 @@ public class CameraAssistee : MonoBehaviour {
 	public GameObject posShutters;
 	public GameObject posLightKitchen;
 
+	private static bool cameraActive;
+	private Transform currentPos;
 	private GameObject playerCamera;
 
 	private float endTime;
 
 	// Use this for initialization
 	void Start () {
+		cameraActive = false;
 		playerCamera = GameObject.Find ("Camera0");
 	}
 	
@@ -22,6 +25,7 @@ public class CameraAssistee : MonoBehaviour {
 		if (Time.time >= endTime)
 		{
 			renderPlane.SetActive (false);
+			cameraActive = false;
 		}
 		else
 		{
@@ -45,6 +49,16 @@ public class CameraAssistee : MonoBehaviour {
 		showRenderPlane (3f);
 	}
 
+	public void lookAt(string name) {
+		currentPos = transform.Find("/mode_assiste/" + name);
+		if (!cameraActive && currentPos != null) {
+			cameraActive = true;
+			camera.transform.position = currentPos.position;
+			camera.transform.rotation = currentPos.rotation;
+			showRenderPlane (3f);
+		}
+	}
+	
 	private void showRenderPlane(float time)
 	{
 		endTime = Time.time + time;

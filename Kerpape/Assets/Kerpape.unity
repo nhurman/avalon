@@ -8273,7 +8273,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 658032672}
   m_Layer: 0
-  m_Name: Position_Shutters
+  m_Name: volet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18376,7 +18376,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1344651480}
   m_Layer: 0
-  m_Name: Position_Light_Kitchen
+  m_Name: Spotlight_cuisine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23585,7 +23585,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: .182999998
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
