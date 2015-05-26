@@ -1,26 +1,30 @@
 \section{Realisation du cahier des charges}
 Nous avons eu l'occasion d'échanger avec les membres de Kerpape, ce qui nous a permis de définir le cahier des charges de l'application, que nous allons détailler dans cette partie.
-\begin{tabular}{ll}
-	Tache & Etat \\
-	Afficher l'appartement en 3D & Realise \\
-	Deplacement dans l'appartement & Realise \\
-	Vue exocentrée (3eme personne)  Une vue à la troisième personne (exocentrée) permet de voir le déplacement de l'utilisateur dans la scène. & Realise \\
-	Vue endocentrée (1ere personne) Une vue à la première personne (endocentrée) permettant une immersion totale dans la scène. En effet, ce type de vision est proche du point de vue humain, ce qui permet une identification facile à l'avatar virtuel pour l'utilisateur & Realise \\
-	Mode symbolique : mise en évidence d'actions à réaliser, ainsi que des indications visuelles symboliques. & Realise \\
-	Mode assisté : surbrillance des objets à actionner & Realise \\
-	Mode assisté : lors de l'activation d'une action on accède à une vue fixe avec les états courants des équipements afin de faciliter la compréhension du lien action/objet pour l'utilisateur & Realise \\
-	Mode autonome : L'utilisateur ne reçoit plus d'information ou d'indication pour effectuer son parcours, il est dans le décor le plus réaliste possible, pour valider son autonomie. Il doit alors actionner les différents objets et se rendre compte par lui même (déplacement) des actions qu'il a effectuées.  & Realise \\
-	Possibilite de basculer entre les modes en cours de jeu & PIKACHU \\
-	Scenario L'utilisateur peut choisir de se mettre en situation sur les différents scénarios proposés afin d'interagir avec les différents objets prévus pour le scénario. & REALISE \\
-	Interractions : L'utilisateur doit pouvoir interagir avec son environnement. Il ne s'agit pas d'un film ou d'un logiciel présentant un scénario fixe ; l'environnement doit évoluer en fonction des actions de l'utilisateur.-  Centrées autour d'un bloc d'interrupteurs, les interactions comprennent notamment pouvoir ouvrir ou fermer les portes (porte du hall avec fermeture automatique, de l'appartement avec fermeture volontaire), d'allumer ou éteindre les lumières (commande variateur, commande interrupteur) et de monter ou descendre les volets. & REk \\
-	Scenario 1 - Appel téléphonique : Appel téléphonique (d'un proche ou d'une personne qui se serait trompée de numéro). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & realise \\
-	Scenario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& realise \\
-	Scenario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entreren communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& realise \\
-	Application portable - faire une application aisément portable sur différents systèmes d'utilisation & enbuifv \\
-	une application capable de fonctionner avec de nombreux périphériques différents & frgnoih \\
-	Salle immersive & fdj \\
-	Porter le logiciel sur tablette  & NOPE.JPG \\
-	casque de réalité virtuelle & ok \\
-	clavier souris & ok \\
+\begin{tabular}{|p{12cm}|l|}
+	\hline
+	Tache & Etat \\ \hline
+	Afficher l'appartement en 3D & Realise \\ \hline
+	Deplacement dans l'appartement & Realise \\ \hline
+	Vue exocentrée : Une vue à la troisième personne permet de voir le déplacement de l'utilisateur dans la scène. & Realise \\ \hline
+	Vue endocentrée : Une vue à la première personne permet de voir par les yeux de l'avatar  virtuel. & Realise \\ \hline
+	
+	Implémenter différents scénario \\ \hline
+	Possibilité de basculer entre les modes en cours de jeu & PIKACHU \\ \hline
+	Mode symbolique : mise en évidence d'actions à réaliser, ainsi que des indications visuelles symboliques. & Realise \\ \hline
+	Mode assisté : lors de l'activation d'une action on accède à une vue fixe avec les états courants des équipements afin de faciliter la compréhension du lien action/objet pour l'utilisateur & Realise \\ \hline
+	Mode autonome : L'utilisateur ne reçoit plus d'information ou d'indication pour effectuer son parcours, il est dans le décor le plus réaliste possible, pour valider son autonomie. Il doit alors actionner les différents objets et se rendre compte par lui même (déplacement) des actions qu'il a effectuées.  & Realise \\ \hline
+	
+	Scenarios :  L'utilisateur peut choisir de se mettre en situation sur les différents scénarios proposés afin d'interagir avec les différents objets prévus pour le scénario.\\ \hline
+	Interractions : L'utilisateur doit pouvoir interagir avec son environnement (portes, lumières, volets). & Réalisé \\ \hline
+	Scenario 1 - Appel téléphonique : Appel téléphonique (d'un proche ou d'une personne qui se serait trompée de numéro). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & realise \\ \hline
+	Scenario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& realise \\ \hline
+	Scenario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entreren communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& realise \\ \hline
+	
+	Application portable - faire une application aisément portable sur différents systèmes d'utilisation & Windows seulement \\ \hline
+	Capable de fonctionner avec de nombreux périphériques différents & MiddleVR \\ \hline
+	Salle immersive & Testé fonctionnel dans Immersia \\ \hline
+	Porter le logiciel sur tablette  & NOPE.JPG \\ \hline
+	Casque de réalité virtuelle & ok \\ \hline
+	Clavier souris & ok \\ \hline
 	
 \end{tabular}
