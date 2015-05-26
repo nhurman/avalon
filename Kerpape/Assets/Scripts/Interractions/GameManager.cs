@@ -10,13 +10,17 @@ namespace Modelisation
 {
     public enum Mode { Auto, Assisted, Symbolic };
 
+
 	/// <summary>
 	/// Handle Scenario and authorisations on actions, and any code related to user errors.
     /// Handle any information not directly related to an object. Only one instance of that script is and should be used. 
 	/// </summary>
     public class GameManager : MonoBehaviour
     {
-        public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
+
+		private vrKeyboard keyb 				= null;
+		
+		public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
         {
 			// new AudioScenarioItem("domophone", "Decrocher le domophone", "domophone/sonnerie"),
 			// new AudioScenarioItem("domophone", "Parler à votre interlocuteur, puis raccrocher", "domophone/son_interlocuteur"),
@@ -83,6 +87,27 @@ namespace Modelisation
             }
         }
 
+		// Use this for initialization
+		void Start () {
+			CurrentMode = Mode.Assisted;
+			keyb = MiddleVR.VRDeviceMgr.GetKeyboard ();
+			if (keyb == null)
+				Debug.Log ("Clavier MiddleVR non trouvé");
+		}
+		
+		
+		// Update is called once per frame
+		void Update () {
+			// L'appui sur RETURN recharge la scène
+			if (keyb.IsKeyToggled (MiddleVR.VRK_RETURN)) {
+				
+				Application.LoadLevel ("Kerpape");
+			}
+		}
+		
+		
+
+
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
@@ -105,15 +130,17 @@ namespace Modelisation
             {
                 // reset original settings
 				//This will not result in the correct behavior
-				CurrentMode = oldMode;
+				//CurrentMode = oldMode;
                 return true;
             }
+			/*
 			if (CurrentTask.modeOverride != null) 
             {
 				//set new mode
 				oldMode = CurrentMode;
 				CurrentMode = (Mode) CurrentTask.modeOverride;
             }
+            */
             if (name == CurrentTask.elementName)
             {
 				CurrentTask.stopAction();
@@ -124,17 +151,6 @@ namespace Modelisation
                     //End scenario
                 }
 				CurrentTask.startAction();
-				/*
-                switch (CurrentMode)
-                {
-                    case Mode.Auto:
-                        break;
-                    case Mode.Assisted:
-                        break;
-                    case Mode.Symbolic:
-                        break;
-
-                }*/
 
                 return true;
             }
