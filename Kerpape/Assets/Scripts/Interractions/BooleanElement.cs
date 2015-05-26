@@ -48,12 +48,13 @@ namespace Modelisation
             return !isOn();
         }
 
-		private void Start() {
+		protected override void Start() {
+			base.Start ();
 			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
 		}
 
-		private void Update() {
-			
+		protected override void Update() {
+			base.Update ();
 		}
     }
 }
