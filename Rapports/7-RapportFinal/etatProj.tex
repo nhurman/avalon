@@ -1,10 +1,10 @@
-\section{Realisation du cahier des charges}
+\section{Réalisation du cahier des charges}
 Nous avons eu l'occasion d'échanger avec les membres de Kerpape, ce qui nous a permis de définir le cahier des charges de l'application, que nous allons détailler dans cette partie. \\
 
 \subsection{Général}
 \begin{tabular}{|p{13cm}|c|}
 	\hline
-	Tache & Etat \\ \hline
+	Tâche & Etat \\ \hline
 	Afficher l'appartement en 3D & Réalisé \\ \hline
 	Deplacement dans l'appartement & Réalisé \\ \hline
 	Menu principal & Réalisé \\ \hline
@@ -14,48 +14,48 @@ Nous avons eu l'occasion d'échanger avec les membres de Kerpape, ce qui nous a 
 	Relancer la scène & Réalisé \\ \hline
 	Personnaliser les commandes & Non réalisé \\ \hline
 \end{tabular}
-La majeure partie des taches de bases ont été réalisées, à l'exception de la vue exocentrée. 
-En effet, nous nous sommes rendu compte que cette fonctionnalité n'était pas pratique à l'utilisation, car le point de vue est plus éloigné, et il est donc plus difficile de pointer le curseur sur un endroit précis.
+La majeure partie des tâches de bases a été réalisée, à l'exception de la vue exocentrée. 
+En effet, nous nous sommes rendus compte que cette fonctionnalité n'était pas pratique à l'utilisation, car le point de vue est plus éloigné, et il est donc plus difficile de pointer le curseur sur un endroit précis.
 Le logiciel s'adressant à un public à handicap, la fonctionnalité a été abandonnée.
 	
-\subsection{Implémenter différents mode de jeu}
+\subsection{Implémentation des différents modes d'apprentissage}
 \begin{tabular}{|p{13cm}|c|}
 	\hline
-	Tache & Etat \\ \hline
+	Tâche & Etat \\ \hline
 	Possibilité de basculer entre les modes en cours de jeu & Réalisé \\ \hline
 	Mode symbolique : mise en évidence d'actions à réaliser, ainsi que des indications visuelles symboliques. & Non réalisé \\ \hline
 	Mode assisté : lors de l'activation d'une action on accède à une vue fixe avec les états courants des équipements afin de faciliter la compréhension du lien action/objet pour l'utilisateur & Réalisé \\ \hline
 	Mode autonome : L'utilisateur ne reçoit plus d'information ou d'indication pour effectuer son parcours, il est dans le décor le plus réaliste possible, pour valider son autonomie. Il doit alors actionner les différents objets et se rendre compte par lui même (déplacement) des actions qu'il a effectuées.  & Réalisé \\ \hline
 \end{tabular}
-Le mode symbolique n'a pas été réalisé. Nous l'avons jugé trop chronophage, car il faut réaliser les images qui seront montrées à l'utilisateur. 	
+Le mode symbolique n'a pas été réalisé. En ajoutant le mode assisté, nous avons remarqué que le mode symbolique n'était qu'une version apauvrie de notre mode assisté amélioré. Il aurait aussi fallu réaliser l'ensemble des pictogrammes tandis que la vue assistée est plus claire, ce qui aurait demandé un travail supplémentaire aux ingénieurs de Kerpape.
 
-\subsection{Implémenter différents scenarios de jeu}		
+\subsection{Implémentation des différents scénarios d'utilisation}		
 \begin{tabular}{|p{13cm}|c|}
 	\hline
-	Tache & Etat \\ \hline
-	Scenario 1 - Appel téléphonique : Appel téléphonique (d'un proche ou d'une personne qui se serait trompée de numéro). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & Réalisé \\ \hline
-	Scenario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& Réalisé \\ \hline
-	Scenario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entreren communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& Réalisé \\ \hline
+	Tâche & Etat \\ \hline
+	Scénario 1 - Appel téléphonique : Appel téléphonique d'un proche ou d'une personne qui se serait trompée de numéro. L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & Réalisé \\ \hline
+	Scénario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& Réalisé \\ \hline
+	Scénario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& Réalisé \\ \hline
 \end{tabular}
 		
 
 \subsection{Portabilité}
 \begin{tabular}{|p{11cm}|c|}
 	\hline
-	Tache & Etat \\ \hline
-	Application portable - faire une application aisément portable sur différents systèmes d'utilisation & Windows seulement \\ \hline
+	Tâche & Etat \\ \hline
+	Application portable - faire une application aisément portable sur différents systèmes d'exploitation& Windows seulement \\ \hline
 	Capable de fonctionner avec de nombreux périphériques différents & Utilise MiddleVR \\ \hline
 	Salle immersive & Fonctionnel dans Immersia \\ \hline
 	Porter le logiciel sur tablette  & Non réalisé \\ \hline
 	Casque de réalité virtuelle & Réalisé \\ \hline
 	Clavier souris & Réalisé \\ \hline
 \end{tabular}
-La capacité de notre application à s'adapter à de nouveaux périphériques est limité à celle de MiddleVR. Celui ci est cependant compatible avec une grande majorité des périphériques du marché.
+La capacité de notre application à s'adapter à de nouveaux périphériques est limitée à celle de MiddleVR. Celui-ci est cependant compatible avec une grande majorité des périphériques du marché.
 
 \subsection{Demandes supplémentaires}
 \begin{tabular}{|p{11cm}|c|}
 	\hline
-	Tache & Etat \\ \hline
+	Tâche & Etat \\ \hline
 	Améliorer l'accessibilité du panneau d'interrupteurs & Réalisé \\ \hline
-	Réalisation d'un modèle 3D du domophone & Réalisé par Eric Bouvet \\ \hline
+	Réalisation d'un modèle 3D du domophone & Réalisé \footnote{\samepage Réalisé par Eric Bouvet } \\ \hline
 \end{tabular}
