@@ -1,30 +1,61 @@
 \section{Realisation du cahier des charges}
-Nous avons eu l'occasion d'échanger avec les membres de Kerpape, ce qui nous a permis de définir le cahier des charges de l'application, que nous allons détailler dans cette partie.
-\begin{tabular}{|p{12cm}|l|}
+Nous avons eu l'occasion d'échanger avec les membres de Kerpape, ce qui nous a permis de définir le cahier des charges de l'application, que nous allons détailler dans cette partie. \\
+
+\subsection{Général}
+\begin{tabular}{|p{13cm}|c|}
 	\hline
 	Tache & Etat \\ \hline
-	Afficher l'appartement en 3D & Realise \\ \hline
-	Deplacement dans l'appartement & Realise \\ \hline
-	Vue exocentrée : Une vue à la troisième personne permet de voir le déplacement de l'utilisateur dans la scène. & Realise \\ \hline
-	Vue endocentrée : Une vue à la première personne permet de voir par les yeux de l'avatar  virtuel. & Realise \\ \hline
+	Afficher l'appartement en 3D & Réalisé \\ \hline
+	Deplacement dans l'appartement & Réalisé \\ \hline
+	Menu principal & Réalisé \\ \hline
+	Vue exocentrée : Une vue à la troisième personne permet de voir le déplacement de l'utilisateur dans la scène. & Non réalisé \\ \hline
+	Vue endocentrée : Une vue à la première personne permet de voir par les yeux de l'avatar  virtuel. & Réalisé \\ \hline
+	Interactions : L'utilisateur doit pouvoir interagir avec son environnement (portes, lumières, volets). & Réalisé \\ \hline
+	Relancer la scène & Réalisé \\ \hline
+	Personnaliser les commandes & Non réalisé \\ \hline
+\end{tabular}
+La majeure partie des taches de bases ont été réalisées, à l'exception de la vue exocentrée. 
+En effet, nous nous sommes rendu compte que cette fonctionnalité n'était pas pratique à l'utilisation, car le point de vue est plus éloigné, et il est donc plus difficile de pointer le curseur sur un endroit précis.
+Le logiciel s'adressant à un public à handicap, la fonctionnalité a été abandonnée.
 	
-	Implémenter différents scénario \\ \hline
-	Possibilité de basculer entre les modes en cours de jeu & PIKACHU \\ \hline
-	Mode symbolique : mise en évidence d'actions à réaliser, ainsi que des indications visuelles symboliques. & Realise \\ \hline
-	Mode assisté : lors de l'activation d'une action on accède à une vue fixe avec les états courants des équipements afin de faciliter la compréhension du lien action/objet pour l'utilisateur & Realise \\ \hline
-	Mode autonome : L'utilisateur ne reçoit plus d'information ou d'indication pour effectuer son parcours, il est dans le décor le plus réaliste possible, pour valider son autonomie. Il doit alors actionner les différents objets et se rendre compte par lui même (déplacement) des actions qu'il a effectuées.  & Realise \\ \hline
-	
-	Scenarios :  L'utilisateur peut choisir de se mettre en situation sur les différents scénarios proposés afin d'interagir avec les différents objets prévus pour le scénario.\\ \hline
-	Interractions : L'utilisateur doit pouvoir interagir avec son environnement (portes, lumières, volets). & Réalisé \\ \hline
-	Scenario 1 - Appel téléphonique : Appel téléphonique (d'un proche ou d'une personne qui se serait trompée de numéro). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & realise \\ \hline
-	Scenario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& realise \\ \hline
-	Scenario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entreren communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& realise \\ \hline
-	
+\subsection{Implémenter différents mode de jeu}
+\begin{tabular}{|p{13cm}|c|}
+	\hline
+	Tache & Etat \\ \hline
+	Possibilité de basculer entre les modes en cours de jeu & Réalisé \\ \hline
+	Mode symbolique : mise en évidence d'actions à réaliser, ainsi que des indications visuelles symboliques. & Non réalisé \\ \hline
+	Mode assisté : lors de l'activation d'une action on accède à une vue fixe avec les états courants des équipements afin de faciliter la compréhension du lien action/objet pour l'utilisateur & Réalisé \\ \hline
+	Mode autonome : L'utilisateur ne reçoit plus d'information ou d'indication pour effectuer son parcours, il est dans le décor le plus réaliste possible, pour valider son autonomie. Il doit alors actionner les différents objets et se rendre compte par lui même (déplacement) des actions qu'il a effectuées.  & Réalisé \\ \hline
+\end{tabular}
+Le mode symbolique n'a pas été réalisé. Nous l'avons jugé trop chronophage, car il faut réaliser les images qui seront montrées à l'utilisateur. 	
+
+\subsection{Implémenter différents scenarios de jeu}		
+\begin{tabular}{|p{13cm}|c|}
+	\hline
+	Tache & Etat \\ \hline
+	Scenario 1 - Appel téléphonique : Appel téléphonique (d'un proche ou d'une personne qui se serait trompée de numéro). L'utilisateur doit pouvoir décrocher le téléphone pour entrer en communication puis raccrocher quand la communication est terminée. & Réalisé \\ \hline
+	Scenario 2 - Interphone infirmier : Appel venant du portier audio/vidéo sur le téléphone (d'un infirmier qui souhaiterait entrer). L'utilisateur doit pouvoir décrocher le téléphone, communiquer avec l'infirmier, raccrocher le téléphone et ouvrir la porte.& Réalisé \\ \hline
+	Scenario 3 - Interphone inconnu : Appel venant du portier audio/vidéo sur le téléphone (d'un inconnu). L'utilisateur doit pouvoir décrocher le téléphone pour entreren communication, allumer la TV pour voir la vidéo puis éteindre la TV et raccrocher le téléphone à la fin de la conversation.& Réalisé \\ \hline
+\end{tabular}
+		
+
+\subsection{Portabilité}
+\begin{tabular}{|p{11cm}|c|}
+	\hline
+	Tache & Etat \\ \hline
 	Application portable - faire une application aisément portable sur différents systèmes d'utilisation & Windows seulement \\ \hline
-	Capable de fonctionner avec de nombreux périphériques différents & MiddleVR \\ \hline
-	Salle immersive & Testé fonctionnel dans Immersia \\ \hline
-	Porter le logiciel sur tablette  & NOPE.JPG \\ \hline
-	Casque de réalité virtuelle & ok \\ \hline
-	Clavier souris & ok \\ \hline
-	
+	Capable de fonctionner avec de nombreux périphériques différents & Utilise MiddleVR \\ \hline
+	Salle immersive & Fonctionnel dans Immersia \\ \hline
+	Porter le logiciel sur tablette  & Non réalisé \\ \hline
+	Casque de réalité virtuelle & Réalisé \\ \hline
+	Clavier souris & Réalisé \\ \hline
+\end{tabular}
+La capacité de notre application à s'adapter à de nouveaux périphériques est limité à celle de MiddleVR. Celui ci est cependant compatible avec une grande majorité des périphériques du marché.
+
+\subsection{Demandes supplémentaires}
+\begin{tabular}{|p{11cm}|c|}
+	\hline
+	Tache & Etat \\ \hline
+	Améliorer l'accessibilité du panneau d'interrupteurs & Réalisé \\ \hline
+	Réalisation d'un modèle 3D du domophone & Réalisé par Eric Bouvet \\ \hline
 \end{tabular}
