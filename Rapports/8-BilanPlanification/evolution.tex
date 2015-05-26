@@ -1,1 +1,64 @@
-\section{Evolution tout au long du projet}
+\section{Evolution du projet}
+\subsection{Planning}
+Nous avons globalement respecté les dates limites qui nous avaient été fixées.
+Malheureusement, nous avons raté de 24h la date de rendu de la page HTML, suite à une erreur d'organisation de notre part.
+En effet, nous n'avions pas désigné de façon claire la personne chargée de déposer l'archive.
+Suite à cet évènement, nous avons repris le schéma que nous utilisions jusque là, ie un responsable par livrable.
+
+Par ailleurs, contrairement à ce que l'on aurait pu penser, les vacances ont été un réel problème : la plupart des tâches
+de développement que nous réalisions étaient par binôme, pour améliorer la productivité étant donné la multitude
+de problèmes que nous avons rencontré. Il a été compliqué de tenir compte des impératifs de chaque personne
+pour arriver à un planning convenable, ce qui nous a poussé à favoriser le travail \enquote{sur place} par la suite.
+
+Plusieurs évènements sont également venus modifier notre planning, notamment l'arrivée puis le départ d'un nouveau membre
+pour lequel nous avons dû investir un peu de notre temps afin de le former.
+
+\subsection{Versions intermédiaires}
+A l'origine, nous avions prévu un large éventail de versions intermédiaires. Ayant choisi un cycle agile, cela avait du
+sens car nous aurions pu les fournir à Kerpape au fur et à mesure de l'avancement du projet.
+
+Cependant, après la seconde version intermédiaire, nous avons choisi d'arrêter de les fournir à Kerpape car les changements
+visibles étaient mineurs, l'essentiel de la progression étant au niveau de l'architecture permettant au logiciel d'être
+extensible. Nous avons fixé une date avec eux pour les rencontrer en personne une seconde fois, à l'IRISA, où nous
+leur avons fait une démonstration du logiciel à la fois sous PC et sur la plate-forme Immersia. Willy Allègre et Jean-Paul
+Despartes se sont montrés satisfaits, ce qui nous a conforté dans ce choix. Nous avons tout de même réalisé ces
+versions intermédiaires en interne, pour suivre le planning établi.
+
+\subsection{Ecarts par rapport au planning}
+
+
+\subsubsection{Middle VR - Difficultés imprévues}
+Nous nous sommes cependant heurtés à plusieurs problèmes au cours du projet, qui n'ont cessé de prendre de l'ampleur
+avec la spécialisation de notre application vers l'interface clavier/souris. Plus nous avancions, plus MiddleVR
+nous mettait des batons dans les roues. En effet, MiddleVR est prévu pour les environnements de réalité virtuelle,
+où les périphériques d'entrée sont des trackers donnant directement une position et une orientation. Le logiciel
+demandé par Kerpape ne rentrant pas dans cette catégorie, nous avons à plusieurs reprises dû réécrire des parties de la
+logique de MiddleVR, voire même, quand c'était impossible, d'écrire des scripts annulant ce que MiddleVR faisait pour
+ensuite appliquer notre propre logique (par exemple, la gestion de la caméra, les déplacements au clavier, la fonction
+\enquote{focus sur un objet}).
+
+Nous n'avions absolument pas envisagé ce lourd travail, ne connaissant pas les détails d'implémentation de MiddleVR
+lors de la phase de spécification. Nous avons tout de même dû continuer à l'utiliser, à cause de la contrainte de la
+diversité des plate-formes sur lesquelles le logiciel devait pouvoir s'exécuter.
+
+\subsubsection{Multiples présentations}
+
+Nous avons aussi eu diverses présentations à effectuer sur notre projet tout au long de l'année, ce qui a mobilisé
+2 ou 3 personnes pour leur préparation et leur démonstration pendant plusieurs jours. Cela a cependant été une
+bonne expérience, permettant de mettre en avant notre travail et de faire connaître les technologies que nous
+utilisions.
+
+Nous avons ainsi présenté notre projet aux 2ème années de l'INSA de Rennes, mais également lors des journées portes ouvertes, ainsi qu'à des membres de la promo INFO 1986, aux organisateurs de la BattleDev ...
+
+\subsubsection{Risques}
+
+Au niveau des risques, nous avions envisagé l'indisponibilité de quelques membres du groupe ou une panne de leurs
+équipements informatiques, cependant dans les dernières semaines du projet, plusieurs évènements imprévus ou mal
+prévus sont venus mettre à l'épreuve notre préparation : tout d'abord, juste après les partiels, sur la période que
+nous avions désignée pour finir le logiciel, la connection Internet de l'INSA a été inutilisable pendant 3 jours,
+rendant impossible toute avancée signiticative (pas d'accès à la documentation, pas possible de récupérer le code source,
+les fichiers de démo...). Ensuite, des évènements associatifs pour lesquels une indisponibilité partielle était prévue
+ont occupé à temps plein (08h->02h) les personnes concernées suite aux problèmes recontrés là-bas.
+
+Ces deux baisses de capacité de travail ont entraîné un retard qui a été partiellement absorbé par la marge que nous
+nous étions allouée, mais ont tout de même nécessité une cadence de travail accrue sur les jours restants.
