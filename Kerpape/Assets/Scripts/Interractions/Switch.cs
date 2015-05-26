@@ -19,16 +19,16 @@ namespace Modelisation
 		GameObject Target;
 		Element Elem;
 
-		private CameraAssistee cameraAssisteeScript;
-
 	
 		private void Start()
 		{
 			incState = true;
-			cameraAssisteeScript = GameObject.Find ("mode_assiste").GetComponent<CameraAssistee> ();
 			
 			Target = GameObject.Find (targetName);
 			Elem = Target ? Target.GetComponent<Element>() : null;
+		}
+		private void Update() {
+		
 		}
 
         private bool incState;
@@ -62,7 +62,6 @@ namespace Modelisation
             {
 				Elem.setOn();
             } 
-			showSideView ();
         }
 
 		/// <summary>
@@ -75,11 +74,10 @@ namespace Modelisation
 			{
 				Elem.setOff();
 			}
-			showSideView ();
         }
 
 		
-		private void showSideView ()
+		/*private void showSideView ()
 		{
 			switch(targetName)
 			{
@@ -90,7 +88,7 @@ namespace Modelisation
 				cameraAssisteeScript.lookAtKitchenLight();
 				break;
 			}
-		}
+		}*/
 
 		/// <summary>
 		/// Toggle action : call switchOn until isOn = true, then switchOff until isOff = true.

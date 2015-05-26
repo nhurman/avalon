@@ -25,7 +25,7 @@ namespace Modelisation
 		/// <param name="name">Allow this action to be executed in a different mode than the current one.</param>
 		public AudioScenarioItem (string name, string description, string audioName, bool auth = true, Mode? mode = null)  :  base(name, description, auth, mode)
 		{
-			audio = GameObject.Find ("/GameManager/" + audioName).GetComponent<AudioSource>();
+			audio = GameObject.Find (audioName).GetComponent<AudioSource>();
 		}
 
 		public virtual void startAction() {
