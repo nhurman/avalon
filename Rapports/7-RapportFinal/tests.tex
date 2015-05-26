@@ -1,3 +1,19 @@
-\section{Tests}
+\section{ANNEXE I : Tests}
+
+\subsection{Tests unitaires}
+L'architecture de notre projet, qui utilise le moteur de jeu Unity3D, ne nous a pas permis d'en faire ! \newline
+Les tests unitaires, le type de tests que nous avons le plus utilisés au long de notre formation, fonctionnent très bien avec des projets ne comportant que du code informatique, car ainsi nous aurions pu tester chaque bloc du projet indépendament avant de les assembler entre eux. \newline
+
+Dans le cas de Unity, l'écriture de code n'intervient que dans les scripts en C\# qui ne représentent pas l'intégralité du projet. De plus, leur utilisation étant intimimement mêlée aux actions de l'utilisateur dans l'univers 3D, il était impossible de les tester indépendament. \newline
+
+Les tests que nous avons réalisé au long de notre projet sont donc principalement des tests fonctionnels et d'acceptation. 
+
+\subsection{Tests fonctionnels}
+
+Les tests fonctionnels représentent la majorité de ceux que nous avons menés au cours du projet Avalon. Faciles à mettre en place, ils nous assuraient qu'une modification n'entraîne pas une régression nattendue. Nous vérifiions chaque fonctionnalité indépendament, sans prendre la peine de mettre en place une scénario d'utilisation réaliste mais simplement en vérifiant que le programme répondait de la manière souhaitée à une situation donnée (conformité aux spécifications du projet).\newline
+
+Chaque fonctionnalité, au moment de son intégration, a été dûment testée, ainsi qu'à plusieurs reprises par la suite à chaque fois qu'une modification était suceptible de l'impacter. À titre d'exemple, nous avons testé les déplacements au clavier/souris
+
+\subsection{Tests d'acceptation}
 Lors de la conception de notre application, nous avons réalisés des tests manuels pour s'assurer qu'il n'y ait pas de régressions.
 Il était en effet difficile de faires des tests unitaires à cause de l'architecture du projet.
