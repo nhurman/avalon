@@ -2,11 +2,13 @@
 using System.Collections;
 
 public class GliderTrigger : MonoBehaviour {
+	public GameObject m_gliderContainer;
+
 	private CameraGlider m_glider;
 
 	// Use this for initialization
 	void Start () {
-		m_glider = GameObject.Find ("Utilisateur").GetComponent<CameraGlider> ();
+		m_glider = m_gliderContainer.GetComponent<CameraGlider> ();
 	}
 	
 	// Update is called once per frame

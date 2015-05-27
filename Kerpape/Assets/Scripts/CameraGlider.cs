@@ -4,8 +4,8 @@ using System.Collections;
 public class CameraGlider : MonoBehaviour {
 	public GameObject utilisateur;
 	public GameObject destination;
-	public GameObject headNode;
-	public GameObject wand;
+	private GameObject headNode;
+	private GameObject wand;
 
 	private VRFPSInputController inputController;
 
@@ -92,9 +92,9 @@ public class CameraGlider : MonoBehaviour {
 		startHeadAngle = savedHeadNodeAngle;
 
 		endPos = destination.transform.position;
-		endPos.x -= 0.4f;
-		endPos.y -= 1.2f;
-		endRot = Quaternion.Euler (0, 90f, 0);
+		//endPos.x -= 0.4f;
+		//endPos.y -= 1.2f;
+		endRot = destination.transform.rotation;//Quaternion.Euler (0, 90f, 0);
 		endHeadAngle = 0f;
 	}
 
@@ -133,9 +133,9 @@ public class CameraGlider : MonoBehaviour {
 		startTime = Time.time;
 		
 		startPos = destination.transform.position;
-		startPos.x -= 0.4f;
-		startPos.y -= 1.2f;
-		startRot = Quaternion.Euler (0, 90f, 0);
+		//startPos.x -= 0.4f;
+		//startPos.y -= 1.2f;
+		startRot = destination.transform.rotation;// Quaternion.Euler (0, 90f, 0);
 		startHeadAngle = 0f;
 
 		endPos = savedUtilisateurPos;
