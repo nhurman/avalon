@@ -93,10 +93,10 @@ public class VRMenuManager : MonoBehaviour
         }
 
         // Toggle visibility
-        if (MiddleVR.VRDeviceMgr.IsWandButtonToggled((uint)HideShowWandButton))
+        /*if (MiddleVR.VRDeviceMgr.IsWandButtonToggled((uint)HideShowWandButton))
         {
             ToggleVisiblity();
-        }
+        }*/
 
         _VisibilityAnimation();
     }
