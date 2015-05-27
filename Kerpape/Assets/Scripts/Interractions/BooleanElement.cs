@@ -13,7 +13,9 @@ namespace Modelisation
     public class BooleanElement : Element
     {
 		//private AffichageSymbolique affichageSymbolique;
-		
+
+		public bool startState 	= true	;
+
 		/// <summary>
 		/// Name of the component that can be activated and desactivated.
 		/// </summary>
@@ -50,6 +52,10 @@ namespace Modelisation
 
 		protected override void Start() {
 			base.Start ();
+			if (!startState) {
+				autonomous_setOff();
+			}
+
 			//affichageSymbolique = gameObject.AddComponent<AffichageSymbolique> ();
 		}
 

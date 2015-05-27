@@ -13,8 +13,7 @@ namespace Modelisation
 	public class AudioScenarioItem : ScenarioItem
 	{
 		private AudioSource audio;
-
-
+		private string audioname;
 		/// <summary>
 		/// Creates an AudioScenario item ; the sound is played until the next scenarioItem..
 		/// </summary>
@@ -25,7 +24,7 @@ namespace Modelisation
 		/// <param name="name">Allow this action to be executed in a different mode than the current one.</param>
 		public AudioScenarioItem (string name, string description, string audioName, bool auth = true, Mode? mode = null)  :  base(name, description, auth, mode)
 		{
-			audio = GameObject.Find (audioName).GetComponent<AudioSource>();
+			audioname = audioName;
 		}
 
 		public virtual void startAction() {
@@ -34,7 +33,14 @@ namespace Modelisation
 		public virtual void stopAction() {
 			audio.Stop ();
 		}
+		private void Start(){
+			audio = GameObject.Find (audioname).GetComponent<AudioSource>();
 		
+		}
+
+		private void Update(){
+			
+		}
 	}
 }
 

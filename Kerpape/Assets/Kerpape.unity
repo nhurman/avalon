@@ -3173,7 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifiant: 
+  identifiant: switch_tele
   targetName: tele_eteinte
   onButton: 1
   offButton: 1
@@ -10878,6 +10878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: 
+  startState: 1
   toDeactivate: Light
 --- !u!1 &811287159
 GameObject:
@@ -14274,6 +14275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifiant: 
+  startState: 1
   toDeactivate: MeshRenderer
 --- !u!23 &1065838553
 MeshRenderer:
