@@ -43,7 +43,7 @@ namespace Modelisation
 		/// <param name="descrition">Desciption of what the action is supposed to achieve.</param>
 		/// <param name="name">Allow the execution of other actions.</param>
 		/// <param name="name">Allow this action to be executed in a different mode than the current one.</param>
-        public ScenarioItem(string name, string description, bool auth = true, Mode? mode = null) 
+        public ScenarioItem(string name, string description, bool auth = false, Mode? mode = null) 
         {
             elementName = name;
             actionExplanation = description;

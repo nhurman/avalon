@@ -22,20 +22,17 @@ namespace Modelisation
 		/// <param name="audioName">Name of the audio that should be played.</param>
 		/// <param name="name">Allow the execution of other actions.</param>
 		/// <param name="name">Allow this action to be executed in a different mode than the current one.</param>
-		public AudioScenarioItem (string name, string description, string audioName, bool auth = true, Mode? mode = null)  :  base(name, description, auth, mode)
+		public AudioScenarioItem (string name, string description, string audioName, bool auth = false, Mode? mode = null)  :  base(name, description, auth, mode)
 		{
 			audioname = audioName;
 		}
 
 		public override void startAction() {
-			Debug.Log("pikachu");
+			Debug.Log(audioname);
 			audio.Play ();
-			Debug.Log("pikachu2");
 		}
 		public override void stopAction() {
-			Debug.Log("pikachu3");
 			audio.Stop ();
-			Debug.Log("pikachu4");
 		}
 	
 		public override void inst() {
