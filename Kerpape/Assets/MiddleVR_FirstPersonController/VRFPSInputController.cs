@@ -22,6 +22,7 @@ public class VRFPSInputController : MonoBehaviour
 
 	private GameObject head 				= null;
 	private CharacterController controller 	= null;
+	private GameObject wand 				= null;
 
 	//keyb will reference the keyboard and be used to check if movments keys are pressed
 	private vrKeyboard keyb 				= null;
@@ -32,6 +33,7 @@ public class VRFPSInputController : MonoBehaviour
     void Start()
     {
 		head = GameObject.Find("HeadNode");
+		wand = GameObject.Find("VRWand");
 		controller = GetComponent<CharacterController>();
 		wController = GetComponent<WandOnlyController>();
 		if (m_RefNode == null)
@@ -78,6 +80,10 @@ public class VRFPSInputController : MonoBehaviour
 		}
 		//Applying the computed rotation to the player
 		head.transform.Rotate(Vector3.right, verticalAngle);
+		
+		wand.transform.position = head.transform.position;
+		wand.transform.rotation = head.transform.rotation;
+		wand.transform.Translate (0, 0, -0.5f);
 	}
 
 	void lookingLeftRight()
