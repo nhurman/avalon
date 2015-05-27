@@ -4,6 +4,8 @@ using System.Collections;
 public class CustomMenu : MonoBehaviour {
 
 	private VRMenu vrMenu			 	= null;
+	private vrWidgetMenu m_Menu;
+
 
 	// Use this for initialization
 	void Start () {
