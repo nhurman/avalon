@@ -3080,6 +3080,7 @@ GameObject:
   - 23: {fileID: 256430329}
   - 65: {fileID: 256430332}
   - 114: {fileID: 256430331}
+  - 114: {fileID: 256430334}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -3160,6 +3161,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .0124902185, y: .00279749581, z: .00275248126}
   m_Center: {x: -6.98491931e-10, y: .000384902261, z: -.000630899624}
+--- !u!114 &256430334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256430327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: switch_tv
+  targetName: tele_allumee
+  onButton: 1
+  offButton: 1
 --- !u!1 &258654864
 GameObject:
   m_ObjectHideFlags: 0
@@ -27440,6 +27456,7 @@ GameObject:
   - 33: {fileID: 1934026452}
   - 64: {fileID: 1934026451}
   - 23: {fileID: 1934026450}
+  - 114: {fileID: 1934026453}
   m_Layer: 0
   m_Name: tele_allumee
   m_TagString: Untagged
@@ -27502,6 +27519,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934026448}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1934026453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934026448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bbcf3d0d8245a419383e2c0d7fd27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: 
+  toDeactivate: MeshRenderer
 --- !u!1 &1936048376
 GameObject:
   m_ObjectHideFlags: 0
