@@ -23,14 +23,14 @@ namespace Modelisation
 		public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
         {
 			new AudioScenarioItem("domophone", "Decrocher le domophone", "domophone/sonnerie"),
-			//new AudioScenarioItem("domophone", "Parler à votre interlocuteur, puis raccrocher", "domophone/son_interlocuteur"),
+			new AudioScenarioItem("domophone", "Parler à votre interlocuteur, puis raccrocher", "domophone/paroles"),
 			new EndScenario()
         };
 
         public static IList<ScenarioItem> Scenar2 = new List<ScenarioItem>() 
         {
 			new AudioScenarioItem("domophone", "Decrocher le domophone", "domophone/sonnerie"),
-			//new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un infirmier, raccrocher", "domophone/son_infirmier"),
+			new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un infirmier, raccrocher", "domophone/paroles"),
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
 			new ScenarioItem("appartement_door_switch", "Ouvrir la porte de l'appartement"),
 			new ScenarioItem("appartement_door_switch", "Fermer la porte de l'appartement"),
@@ -40,7 +40,7 @@ namespace Modelisation
         public static IList<ScenarioItem> Scenar3 = new List<ScenarioItem>() 
 		{
 			new AudioScenarioItem("domophone", "Decrocher le domophone", "domophone/sonnerie"),
-			//new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un inconnu à la porte, raccrocher", "domophone/son_inconnu"),
+			new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un inconnu à la porte, raccrocher", "domophone/paroles"),
 			new ScenarioItem("switch_tele", "Ouvrir la porte du batiment"),
 			// Canal S8
 
