@@ -3078,6 +3078,8 @@ GameObject:
   - 4: {fileID: 256430328}
   - 33: {fileID: 256430330}
   - 23: {fileID: 256430329}
+  - 65: {fileID: 256430332}
+  - 114: {fileID: 256430331}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -3131,6 +3133,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256430327}
   m_Mesh: {fileID: 4300056, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
+--- !u!114 &256430331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256430327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SyncDirection: 3
+  MiddleVRNodeName: 
+  Grabable: 0
+  TouchEvents: 2
+--- !u!65 &256430332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256430327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .0124902185, y: .00279749581, z: .00275248126}
+  m_Center: {x: -6.98491931e-10, y: .000384902261, z: -.000630899624}
 --- !u!1 &258654864
 GameObject:
   m_ObjectHideFlags: 0
