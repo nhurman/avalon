@@ -20,12 +20,8 @@ public class PhoneGlider : MonoBehaviour {
 	private Vector3 endPos;
 	private Quaternion endRot;
 
-	private vrKeyboard keyb;
-
 	// Use this for initialization
 	void Start () {
-		keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
-
 		m_ear = new GameObject ();
 
 		m_headNode = GameObject.Find ("HeadNode");
@@ -33,11 +29,6 @@ public class PhoneGlider : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(keyb.IsKeyToggled (MiddleVR.VRK_F))
-		{
-			Debug.Log("FFFFFFFFFFFFFFFFFFFFFFF");
-			StartGlide();
-		}
 		if (gliding)
 		{
 			Glide ();

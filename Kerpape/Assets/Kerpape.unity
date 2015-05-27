@@ -19157,8 +19157,8 @@ GameObject:
   - 4: {fileID: 1369318716}
   - 143: {fileID: 1369318720}
   - 114: {fileID: 1369318715}
-  - 114: {fileID: 1369318721}
   - 114: {fileID: 1369318717}
+  - 114: {fileID: 1369318718}
   m_Layer: 8
   m_Name: Utilisateur
   m_TagString: Untagged
@@ -19207,6 +19207,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sensibility: .75
+--- !u!114 &1369318718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1369318714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171e169fce34ff244ba555a9622cea3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &1369318720
 CharacterController:
   m_ObjectHideFlags: 0
@@ -19224,19 +19235,6 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1369318721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1369318714}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f27cd338c3f624ab07ddb6700b375f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  utilisateur: {fileID: 1369318714}
-  destination: {fileID: 1487868591}
 --- !u!1 &1374159162
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,6 @@ using System.Collections;
 public class CameraGlider : MonoBehaviour {
 	public GameObject utilisateur;
 	public GameObject destination;
-	private GameObject headNode;
-	private GameObject wand;
 
 	private VRFPSInputController inputController;
 
@@ -37,8 +35,6 @@ public class CameraGlider : MonoBehaviour {
 			keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
 		}
 		inputController = utilisateur.GetComponent<VRFPSInputController> ();
-		headNode = GameObject.Find ("HeadNode");
-		wand = GameObject.Find ("VRWand");
 
 		gliding = false;
 		frozen = false;
@@ -92,9 +88,7 @@ public class CameraGlider : MonoBehaviour {
 		startHeadAngle = savedHeadNodeAngle;
 
 		endPos = destination.transform.position;
-		//endPos.x -= 0.4f;
-		//endPos.y -= 1.2f;
-		endRot = destination.transform.rotation;//Quaternion.Euler (0, 90f, 0);
+		endRot = destination.transform.rotation;
 		endHeadAngle = 0f;
 	}
 
@@ -118,7 +112,6 @@ public class CameraGlider : MonoBehaviour {
 	{
 		utilisateur.transform.position = endPos;
 		utilisateur.transform.rotation = endRot;
-		//wand.transform.localPosition.Set(0, 0, 0);
 		
 		if (keyb.IsKeyPressed (MiddleVR.VRK_DOWN) || keyb.IsKeyPressed (MiddleVR.VRK_S)) {
 			StartReverseGlide ();
@@ -133,14 +126,11 @@ public class CameraGlider : MonoBehaviour {
 		startTime = Time.time;
 		
 		startPos = destination.transform.position;
-		//startPos.x -= 0.4f;
-		//startPos.y -= 1.2f;
-		startRot = destination.transform.rotation;// Quaternion.Euler (0, 90f, 0);
+		startRot = destination.transform.rotation;
 		startHeadAngle = 0f;
 
 		endPos = savedUtilisateurPos;
 		endPos.x -= 0.5f;
-		//endRot = savedUtilisateurRot;
 		endRot = Quaternion.Euler (savedUtilisateurRot.x, 90f, savedUtilisateurRot.z);
 		endHeadAngle = 0f;
 
@@ -162,7 +152,6 @@ public class CameraGlider : MonoBehaviour {
 		reversing = false;
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Utilisateur"), false);
 		inputController.unLockCamera ();
-		//wand.transform.localPosition.Set(0, 0, 0);
 	}
 
 	private void Lerp()
@@ -171,6 +160,5 @@ public class CameraGlider : MonoBehaviour {
 		utilisateur.transform.position = Vector3.Lerp (startPos, endPos, t);
 		utilisateur.transform.rotation = Quaternion.Lerp (startRot, endRot, t);
 		inputController.verticalAngle = Mathf.Lerp (startHeadAngle, endHeadAngle, t);
-		//wand.transform.localPosition.Set(0, 0, 0);
 	}
 }
