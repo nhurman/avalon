@@ -18,7 +18,7 @@ namespace Modelisation
     public class GameManager : MonoBehaviour
     {
 
-		private vrKeyboard keyb 				= null;
+		private vrKeyboard keyb					= null;
 		
 		public static IList<ScenarioItem> Scenar1 = new List<ScenarioItem>() 
         {
@@ -206,7 +206,6 @@ namespace Modelisation
             {
                 // Tell number of error and give an explanation of the objective
             }
-           
         }
 
 		/// <summary>
