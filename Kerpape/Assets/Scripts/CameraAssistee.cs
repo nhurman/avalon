@@ -4,11 +4,7 @@ using System.Collections;
 public class CameraAssistee : MonoBehaviour {
 	public Camera camera;
 	public GameObject renderPlane;
-	
-	public GameObject posShutters;
-	public GameObject posLightKitchen;
 
-	//private static bool cameraActive;
 	private Transform currentPos;
 	private GameObject playerCamera;
 
@@ -16,7 +12,6 @@ public class CameraAssistee : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//cameraActive = false;
 		playerCamera = GameObject.Find ("Camera0");
 	}
 	
@@ -25,7 +20,6 @@ public class CameraAssistee : MonoBehaviour {
 		if (Time.time >= endTime)
 		{
 			renderPlane.SetActive (false);
-			//cameraActive = false;
 		}
 		else
 		{
@@ -35,24 +29,10 @@ public class CameraAssistee : MonoBehaviour {
 			renderPlane.transform.Translate (-0.175f, -0.365f, 0.1f);
 		}
 	}
-	
-	public void lookAtShutters()
-	{
-		camera.transform.position = posShutters.transform.position;
-		camera.transform.rotation = posShutters.transform.rotation;
-		showRenderPlane (3f);
-	}
-	public void lookAtKitchenLight()
-	{
-		camera.transform.position = posLightKitchen.transform.position;
-		camera.transform.rotation = posLightKitchen.transform.rotation;
-		showRenderPlane (3f);
-	}
 
 	public void lookAt(string name) {
-		currentPos = transform.Find("/mode_assiste/" + name);
-		if (currentPos != null) { // !cameraActive && 
-			//cameraActive = true;
+		currentPos = transform.Find("/mode_assiste/" + name + "_pos");
+		if (currentPos != null) {
 			camera.transform.position = currentPos.position;
 			camera.transform.rotation = currentPos.rotation;
 			showRenderPlane (3f);
@@ -68,12 +48,5 @@ public class CameraAssistee : MonoBehaviour {
 	public void hideRenderPlane()
 	{
 		endTime = 0;
-	}
-	
-	
-	[ContextMenu("Debug")]
-	private  void debug()
-	{
-		lookAtKitchenLight();
 	}
 }

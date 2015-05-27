@@ -142,11 +142,5 @@ namespace Modelisation
                 Debug.Log("Undefined button behaviour");
             }
         }
-
-		[ContextMenu("Debug")]
-		private  void ResetName()
-		{
-			Debug.Log ("Menu");
-		}
     }
 }
