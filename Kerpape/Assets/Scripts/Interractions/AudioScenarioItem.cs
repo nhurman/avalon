@@ -12,7 +12,7 @@ namespace Modelisation
 	/// </summary>
 	public class AudioScenarioItem : ScenarioItem
 	{
-		private AudioSource audio;
+		private AudioSource audio = null;
 		private string audioname;
 		/// <summary>
 		/// Creates an AudioScenario item ; the sound is played until the next scenarioItem..
@@ -27,19 +27,19 @@ namespace Modelisation
 			audioname = audioName;
 		}
 
-		public virtual void startAction() {
+		public override void startAction() {
+			Debug.Log("pikachu");
 			audio.Play ();
+			Debug.Log("pikachu2");
 		}
-		public virtual void stopAction() {
+		public override void stopAction() {
+			Debug.Log("pikachu3");
 			audio.Stop ();
+			Debug.Log("pikachu4");
 		}
-		private void Start(){
+	
+		public override void inst() {
 			audio = GameObject.Find (audioname).GetComponent<AudioSource>();
-		
-		}
-
-		private void Update(){
-			
 		}
 	}
 }

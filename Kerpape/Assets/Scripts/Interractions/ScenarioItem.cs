@@ -9,7 +9,7 @@ namespace Modelisation
 	/// <summary>
 	/// Basic scenario item.
 	/// </summary>
-    public class ScenarioItem
+    public class ScenarioItem : MonoBehaviour
     {
 		/// <summary>
 		/// Name of the element
@@ -73,7 +73,7 @@ namespace Modelisation
 		public virtual void stopAction() {
 			
 		}
-
+		public virtual void inst() {}
 
     }
 }

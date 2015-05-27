@@ -94,7 +94,16 @@ namespace Modelisation
 			if (keyb == null)
 				Debug.Log ("Clavier MiddleVR non trouvé");
 
-			loadScenario ("appel");
+			foreach (ScenarioItem a in Scenar1) {
+				a.inst();
+			}
+			foreach (ScenarioItem a in Scenar2) {
+				a.inst();
+			}
+			foreach (ScenarioItem a in Scenar3) {
+				a.inst();
+			}
+
 		}
 		
 		
@@ -232,6 +241,7 @@ namespace Modelisation
 						ScenarioData = EmptyScenar;
 						break;
 			}
+
 			CurrentTask.startAction();
 		}
     }

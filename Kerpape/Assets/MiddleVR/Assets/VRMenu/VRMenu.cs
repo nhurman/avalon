@@ -134,19 +134,19 @@ public class VRMenu : MonoBehaviour {
 
 	private vrValue ScenarioAppelHandler(vrValue iValue)
 	{
-
+		manager.loadScenario("appel");
 		return null;
 	}
 
 	private vrValue ScenarioInfirmierHandler(vrValue iValue)
 	{
-		
+		manager.loadScenario("infirmier");
 		return null;
 	}
 
 	private vrValue ScenarioInconnuHandler(vrValue iValue)
 	{
-		
+		manager.loadScenario("inconnu");
 		return null;
 	}
 
