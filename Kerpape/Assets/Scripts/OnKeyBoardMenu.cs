@@ -13,8 +13,8 @@ public class OnKeyBoardMenu : MonoBehaviour {
 	private uint scenarioVisiteInconnu	 	= MiddleVR.VRK_F7;
 	private uint noScenario				 	= MiddleVR.VRK_F8;
 
-	private uint modeAssiste				= MiddleVR.VRK_F3;
-	private uint modeAutonome				= MiddleVR.VRK_F4;
+	private uint modeAssiste				= MiddleVR.VRK_F11;
+	private uint modeAutonome				= MiddleVR.VRK_F12;
 
 	private uint reloadScene				= MiddleVR.VRK_F9;
 	private uint quitScene					= MiddleVR.VRK_F10;
