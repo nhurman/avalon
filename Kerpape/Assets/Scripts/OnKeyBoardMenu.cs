@@ -53,18 +53,21 @@ public class OnKeyBoardMenu : MonoBehaviour {
 		}
 
 		if (keyb.IsKeyToggled (scenarioAppelSimple)) {
+			Debug.Log("Scenario appel d'un ami");
 			gameManager.loadScenario("appel");
 		}
 
 		if (keyb.IsKeyToggled (scenarioAppelInfirmier)) {
+			Debug.Log("Scenario appel d'un infirmier");
 			gameManager.loadScenario("infirmier");
 		}
 
 		if (keyb.IsKeyToggled (scenarioVisiteInconnu)) {
+			Debug.Log("Scenario appel d'un inconnu");
 			gameManager.loadScenario("inconnu");
 		}
 
-		if (keyb.IsKeyToggled (scenarioVisiteInconnu)) {
+		if (keyb.IsKeyToggled (noScenario)) {
 			gameManager.loadScenario("aucun");
 		}
 
