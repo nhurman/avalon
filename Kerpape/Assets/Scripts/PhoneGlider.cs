@@ -55,7 +55,10 @@ public class PhoneGlider : MonoBehaviour {
 			StartGlide();
 		}
 	}
-
+	
+	/// <summary>
+	/// This function is called when the phone starts moving toward the user's ear
+	/// </summary>
 	public void StartGlide()
 	{
 		if (gliding || frozen || reversing) return;
@@ -77,7 +80,7 @@ public class PhoneGlider : MonoBehaviour {
 		endPos = m_ear.transform.position;
 		endRot = m_ear.transform.rotation;
 	}
-	
+
 	private void Glide()
 	{
 		Lerp ();
@@ -105,6 +108,9 @@ public class PhoneGlider : MonoBehaviour {
 		m_phone.transform.rotation = m_ear.transform.rotation;
 	}
 	
+	/// <summary>
+	/// This function is called when the phone starts moving back to its original place
+	/// </summary>
 	public void StartReverseGlide()
 	{
 		frozen = false;
