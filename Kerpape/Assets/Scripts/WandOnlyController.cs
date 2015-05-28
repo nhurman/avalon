@@ -12,23 +12,53 @@ public class WandOnlyController : MonoBehaviour
 	/// </summary>
 	private bool FreeWand		= false;
 
+	/// <summary>
+	/// Sensibilyt is a coefficient applied on the movement off the wand, the greater it is, the faster the movement are
+	/// </summary>
 	public float Sensibility	= 0.75f;
-	
+
+	/// <summary>
+	/// GameObject corresponding to the wand
+	/// </summary>
 	private GameObject wand		= null;
+
+	/// <summary>
+	/// /// GameObject corresponding to the handNode
+	/// </summary>
 	private GameObject handNode	= null;
+
+	/// <summary>
+	/// Wand's global position when switching from VRFPS Controller to WandOnlyController
+	/// Is reset during the next switch
+	/// </summary>
 	private Vector3 wandPosOrig       ;
+
+	/// <summary>
+	/// Horizontal movement to apply top the wand
+	/// </summary>
 	private float HorizontalPosDelta  ;
+
+	/// <summary>
+	/// Vertical movement to apply top the wand
+	/// </summary>
 	private float VerticalPosDelta    ;
+
+	/// <summary>
+	/// Limit used for the amplitude of wand's movement
+	/// </summary>
 	private float bornePos		= 100f ;
 
-	void Start()
+
+	private void Start()
 	{
 		wand = GameObject.Find("VRWand");
 		handNode = GameObject.Find("WandNode");
 		if(wand == null) Debug.Log ("wand non trouvee dans wandonlycontroller :( ");
 	}
 
-	void Update()
+
+
+	private void Update()
 	{
 		if (FreeWand){
 			float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
@@ -39,39 +69,18 @@ public class WandOnlyController : MonoBehaviour
 
 			wandPosOrig = handNode.transform.position;
 
-			//wand.transform.position = wandPosOrig;
 			Vector3 pos = wand.transform.position;
 			pos.x = wandPosOrig.x;
 			pos.y = wandPosOrig.y;
 			pos.z = wandPosOrig.z;
 			wand.transform.position = pos;
 
-			/* First we do a copy of the current wand.transform.rotation, only with the axis y 
-			 * Then we rotate that copy
-			 * We measure the angle between the rotated copy and the initial angle
-			 * If it does not exceeds the limits, we apply the rotation on the wand.
-			 */
-//			copywand.transform.rotation = Quaternion.Euler(0, wand.transform.rotation.eulerAngles.y, 0);
-//			copywand.transform.Rotate(0,wandHorizontal,0,Space.World);
-//			Quaternion wandY = Quaternion.Euler(0, angBorne.eulerAngles.y, 0);
-//
-//			if (Quaternion.Angle(copywand.transform.rotation, wandY) <= 30){
-//				wand.transform.Rotate(Vector3.up, wandHorizontal, Space.World);
-//			}
 			if(HorizontalPosDelta > bornePos)
 				HorizontalPosDelta = bornePos;
 			if(HorizontalPosDelta < -bornePos)
 				HorizontalPosDelta = -bornePos;
 			wand.transform.Translate(new Vector3(HorizontalPosDelta*0.002f, 0, 0));
 
-			/* Exactly like horizontal rotation, but on local x axis instead */
-//			copywand.transform.localRotation = Quaternion.Euler(wand.transform.localRotation.eulerAngles.x, 0, 0);
-//			copywand.transform.Rotate(wandVertical,0,0,Space.Self);
-//			Quaternion wandLocalX = Quaternion.Euler(angBorneLocal.eulerAngles.x, 0, 0);
-//			
-//			if (Quaternion.Angle(copywand.transform.localRotation, wandLocalX) <= 30){
-//				wand.transform.Rotate(wandVertical, 0,0,Space.Self);
-//			}
 			if(VerticalPosDelta > bornePos)
 				VerticalPosDelta = bornePos;
 			if(VerticalPosDelta < -bornePos)
@@ -81,16 +90,26 @@ public class WandOnlyController : MonoBehaviour
 	}
 
 
+	/// <summary>
+	/// LockWand locks the wand with the handNode, i.e. the wand follows the camera
+	/// </summary>
 	public void LockWand(){
 		FreeWand = false;
 		wand.transform.position = wandPosOrig;
 	}
 
+	/// <summary>
+	/// UnlockWand unlocks the wand with the handNode, i.e. the wand moves freely between its boundaries,
+	/// The camera is fixed
+	/// </summary>
 	public void UnlockWand(){
 		FreeWand = true;
 		initValues ();
 	}
 
+	/// <summary>
+	/// Reverse the wand state (free, not free)
+	/// </summary>
 	public void invertWandLock()
 	{
 		if (FreeWand)
@@ -99,11 +118,20 @@ public class WandOnlyController : MonoBehaviour
 			UnlockWand ();
 	}
 
+	/// <summary>
+	/// Set the wand's position when switching from VRFPS Controller to WandOnlyController
+	/// i.e. set the wandPosOrig
+	/// </summary>
+	/// <param name="type">Vector3</param>
+	/// <param name="name">pos</param>
 	public void setWandCenter(Vector3 pos)
 	{
 		wandPosOrig = pos;
 	}
 
+	/// <summary>
+	/// Initializes values used for WandOnlyController when switching to WandOnlyController
+	/// </summary>
 	private void initValues()
 	{
 		HorizontalPosDelta = 0;
