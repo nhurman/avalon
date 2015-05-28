@@ -29929,6 +29929,7 @@ GameObject:
   - 23: {fileID: 2045646300}
   - 65: {fileID: 2045646303}
   - 114: {fileID: 2045646302}
+  - 114: {fileID: 2045646304}
   m_Layer: 0
   m_Name: Interrupteur_Porte
   m_TagString: Untagged
@@ -30008,6 +30009,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .00727004651, y: .00789126474, z: .00277238362}
   m_Center: {x: -.000366142456, y: -.000382918748, z: .000458797556}
+--- !u!114 &2045646304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045646298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifiant: switch_porte_chambre
+  targetName: porte_chambre
+  onButton: 1
+  offButton: 1
 --- !u!1 &2048590034
 GameObject:
   m_ObjectHideFlags: 0
