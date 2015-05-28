@@ -9,11 +9,20 @@ namespace Modelisation
 	/// </summary>
     public abstract class SceneObject : MonoBehaviour
     {
-        //Should be static with stored value, but perhaps there is a better way to achieve this
-        public static string managerName = "GameManager";
+		/// <summary>
+		/// Name that the element will tell to the GameManager. Used for scenarii.
+		/// </summary>
         public string identifiant;
+
+		/// <summary>
+		/// Type of the object.
+		/// </summary>
         protected string type;
-		//private GameManager _manager;
+
+		/// <summary>
+		/// Default name of the game manager gameobject.
+		/// </summary>
+		private static string managerName = "GameManager";
 		
 		/// <summary>
 		/// Gets the instance of the GameManager.
@@ -26,7 +35,6 @@ namespace Modelisation
             }
         }
     
-        //Perhaps with parameters ? or Send name of current calling method
 		/// <summary>
 		/// Call the gamemanager to know if the object activation is allowed
 		/// </summary>
@@ -36,11 +44,5 @@ namespace Modelisation
             return Manager.isAuthorized(type, identifiant);
             //return true;
         }
-
-		/*private void Start () {
-			_manager = GameObject.Find (managerName).GetComponent<GameManager> ();
-		}*/
-
-        //Type Method ?
     }
 }

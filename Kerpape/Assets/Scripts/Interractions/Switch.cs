@@ -13,37 +13,47 @@ namespace Modelisation
 	/// </summary>
     public class Switch : SceneObject
     {
+		/// <summary>
+		/// Name of the target.
+		/// </summary>
         public string targetName;
-        public bool onButton;
-        public bool offButton;
-		GameObject Target;
-		Element Elem;
 
-	
-		private void Start()
-		{
+		/// <summary>
+		/// Define if the swich can be used as an activation button.
+		/// </summary>
+        public bool onButton;
+
+		/// <summary>
+		/// Define if the swich can be used as an deactivation button.
+		/// </summary>
+        public bool offButton;
+
+		/// <summary>
+		/// Instance of the targeted gameObject.
+		/// </summary>
+		private GameObject Target;
+
+		/// <summary>
+		/// Instance of the targeted reaction script.
+		/// </summary>
+		private Element Elem;
+
+		/// <summary>
+		/// Boolean to know if the change was toward on state or off state.
+		/// </summary>
+		private bool incState;
+
+		private void Start() {
 			incState = true;
 			
 			Target = GameObject.Find (targetName);
 			Elem = Target ? Target.GetComponent<Element>() : null;
 		}
+
 		private void Update() {
 		
 		}
 
-        private bool incState;
-        //Perhaps too heavy, value could be stored
-		
-		/// <summary>
-		/// Gets the instance of the targeted component.
-		/// </summary>
-        /*public Element Elem
-        {
-            get
-            {
-                return Target.GetComponent<Element>();
-            }
-        }*/
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
@@ -75,20 +85,6 @@ namespace Modelisation
 				Elem.setOff();
 			}
         }
-
-		
-		/*private void showSideView ()
-		{
-			switch(targetName)
-			{
-			case "volet1" :
-				cameraAssisteeScript.lookAtShutters();
-				break;
-			case "Spotlight_cuisine" :
-				cameraAssisteeScript.lookAtKitchenLight();
-				break;
-			}
-		}*/
 
 		/// <summary>
 		/// Toggle action : call switchOn until isOn = true, then switchOff until isOff = true.

@@ -75,8 +75,6 @@ namespace Modelisation
 		/// </summary>
         public int ErrorNumber { get; protected set; }
 		
-		private Mode oldMode;
-		
 		/// <summary>
 		/// Gets the current task on current scenario.
 		/// </summary>
@@ -127,24 +125,13 @@ namespace Modelisation
 		/// <returns>Bool : True if the action is allowed.</returns>
         public bool isAuthorized(string type, string name)
         {
-			//Debug.Log (name);
 			//Should perhaps use enum/typeof instead
             if (type == "Action") // Any action is authorized
             {
                 // reset original settings
-				//This will not result in the correct behavior
-				//CurrentMode = oldMode;
                 return true;
             }
-			/*
-			if (CurrentTask.modeOverride != null) 
-            {
-				//set new mode
-				oldMode = CurrentMode;
-				CurrentMode = (Mode) CurrentTask.modeOverride;
-            }
-            */
-            if (name == CurrentTask.elementName)
+            else if (name == CurrentTask.elementName)
             {
 				CurrentTask.stopAction();
                 ScenarioState++;
@@ -168,24 +155,6 @@ namespace Modelisation
                 return false;
             }
         }
-        /*
-        public void nextStep(string activatedItem)
-        {
-            if (activatedItem == CurrentTask.elementName)
-            {
-                ScenarioState++;
-                ErrorNumber = 0;
-                if (CurrentTask.isEnd())
-                {
-                    //End scenario
-                }
-            }
-            else
-            {
-                onError();
-            }
-        }
-        */
 
 		/// <summary>
 		/// Method called on user error (activation of an unallowed item).

@@ -7,14 +7,13 @@ using System.Collections;
 
 namespace Modelisation
 {
-    //does not handle rotations ... yet.
 	/// <summary>
 	/// Class that handle object transformations.
-	/// The gameobject must have this structure :
-	/// -- gameobject directory with this script attached named correctly.
-	/// -- -- the actual object named "object".
-	/// -- -- a transform object named "position_on". It define the state the object should have when activated.
-	/// -- -- a transform object named "position_off". It define the state the object should have when desactivated.
+	/// The gameobject must have this structure : <br>
+	/// -- gameobject directory with this script attached named correctly. <br>
+	/// -- -- the actual object named "object".<br>
+	/// -- -- a transform object named "position_on". It define the state the object should have when activated.<br>
+	/// -- -- a transform object named "position_off". It define the state the object should have when desactivated.<br>
 	/// </summary>
     public class TransformElement : Element
     {
@@ -24,14 +23,38 @@ namespace Modelisation
         //public float Ratio;
         //public string OnValueName;
         //public string OffValueName;
+		//public float partMovement = 100;
+
+		/// <summary>
+		/// Transform that correspond to the on state.
+		/// </summary>
 		protected Transform OnValue;
+
+		/// <summary>
+		/// Transform that correspond to the off state.
+		/// </summary>
 		protected Transform OffValue;
+
+		/// <summary>
+		/// Object that should be moved.
+		/// </summary>
 		protected Transform objectToMove;
+
+		/// <summary>
+		/// Current destination of the object.
+		/// </summary>
         private Transform target;
 
+		/// <summary>
+		/// Boolean that define if an object is currently moving.
+		/// </summary>
         private bool movement;
+
+		/// <summary>
+		/// Acceleration of the object.
+		/// </summary>
 		public float smoothFactor = 1;
-		//public float partMovement = 100;
+
         
         public override void autonomous_setOn()
         {	
@@ -43,6 +66,7 @@ namespace Modelisation
 			Debug.Log (OnValue.rotation);
 			Debug.Log (OnValue.localRotation);*/
         }
+
 		public override void autonomous_setOff()
    		{
 			Debug.Log("off " +  isOn() + " " + isOff());
@@ -51,6 +75,7 @@ namespace Modelisation
             //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
             //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
         }
+
 		public override void symbolic_setOff (){
 			//affichageSymbolique.activer ();
 		}
@@ -75,7 +100,6 @@ namespace Modelisation
 
 		// protected might not work, bc private by default
         protected override void Update () {
-			//Debug.Log (objectToMove.localPosition == OnValue.localPosition);
             if (movement)
             {
 				if (objectToMove.localPosition != target.localPosition)

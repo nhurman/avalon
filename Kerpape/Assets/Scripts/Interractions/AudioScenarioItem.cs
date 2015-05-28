@@ -12,8 +12,16 @@ namespace Modelisation
 	/// </summary>
 	public class AudioScenarioItem : ScenarioItem
 	{
+		/// <summary>
+		/// Audio file that will be played.
+		/// </summary>
 		private AudioSource audio = null;
+
+		/// <summary>
+		/// Name of the audio GameObject.
+		/// </summary>
 		private string audioname;
+
 		/// <summary>
 		/// Creates an AudioScenario item ; the sound is played until the next scenarioItem..
 		/// </summary>
