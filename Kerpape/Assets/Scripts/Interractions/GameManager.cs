@@ -41,7 +41,7 @@ namespace Modelisation
 		{
 			new AudioScenarioItem("domophone", "Decrocher le domophone", "domophone/sonnerie"),
 			new AudioScenarioItem("domophone", "Parler à votre interlocuteur, c'est un inconnu à la porte, raccrocher", "domophone/paroles"),
-			new ScenarioItem("switch_tele", "Ouvrir la porte du batiment"),
+			new ScenarioItem("switch_tele", "Verifiez l'identité de l'interlocuteur"),
 			// Canal S8
 
 			new ScenarioItem("front_door_open", "Ouvrir la porte du batiment"),
@@ -90,6 +90,8 @@ namespace Modelisation
 		// Use this for initialization
 		void Start () {
 			CurrentMode = Mode.Assisted;
+			ScenarioData = EmptyScenar;
+			ScenarioState = 0;
 			keyb = MiddleVR.VRDeviceMgr.GetKeyboard ();
 			if (keyb == null)
 				Debug.Log ("Clavier MiddleVR non trouvé");
@@ -115,18 +117,7 @@ namespace Modelisation
 				Application.LoadLevel ("Kerpape");
 			}
 		}
-		
-		
 
-
-		/// <summary>
-		/// Default constructor.
-		/// </summary>
-        public GameManager()
-        {
-            ScenarioData = EmptyScenar;
-            ScenarioState = 0;
-        }
 
 		/// <summary>
 		/// Depending on parameters and current state, tell if the interaction is allowed or not.
@@ -136,6 +127,7 @@ namespace Modelisation
 		/// <returns>Bool : True if the action is allowed.</returns>
         public bool isAuthorized(string type, string name)
         {
+			//Debug.Log (name);
 			//Should perhaps use enum/typeof instead
             if (type == "Action") // Any action is authorized
             {

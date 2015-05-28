@@ -23,6 +23,7 @@ namespace Modelisation
 
 		public override void autonomous_setOn()
         {
+			Debug.Log ("NINJA");
 			gameObject.GetComponent (toDeactivate).gameObject.SetActive (true);
         }
 

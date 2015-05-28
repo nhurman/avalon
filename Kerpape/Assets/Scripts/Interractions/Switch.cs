@@ -96,25 +96,25 @@ namespace Modelisation
         public void toggle()
         {
             bool auth = notifyGameManager();
-            if (auth)
+			if (auth && Target != null)
             {
 				if (Elem.isOn())
                 {
-                    switchOff();
+					Elem.setOff();
                     incState = false;
                 }
 				else if (Elem.isOff())
                 {
-                    switchOn();
+					Elem.setOn();
                     incState = true;
                 }
                 else if (incState)
                 {
-                    switchOn();
+					Elem.setOn();
                 }
                 else
                 {
-                    switchOff();
+					Elem.setOff();
                 }
             }
         }
