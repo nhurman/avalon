@@ -11,5 +11,16 @@ namespace Modelisation
         {
             return true;
         }
+
+		public override void startAction() {
+
+		}
+		public override void stopAction() {
+
+		}
+		
+		public override void inst() {
+		
+		}
     }
 }

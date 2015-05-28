@@ -73,6 +73,9 @@ namespace Modelisation
 		public virtual void stopAction() {
 			
 		}
+		/// <summary>
+		/// Called to instantiate values linked to unity.
+		/// </summary>
 		public virtual void inst() {}
 
     }
