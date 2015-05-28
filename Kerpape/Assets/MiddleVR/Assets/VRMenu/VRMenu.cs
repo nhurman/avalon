@@ -43,7 +43,7 @@ public class VRMenu : MonoBehaviour {
 	private vrWidgetButton		 modeLibre;
 
 	// Choix scénario
-	private vrWidgetMenu         menuChoixScenar;
+	private vrWidgetMenu menuChoixScenar;
 	private vrWidgetButton scenarAppel;
 	private vrWidgetButton scenarInfirmier;
 	private vrWidgetButton scenarInconnu;
