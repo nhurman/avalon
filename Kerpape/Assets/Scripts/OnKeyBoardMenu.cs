@@ -90,12 +90,12 @@ public class OnKeyBoardMenu : MonoBehaviour {
 		}
 
 		else if (keyb.IsKeyToggled (lookSensibilityUp)) {
-			vrfps.lookSensibility *= sensibilityFactor;
+			vrfps.lookSensibility *= lookSensibilityFactor;
 			
 		}
 		
 		else if (keyb.IsKeyToggled (lookSensibilityDown)) {
-			vrfps.lookSensibility /= sensibilityFactor;
+			vrfps.lookSensibility /= lookSensibilityFactor;
 			
 		}
 
