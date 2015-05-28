@@ -29,7 +29,11 @@ public class CameraAssistee : MonoBehaviour {
 			renderPlane.transform.Translate (-0.175f, -0.365f, 0.1f);
 		}
 	}
-
+	
+	/// <summary>
+	/// Makes the assisted camera look at an object in the scene, and shows the panel in the bottom right corner of the screen
+	/// <param name="name">The name of the gameObject to look at</param>
+	/// </summary>
 	public void lookAt(string name) {
 		currentPos = transform.Find("/mode_assiste/" + name + "_pos");
 		if (currentPos != null) {
@@ -38,13 +42,16 @@ public class CameraAssistee : MonoBehaviour {
 			showRenderPlane (3f);
 		}
 	}
-	
+
 	private void showRenderPlane(float time)
 	{
 		endTime = Time.time + time;
 		renderPlane.SetActive (true);
 	}
-
+	
+	/// <summary>
+	/// Hides the panel at the bottom right of the screen
+	/// </summary>
 	public void hideRenderPlane()
 	{
 		endTime = 0;
