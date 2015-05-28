@@ -181,7 +181,7 @@ public class VRMenu : MonoBehaviour {
 		// Create commands
 		
 		// General
-		m_ResetButtonCommand		= new vrCommand("VRMenu.ResetCurrentButtonCommand", ResetButtonHandler);
+		m_ResetButtonCommand		= new vrCommand("VRMenu.ResetButtonCommand", ResetButtonHandler);
 		m_ExitButtonCommand			= new vrCommand("VRMenu.ExitButtonCommand", ExitButtonHandler);
 		
 		// Mode
