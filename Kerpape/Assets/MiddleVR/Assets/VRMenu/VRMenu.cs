@@ -10,8 +10,9 @@ using MiddleVR_Unity3D;
 
 public class VRMenu : MonoBehaviour {
 
-	private Modelisation.GameManager manager;
-	
+	private Modelisation.GameManager gameManager;
+	private MenuManager menuManager;
+
 	private VRManagerScript m_VRManager;
 	
 	private vrGUIRendererWeb m_GUIRendererWeb;
@@ -122,38 +123,44 @@ public class VRMenu : MonoBehaviour {
 	
 	private vrValue ModeAssisteHandler(vrValue iValue)
 	{
-		manager.CurrentMode = Modelisation.Mode.Assisted;
+		menuManager.DisplayOrHideMenu();
+		gameManager.CurrentMode = Modelisation.Mode.Assisted;
 		return null;
 	}
 	
 	private vrValue ModeLibreHandler(vrValue iValue)
 	{
-		manager.CurrentMode = Modelisation.Mode.Auto;
+		menuManager.DisplayOrHideMenu();
+		gameManager.CurrentMode = Modelisation.Mode.Auto;
 		return null;
 	}
 
 	private vrValue ScenarioAppelHandler(vrValue iValue)
 	{
-		manager.loadScenario("appel");
+		menuManager.DisplayOrHideMenu();
+		gameManager.loadScenario("appel");
 		return null;
 	}
 
 	private vrValue ScenarioInfirmierHandler(vrValue iValue)
 	{
-		manager.loadScenario("infirmier");
+		menuManager.DisplayOrHideMenu();
+		gameManager.loadScenario("infirmier");
 		return null;
 	}
 
 	private vrValue ScenarioInconnuHandler(vrValue iValue)
 	{
-		manager.loadScenario("inconnu");
+		menuManager.DisplayOrHideMenu();
+		gameManager.loadScenario("inconnu");
 		return null;
 	}
 
 	void Start ()
 	{
 
-		manager = GameObject.Find("GameManager").GetComponent<Modelisation.GameManager>();
+		gameManager = GameObject.Find("GameManager").GetComponent<Modelisation.GameManager>();
+		menuManager = GameObject.Find ("Utilisateur").GetComponent<MenuManager>();
 
 		// Retrieve the VRManager
 		VRManagerScript[] foundVRManager = FindObjectsOfType(typeof(VRManagerScript)) as VRManagerScript[];
