@@ -14,7 +14,8 @@ public class VRFPSInputController : MonoBehaviour
 {
     public string ReferenceNode   				= "HandNode";
 	public bool BlockInputs 					= false;		//set to true when the user is not allowed to move
-	public float Sensibility 					= 3.0f;			//float used to modify the input's values and thus movment speed
+	public float Sensibility 					= 3.0f;		//float used to modify the input's values and thus movment speed
+	public float lookSensibility 				= 1.0f;
 
     private bool  m_SearchedRefNode				= false;
     private GameObject m_RefNode   				= null;
@@ -97,7 +98,7 @@ public class VRFPSInputController : MonoBehaviour
 			}
 		}
 		//Applying the computed rotation to the player
-		transform.Rotate(Vector3.up, horizontalAngle);
+		transform.Rotate(Vector3.up, horizontalAngle*lookSensibility);
 	}
 
 	///<summary>

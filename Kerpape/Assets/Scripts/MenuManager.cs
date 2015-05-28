@@ -22,6 +22,8 @@ public class MenuManager : MonoBehaviour {
 		m_controller = GameObject.Find("Utilisateur").GetComponent<VRFPSInputController>();
 		m_wController = GameObject.Find("Utilisateur").GetComponent<WandOnlyController>();
 		m_wand = GameObject.Find ("VRWand");
+
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +39,10 @@ public class MenuManager : MonoBehaviour {
 			m_menu.transform.Translate(0, 0, 0.5f);
 		}
 	}
-
+	
+	/// <summary>
+	/// Toggles the visibility of the VR menu
+	/// </summary>
 	public void DisplayOrHideMenu()
 	{
 		m_menuManager.ToggleVisiblity();
@@ -45,6 +50,6 @@ public class MenuManager : MonoBehaviour {
 		m_controller.enabled = !m_controller.enabled;
 		m_wController.enabled = !m_wController.enabled;
 		m_wand.transform.Translate(0, m_isToggled? -10f : 10f, 0);
-
+		Cursor.visible = !Cursor.visible;
 	}
 }

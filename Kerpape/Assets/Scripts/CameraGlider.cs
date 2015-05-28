@@ -69,6 +69,9 @@ public class CameraGlider : MonoBehaviour {
 		}
 	}
 	
+	/// <summary>
+	/// This function is called when the user starts moving toward the buttons pannel
+	/// </summary>
 	public void StartGlide()
 	{
 		if (gliding || frozen || reversing) return;
