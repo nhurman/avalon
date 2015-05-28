@@ -1221,9 +1221,7 @@ GameObject:
   - 4: {fileID: 73792949}
   - 33: {fileID: 73792951}
   - 23: {fileID: 73792950}
-  - 114: {fileID: 73792954}
   - 64: {fileID: 73792953}
-  - 114: {fileID: 73792952}
   m_Layer: 0
   m_Name: tiroir008
   m_TagString: Untagged
@@ -1276,21 +1274,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 73792948}
   m_Mesh: {fileID: 4300178, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!114 &73792952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73792948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a675503e11f19b44ab038a0c757c66a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifiant: 
-  targetName: volet2
-  onButton: 1
-  offButton: 1
 --- !u!64 &73792953
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1303,21 +1286,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300178, guid: ddb3d17fa5f28c14f84fe0543cb7af4d, type: 3}
---- !u!114 &73792954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 73792948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d426610bb674d74794fb66ffa2095be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SyncDirection: 3
-  MiddleVRNodeName: 
-  Grabable: 1
-  TouchEvents: 2
 --- !u!1 &74042870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7652,7 +7620,7 @@ Transform:
   - {fileID: 323022960}
   - {fileID: 1260661200}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!95 &591748991
 Animator:
   serializedVersion: 3
