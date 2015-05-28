@@ -9,7 +9,7 @@ namespace Modelisation
 	/// <summary>
 	/// Basic scenario item.
 	/// </summary>
-    public class ScenarioItem : MonoBehaviour
+    public class ScenarioItem
     {
 		/// <summary>
 		/// Name of the element

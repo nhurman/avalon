@@ -31,23 +31,25 @@ namespace Modelisation
 
         private bool movement;
 		public float smoothFactor = 1;
+		//public float partMovement = 100;
         
-        //Generic would be better
         public override void autonomous_setOn()
-        {
-                target = OnValue;
-                movement = true;
-				/*Debug.Log (OnValue.position);
-				Debug.Log (OnValue.localPosition);
-				Debug.Log (OnValue.rotation);
-				Debug.Log (OnValue.localRotation);*/
+        {	
+			Debug.Log("on " +  isOn() + " " + isOff());
+            target = OnValue;
+            movement = true;
+			/*Debug.Log (OnValue.position);
+			Debug.Log (OnValue.localPosition);
+			Debug.Log (OnValue.rotation);
+			Debug.Log (OnValue.localRotation);*/
         }
 		public override void autonomous_setOff()
-        {
-                target = OffValue;
-                movement = true;
-                //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
-                //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
+   		{
+			Debug.Log("off " +  isOn() + " " + isOff());
+            target = OffValue;
+            movement = true;
+            //Vector3 ratioVect = new Vector3(Ratio, Ratio, Ratio);
+            //target = Vector3.Scale(ratioVect, (OnValue.position - OffValue.position)) + gameObject.transform.position;
         }
 		public override void symbolic_setOff (){
 			//affichageSymbolique.activer ();
