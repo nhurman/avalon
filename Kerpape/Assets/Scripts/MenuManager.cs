@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 
 public class MenuManager : MonoBehaviour {
@@ -28,17 +28,23 @@ public class MenuManager : MonoBehaviour {
 	void Update () {
 		if(m_keyb.IsKeyToggled (MiddleVR.VRK_F12))
 		{
-			m_menuManager.ToggleVisiblity();
-			m_isToggled = !m_isToggled;
-			m_controller.enabled = !m_controller.enabled;
-			m_wController.enabled = !m_wController.enabled;
-
-			m_wand.transform.Translate(0, m_isToggled? -10f : 10f, 0);
+			DisplayOrHideMenu();
 		}
 		if(m_isToggled)
 		{
 			m_menu.transform.position = m_headNode.transform.position;
+			m_menu.transform.rotation = m_headNode.transform.rotation;
 			m_menu.transform.Translate(0, 0, 0.5f);
 		}
+	}
+
+	public void DisplayOrHideMenu()
+	{
+		m_menuManager.ToggleVisiblity();
+		m_isToggled = !m_isToggled;
+		m_controller.enabled = !m_controller.enabled;
+		m_wController.enabled = !m_wController.enabled;
+		m_wand.transform.Translate(0, m_isToggled? -10f : 10f, 0);
+
 	}
 }
