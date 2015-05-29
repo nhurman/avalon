@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{exptech}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[babel=true]{csquotes}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{titletoc}
+
+\hypersetup{
+  bookmarks=true, % show bookmarks bar?
+  pdftitle={Avalon - Documentation utilisateur}, % title
+  pdfnewwindow=true, % links in new window
+  colorlinks=true, % false: boxed links; true: colored links
+  linkcolor=black, % color of internal links (change box color with linkbordercolor)
+  citecolor=cyan, % color of links to bibliography
+  filecolor=cyan, % color of file links
+  urlcolor=cyan % color of external links
+}
+
+\title{
+  \textbf{Avalon}\\
+  Rapport de pré-étude
+}
+\markright{Avalon - Documentation utilisateur}
+\author{
+\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} \large
+		\emph{Auteurs :}\\
+		Alexandre \textsc{Audinot}\\
+		Julien \textsc{Bouvet}\\
+		Cyrille \textsc{Delabre}\\
+		Thierry \textsc{Gaugry}\\
+		Nicolas \textsc{Hurman}\\
+		Léo \textsc{Jacoboni}\\
+		Alexandre \textsc{Leonardi}\\
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\begin{flushright} \large
+		\emph{Encadrants :} \\
+		Valérie \textsc{Gouranton}\\
+		Ronan \textsc{Gaugne}\\
+		Bruno \textsc{Arnaldi}\\
+		Willy \textsc{Allègre}\\
+		Jean-Paul  \textsc{Departe}\\
+	\end{flushright}
+\end{minipage}
+}
+
+\date{29 mai 2015}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{abstract}
+Documentation technique à l'attention du centre de Kerpape : comment modifier le projet, détails d'implémentation, création d'une configuration MiddleVR. 
+\end{abstract}
+
+%\vfill
+%[width=\textwidth]
+\begin{figure}[h!]
+   \begin{minipage}{0.3\linewidth}
+      \includegraphics[scale=0.9]{1-PreEtude/img/logo_insa.jpeg}
+   \end{minipage} 
+   \begin{minipage}{0.2\linewidth}
+      \centering
+      \includegraphics[scale=0.5,left]{1-PreEtude/img/logo_irisa.jpg}
+   \end{minipage}\hfill
+   \begin{minipage}{0.2\linewidth}
+      \includegraphics[scale=0.9]{1-PreEtude/img/logo_kerpape.png}
+   \end{minipage}
+\end{figure}
+
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+
+\input{doc_technique/introduction.tex}
+\pagebreak
+\input{doc_technique/modifier.tex}
+\pagebreak
+\input{doc_technique/implementation.tex}
+\pagebreak
+\input{doc_technique/middlevr.tex}
+\pagebreak
+\input{1-PreEtude/conclusion.tex}
+\pagebreak
+\bibliography{1-PreEtude/biblio}
+
+\end{document}
