@@ -35,7 +35,7 @@ public class CameraAssistee : MonoBehaviour {
 	/// <param name="name">The name of the gameObject to look at</param>
 	/// </summary>
 	public void lookAt(string name) {
-		currentPos = transform.Find("/mode_assiste/" + name + "_pos");
+		currentPos = transform.Find("/Kerpape/mode_assiste/" + name + "_pos");
 		if (currentPos != null) {
 			camera.transform.position = currentPos.position;
 			camera.transform.rotation = currentPos.rotation;
@@ -47,6 +47,7 @@ public class CameraAssistee : MonoBehaviour {
 	{
 		endTime = Time.time + time;
 		renderPlane.SetActive (true);
+		Debug.Log("active");
 	}
 	
 	/// <summary>
