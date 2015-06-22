@@ -57,7 +57,8 @@ public class VRFPSInputController : MonoBehaviour
 	{
 		if (!BlockInputs) {
 			//Get the wand vertical offset
-			float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue ();
+			//float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue ();
+			float wandVertical = MiddleVR.VRDeviceMgr.GetMouseAxisValue(1);
 
 			//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
 			// Modifying the last registered vertical angle according to the direction the Wand is pointing 
@@ -88,7 +89,8 @@ public class VRFPSInputController : MonoBehaviour
 		float horizontalAngle = 0.0f;
 		if(!BlockInputs) {
 			//Get the wand horizontal orientation
-			float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+			//float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+			float wandHorizontal = MiddleVR.VRDeviceMgr.GetMouseAxisValue(0);
 			
 			//If the wand orientation is not in a neutral position (i.e. poiting perfectly toward us)
 			if (Math.Abs(wandHorizontal) > 0.1f)
