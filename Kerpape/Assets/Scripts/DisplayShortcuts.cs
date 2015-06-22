@@ -20,7 +20,7 @@ public class DisplayShortcuts : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Checks if the menu is in its current state from more than 0.5s and, eventually, changes its state if the user is pressing escape
+	/// Checks if the menu is in its current state from more than 0.5s and, eventually, changes its state if the user is pressing F12
 	/// The user can't move when menu is displayed
 	/// </summary>
 	void Update()
@@ -28,13 +28,13 @@ public class DisplayShortcuts : MonoBehaviour {
 		timeInCurrentState += MiddleVR.VRKernel.GetDeltaTime();
 		if(timeInCurrentState > 0.5)
 		{
-			if (keyb.IsKeyPressed(MiddleVR.VRK_ESCAPE) && menu.activeSelf == false)
+			if (keyb.IsKeyPressed(MiddleVR.VRK_F12) && menu.activeSelf == false)
 			{
 				menu.SetActive(true);
 				timeInCurrentState = 0.0;
 				controller.lockCamera();
 			}
-			else if (keyb.IsKeyPressed(MiddleVR.VRK_ESCAPE) && menu.activeSelf == true)
+			else if (keyb.IsKeyPressed(MiddleVR.VRK_F12) && menu.activeSelf == true)
 			{
 				menu.SetActive(false);
 				timeInCurrentState = 0.0;
