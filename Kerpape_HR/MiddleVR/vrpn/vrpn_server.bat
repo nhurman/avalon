@@ -1,0 +1,1 @@
+vrpn_server.exe -f vrpn.cfg
