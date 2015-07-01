@@ -2789,7 +2789,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 207902198}
-  - 114: {fileID: 207902199}
   m_Layer: 0
   m_Name: volet_salon
   m_TagString: Untagged
@@ -2812,17 +2811,6 @@ Transform:
   - {fileID: 1286518367}
   m_Father: {fileID: 613755912}
   m_RootOrder: 0
---- !u!114 &207902199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 207902197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7dc7da5aed56349a6746e768d1e1f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &208685006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,7 +3335,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 258654865}
-  - 114: {fileID: 258654866}
   m_Layer: 0
   m_Name: volet_bain
   m_TagString: Untagged
@@ -3368,17 +3355,6 @@ Transform:
   - {fileID: 61161092}
   m_Father: {fileID: 613755912}
   m_RootOrder: 2
---- !u!114 &258654866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 258654864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7dc7da5aed56349a6746e768d1e1f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &261228188
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,8 +11841,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 865902112}
-  - 114: {fileID: 865902113}
-  - 114: {fileID: 865902115}
   - 114: {fileID: 865902114}
   m_Layer: 0
   m_Name: porte_chambre
@@ -11890,17 +11864,6 @@ Transform:
   - {fileID: 1456324565}
   m_Father: {fileID: 1664199414}
   m_RootOrder: 1
---- !u!114 &865902113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 865902111}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed33a517cc3b308469479df1fe88dfd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &865902114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11914,17 +11877,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifiant: 
   smoothFactor: 1
---- !u!114 &865902115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 865902111}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a56e8b16f16b70e4e98e7049f957a031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &868992317
 GameObject:
   m_ObjectHideFlags: 0
@@ -15195,6 +15147,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!1 &1112684667
 GameObject:
   m_ObjectHideFlags: 0
@@ -23491,7 +23444,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1628462541}
-  - 114: {fileID: 1628462542}
   m_Layer: 0
   m_Name: volet_chambre
   m_TagString: Untagged
@@ -23513,17 +23465,6 @@ Transform:
   - {fileID: 122945814}
   m_Father: {fileID: 613755912}
   m_RootOrder: 1
---- !u!114 &1628462542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1628462540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7dc7da5aed56349a6746e768d1e1f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1629447650
 GameObject:
   m_ObjectHideFlags: 0
@@ -24251,6 +24192,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!1 &1699301047
 GameObject:
   m_ObjectHideFlags: 0

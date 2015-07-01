@@ -1,0 +1,2 @@
+All real + post effect : 60fps
+All real : 63fps
