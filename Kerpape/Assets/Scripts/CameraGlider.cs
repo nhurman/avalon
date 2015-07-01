@@ -41,6 +41,11 @@ public class CameraGlider : MonoBehaviour {
 		reversing = false;
 
 		cameraAssisteeScript = GameObject.Find ("mode_assiste").GetComponent<CameraAssistee> ();
+
+		Vector3 obj = destination.transform.position;
+		float height = GameObject.Find("HeadNode").transform.localPosition.y;
+		obj.y -= height;
+		destination.transform.position = obj;
 	}
 	
 	Quaternion cloneQuaternion(Quaternion t)

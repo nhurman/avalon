@@ -1,0 +1,1 @@
+"Kerpape\Kerpape.exe" --config "middlevr_config_files\config_1m30.vrx" -force-d3d9 

@@ -18,6 +18,7 @@ public class DisplayShortcuts : MonoBehaviour {
 		headNode = GameObject.Find("HeadNode");
 		keyb = MiddleVR.VRDeviceMgr.GetKeyboard();
 		controller = GetComponent<VRFPSInputController>();
+		//menu.transform.parent = headNode.transform;
 
 	}
 
@@ -42,10 +43,10 @@ public class DisplayShortcuts : MonoBehaviour {
 				timeInCurrentState = 0.0;
 				controller.unLockCamera();
 			}
-			menu.transform.position = headNode.transform.position;
-			menu.transform.rotation = headNode.transform.rotation;
-			menu.transform.Rotate(90f, 180f, 0);
-			menu.transform.Translate(0, -2f, 0f);
+			//menu.transform.position = headNode.transform.position;
+			//menu.transform.rotation = headNode.transform.rotation;
+			//menu.transform.Rotate(90f, 180f, 0);
+			//menu.transform.Translate(0, -0.2f, 0f);
 		}
 	}
 }

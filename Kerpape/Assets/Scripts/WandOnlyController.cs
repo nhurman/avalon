@@ -61,8 +61,10 @@ public class WandOnlyController : MonoBehaviour
 	private void Update()
 	{
 		if (FreeWand){
-			float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
-			float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+			//float wandVertical = MiddleVR.VRDeviceMgr.GetWandVerticalAxisValue();
+			//float wandHorizontal = MiddleVR.VRDeviceMgr.GetWandHorizontalAxisValue();
+			float wandVertical = MiddleVR.VRDeviceMgr.GetMouseAxisValue(1);
+			float wandHorizontal = MiddleVR.VRDeviceMgr.GetMouseAxisValue(0);
 			
 			HorizontalPosDelta += wandHorizontal;
 			VerticalPosDelta   += wandVertical;

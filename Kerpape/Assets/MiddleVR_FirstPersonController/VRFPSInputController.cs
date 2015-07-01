@@ -32,6 +32,7 @@ public class VRFPSInputController : MonoBehaviour
 
     void Start()
     {
+		Cursor.visible = false;
 		head = GameObject.Find("HeadNode");
 		wand = GameObject.Find("VRWand");
 		charController = GetComponent<CharacterController>();
